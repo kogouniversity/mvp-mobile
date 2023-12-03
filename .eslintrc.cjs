@@ -1,0 +1,51 @@
+module.exports = {
+    extends: [
+      'universe',
+      'universe/native',
+      'universe/web',
+      'universe/shared/typescript-analysis',
+      'airbnb',
+      'airbnb/hooks',
+      'prettier',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:testing-library/react',
+      'plugin:storybook/recommended'
+    ],
+    overrides: [
+      {
+        files: ['*.ts', '*.tsx', '*.d.ts'],
+        parserOptions: {
+          project: './tsconfig.json',
+        },
+      },
+    ],
+    plugins: ['react', 'jest', 'react-hooks'],
+    rules: {
+      'linebreak-style': 'off',
+      'no-useless-constructor': 0,
+      'import/prefer-default-export': 0,
+      'jest/no-identical-title': 0,
+      'import/extensions': 0,
+      'react/react-in-jsx-scope': 0,
+      'react/jsx-filename-extension': [1,
+        {
+          "extensions": [
+            ".tsx"
+          ]
+        }
+      ],
+      'import/no-extraneous-dependencies': [
+          'error',
+          { devDependencies: true },
+      ],
+      'prettier/prettier': [
+          'error',
+          {
+              endOfLine: 'auto',
+          },
+      ],
+    },
+    env: {
+      node: true,
+    },
+};
