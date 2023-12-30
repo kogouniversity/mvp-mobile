@@ -1,20 +1,12 @@
 import { View } from 'react-native';
-import type { Meta, StoryObj } from '@storybook/react-native';
+import type { Meta } from '@storybook/react-native';
 import { Button } from '.';
 
 const buttonMeta = {
-    title: 'Sample Button',
+    title: 'Button',
     component: Button,
-    argTypes: {
-        defaultProps: {
-            text: {
-                control: 'text',
-                description: 'change text inside button',
-            },
-        },
-    },
     decorators: [
-        (Story): React.JSX.Element => (
+        Story => (
             <View
                 style={{
                     alignItems: 'center',
@@ -29,20 +21,16 @@ const buttonMeta = {
 
 export default buttonMeta;
 
-type Story = StoryObj<typeof Button>;
-
-export const Primary: Story = {
+export const Primary = {
     args: {
-        defaultProps: {
-            text: 'Another example',
-        },
+        variant: 'primary',
+        text: 'Example',
     },
 };
 
-export const AnotherStory: Story = {
+export const Secondary = {
     args: {
-        defaultProps: {
-            text: 'Another example',
-        },
+        variant: 'secondary',
+        text: 'Example',
     },
 };

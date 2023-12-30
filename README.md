@@ -28,3 +28,7 @@ Libs:
 https://www.npmjs.com/package/react-native-responsive-screen  
 
 https://github.com/hectahertz/react-native-typography  
+
+Using ```px``` for sizing raster images, ```em``` for current element font size relative padding/margins/line spacing, and ```rem``` for font size definitions and general layout is fine.    
+
+https://github.com/nirsky/react-native-size-matters   

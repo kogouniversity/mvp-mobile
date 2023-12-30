@@ -1,32 +1,74 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, ViewStyle, TextStyle } from 'react-native';
+
+type ButtonVariant = 'default' | 'primary' | 'secondary';
+type ButtonSize = 'default' | 'small' | 'medium';
 
 type ButtonProps = {
+    variant: ButtonVariant;
+    size: ButtonSize;
+    buttonStyles?: ViewStyle;
+    textStyles?: TextStyle;
     onPress?: () => void;
     text: string;
 };
 
-const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 16,
-        paddingVertical: 8,
-        backgroundColor: 'purple',
-        borderRadius: 8,
+const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
+    default: {},
+    primary: {
+        padding: 8,
+        backgroundColor: 'green',
     },
-    text: { color: 'white' },
-});
+    secondary: {
+        padding: 8,
+        backgroundColor: 'blue',
+    },
+};
 
-export const Button: React.FC<ButtonProps> = function ({ onPress, text }) {
+const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
+    default: {},
+    small: {
+        minWidth: 150,
+        minHeight: 150,
+    },
+    medium: {
+        minWidth: 300,
+        minHeight: 300,
+    },
+};
+
+const textVariantStyles: Record<ButtonVariant, TextStyle> = {
+    default: {},
+    primary: {},
+    secondary: {
+        color: 'white',
+    },
+};
+
+export const Button: React.FC<ButtonProps> = function ({
+    variant,
+    size,
+    buttonStyles,
+    textStyles,
+    onPress,
+    text,
+}) {
     return (
         <TouchableOpacity
-            style={styles.container}
+            style={[
+                buttonVariantStyles[variant],
+                buttonSizeStyles[size],
+                buttonStyles,
+            ]}
             onPress={onPress}
             activeOpacity={0.8}>
-            <Text style={styles.text}>{text}</Text>
+            <Text style={[textVariantStyles[variant], textStyles]}>{text}</Text>
         </TouchableOpacity>
     );
 };
 
 Button.defaultProps = {
+    buttonStyles: {},
+    textStyles: {},
     onPress: (): null => null,
 };

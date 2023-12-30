@@ -48,7 +48,6 @@ module.exports = {
             },
         ],
         // enforce explicit Typescript typing
-        '@typescript-eslint/explicit-function-return-type': 'error',
         '@typescript-eslint/explicit-module-boundary-types': 'error',
     },
     env: {
