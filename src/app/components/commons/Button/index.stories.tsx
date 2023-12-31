@@ -1,12 +1,22 @@
 import { View } from 'react-native';
-import type { Meta } from '@storybook/react-native';
+import type { ComponentMeta, StoryFn } from '@storybook/react-native';
 import { Button } from '.';
 
-const buttonMeta = {
-    title: 'Button',
+const meta: ComponentMeta<typeof Button> = {
+    title: 'Design System/Atoms/Button',
     component: Button,
+    argTypes: {
+        variant: {
+            options: ['primary', 'secondary'],
+            control: { type: 'radio' },
+        },
+        size: {
+            options: ['sm', 'md'],
+            control: { type: 'radio' },
+        },
+    },
     decorators: [
-        Story => (
+        (Story: StoryFn): JSX.Element => (
             <View
                 style={{
                     alignItems: 'center',
@@ -17,13 +27,14 @@ const buttonMeta = {
             </View>
         ),
     ],
-} satisfies Meta<typeof Button>;
+};
 
-export default buttonMeta;
+export default meta;
 
 export const Primary = {
     args: {
         variant: 'primary',
+        size: 'sm',
         text: 'Example',
     },
 };
@@ -31,6 +42,7 @@ export const Primary = {
 export const Secondary = {
     args: {
         variant: 'secondary',
+        size: 'sm',
         text: 'Example',
     },
 };
