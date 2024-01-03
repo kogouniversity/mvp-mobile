@@ -1,21 +1,23 @@
-import { useNavigation as useNavigationImpl } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { RootStackParamList } from './types';
+import MainNavigationEntry from './main';
+import OnBoardingNavigationEntry from './onBoarding';
 
-export const withStatusBar = (
-    WrappedComponent: React.ComponentType,
-): React.FC =>
-    function () {
-        return (
-            <View>
-                <StatusBar />
-                <WrappedComponent />
-            </View>
-        );
-    };
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export const useNavigation = useNavigationImpl<
-    NativeStackNavigationProp<RootStackParamList>
->;
+export default function RootNavigationEntry(): JSX.Element {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator
+                initialRouteName="OnBoarding"
+                screenOptions={{ headerShown: false }}>
+                <Stack.Screen
+                    name="OnBoarding"
+                    component={OnBoardingNavigationEntry}
+                />
+                <Stack.Screen name="Main" component={MainNavigationEntry} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
+}

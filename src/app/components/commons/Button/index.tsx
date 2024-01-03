@@ -24,11 +24,15 @@ const textVariantStyles: Record<ButtonVariant, TextStyle> = {
 };
 
 const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
-    default: {},
+    default: {
+        width: '100%',
+    },
     sm: {
+        width: '100%',
         padding: 8,
     },
     md: {
+        width: '100%',
         padding: 16,
     },
 };
@@ -43,7 +47,7 @@ const textSizeStyles: Record<ButtonSize, TextStyle> = {
     },
 };
 
-export const Button: React.FC<ButtonProps> = function ({
+const Button: React.FC<ButtonProps> = function ({
     variant,
     size,
     style = {},
@@ -73,3 +77,5 @@ export const Button: React.FC<ButtonProps> = function ({
         </TouchableOpacity>
     );
 };
+
+export default Button;

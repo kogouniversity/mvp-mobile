@@ -1,6 +1,7 @@
 import { View } from 'react-native';
-import type { ComponentMeta, StoryFn } from '@storybook/react-native';
-import { Button } from '.';
+import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
+import Button from '.';
+import { ButtonProps } from './types';
 
 const meta: ComponentMeta<typeof Button> = {
     title: 'Design System/Atoms/Button',
@@ -31,7 +32,9 @@ const meta: ComponentMeta<typeof Button> = {
 
 export default meta;
 
-export const Primary = {
+type Story = StoryObj<ButtonProps>;
+
+export const Primary: Story = {
     args: {
         variant: 'primary',
         size: 'sm',

@@ -1,5 +1,6 @@
-import { ComponentMeta, StoryFn } from '@storybook/react-native';
+import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import Typography from './index';
+import { TextFieldProps } from '../../inputs/TextField/types';
 
 const meta: ComponentMeta<typeof Typography> = {
     title: 'Design System/Atoms/Typography',
@@ -20,6 +21,8 @@ const meta: ComponentMeta<typeof Typography> = {
 
 export default meta;
 
-export const Primary = {
+type Story = StoryObj<TextFieldProps>;
+
+export const Primary: Story = {
     args: {},
 };

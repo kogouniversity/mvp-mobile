@@ -1,13 +1,19 @@
 import { View, Image, Dimensions } from 'react-native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { ImageSrc, SVG } from '../../utils/assets';
-import { useNavigation } from '..';
+import { ImageSrc, SVG } from '../../../utils/assets';
+import { OnBoardingNavigationProps } from '../types';
 
 function Intro(): JSX.Element {
-    const navigation = useNavigation();
+    const navigation = useNavigation<OnBoardingNavigationProps>();
     useEffect(() => {
         const screenWaitTimeout = setTimeout(() => {
-            navigation.navigate('Login', {});
+            navigation.dispatch(
+                CommonActions.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                }),
+            );
         }, 5000);
 
         return () => clearTimeout(screenWaitTimeout);

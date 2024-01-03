@@ -1,4 +1,5 @@
 import { TextStyle } from 'react-native';
+import { TextProps } from 'react-native-svg';
 
 export type TypographyVariants =
     | 'h1'
@@ -16,5 +17,4 @@ export type TypographyVariants =
 export type TypographyProps = {
     variant: TypographyVariants;
     style?: TextStyle;
-    children: string | JSX.Element | JSX.Element[];
-};
+} & TextProps;

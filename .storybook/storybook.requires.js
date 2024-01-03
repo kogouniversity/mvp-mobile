@@ -58,6 +58,7 @@ const getStories = () => {
   return {
     "./src/app/components/commons/Button/index.stories.tsx": require("../src/app/components/commons/Button/index.stories.tsx"),
     "./src/app/components/commons/Typography/index.stories.tsx": require("../src/app/components/commons/Typography/index.stories.tsx"),
+    "./src/app/components/inputs/TextField/index.stories.tsx": require("../src/app/components/inputs/TextField/index.stories.tsx"),
   };
 };
 

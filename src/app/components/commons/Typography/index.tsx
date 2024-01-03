@@ -18,13 +18,17 @@ const typographyVariantStyles: Record<TypographyVariants, TextStyle> = {
     button: {},
 };
 
-function Typography(props: TypographyProps): React.JSX.Element {
-    const { variant, style = {}, children } = props;
+const Typography: React.FC<TypographyProps> = function ({
+    variant,
+    style = {},
+    ...props
+}) {
     return (
-        <NativeText style={[typographyVariantStyles[variant], style]}>
-            {children}
-        </NativeText>
+        <NativeText
+            style={[typographyVariantStyles[variant], style]}
+            {...props}
+        />
     );
-}
+};
 
 export default Typography;
