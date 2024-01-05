@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootStackParamList } from './types';
-import MainNavigationEntry from './main';
-import OnBoardingNavigationEntry from './onBoarding';
+import MainNavigationEntry from './Main';
+import OnBoardingNavigationEntry from './OnBoarding';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
