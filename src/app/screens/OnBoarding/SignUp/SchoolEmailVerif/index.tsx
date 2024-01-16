@@ -2,7 +2,7 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 import { Dimensions, View } from 'react-native';
 import { SVG } from '../../../../utils/assets';
 import Typography from '../../../../components/commons/Typography';
-import TextField from '../../../../components/inputs/TextField';
+import TextField from '../../../../components/commons/inputs/TextField';
 import Button from '../../../../components/commons/Button';
 import styles from '../style';
 import { SignUpNavigationProps } from '../types';

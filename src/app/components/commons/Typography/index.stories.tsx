@@ -1,6 +1,6 @@
 import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import Typography from './index';
-import { TextFieldProps } from '../../inputs/TextField/types';
+import { TextFieldProps } from '../inputs/TextField/types';
 
 const meta: ComponentMeta<typeof Typography> = {
     title: 'Design System/Atoms/Typography',
