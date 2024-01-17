@@ -1,14 +1,30 @@
-import { CommonActions, useNavigation } from '@react-navigation/native';
-import { Dimensions, View } from 'react-native';
-import { SVG } from '../../../../utils/assets';
-import Typography from '../../../../components/commons/Typography';
-import TextField from '../../../../components/commons/inputs/TextField';
-import Button from '../../../../components/commons/Button';
-import styles from '../style';
-import { SignUpNavigationProps } from '../types';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { SVG } from '../../../utils/assets';
+import Typography from '../../../atoms/Typography';
+import TextField from '../../../atoms/inputs/TextField';
+import Button from '../../../atoms/Button';
+import { OnBoardingNavigationProps } from '../types';
 
-function SchoolEmailVerif(): JSX.Element {
-    const navigation = useNavigation<SignUpNavigationProps>();
+const styles = StyleSheet.create({
+    header: {
+        marginBottom: 50,
+    },
+    field: {
+        width: '100%',
+        margin: 25,
+    },
+    button: {
+        margin: 40,
+        width: '100%',
+    },
+    typo: {
+        color: 'white',
+    },
+});
+
+function Login(): JSX.Element {
+    const navigation = useNavigation<OnBoardingNavigationProps>();
     return (
         <View style={{ alignItems: 'center' }}>
             <SVG.BgFull1
@@ -25,13 +41,20 @@ function SchoolEmailVerif(): JSX.Element {
                 }}>
                 <View style={styles.header}>
                     <Typography variant="h6" style={styles.typo}>
-                        Enter your school email
+                        Log in
                     </Typography>
                 </View>
                 <View style={styles.field}>
                     <TextField
                         variant="standard"
-                        placeholder="email"
+                        placeholder="id"
+                        placeholderTextColor="white"
+                    />
+                </View>
+                <View style={styles.field}>
+                    <TextField
+                        variant="standard"
+                        placeholder="password"
                         placeholderTextColor="white"
                     />
                 </View>
@@ -39,31 +62,21 @@ function SchoolEmailVerif(): JSX.Element {
                     <Button
                         variant="default"
                         size="md"
-                        text="Submit"
+                        text="Login"
                         style={{ backgroundColor: 'lightgray' }}
-                        onPress={() =>
-                            navigation.navigate('SchoolEmailVerifCode', {})
-                        }
                     />
                 </View>
                 <View>
                     <Typography variant="body1" style={styles.typo}>
-                        Or, if you already have an account,&nbsp;
+                        Don&apos;t have a Kogo account yet?&nbsp;
                         <Typography
                             variant="body1"
                             style={{
                                 ...styles.typo,
                                 textDecorationLine: 'underline',
                             }}
-                            onPress={() =>
-                                navigation.dispatch(
-                                    CommonActions.reset({
-                                        index: 0,
-                                        routes: [{ name: 'Login' }],
-                                    }),
-                                )
-                            }>
-                            log in
+                            onPress={() => navigation.navigate('SignUp', {})}>
+                            Sign Up
                         </Typography>
                     </Typography>
                 </View>
@@ -72,4 +85,4 @@ function SchoolEmailVerif(): JSX.Element {
     );
 }
 
-export default SchoolEmailVerif;
+export default Login;

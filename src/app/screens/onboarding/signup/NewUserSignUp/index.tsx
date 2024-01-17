@@ -2,9 +2,9 @@ import { CommonActions, useNavigation } from '@react-navigation/native';
 import { Dimensions, View } from 'react-native';
 import { SVG } from '../../../../utils/assets';
 import styles from '../style';
-import Typography from '../../../../components/commons/Typography';
-import TextField from '../../../../components/commons/inputs/TextField';
-import Button from '../../../../components/commons/Button';
+import Typography from '../../../../atoms/Typography';
+import TextField from '../../../../atoms/inputs/TextField';
+import Button from '../../../../atoms/Button';
 import { SignUpNavigationProps } from '../types';
 
 function NewUserSignUp(): JSX.Element {

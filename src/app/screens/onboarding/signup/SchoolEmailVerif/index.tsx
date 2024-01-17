@@ -1,30 +1,14 @@
-import { Dimensions, StyleSheet, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { SVG } from '../../../utils/assets';
-import Typography from '../../../components/commons/Typography';
-import TextField from '../../../components/commons/inputs/TextField';
-import Button from '../../../components/commons/Button';
-import { OnBoardingNavigationProps } from '../types';
+import { CommonActions, useNavigation } from '@react-navigation/native';
+import { Dimensions, View } from 'react-native';
+import { SVG } from '../../../../utils/assets';
+import Typography from '../../../../atoms/Typography';
+import TextField from '../../../../atoms/inputs/TextField';
+import Button from '../../../../atoms/Button';
+import styles from '../style';
+import { SignUpNavigationProps } from '../types';
 
-const styles = StyleSheet.create({
-    header: {
-        marginBottom: 50,
-    },
-    field: {
-        width: '100%',
-        margin: 25,
-    },
-    button: {
-        margin: 40,
-        width: '100%',
-    },
-    typo: {
-        color: 'white',
-    },
-});
-
-function Login(): JSX.Element {
-    const navigation = useNavigation<OnBoardingNavigationProps>();
+function SchoolEmailVerif(): JSX.Element {
+    const navigation = useNavigation<SignUpNavigationProps>();
     return (
         <View style={{ alignItems: 'center' }}>
             <SVG.BgFull1
@@ -41,20 +25,13 @@ function Login(): JSX.Element {
                 }}>
                 <View style={styles.header}>
                     <Typography variant="h6" style={styles.typo}>
-                        Log in
+                        Enter your school email
                     </Typography>
                 </View>
                 <View style={styles.field}>
                     <TextField
                         variant="standard"
-                        placeholder="id"
-                        placeholderTextColor="white"
-                    />
-                </View>
-                <View style={styles.field}>
-                    <TextField
-                        variant="standard"
-                        placeholder="password"
+                        placeholder="email"
                         placeholderTextColor="white"
                     />
                 </View>
@@ -62,21 +39,31 @@ function Login(): JSX.Element {
                     <Button
                         variant="default"
                         size="md"
-                        text="Login"
+                        text="Submit"
                         style={{ backgroundColor: 'lightgray' }}
+                        onPress={() =>
+                            navigation.navigate('SchoolEmailVerifCode', {})
+                        }
                     />
                 </View>
                 <View>
                     <Typography variant="body1" style={styles.typo}>
-                        Don&apos;t have a Kogo account yet?&nbsp;
+                        Or, if you already have an account,&nbsp;
                         <Typography
                             variant="body1"
                             style={{
                                 ...styles.typo,
                                 textDecorationLine: 'underline',
                             }}
-                            onPress={() => navigation.navigate('SignUp', {})}>
-                            Sign Up
+                            onPress={() =>
+                                navigation.dispatch(
+                                    CommonActions.reset({
+                                        index: 0,
+                                        routes: [{ name: 'Login' }],
+                                    }),
+                                )
+                            }>
+                            log in
                         </Typography>
                     </Typography>
                 </View>
@@ -85,4 +72,4 @@ function Login(): JSX.Element {
     );
 }
 
-export default Login;
+export default SchoolEmailVerif;

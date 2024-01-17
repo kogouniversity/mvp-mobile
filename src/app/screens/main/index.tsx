@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { withStatusBar } from '../hoc';
-import Home from './Home';
+import Home from './home';
 import { MainTabParamList } from './types';
-import Feed from './Feed';
-import MySchedule from './MySchedule';
-import Profile from './Profile';
+import Feed from './feed';
+import MySchedule from './tools';
+import Profile from './profile';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 

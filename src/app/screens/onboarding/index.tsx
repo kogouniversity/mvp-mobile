@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { withStatusBar } from '../hoc';
-import Intro from './Intro';
-import Login from './Login';
-import SignUpNavigationEntry from './SignUp';
+import Intro from './intro';
+import Login from './login';
+import SignUpNavigationEntry from './signup';
 import { OnBoardingStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<OnBoardingStackParamList>();
