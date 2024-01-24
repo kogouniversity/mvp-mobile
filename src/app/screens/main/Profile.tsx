@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import Typography from '../../../atoms/Typography';
+import Typography from '../../atoms/Typography';
 
 function Profile(): JSX.Element {
     return (

@@ -1,22 +1,15 @@
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 import { Dimensions, View } from 'react-native';
-import { SVG } from '../../../../utils/assets';
-import Typography from '../../../../atoms/Typography';
-import TextField from '../../../../atoms/inputs/TextField';
-import Button from '../../../../atoms/Button';
-import styles from '../style';
-import { SignUpNavigationProps } from '../types';
+import Typography from '../../atoms/Typography';
+import TextField from '../../atoms/inputs/TextField';
+import Button from '../../atoms/Button';
+import styles from './styles';
+import { useNavigation } from '../../utils/navigation';
 
 function SchoolEmailVerif(): JSX.Element {
-    const navigation = useNavigation<SignUpNavigationProps>();
+    const navigation = useNavigation();
     return (
         <View style={{ alignItems: 'center' }}>
-            <SVG.BgFull1
-                style={{
-                    position: 'absolute',
-                    top: 50,
-                }}
-            />
             <View
                 style={{
                     marginTop: Dimensions.get('window').height * 0.3,

@@ -1,11 +1,11 @@
 import { View, Image, Dimensions } from 'react-native';
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { ImageSrc, SVG } from '../../../utils/assets';
-import { OnBoardingNavigationProps } from '../types';
+import { useNavigation } from '../utils/navigation';
+import { ImageSrc } from '../utils/assets';
 
 function Intro(): JSX.Element {
-    const navigation = useNavigation<OnBoardingNavigationProps>();
+    const navigation = useNavigation();
     useEffect(() => {
         const screenWaitTimeout = setTimeout(() => {
             navigation.dispatch(
@@ -25,12 +25,6 @@ function Intro(): JSX.Element {
                 height: '100%',
                 alignItems: 'center',
             }}>
-            <SVG.Bg1
-                style={{
-                    position: 'absolute',
-                    top: Dimensions.get('window').height / 2 - 350,
-                }}
-            />
             <Image
                 style={{
                     position: 'absolute',

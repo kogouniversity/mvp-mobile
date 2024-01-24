@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import Typography from '../../../atoms/Typography';
+import Typography from '../../atoms/Typography';
 
 const styles = StyleSheet.create({
     wave: {

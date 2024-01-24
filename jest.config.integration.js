@@ -4,7 +4,9 @@ module.exports = {
     transform: {
         '^.+\\.(js|ts|tsx)$': 'babel-jest',
     },
-    testMatch: ['**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)'],
+    testMatch: [
+        '**/test-automation/integration/**/?(*.)+(spec|test).[jt]s?(x)',
+    ],
     moduleNameMapper: {
         '^app/(.*)$': '<rootDir>/src/app/$1',
     },

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     extends: [
         'eslint:recommended',
@@ -14,10 +16,20 @@ module.exports = {
     ],
     overrides: [
         {
-            files: ['*.ts', '*.tsx', '*.d.ts'],
+            files: ['*.ts', '*.tsx'],
             parser: '@typescript-eslint/parser',
             parserOptions: {
                 project: './tsconfig.json',
+            },
+        },
+        {
+            files: ['**/__tests__/**/*.[jt]s?(x)'],
+            settings: {
+                'import/resolver': {
+                    node: {
+                        paths: [path.resolve(__dirname, 'src')],
+                    },
+                },
             },
         },
     ],
@@ -26,6 +38,7 @@ module.exports = {
         'linebreak-style': 'off',
         'func-names': 0,
         'no-useless-constructor': 0,
+        'no-use-before-define': 0,
         'import/prefer-default-export': 0,
         'jest/no-identical-title': 0,
         'import/extensions': 0,

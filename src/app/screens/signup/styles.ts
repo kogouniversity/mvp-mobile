@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+// To be removed
 const styles = StyleSheet.create({
     header: {
         marginBottom: 50,

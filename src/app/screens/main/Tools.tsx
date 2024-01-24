@@ -1,7 +1,7 @@
 import { View } from 'react-native';
-import Typography from '../../../atoms/Typography';
+import Typography from '../../atoms/Typography';
 
-function MySchedule(): JSX.Element {
+function Tools(): JSX.Element {
     return (
         <View>
             <Typography variant="h6">Schedule</Typography>
@@ -9,4 +9,4 @@ function MySchedule(): JSX.Element {
     );
 }
 
-export default MySchedule;
+export default Tools;

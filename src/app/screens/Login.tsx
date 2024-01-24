@@ -1,10 +1,8 @@
 import { Dimensions, StyleSheet, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { SVG } from '../../../utils/assets';
-import Typography from '../../../atoms/Typography';
-import TextField from '../../../atoms/inputs/TextField';
-import Button from '../../../atoms/Button';
-import { OnBoardingNavigationProps } from '../types';
+import { useNavigation } from '../utils/navigation';
+import Typography from '../atoms/Typography';
+import TextField from '../atoms/inputs/TextField';
+import Button from '../atoms/Button';
 
 const styles = StyleSheet.create({
     header: {
@@ -24,15 +22,9 @@ const styles = StyleSheet.create({
 });
 
 function Login(): JSX.Element {
-    const navigation = useNavigation<OnBoardingNavigationProps>();
+    const navigation = useNavigation();
     return (
         <View style={{ alignItems: 'center' }}>
-            <SVG.BgFull1
-                style={{
-                    position: 'absolute',
-                    top: 50,
-                }}
-            />
             <View
                 style={{
                     marginTop: Dimensions.get('window').height * 0.3,
