@@ -1,8 +1,8 @@
-// Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig } = require('expo/metro-config');
+// Learn more https://docs.expo.io/guides/customizing-metro\
+const { getSentryExpoConfig } = require("@sentry/react-native/metro");
 
 /** @type {import('expo/metro-config').MetroConfig} */
-const defaultConfig = getDefaultConfig(__dirname);
+const defaultConfig = getSentryExpoConfig(__dirname);
 
 defaultConfig.resolver.resolverMainFields.unshift('sbmodern');
 

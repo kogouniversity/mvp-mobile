@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 import { NavigationParamList } from './types';
 import { withStatusBar } from '../screens/hoc';
 import SchoolEmailVerif from '../screens/signup/SchoolEmailVerif';
@@ -74,16 +73,11 @@ function MainNavigator(): JSX.Element {
 // ======================
 export default function RootNavigator(): JSX.Element {
     return (
-        <NavigationContainer>
-            <Stack.Navigator
-                initialRouteName="OnBoarding"
-                screenOptions={{ headerShown: false }}>
-                <Stack.Screen
-                    name="OnBoarding"
-                    component={OnBoardingNavigator}
-                />
-                <Stack.Screen name="Main" component={MainNavigator} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Stack.Navigator
+            initialRouteName="OnBoarding"
+            screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="OnBoarding" component={OnBoardingNavigator} />
+            <Stack.Screen name="Main" component={MainNavigator} />
+        </Stack.Navigator>
     );
 }
