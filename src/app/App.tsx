@@ -24,10 +24,8 @@ onlineManager.setEventListener(setOnline =>
 const queryConfig: QueryClientConfig = {
     defaultOptions: {
         queries: {
-            retry: Number(process.env.EXPO_PUBLIC_QUERY_DEFAULT_RETRY),
-            retryDelay: Number(
-                process.env.EXPO_PUBLIC_QUERY_DEFAULT_RETRY_DELAY,
-            ),
+            retry: Number(process.env.EXPO_PUBLIC_API_DEFAULT_RETRY),
+            retryDelay: Number(process.env.EXPO_PUBLIC_API_DEFAULT_RETRY_DELAY),
         },
     },
 };

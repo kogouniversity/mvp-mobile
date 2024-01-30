@@ -25,14 +25,6 @@ if (process.env.EXPO_PUBLIC_NODE_ENV === 'local') {
             return event;
         },
     };
-} else if (process.env.EXPO_PUBLIC_NODE_ENV === 'test') {
-    sentryConfig = {
-        ...sentryConfig,
-        beforeSend: (event: any, hint: any) => {
-            console.error(hint.originalException || hint.syntheticException);
-            return undefined;
-        },
-    };
 } else if (process.env.EXPO_PUBLIC_NODE_ENV === 'production') {
     sentryConfig = {
         ...sentryConfig,
