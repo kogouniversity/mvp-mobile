@@ -3,6 +3,9 @@
 import { AxiosError } from 'axios';
 import * as Sentry from '@sentry/react-native';
 
+/**
+ * Sentry Config
+ */
 const routingInstrumentation = new Sentry.ReactNavigationInstrumentation();
 
 let sentryConfig: object = {
@@ -36,7 +39,7 @@ if (process.env.EXPO_PUBLIC_NODE_ENV === 'local') {
 Sentry.init(sentryConfig);
 
 /**
- * Capture Functions
+ * Custom Error/Message capture functions
  */
 const { captureException, captureMessage } = Sentry;
 
