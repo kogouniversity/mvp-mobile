@@ -42,6 +42,7 @@ const { captureException, captureMessage } = Sentry;
 
 const captureAxiosError = (err: AxiosError): void => {
     Sentry.withScope((scope: Sentry.Scope) => {
+        scope.setTag('error-type', 'axios-request-failure');
         const {
             method,
             url,

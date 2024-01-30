@@ -6,6 +6,7 @@ import {
     AuthUserDataResponse,
 } from '../../../app/hooks/api/auth/types';
 import { renderHook } from '../../test-utils';
+import { captureAxiosError } from '../../../app/utils/sentry';
 
 // Mock jest and set the type
 jest.mock('axios');
@@ -84,6 +85,9 @@ describe('useFetchedData', () => {
                     isSuccess: false,
                     isError: true,
                 }),
+            );
+            await waitFor(() =>
+                expect(captureAxiosError).toHaveBeenCalledTimes(1),
             );
         });
     });

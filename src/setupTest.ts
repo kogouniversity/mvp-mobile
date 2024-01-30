@@ -5,26 +5,29 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 
 // Mock Sentry
-jest.mock('@sentry/react-native', () => ({
-    init: () => null,
-    ReactNavigationInstrumentation: class {
-        constructor() {}
-
-        registerNavigationContainer() {}
+jest.mock('./app/utils/sentry', () => ({
+    Sentry: {
+        init: jest.fn(),
+        withScope: (func: (scope: any) => void) => {
+            const sentryScopeMock = jest.fn(() => ({
+                setTag: jest.fn(),
+                setContext: jest.fn(),
+            }));
+            func(sentryScopeMock());
+        },
+        setContext: jest.fn(),
+        captureException: jest.fn(),
+        captureMessage: jest.fn(),
     },
-    ReactNativeTracing: class {
-        constructor() {}
-    },
-    withErrorBoundary: (component: any, options: object) => component,
-    withScope: (func: any) => null,
+    routingInstrumentation: { registerNavigationContainer: jest.fn() },
     wrap: (component: any) => component,
-    setContext: () => null,
-    captureException: () => null,
-    captureMessage: () => null,
-    captureAxiosError: () => null,
+    withErrorBoundary: (component: any, options: object) => component,
+    captureException: jest.fn(),
+    captureMessage: jest.fn(),
+    captureAxiosError: jest.fn(),
 }));
 
 // Mock Netinfo
 jest.mock('@react-native-community/netinfo', () => ({
-    addEventListener: () => null,
+    addEventListener: jest.fn(),
 }));
