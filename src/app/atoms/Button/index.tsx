@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text, ViewStyle, TextStyle } from 'react-native';
+import { TouchableOpacity, ViewStyle } from 'react-native';
 import { ButtonProps, ButtonSize, ButtonVariant } from './types';
 
 const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
@@ -21,8 +21,7 @@ const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
 };
 
 const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
-    default: {
-    },
+    default: {},
     sm: {
         width: 69,
         height: 22,
@@ -31,10 +30,10 @@ const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
         width: 129,
         height: 33,
     },
-    lg:{
+    lg: {
         width: 335,
         height: 48,
-    }
+    },
 };
 
 const Button: React.FC<ButtonProps> = function ({

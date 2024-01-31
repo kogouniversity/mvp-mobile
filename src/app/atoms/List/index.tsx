@@ -6,6 +6,7 @@ import {
     ViewStyle,
     FlatList,
 } from 'react-native';
+import uuid from '../../utils/uuid';
 import {
     ListProps,
     ListItemProps,
@@ -81,16 +82,18 @@ const List: React.FC<ListProps> = function ({ style, variant, children }) {
                 // horizontal list
                 <FlatList
                     data={children as ArrayLike<ListItemType>}
-                    renderItem={({ item }) => <View>{item}</View>}
+                    renderItem={({ item, index }) => (
+                        <View key={uuid(index)}>{item}</View>
+                    )}
                     horizontal
-                    keyExtractor={(item, index) => index.toString()}
                 />
             ) : (
                 // vertical list
                 <FlatList
                     data={children as ArrayLike<ListItemType>}
-                    renderItem={({ item }) => <View>{item}</View>}
-                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item, index }) => (
+                        <View key={uuid(index)}>{item}</View>
+                    )}
                 />
             )}
         </View>

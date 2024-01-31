@@ -2,31 +2,31 @@ import { Text as NativeText, TextStyle } from 'react-native';
 import { TypographyProps, TypographyVariants, TypographyColors } from './types';
 
 const typographyVariantStyles: Record<TypographyVariants, TextStyle> = {
-    title:{
+    title: {
         fontSize: 32,
     },
     subtitle: {
         fontSize: 20,
     },
-    text:{
+    text: {
         fontSize: 13,
     },
-    subtext:{
+    subtext: {
         fontSize: 11,
     },
 };
 
 const typographyColorStyles: Record<TypographyColors, TextStyle> = {
-    text:{
+    text: {
         color: '#000000',
     },
-    subtext:{
+    subtext: {
         color: '#5a5a5a',
     },
-    shade:{
+    shade: {
         color: '#d3d3d3',
     },
-    notification:{
+    notification: {
         color: '#ff0000',
     },
 };
@@ -57,7 +57,6 @@ const typographyColorStyles: Record<TypographyColors, TextStyle> = {
 //     }
 // };
 
-
 const Typography: React.FC<TypographyProps> = function ({
     variant,
     color,
@@ -66,7 +65,11 @@ const Typography: React.FC<TypographyProps> = function ({
 }) {
     return (
         <NativeText
-            style={[typographyVariantStyles[variant], typographyColorStyles[color], style]}
+            style={[
+                typographyVariantStyles[variant],
+                typographyColorStyles[color],
+                style,
+            ]}
             {...props}
         />
     );

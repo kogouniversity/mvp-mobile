@@ -36,3 +36,9 @@ https://react-hook-form.com/get-started
 Zod validation in React-hook-form  
 https://github.com/react-hook-form/resolvers#zod  
 
+
+# EAS
+After running eas update, upload the source maps to Sentry:   
+```
+npx sentry-expo-upload-sourcemaps dist
+```

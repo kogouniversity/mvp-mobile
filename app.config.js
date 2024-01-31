@@ -1,4 +1,6 @@
-module.exports = {
+const { withSentry } = require("@sentry/react-native/expo");
+
+const config = {
     name: 'kogo',
     slug: 'kogo',
     version: '1.0.0',
@@ -27,3 +29,10 @@ module.exports = {
         storybookEnabled: process.env.STORYBOOK_ENABLED,
     },
 };
+
+module.exports = withSentry(config, {
+    url: 'https://sentry.io/',
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    organization: process.env.SENTRY_ORG,
+    project: process.env.SENTRY_PROJECT,
+});

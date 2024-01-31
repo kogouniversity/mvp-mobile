@@ -1,9 +1,9 @@
 import { View } from 'react-native';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
+import { AntDesign } from '@expo/vector-icons';
 import Button from '.';
 import { ButtonProps } from './types';
-import Typography from '../../atoms/Typography';
-import { AntDesign } from '@expo/vector-icons';
+import Typography from '../Typography';
 
 const meta: ComponentMeta<typeof Button> = {
     title: 'Design System/Atoms/Button',
@@ -43,7 +43,9 @@ export const OnlyText: Story = {
     },
     render: args => (
         <Button {...args}>
-            <Typography variant="subtitle" color="text">OnlyText</Typography>
+            <Typography variant="subtitle" color="text">
+                OnlyText
+            </Typography>
         </Button>
     ),
 };
@@ -64,13 +66,14 @@ export const TextIcon: Story = {
     args: {
         variant: 'primary',
         size: 'sm',
-        style: {flexDirection: 'row'},
+        style: { flexDirection: 'row' },
     },
     render: args => (
         <Button {...args}>
-            <Typography variant="subtitle" color="text">Check </Typography>
+            <Typography variant="subtitle" color="text">
+                Check
+            </Typography>
             <AntDesign name="check" size={24} color="green" />
         </Button>
     ),
 };
-
