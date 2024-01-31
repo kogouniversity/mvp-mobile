@@ -1,0 +1,5811 @@
+{
+    "edu": {
+        "colorado": {
+            "institution_name": "University of Colorado at Boulder"
+        },
+        "edgewood": {
+            "institution_name": "Edgewood College"
+        },
+        "thecoo": {
+            "institution_name": "University of Sioux Falls"
+        },
+        "upenn": {
+            "institution_name": "University of Pennsylvania"
+        },
+        "conncoll": {
+            "institution_name": "Connecticut College"
+        },
+        "wsu": {
+            "institution_name": "Washington State University"
+        },
+        "lfc": {
+            "institution_name": "Lake Forest College"
+        },
+        "academyart": {
+            "institution_name": "Academy of Art College"
+        },
+        "judson": {
+            "institution_name": "Judson College Marion"
+        },
+        "brevard": {
+            "institution_name": "Brevard College"
+        },
+        "uncwil": {
+            "institution_name": "University of North Carolina at Wilmington"
+        },
+        "csbsju": {
+            "institution_name": "College of St. Benedict and St. John's University"
+        },
+        "cspp": {
+            "institution_name": "California School of Professional Psychology"
+        },
+        "csusb": {
+            "institution_name": "California State University, San Bernadino"
+        },
+        "antiochsb": {
+            "institution_name": "Antioch University Santa Barbara"
+        },
+        "trevecca": {
+            "institution_name": "Trevecca Nazarene University"
+        },
+        "lsu": {
+            "institution_name": "Louisiana State University and Agricultural and Mechanical College"
+        },
+        "sdsmt": {
+            "institution_name": "South Dakota School of Mines and Technology"
+        },
+        "byuh": {
+            "institution_name": "Brigham Young University Hawaii"
+        },
+        "usw": {
+            "institution_name": "University of the Southwest"
+        },
+        "biola": {
+            "institution_name": "Biola University"
+        },
+        "ewc": {
+            "institution_name": "Edward Waters College"
+        },
+        "uvmnet": {
+            "institution_name": "Universidad del Valle de M\u00e9xico"
+        },
+        "acu": {
+            "institution_name": "Abilene Christian University"
+        },
+        "maine": {
+            "institution_name": "University of Maine"
+        },
+        "calpoly": {
+            "institution_name": "California Polytechnic State University - San Luis Obispo"
+        },
+        "albright": {
+            "institution_name": "Albright College"
+        },
+        "cookman": {
+            "institution_name": "Bethune-Cookman College"
+        },
+        "cbcag": {
+            "institution_name": "Central Bible College"
+        },
+        "sru": {
+            "institution_name": "Slippery Rock University"
+        },
+        "brynmawr": {
+            "institution_name": "Bryn Mawr College"
+        },
+        "hgc": {
+            "institution_name": "Hartford Graduate Center (Rensselaer at Hartford)"
+        },
+        "northwestern": {
+            "institution_name": "Northwestern University In Qatar"
+        },
+        "saintleo": {
+            "institution_name": "St. Leo College"
+        },
+        "midwestern": {
+            "institution_name": "Midwestern University"
+        },
+        "sagu": {
+            "institution_name": "Southwestern Assemblies of God University"
+        },
+        "jc": {
+            "institution_name": "Jamestown College"
+        },
+        "sek": {
+            "institution_name": "Universidad Internacional SEK, Quito"
+        },
+        "b-sc": {
+            "institution_name": "Barber-Scotia College"
+        },
+        "menlo": {
+            "institution_name": "Menlo College"
+        },
+        "naropa": {
+            "institution_name": "The Naropa Institute"
+        },
+        "stevens-tech": {
+            "institution_name": "Stevens Institute of Technology"
+        },
+        "kutztown": {
+            "institution_name": "Kutztown University of Pennsylvania"
+        },
+        "sjca": {
+            "institution_name": "St. John's College Maryland"
+        },
+        "najah": {
+            "institution_name": "An-Najah National University"
+        },
+        "twcnet": {
+            "institution_name": "Tennessee Wesleyan College"
+        },
+        "dickinson": {
+            "institution_name": "Dickinson College"
+        },
+        "otterbein": {
+            "institution_name": "Otterbein College"
+        },
+        "vuu": {
+            "institution_name": "Virginia Union University"
+        },
+        "albany": {
+            "institution_name": "State University of New York at Albany"
+        },
+        "cuea": {
+            "institution_name": "Catholic University of Eastern Africa"
+        },
+        "lemoyne": {
+            "institution_name": "Le Moyne College"
+        },
+        "pomona": {
+            "institution_name": "Pomona College"
+        },
+        "uniq": {
+            "institution_name": "Universit\u00e9 Quisqueya"
+        },
+        "trinitycollege": {
+            "institution_name": "Trinity College of Florida"
+        },
+        "upstate": {
+            "institution_name": "State University of New York Upstate Medical University"
+        },
+        "brescia": {
+            "institution_name": "Brescia University"
+        },
+        "coppin": {
+            "institution_name": "Coppin State College"
+        },
+        "yale": {
+            "institution_name": "Yale University"
+        },
+        "umich": {
+            "institution_name": "University of Michigan"
+        },
+        "sgu": {
+            "institution_name": "St. George's University"
+        },
+        "hendrix": {
+            "institution_name": "Hendrix College"
+        },
+        "haverford": {
+            "institution_name": "Haverford College"
+        },
+        "uchicago": {
+            "institution_name": "University of Chicago"
+        },
+        "sfcm": {
+            "institution_name": "San Francisco Conservatory of Music"
+        },
+        "lhup": {
+            "institution_name": "Lock Haven University of Pennsylvania"
+        },
+        "fhu": {
+            "institution_name": "Freed-Hardeman University"
+        },
+        "ju": {
+            "institution_name": "Jacksonville University"
+        },
+        "lesroches": {
+            "institution_name": "Les Roches International School of Hotel Management"
+        },
+        "anderson": {
+            "institution_name": "Anderson University"
+        },
+        "cooper": {
+            "institution_name": "The Cooper Union for the Advancement of Science and Art"
+        },
+        "acc": {
+            "institution_name": "Atlanta Christian College"
+        },
+        "unionky": {
+            "institution_name": "Union College Kentucky"
+        },
+        "olc": {
+            "institution_name": "Oglala Lakota College"
+        },
+        "act": {
+            "institution_name": "American College of Thessaloniki"
+        },
+        "tarleton": {
+            "institution_name": "Tarleton State University"
+        },
+        "bauder": {
+            "institution_name": "Bauder College"
+        },
+        "albizu": {
+            "institution_name": "Carlos Albizu University"
+        },
+        "fortlewis": {
+            "institution_name": "Fort Lewis College"
+        },
+        "sdstate": {
+            "institution_name": "South Dakota State University"
+        },
+        "ewu": {
+            "institution_name": "Eastern Washington University"
+        },
+        "academy": {
+            "institution_name": "International Academy of  Merchandising and Design Tampa"
+        },
+        "goddard": {
+            "institution_name": "Goddard College"
+        },
+        "adler": {
+            "institution_name": "Adler School of Professional Psychology"
+        },
+        "byui": {
+            "institution_name": "Brigham Young University"
+        },
+        "umbc": {
+            "institution_name": "University of Maryland Baltimore County"
+        },
+        "wfu": {
+            "institution_name": "Wake Forest University"
+        },
+        "wsc": {
+            "institution_name": "Wayne State College"
+        },
+        "ccad": {
+            "institution_name": "Columbus College of Art and Design"
+        },
+        "umtweb": {
+            "institution_name": "University of Management &amp; Technology"
+        },
+        "alfred": {
+            "institution_name": "Alfred University"
+        },
+        "ualr": {
+            "institution_name": "University of Arkansas at Little Rock"
+        },
+        "iup": {
+            "institution_name": "Indiana University of Pennsylvania"
+        },
+        "itt": {
+            "institution_name": "Institute of Textile Technology"
+        },
+        "utesa": {
+            "institution_name": "Universidad Tecnol\u00f3gica de Santiago"
+        },
+        "willamette": {
+            "institution_name": "Willamette University"
+        },
+        "kings": {
+            "institution_name": "King's College"
+        },
+        "univdhaka": {
+            "institution_name": "University of Dhaka"
+        },
+        "urgrgcc": {
+            "institution_name": "University of Rio Grande"
+        },
+        "uwplatt": {
+            "institution_name": "University of Wisconsin - Platteville"
+        },
+        "drexel": {
+            "institution_name": "Drexel University"
+        },
+        "ugf": {
+            "institution_name": "University of Great Falls"
+        },
+        "fresnocitycollege": {
+            "institution_name": "Fresno City College"
+        },
+        "asurams": {
+            "institution_name": "Albany State University"
+        },
+        "uconn": {
+            "institution_name": "University of Connecticut"
+        },
+        "berean": {
+            "institution_name": "Berean University of the Assemblies of God"
+        },
+        "prescott": {
+            "institution_name": "Prescott College"
+        },
+        "sunyopt": {
+            "institution_name": "State University of New York College of Optometry"
+        },
+        "palmbeachstate": {
+            "institution_name": "Palm Beach State College"
+        },
+        "csudh": {
+            "institution_name": "California State University, Dominguez Hills"
+        },
+        "rmc": {
+            "institution_name": "Randolph-Macon College"
+        },
+        "mssm": {
+            "institution_name": "Mount Sinai School of Medicine"
+        },
+        "usiu": {
+            "institution_name": "United States International University"
+        },
+        "stonybrook": {
+            "institution_name": "State University of New York, Stony Brook"
+        },
+        "gbc": {
+            "institution_name": "Goldey-Beacom College"
+        },
+        "greenville": {
+            "institution_name": "Greenville College"
+        },
+        "lunet": {
+            "institution_name": "Langston University"
+        },
+        "wittenberg": {
+            "institution_name": "Wittenberg University"
+        },
+        "ust": {
+            "institution_name": "University of Science and Technology Sana'a"
+        },
+        "vfcc": {
+            "institution_name": "Valley Forge Christian College"
+        },
+        "utexas": {
+            "institution_name": "University of Texas at Austin"
+        },
+        "holycross": {
+            "institution_name": "College of the Holy Cross"
+        },
+        "udel": {
+            "institution_name": "University of Delaware"
+        },
+        "pepperdine": {
+            "institution_name": "Pepperdine University"
+        },
+        "usc": {
+            "institution_name": "University of Southern California"
+        },
+        "neit": {
+            "institution_name": "New England Institute of Technology"
+        },
+        "liunet": {
+            "institution_name": "Long Island University"
+        },
+        "aamu": {
+            "institution_name": "Alabama Agricultural and Mechanical University"
+        },
+        "shimer": {
+            "institution_name": "Shimer College"
+        },
+        "fc": {
+            "institution_name": "Franklin College Switzerland"
+        },
+        "aca": {
+            "institution_name": "Atlanta College of Art"
+        },
+        "trincoll": {
+            "institution_name": "Trinity College Connecticut"
+        },
+        "urbe": {
+            "institution_name": "Universidad Dr. Rafael Belloso Chac\u00edn"
+        },
+        "berkeley": {
+            "institution_name": "University of California, Berkeley"
+        },
+        "bircham": {
+            "institution_name": "Bircham International University"
+        },
+        "cwsl": {
+            "institution_name": "California Western School of Law"
+        },
+        "khai": {
+            "institution_name": "National Aerospace University Kharkov Aviation Institute"
+        },
+        "uthct": {
+            "institution_name": "University of Texas Health Center at Tyler"
+        },
+        "tsmu": {
+            "institution_name": "Tbilisi State Medical University"
+        },
+        "ecsu": {
+            "institution_name": "Elizabeth City State University"
+        },
+        "husson": {
+            "institution_name": "Husson College"
+        },
+        "ccc": {
+            "institution_name": "City Colleges of Chicago"
+        },
+        "fordham": {
+            "institution_name": "Fordham University"
+        },
+        "newpaltz": {
+            "institution_name": "State University of New York at New Paltz"
+        },
+        "aul": {
+            "institution_name": "The American University in London"
+        },
+        "viterbo": {
+            "institution_name": "Viterbo College"
+        },
+        "su": {
+            "institution_name": "Shenandoah University"
+        },
+        "nescom": {
+            "institution_name": "New England School of Communications"
+        },
+        "coa": {
+            "institution_name": "College of the Atlantic"
+        },
+        "sc": {
+            "institution_name": "University of South Carolina"
+        },
+        "mcm": {
+            "institution_name": "McMurry University"
+        },
+        "pace": {
+            "institution_name": "Pace University"
+        },
+        "newschoolarch": {
+            "institution_name": "Newschool of Architecture and Design"
+        },
+        "wooster": {
+            "institution_name": "The College of Wooster"
+        },
+        "cnr": {
+            "institution_name": "College of New Rochelle"
+        },
+        "aum": {
+            "institution_name": "Auburn University at Montgomery"
+        },
+        "vassar": {
+            "institution_name": "Vassar College"
+        },
+        "capitol-college": {
+            "institution_name": "Capitol College"
+        },
+        "concordia": {
+            "institution_name": "Concordia University, Austin"
+        },
+        "ccu": {
+            "institution_name": "Colorado Christian University"
+        },
+        "lsus": {
+            "institution_name": "Louisiana State University in Shreveport"
+        },
+        "xula": {
+            "institution_name": "Xavier University of Louisiana"
+        },
+        "johncabot": {
+            "institution_name": "John Cabot University"
+        },
+        "columbiasouthern": {
+            "institution_name": "Columbia Southern University"
+        },
+        "houghton": {
+            "institution_name": "Houghton College"
+        },
+        "rasmussen": {
+            "institution_name": "Rasmussen College"
+        },
+        "westwood": {
+            "institution_name": "Westwood College"
+        },
+        "mica": {
+            "institution_name": "The Maryland Institute, College of Art"
+        },
+        "purdue": {
+            "institution_name": "Purdue University"
+        },
+        "newhaven": {
+            "institution_name": "University of New Haven"
+        },
+        "udallas": {
+            "institution_name": "University of Dallas"
+        },
+        "muw": {
+            "institution_name": "Mississippi University for Women"
+        },
+        "western": {
+            "institution_name": "Western State College"
+        },
+        "neiu": {
+            "institution_name": "Northeastern Illinois University"
+        },
+        "linfield": {
+            "institution_name": "Linfield College"
+        },
+        "fdu": {
+            "institution_name": "Fairleigh Dickinson University"
+        },
+        "msmnyc": {
+            "institution_name": "Manhattan School of Music"
+        },
+        "ici": {
+            "institution_name": "ICI University"
+        },
+        "bpc": {
+            "institution_name": "Brewton-Parker College"
+        },
+        "usu": {
+            "institution_name": "Utah State University"
+        },
+        "clemson": {
+            "institution_name": "Clemson University"
+        },
+        "wju": {
+            "institution_name": "Wheeling Jesuit University"
+        },
+        "ktu": {
+            "institution_name": "Kauno technologijos universitetas"
+        },
+        "collegeofidaho": {
+            "institution_name": "College of Idaho"
+        },
+        "stthom": {
+            "institution_name": "University of St. Thomas, Houston"
+        },
+        "jccc": {
+            "institution_name": "Johnson County Community College"
+        },
+        "alasu": {
+            "institution_name": "Alabama State University"
+        },
+        "ferrum": {
+            "institution_name": "Ferrum College"
+        },
+        "fontbonne": {
+            "institution_name": "Fontbonne College"
+        },
+        "bpkihs": {
+            "institution_name": "B.P.Koirala Institute of Health Sciences"
+        },
+        "colby": {
+            "institution_name": "Colby College"
+        },
+        "nsu": {
+            "institution_name": "Norfolk State University"
+        },
+        "life": {
+            "institution_name": "Life University"
+        },
+        "okbu": {
+            "institution_name": "Oklahoma Baptist University"
+        },
+        "brunswickcc": {
+            "institution_name": "Brunswick Community College"
+        },
+        "graceu": {
+            "institution_name": "Grace University"
+        },
+        "cumberland": {
+            "institution_name": "Cumberland University"
+        },
+        "virginia": {
+            "institution_name": "University of Virginia"
+        },
+        "okcu": {
+            "institution_name": "Oklahoma City University"
+        },
+        "gcsu": {
+            "institution_name": "Georgia College &amp; State University"
+        },
+        "uapar": {
+            "institution_name": "Universidad Adventista del Plata"
+        },
+        "tulane": {
+            "institution_name": "The Tulane University of New Orleans"
+        },
+        "schoolofvisualarts": {
+            "institution_name": "School of the Visual Arts"
+        },
+        "gvc": {
+            "institution_name": "Grand View College"
+        },
+        "mccn": {
+            "institution_name": "Mount Carmel College of Nursing"
+        },
+        "stmarys-ca": {
+            "institution_name": "St. Mary's College of California"
+        },
+        "csustan": {
+            "institution_name": "California State University, Stanislaus"
+        },
+        "usip": {
+            "institution_name": "University of the Sciences in Philadelphia"
+        },
+        "rowan": {
+            "institution_name": "Rowan University"
+        },
+        "motech": {
+            "institution_name": "Missouri Tech"
+        },
+        "ndnu": {
+            "institution_name": "Notre Dame de Namur University"
+        },
+        "humboldt": {
+            "institution_name": "Humboldt State University"
+        },
+        "usf": {
+            "institution_name": "University of South Florida"
+        },
+        "bradley": {
+            "institution_name": "Bradley University"
+        },
+        "preston": {
+            "institution_name": "Preston University"
+        },
+        "uru": {
+            "institution_name": "Universidad Rafael Urdaneta"
+        },
+        "wku": {
+            "institution_name": "Western Kentucky University"
+        },
+        "swbts": {
+            "institution_name": "Southwestern Baptist Theological Seminary"
+        },
+        "whittier": {
+            "institution_name": "Whittier College"
+        },
+        "weber": {
+            "institution_name": "Weber State University"
+        },
+        "potsdam": {
+            "institution_name": "State University of New York College at Potsdam"
+        },
+        "jsu": {
+            "institution_name": "Jacksonville State University"
+        },
+        "liberty": {
+            "institution_name": "Liberty University"
+        },
+        "philander": {
+            "institution_name": "Philander Smith College"
+        },
+        "ttu": {
+            "institution_name": "Texas Tech University"
+        },
+        "tamut": {
+            "institution_name": "Texas A&amp;M University - Texarkana"
+        },
+        "gonzaga": {
+            "institution_name": "Gonzaga University"
+        },
+        "samuelmerritt": {
+            "institution_name": "Samuel Merritt College"
+        },
+        "cornell": {
+            "institution_name": "Cornell University"
+        },
+        "msubillings": {
+            "institution_name": "Montana State University - Billings"
+        },
+        "cbu": {
+            "institution_name": "Christian Brothers University"
+        },
+        "nycc": {
+            "institution_name": "New York Chiropractic College"
+        },
+        "paine": {
+            "institution_name": "Paine College"
+        },
+        "mci": {
+            "institution_name": "MCI-Management Center Innsbruck"
+        },
+        "rc": {
+            "institution_name": "Rochester College"
+        },
+        "devry": {
+            "institution_name": "DeVry Institute of Technology"
+        },
+        "coe": {
+            "institution_name": "Coe College"
+        },
+        "sfcpa": {
+            "institution_name": "St. Francis College, Loretto"
+        },
+        "adams": {
+            "institution_name": "Adams State College"
+        },
+        "augustana": {
+            "institution_name": "Augustana College"
+        },
+        "northwood": {
+            "institution_name": "Northwood University"
+        },
+        "ocac": {
+            "institution_name": "Oregon College of Arts and Crafts"
+        },
+        "sju": {
+            "institution_name": "St. Joseph's University"
+        },
+        "cranbrookart": {
+            "institution_name": "Cranbrook Academy of Art"
+        },
+        "oberlin": {
+            "institution_name": "Oberlin College"
+        },
+        "cos": {
+            "institution_name": "College of the Sequoias"
+        },
+        "sjc": {
+            "institution_name": "St. Joseph College"
+        },
+        "converse": {
+            "institution_name": "Converse College"
+        },
+        "cod": {
+            "institution_name": "College of DuPage"
+        },
+        "usfca": {
+            "institution_name": "University of San Francisco"
+        },
+        "mmc": {
+            "institution_name": "Meharry Medical College"
+        },
+        "aucmed": {
+            "institution_name": "American University of the Caribbean"
+        },
+        "desales": {
+            "institution_name": "DeSales University"
+        },
+        "duke": {
+            "institution_name": "Duke University"
+        },
+        "cbc": {
+            "institution_name": "Central Baptist College"
+        },
+        "smumn": {
+            "institution_name": "St. Mary's University of Minnesota"
+        },
+        "cwu": {
+            "institution_name": "Central Washington University"
+        },
+        "sage": {
+            "institution_name": "The Sage Colleges"
+        },
+        "ollusa": {
+            "institution_name": "Our Lady of the Lake University"
+        },
+        "hkapa": {
+            "institution_name": "Hong Kong Academy for Performing Arts"
+        },
+        "hodges": {
+            "institution_name": "Hodges University"
+        },
+        "wilkes": {
+            "institution_name": "Wilkes University"
+        },
+        "alfredadler": {
+            "institution_name": "Alfred Adler Graduate School"
+        },
+        "faulkner": {
+            "institution_name": "Faulkner University"
+        },
+        "tusculum": {
+            "institution_name": "Tusculum College"
+        },
+        "northwestu": {
+            "institution_name": "Northwest University"
+        },
+        "keuka": {
+            "institution_name": "Keuka College"
+        },
+        "scsu": {
+            "institution_name": "South Carolina State University"
+        },
+        "centre": {
+            "institution_name": "Centre College"
+        },
+        "fgcu": {
+            "institution_name": "Florida Gulf Coast University"
+        },
+        "oakwood": {
+            "institution_name": "Oakwood College"
+        },
+        "ucla": {
+            "institution_name": "University of California, Los Angeles"
+        },
+        "msmary": {
+            "institution_name": "Mount St. Mary's College Maryland"
+        },
+        "gcc": {
+            "institution_name": "Grove City College"
+        },
+        "wpi": {
+            "institution_name": "Worcester Polytechnic Institute"
+        },
+        "bethelks": {
+            "institution_name": "Bethel College Newton"
+        },
+        "africau": {
+            "institution_name": "Africa University"
+        },
+        "eou": {
+            "institution_name": "Eastern Oregon University"
+        },
+        "puc": {
+            "institution_name": "Pacific Union College"
+        },
+        "eureka": {
+            "institution_name": "Eureka College"
+        },
+        "cityu": {
+            "institution_name": "City University"
+        },
+        "davenport": {
+            "institution_name": "Davenport College of Business"
+        },
+        "cdrewu": {
+            "institution_name": "Charles R. Drew University of Medicine and Science"
+        },
+        "goshen": {
+            "institution_name": "Goshen College"
+        },
+        "trin": {
+            "institution_name": "Trinity International University"
+        },
+        "calarts": {
+            "institution_name": "California Institute of the Arts"
+        },
+        "artcenter": {
+            "institution_name": "Art Center College of Design"
+        },
+        "capella": {
+            "institution_name": "Capella University"
+        },
+        "pacificoaks": {
+            "institution_name": "Pacific Oaks College"
+        },
+        "dartmouth": {
+            "institution_name": "Dartmouth College"
+        },
+        "universityofcalifornia": {
+            "institution_name": "University of California System"
+        },
+        "keller": {
+            "institution_name": "Keller Graduate School of Management"
+        },
+        "nmsu": {
+            "institution_name": "New Mexico State University"
+        },
+        "rollins": {
+            "institution_name": "Rollins College"
+        },
+        "txchiro": {
+            "institution_name": "Texas Chiropractic College"
+        },
+        "jmls": {
+            "institution_name": "John Marshall Law School"
+        },
+        "westmont": {
+            "institution_name": "Westmont College"
+        },
+        "bethanylb": {
+            "institution_name": "Bethany College Kansas"
+        },
+        "bhu": {
+            "institution_name": "Baltimore Hebrew University"
+        },
+        "rmcil": {
+            "institution_name": "Robert Morris College of Chicago"
+        },
+        "cc-sd": {
+            "institution_name": "California College San Diego"
+        },
+        "talladega": {
+            "institution_name": "Talladega College"
+        },
+        "wingate": {
+            "institution_name": "Wingate University"
+        },
+        "louisiana": {
+            "institution_name": "University of Louisiana at Lafayette"
+        },
+        "wgu": {
+            "institution_name": "Western Governors University"
+        },
+        "wtamu": {
+            "institution_name": "West Texas A&amp;M University"
+        },
+        "alverno": {
+            "institution_name": "Alverno College"
+        },
+        "swcu": {
+            "institution_name": "Southwestern Christian University"
+        },
+        "artacademy": {
+            "institution_name": "Art Academy of Cincinnati"
+        },
+        "upi": {
+            "institution_name": "Universitas Pendidikan Indonesia"
+        },
+        "marlboro": {
+            "institution_name": "Marlboro College"
+        },
+        "wayne": {
+            "institution_name": "Wayne State University"
+        },
+        "pfeiffer": {
+            "institution_name": "Pfeiffer University"
+        },
+        "unomaha": {
+            "institution_name": "University of Nebraska - Omaha"
+        },
+        "aspp": {
+            "institution_name": "American School of Professional Psychology"
+        },
+        "acp": {
+            "institution_name": "Albany College of Pharmacy"
+        },
+        "glcc": {
+            "institution_name": "Great Lakes Christian College"
+        },
+        "wvwc": {
+            "institution_name": "West Virginia Wesleyan College"
+        },
+        "fiu": {
+            "institution_name": "Florida International University"
+        },
+        "amherst": {
+            "institution_name": "Amherst College"
+        },
+        "ku": {
+            "institution_name": "University of Kansas"
+        },
+        "fairfield": {
+            "institution_name": "Fairfield University"
+        },
+        "queens": {
+            "institution_name": "Queens College"
+        },
+        "newcollege": {
+            "institution_name": "New College of California"
+        },
+        "hsc": {
+            "institution_name": "Hampden-Sydney College"
+        },
+        "averett": {
+            "institution_name": "Averett College"
+        },
+        "wesleyan": {
+            "institution_name": "Wesleyan University"
+        },
+        "tamucc": {
+            "institution_name": "Texas A&amp;M University - Corpus Christi"
+        },
+        "tmc": {
+            "institution_name": "Baylor College of Medicine"
+        },
+        "uwec": {
+            "institution_name": "University of Wisconsin - Eau Claire"
+        },
+        "sanjuanbautista": {
+            "institution_name": "San Juan Bautista School of Medicine"
+        },
+        "fhsu": {
+            "institution_name": "Fort Hays State University"
+        },
+        "bridgewater": {
+            "institution_name": "Bridgewater College"
+        },
+        "cnu": {
+            "institution_name": "Christopher Newport University"
+        },
+        "wcslc": {
+            "institution_name": "Westminster College of Salt Lake City"
+        },
+        "memphis": {
+            "institution_name": "University of Memphis"
+        },
+        "mac": {
+            "institution_name": "MacMurray College"
+        },
+        "vtu": {
+            "institution_name": "Free University (Virginia Theological University)"
+        },
+        "upal": {
+            "institution_name": "Universidad Privada Abierta Latinoamericana"
+        },
+        "warner": {
+            "institution_name": "Warner Southern College"
+        },
+        "nycpm": {
+            "institution_name": "New York College of Podiatric Medicine"
+        },
+        "maufl": {
+            "institution_name": "Millennia Atlantic University"
+        },
+        "setonhill": {
+            "institution_name": "Seton Hill College"
+        },
+        "christendom": {
+            "institution_name": "Christendom College"
+        },
+        "tci": {
+            "institution_name": "The College of Insurance"
+        },
+        "sfc": {
+            "institution_name": "St. Francis College, Fort Wayne"
+        },
+        "hsu": {
+            "institution_name": "Henderson State Univerisity"
+        },
+        "cui": {
+            "institution_name": "Concordia University, Irvine"
+        },
+        "ssu": {
+            "institution_name": "Salisbury State University"
+        },
+        "aurora": {
+            "institution_name": "Aurora University"
+        },
+        "hfc": {
+            "institution_name": "Holy Family College"
+        },
+        "fit": {
+            "institution_name": "Florida Institute of Technology"
+        },
+        "regents": {
+            "institution_name": "Excelsior College"
+        },
+        "dpc": {
+            "institution_name": "Dubai Pharmacy College"
+        },
+        "glion": {
+            "institution_name": "Glion Institute of Higher Education"
+        },
+        "davidson": {
+            "institution_name": "Davidson College"
+        },
+        "schreiner": {
+            "institution_name": "Schreiner College"
+        },
+        "mtu": {
+            "institution_name": "Michigan Technological University"
+        },
+        "gannon": {
+            "institution_name": "Gannon University"
+        },
+        "artinstitutes": {
+            "institution_name": "The Art Institutes"
+        },
+        "keene": {
+            "institution_name": "Keene State College"
+        },
+        "lafayette": {
+            "institution_name": "Lafayette College"
+        },
+        "plu": {
+            "institution_name": "Pacific Lutheran University"
+        },
+        "uph": {
+            "institution_name": "Universitas Pelita Harapan"
+        },
+        "binghamton": {
+            "institution_name": "State University of New York at Binghamton"
+        },
+        "ndm": {
+            "institution_name": "College of Notre Dame of Maryland"
+        },
+        "pitt": {
+            "institution_name": "University of Pittsburgh"
+        },
+        "ico": {
+            "institution_name": "Illinois College of Optometry"
+        },
+        "stetson": {
+            "institution_name": "Stetson University"
+        },
+        "villanueva": {
+            "institution_name": "Centro Universitario Villanueva"
+        },
+        "utah": {
+            "institution_name": "University of Utah"
+        },
+        "usd": {
+            "institution_name": "University of South Dakota"
+        },
+        "jonesinternational": {
+            "institution_name": "Jones International University"
+        },
+        "gbs": {
+            "institution_name": "God's Bible School and College"
+        },
+        "nku": {
+            "institution_name": "Northern Kentucky University"
+        },
+        "augsburg": {
+            "institution_name": "Augsburg College"
+        },
+        "mcad": {
+            "institution_name": "Minneapolis College of Art and Design"
+        },
+        "oakton": {
+            "institution_name": "Oakton Community College"
+        },
+        "subr": {
+            "institution_name": "Southern University - Baton Rouge"
+        },
+        "bhc": {
+            "institution_name": "Black Hawk College"
+        },
+        "ecu": {
+            "institution_name": "East Carolina University"
+        },
+        "utampa": {
+            "institution_name": "University of Tampa"
+        },
+        "iub": {
+            "institution_name": "Indiana University at Bloomington"
+        },
+        "inter": {
+            "institution_name": "Universidad Interamericana de Puerto Rico"
+        },
+        "planwel": {
+            "institution_name": "Planwel University"
+        },
+        "winthrop": {
+            "institution_name": "Winthrop University"
+        },
+        "culver": {
+            "institution_name": "Culver-Stockton College"
+        },
+        "uams": {
+            "institution_name": "University of Arkansas for Medical Sciences"
+        },
+        "uga": {
+            "institution_name": "University of Georgia"
+        },
+        "salve": {
+            "institution_name": "Salve Regina University"
+        },
+        "washburn": {
+            "institution_name": "Washburn University"
+        },
+        "lakeerie": {
+            "institution_name": "Lake Erie College"
+        },
+        "uarts": {
+            "institution_name": "University of the Arts"
+        },
+        "uofk": {
+            "institution_name": "University of Khartoum"
+        },
+        "vanderbilt": {
+            "institution_name": "Vanderbilt University"
+        },
+        "emmaus": {
+            "institution_name": "Emmaus Bible College"
+        },
+        "seattleu": {
+            "institution_name": "Seattle University"
+        },
+        "selu": {
+            "institution_name": "Southeastern Louisiana University"
+        },
+        "uaf": {
+            "institution_name": "University of Alaska - Fairbanks"
+        },
+        "ncwc": {
+            "institution_name": "North Carolina Wesleyan College"
+        },
+        "noctrl": {
+            "institution_name": "North Central College"
+        },
+        "uni": {
+            "institution_name": "University of Northern Iowa"
+        },
+        "maranatha": {
+            "institution_name": "Universitas Kristen Maranatha"
+        },
+        "astate": {
+            "institution_name": "Arkansas State University"
+        },
+        "hebron": {
+            "institution_name": "Hebron University"
+        },
+        "armstrong": {
+            "institution_name": "Armstrong Atlantic State University"
+        },
+        "prin": {
+            "institution_name": "Principia College"
+        },
+        "rockhurst": {
+            "institution_name": "Rockhurst College"
+        },
+        "shorter": {
+            "institution_name": "Shorter College"
+        },
+        "cofo": {
+            "institution_name": "College of the Ozarks"
+        },
+        "quincy": {
+            "institution_name": "Quincy University"
+        },
+        "dordt": {
+            "institution_name": "Dordt College"
+        },
+        "rpi": {
+            "institution_name": "Rensselaer Polytechnic Institute"
+        },
+        "belhaven": {
+            "institution_name": "Belhaven College"
+        },
+        "bvu": {
+            "institution_name": "Buena Vista University"
+        },
+        "stlawu": {
+            "institution_name": "St. Lawrence University"
+        },
+        "utdt": {
+            "institution_name": "Universidad Torcuato di Tella"
+        },
+        "fresno": {
+            "institution_name": "Fresno Pacific University"
+        },
+        "wlc": {
+            "institution_name": "Wisconsin Lutheran College"
+        },
+        "utep": {
+            "institution_name": "University of Texas at El Paso"
+        },
+        "umhb": {
+            "institution_name": "University of Mary Hardin-Baylor"
+        },
+        "philau": {
+            "institution_name": "Philadelphia University"
+        },
+        "sxu": {
+            "institution_name": "St. Xavier University"
+        },
+        "hmc": {
+            "institution_name": "Harvey Mudd College"
+        },
+        "gardner-webb": {
+            "institution_name": "Gardner Webb University"
+        },
+        "stjohnsem": {
+            "institution_name": "St. John's Seminary"
+        },
+        "hlg": {
+            "institution_name": "Hannibal-Lagrange College"
+        },
+        "intercol": {
+            "institution_name": "Intercollege"
+        },
+        "loyola": {
+            "institution_name": "Loyola College in Maryland"
+        },
+        "valdosta": {
+            "institution_name": "Valdosta State University"
+        },
+        "jsums": {
+            "institution_name": "Jackson State University"
+        },
+        "mckendree": {
+            "institution_name": "McKendree College"
+        },
+        "strose": {
+            "institution_name": "College of St. Rose"
+        },
+        "aiu": {
+            "institution_name": "Atlantic International University"
+        },
+        "samford": {
+            "institution_name": "Samford University"
+        },
+        "juilliard": {
+            "institution_name": "The Juilliard School"
+        },
+        "daemen": {
+            "institution_name": "Daemen College"
+        },
+        "uncp": {
+            "institution_name": "University of North Carolina at Pembroke"
+        },
+        "valpo": {
+            "institution_name": "Valparaiso University"
+        },
+        "sfsu": {
+            "institution_name": "San Francisco State University"
+        },
+        "aucegypt": {
+            "institution_name": "American University in Cairo"
+        },
+        "mobap": {
+            "institution_name": "Missouri Baptist College"
+        },
+        "uncg": {
+            "institution_name": "University of North Carolina at Greensboro"
+        },
+        "uu": {
+            "institution_name": "Union University"
+        },
+        "palmer": {
+            "institution_name": "Palmer College of Chiropractic"
+        },
+        "asbury": {
+            "institution_name": "Asbury College"
+        },
+        "mccks": {
+            "institution_name": "Manhattan Christian College"
+        },
+        "uasys": {
+            "institution_name": "University of Arkansas (System)"
+        },
+        "unity": {
+            "institution_name": "Unity College"
+        },
+        "artic": {
+            "institution_name": "The School of the Art Institute of Chicago"
+        },
+        "cia": {
+            "institution_name": "Cleveland Institute of Art"
+        },
+        "uc": {
+            "institution_name": "University of Cincinnati"
+        },
+        "smu": {
+            "institution_name": "Southern Methodist University"
+        },
+        "grinnell": {
+            "institution_name": "Grinnell College"
+        },
+        "cune": {
+            "institution_name": "Concordia College, Seward"
+        },
+        "juniata": {
+            "institution_name": "Juniata College"
+        },
+        "umobile": {
+            "institution_name": "University of Mobile"
+        },
+        "martin": {
+            "institution_name": "Martin University"
+        },
+        "heidelberg": {
+            "institution_name": "Heidelberg College"
+        },
+        "sci": {
+            "institution_name": "Benedictine University, Springfield College in Illinois"
+        },
+        "la": {
+            "institution_name": "Mount St. Mary's College California"
+        },
+        "whitman": {
+            "institution_name": "Whitman College"
+        },
+        "reed": {
+            "institution_name": "Reed College"
+        },
+        "aic": {
+            "institution_name": "American International College"
+        },
+        "tsu": {
+            "institution_name": "Texas Southern University"
+        },
+        "scrippscol": {
+            "institution_name": "Scripps College"
+        },
+        "risd": {
+            "institution_name": "Rhode Island School of Design"
+        },
+        "northsouth": {
+            "institution_name": "North South University"
+        },
+        "arizona": {
+            "institution_name": "University of Arizona"
+        },
+        "tntech": {
+            "institution_name": "Tennessee Technological University"
+        },
+        "cn": {
+            "institution_name": "Carson-Newman College"
+        },
+        "birzeit": {
+            "institution_name": "Birzeit University"
+        },
+        "uamont": {
+            "institution_name": "University of Arkansas at Monticello"
+        },
+        "ncbc": {
+            "institution_name": "North Central Bible College"
+        },
+        "t-bird": {
+            "institution_name": "American Graduate School of International Management"
+        },
+        "stmarytx": {
+            "institution_name": "St. Mary's University of San Antonio"
+        },
+        "texascollege": {
+            "institution_name": "Texas College"
+        },
+        "stlcop": {
+            "institution_name": "St. Louis College of Pharmacy"
+        },
+        "benedict": {
+            "institution_name": "Benedict College"
+        },
+        "wlu": {
+            "institution_name": "Washington and Lee University"
+        },
+        "lewisu": {
+            "institution_name": "Lewis University"
+        },
+        "susqu": {
+            "institution_name": "Susquehanna University"
+        },
+        "cambridge": {
+            "institution_name": "Cambridge College"
+        },
+        "towson": {
+            "institution_name": "Towson University"
+        },
+        "iastate": {
+            "institution_name": "Iowa State University of Science and Technology"
+        },
+        "bennington": {
+            "institution_name": "Bennington College"
+        },
+        "ramapo": {
+            "institution_name": "Ramapo College of New Jersey"
+        },
+        "pdx": {
+            "institution_name": "Portland State University"
+        },
+        "immaculata": {
+            "institution_name": "Immaculata University"
+        },
+        "morehouse": {
+            "institution_name": "Morehouse College"
+        },
+        "kirkwood": {
+            "institution_name": "Kirkwood Community College"
+        },
+        "geneseo": {
+            "institution_name": "State University of New York College at Geneseo"
+        },
+        "reinhardt": {
+            "institution_name": "Reinhardt College"
+        },
+        "ccsu": {
+            "institution_name": "Central Connecticut State University"
+        },
+        "umes": {
+            "institution_name": "University of Maryland Eastern Shore"
+        },
+        "king": {
+            "institution_name": "King College"
+        },
+        "umd": {
+            "institution_name": "University of Maryland"
+        },
+        "bowiestate": {
+            "institution_name": "Bowie State University"
+        },
+        "ehc": {
+            "institution_name": "Emory &amp; Henry College"
+        },
+        "hputx": {
+            "institution_name": "Howard Payne University"
+        },
+        "moravian": {
+            "institution_name": "Moravian College"
+        },
+        "hightech": {
+            "institution_name": "\u00c9cole Sup\u00e9rieure d'Informatique et de Management"
+        },
+        "ums": {
+            "institution_name": "University of Maryland (System)"
+        },
+        "guilford": {
+            "institution_name": "Guilford College"
+        },
+        "unh": {
+            "institution_name": "University of New Hampshire"
+        },
+        "findlay": {
+            "institution_name": "University of Findlay"
+        },
+        "llu": {
+            "institution_name": "Loma Linda University"
+        },
+        "eastwest": {
+            "institution_name": "East-West University"
+        },
+        "clarion": {
+            "institution_name": "Clarion University"
+        },
+        "chapman": {
+            "institution_name": "Chapman University"
+        },
+        "csulb": {
+            "institution_name": "California State University, Long Beach"
+        },
+        "ucsf": {
+            "institution_name": "University of California, San Francisco"
+        },
+        "plymouth": {
+            "institution_name": "Plymouth State College"
+        },
+        "evangel": {
+            "institution_name": "Evangel University"
+        },
+        "ubi": {
+            "institution_name": "United Business Institute"
+        },
+        "ucsd": {
+            "institution_name": "University of California, San Diego"
+        },
+        "temple": {
+            "institution_name": "Temple University"
+        },
+        "collegeamerica": {
+            "institution_name": "CollegeAmerica"
+        },
+        "utsi": {
+            "institution_name": "University of Tennessee Space Institute"
+        },
+        "roanoke": {
+            "institution_name": "Roanoke College"
+        },
+        "hamptonu": {
+            "institution_name": "Hampton University"
+        },
+        "vccs": {
+            "institution_name": "Virginia's Community Colleges"
+        },
+        "ivcc": {
+            "institution_name": "Illinois Valley Community College"
+        },
+        "northern": {
+            "institution_name": "Northern State University"
+        },
+        "wub": {
+            "institution_name": "World University of Bangladesh (WUB)"
+        },
+        "spelman": {
+            "institution_name": "Spelman College"
+        },
+        "vermontlaw": {
+            "institution_name": "Vermont Law School"
+        },
+        "sbuniv": {
+            "institution_name": "Southwest Baptist University"
+        },
+        "tbc2day": {
+            "institution_name": "Trinity Bible College"
+        },
+        "harvard": {
+            "institution_name": "Harvard University"
+        },
+        "msun": {
+            "institution_name": "Montana State University - Northern"
+        },
+        "grand-canyon": {
+            "institution_name": "Grand Canyon University"
+        },
+        "depaul": {
+            "institution_name": "DePaul University"
+        },
+        "oakland": {
+            "institution_name": "Oakland University"
+        },
+        "nwmissouri": {
+            "institution_name": "Northwest Missouri State University"
+        },
+        "wofford": {
+            "institution_name": "Wofford College"
+        },
+        "mcphu": {
+            "institution_name": "Medical College of Pennsylvania and Hahnemann University"
+        },
+        "brcn": {
+            "institution_name": "Blessing-Rieman College of Nursing"
+        },
+        "syr": {
+            "institution_name": "Syracuse University"
+        },
+        "catawba": {
+            "institution_name": "Catawba College"
+        },
+        "asun": {
+            "institution_name": "Arkansas State University, Newport"
+        },
+        "utdallas": {
+            "institution_name": "University of Texas at Dallas"
+        },
+        "msu": {
+            "institution_name": "Michigan State University"
+        },
+        "mountunion": {
+            "institution_name": "Mount Union College"
+        },
+        "ursuline": {
+            "institution_name": "Ursuline College"
+        },
+        "csm": {
+            "institution_name": "College of St. Mary"
+        },
+        "cogswell": {
+            "institution_name": "Cogswell Polytechnical College"
+        },
+        "stu": {
+            "institution_name": "St. Thomas University"
+        },
+        "fullsail": {
+            "institution_name": "Full Sail University"
+        },
+        "dwc": {
+            "institution_name": "Daniel Webster College"
+        },
+        "dbu": {
+            "institution_name": "Dallas Baptist University"
+        },
+        "yu": {
+            "institution_name": "Yeshiva University"
+        },
+        "jmu": {
+            "institution_name": "James Madison University"
+        },
+        "etown": {
+            "institution_name": "Elizabethtown College"
+        },
+        "vsu": {
+            "institution_name": "Virginia State University"
+        },
+        "tju": {
+            "institution_name": "Thomas Jefferson University"
+        },
+        "fscj": {
+            "institution_name": "Florida State College at Jacksonville"
+        },
+        "mispp": {
+            "institution_name": "Michigan School of Professional Psychology"
+        },
+        "ua": {
+            "institution_name": "University of Alabama - Tuscaloosa"
+        },
+        "lacc": {
+            "institution_name": "Los Angeles College of Chiropractic"
+        },
+        "vsc": {
+            "institution_name": "Vermont State College"
+        },
+        "umwestern": {
+            "institution_name": "University of Montana Western"
+        },
+        "ciu": {
+            "institution_name": "Columbia International University"
+        },
+        "apu": {
+            "institution_name": "Azusa Pacific University"
+        },
+        "saxion": {
+            "institution_name": "Saxion Universities"
+        },
+        "carroll": {
+            "institution_name": "Carroll College Helena"
+        },
+        "wileyc": {
+            "institution_name": "Wiley College"
+        },
+        "campbell": {
+            "institution_name": "Campbell University"
+        },
+        "belmont": {
+            "institution_name": "Belmont University"
+        },
+        "northland": {
+            "institution_name": "Northland College"
+        },
+        "unicah": {
+            "institution_name": "Universidad Cat\u00f3lica de Honduras"
+        },
+        "htc": {
+            "institution_name": "Huston-Tillotson College"
+        },
+        "loyno": {
+            "institution_name": "Loyola University New Orleans"
+        },
+        "sau": {
+            "institution_name": "St. Ambrose University"
+        },
+        "smwc": {
+            "institution_name": "St. Mary-of-the-Woods College"
+        },
+        "lfgsm": {
+            "institution_name": "Lake Forest Graduate School of Management"
+        },
+        "ciis": {
+            "institution_name": "California Institute of Integral Studies"
+        },
+        "hamline": {
+            "institution_name": "Hamline University"
+        },
+        "dwu": {
+            "institution_name": "Dakota Wesleyan University"
+        },
+        "alvernia": {
+            "institution_name": "Alvernia College"
+        },
+        "bhsu": {
+            "institution_name": "Black Hills State University"
+        },
+        "sdsu": {
+            "institution_name": "San Diego State University"
+        },
+        "mst": {
+            "institution_name": "Missouri University of Science and Technology"
+        },
+        "shepherd": {
+            "institution_name": "Shepherd College"
+        },
+        "cmich": {
+            "institution_name": "Central Michigan University"
+        },
+        "evansville": {
+            "institution_name": "University of Evansville"
+        },
+        "uindy": {
+            "institution_name": "University of Indianapolis"
+        },
+        "ubalt": {
+            "institution_name": "University of Baltimore"
+        },
+        "heritage": {
+            "institution_name": "Heritage College"
+        },
+        "stkate": {
+            "institution_name": "College of St. Catherine"
+        },
+        "srttu": {
+            "institution_name": "Shaheed Rajaei Teacher Training University"
+        },
+        "uvm": {
+            "institution_name": "University of Vermont"
+        },
+        "callutheran": {
+            "institution_name": "California Lutheran University"
+        },
+        "ccpm": {
+            "institution_name": "California College of Podiatric Medicine"
+        },
+        "luc": {
+            "institution_name": "Loyola University of Chicago"
+        },
+        "stephens": {
+            "institution_name": "Stephens College"
+        },
+        "nyu": {
+            "institution_name": "New York University"
+        },
+        "unk": {
+            "institution_name": "University of Nebraska - Kearney"
+        },
+        "beaver": {
+            "institution_name": "Beaver College"
+        },
+        "antiochla": {
+            "institution_name": "Antioch University Los Angeles"
+        },
+        "grantham": {
+            "institution_name": "Grantham University"
+        },
+        "sherman": {
+            "institution_name": "Sherman College of Straight Chiropractic"
+        },
+        "tabor": {
+            "institution_name": "Tabor College"
+        },
+        "chatham": {
+            "institution_name": "Chatham College"
+        },
+        "goucher": {
+            "institution_name": "Goucher College"
+        },
+        "angelo": {
+            "institution_name": "Angelo State University"
+        },
+        "bentley": {
+            "institution_name": "Bentley College"
+        },
+        "emory": {
+            "institution_name": "Emory University"
+        },
+        "antiochsea": {
+            "institution_name": "Antioch University Seattle"
+        },
+        "nur": {
+            "institution_name": "Universidad NUR"
+        },
+        "bethel": {
+            "institution_name": "Bethel College St. Paul"
+        },
+        "ohio-state": {
+            "institution_name": "Ohio State University"
+        },
+        "msoe": {
+            "institution_name": "Milwaukee School of Engineering"
+        },
+        "intelliteccollege": {
+            "institution_name": "IntelliTec College - Grand Junction"
+        },
+        "umc": {
+            "institution_name": "University of Mississippi Medical Center"
+        },
+        "tayloru": {
+            "institution_name": "Taylor University"
+        },
+        "csuniv": {
+            "institution_name": "Charleston Southern University"
+        },
+        "nayanova": {
+            "institution_name": "Nayanova University"
+        },
+        "uno": {
+            "institution_name": "University of New Orleans"
+        },
+        "umt": {
+            "institution_name": "University of Montana"
+        },
+        "trinity": {
+            "institution_name": "Trinity University"
+        },
+        "nmt": {
+            "institution_name": "New Mexico Institute of Mining and Technology"
+        },
+        "shoreline": {
+            "institution_name": "Shoreline Community College"
+        },
+        "lehigh": {
+            "institution_name": "Lehigh Univervsity"
+        },
+        "wintu": {
+            "institution_name": "Western International University"
+        },
+        "coleman": {
+            "institution_name": "Coleman College"
+        },
+        "regent": {
+            "institution_name": "Regent University"
+        },
+        "csun": {
+            "institution_name": "California State University, Northridge"
+        },
+        "uta": {
+            "institution_name": "University of Texas at Arlington"
+        },
+        "widener": {
+            "institution_name": "Widener University"
+        },
+        "berklee": {
+            "institution_name": "Berklee College of Music"
+        },
+        "mcpherson": {
+            "institution_name": "McPherson College"
+        },
+        "usao": {
+            "institution_name": "University of Science and Arts of Oklahoma"
+        },
+        "uwm": {
+            "institution_name": "University of Wisconsin - Milwaukee"
+        },
+        "lindenwood": {
+            "institution_name": "Lindenwood University"
+        },
+        "middlebury": {
+            "institution_name": "Middlebury College"
+        },
+        "uvi": {
+            "institution_name": "University of the Virgin Islands"
+        },
+        "ferris": {
+            "institution_name": "Ferris State University"
+        },
+        "marymount": {
+            "institution_name": "Marymount University"
+        },
+        "northpark": {
+            "institution_name": "North Park University"
+        },
+        "park": {
+            "institution_name": "Park College"
+        },
+        "athens": {
+            "institution_name": "Athens State College"
+        },
+        "lasierra": {
+            "institution_name": "La Sierra University"
+        },
+        "albanylaw": {
+            "institution_name": "Albany Law School"
+        },
+        "grace": {
+            "institution_name": "Grace College"
+        },
+        "californiacolleges": {
+            "institution_name": "California Colleges"
+        },
+        "trnty": {
+            "institution_name": "Trinity Christian College"
+        },
+        "bastyr": {
+            "institution_name": "Bastyr University"
+        },
+        "evergreen": {
+            "institution_name": "Evergreen State College"
+        },
+        "georgefox": {
+            "institution_name": "George Fox University"
+        },
+        "kcad": {
+            "institution_name": "Kendall College of Art and Design"
+        },
+        "mu": {
+            "institution_name": "Marquette University"
+        },
+        "unca": {
+            "institution_name": "University of North Carolina at Asheville"
+        },
+        "bridgew": {
+            "institution_name": "Bridgewater State College"
+        },
+        "wesleyan-college": {
+            "institution_name": "Wesleyan College"
+        },
+        "washington": {
+            "institution_name": "University of Washington"
+        },
+        "unai": {
+            "institution_name": "Universitas Advent Indonesia"
+        },
+        "multnomah": {
+            "institution_name": "Multnomah Bible College"
+        },
+        "runet": {
+            "institution_name": "Radford University"
+        },
+        "nyit": {
+            "institution_name": "New York Institute of Technology"
+        },
+        "lakeviewcol": {
+            "institution_name": "Lakeview College of Nursing"
+        },
+        "butler": {
+            "institution_name": "Butler University"
+        },
+        "scad": {
+            "institution_name": "Savannah College of Art and Design"
+        },
+        "lander": {
+            "institution_name": "Lander University"
+        },
+        "wm": {
+            "institution_name": "College of William and Mary"
+        },
+        "harding": {
+            "institution_name": "Harding University"
+        },
+        "limcollege": {
+            "institution_name": "Laboratory Institute of Merchandising"
+        },
+        "uttyl": {
+            "institution_name": "University of Texas at Tyler"
+        },
+        "lacollege": {
+            "institution_name": "Louisiana College"
+        },
+        "chc": {
+            "institution_name": "Chestnut Hill College"
+        },
+        "sco": {
+            "institution_name": "Southern College of Optometry"
+        },
+        "aast": {
+            "institution_name": "Arab Academy for Science &amp; Technology"
+        },
+        "dbq": {
+            "institution_name": "University of Dubuque"
+        },
+        "lssu": {
+            "institution_name": "Lake Superior State University"
+        },
+        "xu": {
+            "institution_name": "Xavier University"
+        },
+        "dcb": {
+            "institution_name": "Detroit College of Business"
+        },
+        "shawnee": {
+            "institution_name": "Shawnee State University"
+        },
+        "webber": {
+            "institution_name": "Webber College"
+        },
+        "omsk": {
+            "institution_name": "Omsk State Pedagogical University"
+        },
+        "miis": {
+            "institution_name": "Monterey Institute of International Studies"
+        },
+        "oldwestbury": {
+            "institution_name": "State University of New York College at Old Westbury"
+        },
+        "suu": {
+            "institution_name": "Southern Utah University"
+        },
+        "curtis": {
+            "institution_name": "The Curtis Institute of Music"
+        },
+        "lourdes": {
+            "institution_name": "Lourdes College"
+        },
+        "unva": {
+            "institution_name": "University of Northern Virginia"
+        },
+        "mc": {
+            "institution_name": "Mississippi College"
+        },
+        "sacn": {
+            "institution_name": "St. Anthony College of Nursing"
+        },
+        "vanguard": {
+            "institution_name": "Vanguard University of Southern California"
+        },
+        "missouri": {
+            "institution_name": "University of Missouri - Columbia"
+        },
+        "ecok": {
+            "institution_name": "East Central University"
+        },
+        "uprm": {
+            "institution_name": "Universidad de Puerto Rico, Mayaguez"
+        },
+        "bethany": {
+            "institution_name": "Bethany College California"
+        },
+        "dowling": {
+            "institution_name": "Dowling College"
+        },
+        "nysid": {
+            "institution_name": "New York School of Interior Design"
+        },
+        "stmartin": {
+            "institution_name": "St. Martin's College"
+        },
+        "lakeland": {
+            "institution_name": "Lakeland College"
+        },
+        "st-aug": {
+            "institution_name": "St. Augustine's College North Carolina"
+        },
+        "montevallo": {
+            "institution_name": "University of Montevallo"
+        },
+        "augie": {
+            "institution_name": "Augustana College"
+        },
+        "utsouthwestern": {
+            "institution_name": "University of Texas Southwestern Medical Center at Dallas"
+        },
+        "wmich": {
+            "institution_name": "Western Michigan University"
+        },
+        "usna": {
+            "institution_name": "United States Naval Academy"
+        },
+        "uprutuado": {
+            "institution_name": "Universidad de Puerto Rico, Utuado"
+        },
+        "umi-mdn": {
+            "institution_name": "Universitas Methodist Indonesia"
+        },
+        "sulross": {
+            "institution_name": "Sul Ross State University"
+        },
+        "ltu": {
+            "institution_name": "Lawrence Technological University"
+        },
+        "nmu": {
+            "institution_name": "Northern Michigan University"
+        },
+        "leeuniversity": {
+            "institution_name": "Lee University"
+        },
+        "qvius": {
+            "institution_name": "Quantum-Veritas International University"
+        },
+        "hartford": {
+            "institution_name": "University of Hartford"
+        },
+        "adrian": {
+            "institution_name": "Adrian College"
+        },
+        "mines": {
+            "institution_name": "Colorado School of Mines"
+        },
+        "calstatela": {
+            "institution_name": "California State University, Los Angeles"
+        },
+        "uci": {
+            "institution_name": "University of California, Irvine"
+        },
+        "isu": {
+            "institution_name": "Idaho State University"
+        },
+        "univalle": {
+            "institution_name": "Universidad Privada del Valle"
+        },
+        "aiuniv": {
+            "institution_name": "American InterContinental University"
+        },
+        "uophx": {
+            "institution_name": "University of Phoenix"
+        },
+        "westernu": {
+            "institution_name": "College of Osteopathic Medicine of the Pacific (Western University of Health Sciences)"
+        },
+        "rmcad": {
+            "institution_name": "Rocky Mountain College of Art and Design"
+        },
+        "lmu": {
+            "institution_name": "Loyola Marymount University"
+        },
+        "uat": {
+            "institution_name": "University of Advancing Technology (UAT)"
+        },
+        "okstate": {
+            "institution_name": "Oklahoma State University"
+        },
+        "ucsb": {
+            "institution_name": "University of California, Santa Barbara"
+        },
+        "methodist": {
+            "institution_name": "Methodist College"
+        },
+        "uvic": {
+            "institution_name": "Universitat de Vic"
+        },
+        "jewell": {
+            "institution_name": "William Jewell College"
+        },
+        "kettering": {
+            "institution_name": "Kettering University (GMI)"
+        },
+        "csuci": {
+            "institution_name": "California State University, Channel Islands"
+        },
+        "olemiss": {
+            "institution_name": "University of Mississippi"
+        },
+        "psu": {
+            "institution_name": "Pennsylvania State University"
+        },
+        "unl": {
+            "institution_name": "University of Nebraska - Lincoln"
+        },
+        "maricopa": {
+            "institution_name": "Maricopa Community College"
+        },
+        "felician": {
+            "institution_name": "Felician College"
+        },
+        "ksu": {
+            "institution_name": "Kansas State University"
+        },
+        "siam": {
+            "institution_name": "Siam University"
+        },
+        "csum": {
+            "institution_name": "California Maritime Academy"
+        },
+        "sunyit": {
+            "institution_name": "State University of New York Institute of Technology at Utica/Rome"
+        },
+        "ewubd": {
+            "institution_name": "East West University"
+        },
+        "cameron": {
+            "institution_name": "Cameron University"
+        },
+        "gia": {
+            "institution_name": "Gemological Institute of America"
+        },
+        "carthage": {
+            "institution_name": "Carthage College"
+        },
+        "utb": {
+            "institution_name": "University of Texas at Brownsville"
+        },
+        "caltech": {
+            "institution_name": "California Institute of Technology"
+        },
+        "kysu": {
+            "institution_name": "Kentucky State University"
+        },
+        "sewanee": {
+            "institution_name": "University of the South"
+        },
+        "miles": {
+            "institution_name": "Miles College"
+        },
+        "ab": {
+            "institution_name": "Alderson Broaddus College"
+        },
+        "au": {
+            "institution_name": "Assumption University of Thailand"
+        },
+        "purchase": {
+            "institution_name": "State University of New York College at Purchase"
+        },
+        "ahgaff": {
+            "institution_name": "Alahgaff University"
+        },
+        "olivet": {
+            "institution_name": "Olivet Nazarene University"
+        },
+        "anselm": {
+            "institution_name": "St. Anselm College"
+        },
+        "tnstate": {
+            "institution_name": "Tennessee State University"
+        },
+        "earlham": {
+            "institution_name": "Earlham College"
+        },
+        "york": {
+            "institution_name": "York College Nebraska"
+        },
+        "post": {
+            "institution_name": "Post University of Waterbury"
+        },
+        "columbus": {
+            "institution_name": "Columbus University"
+        },
+        "oru": {
+            "institution_name": "Oral Roberts University"
+        },
+        "warnerpacific": {
+            "institution_name": "Warner Pacific College"
+        },
+        "udmercy": {
+            "institution_name": "University of Detroit Mercy"
+        },
+        "disd": {
+            "institution_name": "Design Institute of San Diego"
+        },
+        "cahsu": {
+            "institution_name": "Central America Health Sciences University (Belize Medical College)"
+        },
+        "saintmeinrad": {
+            "institution_name": "St. Meinrad College"
+        },
+        "slu": {
+            "institution_name": "St. Louis University"
+        },
+        "alaska": {
+            "institution_name": "University of Alaska"
+        },
+        "tu": {
+            "institution_name": "Touro University"
+        },
+        "uscsumter": {
+            "institution_name": "University of South Carolina - Sumter"
+        },
+        "quinnipiac": {
+            "institution_name": "Quinnipiac College"
+        },
+        "hamilton": {
+            "institution_name": "Hamilton College"
+        },
+        "covenant": {
+            "institution_name": "Covenant College"
+        },
+        "defiance": {
+            "institution_name": "The Defiance College"
+        },
+        "olivetcollege": {
+            "institution_name": "Olivet College"
+        },
+        "slc": {
+            "institution_name": "Sarah Lawrence College"
+        },
+        "alaskapacific": {
+            "institution_name": "Alaska Pacific University"
+        },
+        "edinboro": {
+            "institution_name": "Edinboro University of Pennsylvania"
+        },
+        "oglethorpe": {
+            "institution_name": "Oglethorpe University"
+        },
+        "uncc": {
+            "institution_name": "University of North Carolina at Charlotte"
+        },
+        "stockton": {
+            "institution_name": "Richard Stockton College of New Jersey"
+        },
+        "gram": {
+            "institution_name": "Grambling State University"
+        },
+        "lclark": {
+            "institution_name": "Lewis and Clark College"
+        },
+        "kzoo": {
+            "institution_name": "Kalamazoo College"
+        },
+        "sciarc": {
+            "institution_name": "Southern California Institute of Architecture"
+        },
+        "csj": {
+            "institution_name": "College of St. Joseph"
+        },
+        "usmma": {
+            "institution_name": "United States Merchant Marine Academy"
+        },
+        "nl": {
+            "institution_name": "National-Louis University"
+        },
+        "ship": {
+            "institution_name": "Shippensburg University of Pennsylvania"
+        },
+        "kenyon": {
+            "institution_name": "Kenyon College"
+        },
+        "etbu": {
+            "institution_name": "East Texas Baptist University"
+        },
+        "pittstate": {
+            "institution_name": "Pittsburg State University"
+        },
+        "boricuacollege": {
+            "institution_name": "Boricua College"
+        },
+        "piedmont": {
+            "institution_name": "Piedmont College"
+        },
+        "uwyo": {
+            "institution_name": "University of Wyoming"
+        },
+        "carlow": {
+            "institution_name": "Carlow College"
+        },
+        "wells": {
+            "institution_name": "Wells College"
+        },
+        "juc": {
+            "institution_name": "Jerusalem University College"
+        },
+        "nebrwesleyan": {
+            "institution_name": "Nebraska Wesleyan University"
+        },
+        "colgate": {
+            "institution_name": "Colgate University"
+        },
+        "fcc": {
+            "institution_name": "Florida Christian College"
+        },
+        "cortland": {
+            "institution_name": "State University of New York College at Cortland"
+        },
+        "nccu": {
+            "institution_name": "North Carolina Central University"
+        },
+        "nau": {
+            "institution_name": "Northern Arizona University"
+        },
+        "utc": {
+            "institution_name": "University of Tennessee - Chattanooga"
+        },
+        "cabrini": {
+            "institution_name": "Cabrini College"
+        },
+        "thomasmorecollege": {
+            "institution_name": "Thomas More College of Liberal Arts"
+        },
+        "umary": {
+            "institution_name": "University of Mary"
+        },
+        "umsl": {
+            "institution_name": "University of Missouri - Saint Louis"
+        },
+        "eiu": {
+            "institution_name": "Eastern Illinois University"
+        },
+        "rockefeller": {
+            "institution_name": "The Rockefeller University"
+        },
+        "unm": {
+            "institution_name": "University of New Mexico"
+        },
+        "uthouston": {
+            "institution_name": "University of Texas Health Center at Houston"
+        },
+        "marist": {
+            "institution_name": "Marist College"
+        },
+        "iona": {
+            "institution_name": "Iona College"
+        },
+        "redlands": {
+            "institution_name": "University of Redlands"
+        },
+        "lmc": {
+            "institution_name": "Lees-McRae College"
+        },
+        "colostate": {
+            "institution_name": "Colorado State University"
+        },
+        "ucsc": {
+            "institution_name": "University of California, Santa Cruz"
+        },
+        "utpb": {
+            "institution_name": "University of Texas of the Permian Basin"
+        },
+        "troy": {
+            "institution_name": "Troy University"
+        },
+        "uab": {
+            "institution_name": "University of Alabama - Birmingham"
+        },
+        "csuhayward": {
+            "institution_name": "California State University, Hayward"
+        },
+        "bbc": {
+            "institution_name": "Baptist Bible College of Pennsylvania"
+        },
+        "ccis": {
+            "institution_name": "Columbia College of Missouri"
+        },
+        "clarku": {
+            "institution_name": "Clark University"
+        },
+        "egs": {
+            "institution_name": "European Graduate School, Media &amp; Communications"
+        },
+        "knoxvillecollege": {
+            "institution_name": "Knoxville College"
+        },
+        "nsula": {
+            "institution_name": "Northwestern State University of Louisiana"
+        },
+        "utoledo": {
+            "institution_name": "University of Toledo"
+        },
+        "andrews": {
+            "institution_name": "Andrews University"
+        },
+        "semo": {
+            "institution_name": "Southeast Missouri State University"
+        },
+        "ppu": {
+            "institution_name": "Palestine Polytechnic University"
+        },
+        "unw": {
+            "institution_name": "University of Northern Washington"
+        },
+        "coastal": {
+            "institution_name": "Coastal Carolina University"
+        },
+        "geneva": {
+            "institution_name": "Geneva College"
+        },
+        "ohiou": {
+            "institution_name": "Ohio University"
+        },
+        "sandiego": {
+            "institution_name": "University of San Diego"
+        },
+        "bloomfield": {
+            "institution_name": "Bloomfield College"
+        },
+        "ccsj": {
+            "institution_name": "Calumet College of St. Joseph"
+        },
+        "fullerton": {
+            "institution_name": "California State University, Fullerton"
+        },
+        "mtsu": {
+            "institution_name": "Middle Tennessee State University"
+        },
+        "uprrp": {
+            "institution_name": "Universidad de Puerto Rico, Rio Pedras"
+        },
+        "bridgeport": {
+            "institution_name": "University of Bridgeport"
+        },
+        "ujmv": {
+            "institution_name": "Universidad Jos\u00e9 Maria Vargas"
+        },
+        "norwich": {
+            "institution_name": "Norwich University"
+        },
+        "nbc": {
+            "institution_name": "Nazarene Bible College"
+        },
+        "sacredheart": {
+            "institution_name": "Sacred Heart University"
+        },
+        "appstate": {
+            "institution_name": "Appalachian State University"
+        },
+        "chiropractic": {
+            "institution_name": "National College of Chiropractic"
+        },
+        "whitworth": {
+            "institution_name": "Whitworth College"
+        },
+        "pucpr": {
+            "institution_name": "Pontificia Universidad Catolica de Puerto Rico"
+        },
+        "bu": {
+            "institution_name": "Boston University"
+        },
+        "tamu": {
+            "institution_name": "Texas A&M University"
+        },
+        "uprc": {
+            "institution_name": "Universidad de Puerto Rico, Carolina"
+        },
+        "georgian": {
+            "institution_name": "Georgian Court College"
+        },
+        "hofstra": {
+            "institution_name": "Hofstra University"
+        },
+        "csp": {
+            "institution_name": "Concordia College, St. Paul"
+        },
+        "martinmethodist": {
+            "institution_name": "Martin Methodist College"
+        },
+        "cgu": {
+            "institution_name": "Claremont Graduate University"
+        },
+        "hillsdale": {
+            "institution_name": "Hillsdale College"
+        },
+        "humphreys": {
+            "institution_name": "Humphreys College"
+        },
+        "wilberforce": {
+            "institution_name": "Wilberforce University"
+        },
+        "smcm": {
+            "institution_name": "St. Mary's College of Maryland"
+        },
+        "meredith": {
+            "institution_name": "Meredith College"
+        },
+        "rutgers": {
+            "institution_name": "Rutgers, The State University of New Jersey"
+        },
+        "hws": {
+            "institution_name": "Hobart and William Smith Colleges"
+        },
+        "unlv": {
+            "institution_name": "University of Nevada - Las Vegas"
+        },
+        "ozarks": {
+            "institution_name": "University of the Ozarks"
+        },
+        "stolaf": {
+            "institution_name": "St. Olaf College"
+        },
+        "sou": {
+            "institution_name": "Southern Oregon University"
+        },
+        "shawuniversity": {
+            "institution_name": "Shaw University"
+        },
+        "centralstate": {
+            "institution_name": "Central State University"
+        },
+        "carleton": {
+            "institution_name": "Carleton College"
+        },
+        "jcu": {
+            "institution_name": "John Carroll University"
+        },
+        "bluefield": {
+            "institution_name": "Bluefield College"
+        },
+        "morainevalley": {
+            "institution_name": "Moraine Valley Community College"
+        },
+        "columbiacollege": {
+            "institution_name": "Columbia College Hollywood"
+        },
+        "iubat": {
+            "institution_name": "International University of Business Agriculture and Technology"
+        },
+        "calbaptist": {
+            "institution_name": "California Baptist College"
+        },
+        "sbs": {
+            "institution_name": "Swiss Business School Zurich (SBS)"
+        },
+        "odu": {
+            "institution_name": "Old Dominion University"
+        },
+        "chaminade": {
+            "institution_name": "Chaminade University of Honolulu"
+        },
+        "masters": {
+            "institution_name": "The Master's College"
+        },
+        "rossu": {
+            "institution_name": "Ross University"
+        },
+        "mnsfld": {
+            "institution_name": "Mansfield University of Pennsylvania"
+        },
+        "aku": {
+            "institution_name": "Aga Khan University"
+        },
+        "bc": {
+            "institution_name": "Boston College"
+        },
+        "dyc": {
+            "institution_name": "D'Youville College"
+        },
+        "fandm": {
+            "institution_name": "Franklin and Marshall College"
+        },
+        "morgan": {
+            "institution_name": "Morgan State University"
+        },
+        "uprb": {
+            "institution_name": "Universidad de Puerto Rico, Bayamon"
+        },
+        "marygrove": {
+            "institution_name": "Marygrove College"
+        },
+        "baylor": {
+            "institution_name": "Baylor University"
+        },
+        "moody": {
+            "institution_name": "Moody Bible Institute"
+        },
+        "ncf": {
+            "institution_name": "New College of Florida"
+        },
+        "roosevelt": {
+            "institution_name": "Roosevelt University"
+        },
+        "boisebible": {
+            "institution_name": "Boise Bible College"
+        },
+        "montclair": {
+            "institution_name": "Montclair State University"
+        },
+        "kent": {
+            "institution_name": "Kent State University"
+        },
+        "iit": {
+            "institution_name": "Illinois Institute of Technology"
+        },
+        "sust": {
+            "institution_name": "Shahjalal University of Science and Technology (SUST)"
+        },
+        "rochester": {
+            "institution_name": "University of Rochester"
+        },
+        "phillips": {
+            "institution_name": "Phillips University"
+        },
+        "nechristian": {
+            "institution_name": "Nebraska Christian College"
+        },
+        "siue": {
+            "institution_name": "Southern Illinois University at Edwardsville"
+        },
+        "una": {
+            "institution_name": "University of North Alabama"
+        },
+        "ric": {
+            "institution_name": "Rhode Island College"
+        },
+        "gsu": {
+            "institution_name": "Georgia State University"
+        },
+        "umm": {
+            "institution_name": "University of Maryland Medicine"
+        },
+        "rit": {
+            "institution_name": "Rochester Institute of Technology"
+        },
+        "stedwards": {
+            "institution_name": "St. Edwards University"
+        },
+        "bac": {
+            "institution_name": "Belmont Abbey College"
+        },
+        "opsu": {
+            "institution_name": "Oklahoma Panhandle State University"
+        },
+        "omorecollege": {
+            "institution_name": "O'More College of Design"
+        },
+        "ucf": {
+            "institution_name": "University of Central Florida"
+        },
+        "nwc": {
+            "institution_name": "Northwestern College St. Paul"
+        },
+        "molloy": {
+            "institution_name": "Molloy College"
+        },
+        "msmc": {
+            "institution_name": "Mount St. Mary College"
+        },
+        "pnca": {
+            "institution_name": "Pacific Northwest College of Art"
+        },
+        "uofa": {
+            "institution_name": "University of Alanta"
+        },
+        "blackburn": {
+            "institution_name": "Blackburn College"
+        },
+        "kit": {
+            "institution_name": "Karlsruhe Institute of Technology"
+        },
+        "sunysb": {
+            "institution_name": "State University of New York at Stony Brook"
+        },
+        "iutoic-dhaka": {
+            "institution_name": "Islamic University of Technology"
+        },
+        "mtmercy": {
+            "institution_name": "Mount Mercy College"
+        },
+        "arbor": {
+            "institution_name": "Spring Arbor College"
+        },
+        "unt": {
+            "institution_name": "University of North Texas"
+        },
+        "gsw": {
+            "institution_name": "Georgia Southwestern University"
+        },
+        "sebc": {
+            "institution_name": "Southeastern Bible College"
+        },
+        "centenary": {
+            "institution_name": "Centenary College of Louisiana"
+        },
+        "unc": {
+            "institution_name": "University of North Carolina at Chapel Hill"
+        },
+        "berea": {
+            "institution_name": "Berea College"
+        },
+        "saintmarys": {
+            "institution_name": "St. Mary's College Indiana"
+        },
+        "uog": {
+            "institution_name": "University of Guam"
+        },
+        "brown": {
+            "institution_name": "Brown University"
+        },
+        "atlanticuniv": {
+            "institution_name": "Atlantic University"
+        },
+        "wbu": {
+            "institution_name": "Wayland Baptist University"
+        },
+        "umdnj": {
+            "institution_name": "University of Medicine and Dentistry of New Jersey"
+        },
+        "bryant": {
+            "institution_name": "Bryant University"
+        },
+        "utulsa": {
+            "institution_name": "University of Tulsa"
+        },
+        "uark": {
+            "institution_name": "University of Arkansas at Fayetteville"
+        },
+        "esu": {
+            "institution_name": "East Stroudsburg State University"
+        },
+        "fredonia": {
+            "institution_name": "State University of New York College at Fredonia"
+        },
+        "utm": {
+            "institution_name": "University of Tennessee - Martin"
+        },
+        "pit": {
+            "institution_name": "Pennsylvania Institute of Technology"
+        },
+        "pitzer": {
+            "institution_name": "Pitzer College"
+        },
+        "waynesburg": {
+            "institution_name": "Waynesburg College"
+        },
+        "kean": {
+            "institution_name": "Kean University of New Jersey"
+        },
+        "wisc": {
+            "institution_name": "University of Wisconsin - Madison"
+        },
+        "franklin": {
+            "institution_name": "Franklin University"
+        },
+        "uwa": {
+            "institution_name": "University of West Alabama"
+        },
+        "rockford": {
+            "institution_name": "Rockford College"
+        },
+        "sunycentral": {
+            "institution_name": "State University of New York (SUNY)"
+        },
+        "uwstout": {
+            "institution_name": "University of Wisconsin - Stout"
+        },
+        "fae": {
+            "institution_name": "FAE Business School - Faculdade de Administra\u00e7\u00e3o e Economia"
+        },
+        "union": {
+            "institution_name": "Union College"
+        },
+        "sduis": {
+            "institution_name": "San Diego University for Integrative Studies"
+        },
+        "brooklaw": {
+            "institution_name": "Brooklyn Law School"
+        },
+        "stvincent": {
+            "institution_name": "St. Vincent College"
+        },
+        "nu": {
+            "institution_name": "National University"
+        },
+        "css": {
+            "institution_name": "College of St. Scholastica"
+        },
+        "lincoln": {
+            "institution_name": "Lincoln University Pennsylvania"
+        },
+        "iufs": {
+            "institution_name": "International University of Fundamental Studies"
+        },
+        "ashland": {
+            "institution_name": "Ashland University"
+        },
+        "svc": {
+            "institution_name": "Southern Vermont College"
+        },
+        "nwciowa": {
+            "institution_name": "Northwestern College Iowa"
+        },
+        "bible": {
+            "institution_name": "Washington Bible College"
+        },
+        "scu": {
+            "institution_name": "Santa Clara University"
+        },
+        "jinnah": {
+            "institution_name": "Mohammad Ali Jinnah University, Karachi"
+        },
+        "kingston": {
+            "institution_name": "Kingston College"
+        },
+        "bellevue": {
+            "institution_name": "Bellevue University"
+        },
+        "cuny": {
+            "institution_name": "City University of New York"
+        },
+        "cga": {
+            "institution_name": "United States Coast Guard Academy"
+        },
+        "uh": {
+            "institution_name": "University of Houston"
+        },
+        "midway": {
+            "institution_name": "Midway College"
+        },
+        "tamiu": {
+            "institution_name": "Texas A&amp;M International University"
+        },
+        "indwes": {
+            "institution_name": "Indiana Wesleyan University"
+        },
+        "lindsey": {
+            "institution_name": "Lindsey Wilson College"
+        },
+        "stcl": {
+            "institution_name": "South Texas College of Law"
+        },
+        "urbaniana": {
+            "institution_name": "Pontifcia Universit\u00e0 Urbaniana"
+        },
+        "hsbc": {
+            "institution_name": "Hobe Sound Bible College"
+        },
+        "alfaisal": {
+            "institution_name": "Alfaisal University"
+        },
+        "bryantstratton": {
+            "institution_name": "Bryant and Stratton College"
+        },
+        "laroche": {
+            "institution_name": "La Roche College"
+        },
+        "luther": {
+            "institution_name": "Luther College"
+        },
+        "dom": {
+            "institution_name": "Dominican University"
+        },
+        "pvamu": {
+            "institution_name": "Prairie View Agricultural and Mechanical University"
+        },
+        "uwla": {
+            "institution_name": "University of West Los Angeles"
+        },
+        "mancol": {
+            "institution_name": "Manhattan College"
+        },
+        "kcai": {
+            "institution_name": "Kansas City Art Institute"
+        },
+        "fielding": {
+            "institution_name": "Fielding Institute"
+        },
+        "qou": {
+            "institution_name": "Al-Quds Open University"
+        },
+        "aii": {
+            "institution_name": "The Art Institutes"
+        },
+        "robert-morris": {
+            "institution_name": "Robert Morris College"
+        },
+        "maryvillecollege": {
+            "institution_name": "Maryville College"
+        },
+        "msj": {
+            "institution_name": "College of Mount St. Joseph"
+        },
+        "gettysburg": {
+            "institution_name": "Gettysburg College"
+        },
+        "upra": {
+            "institution_name": "Universidad de Puerto Rico, Arecibo"
+        },
+        "washcoll": {
+            "institution_name": "Washington College"
+        },
+        "esc": {
+            "institution_name": "State University of New York Empire State College"
+        },
+        "thomasmore": {
+            "institution_name": "Thomas More College"
+        },
+        "uww": {
+            "institution_name": "University of Wisconsin - Whitewater"
+        },
+        "naz": {
+            "institution_name": "Nazareth College"
+        },
+        "sjcme": {
+            "institution_name": "St. Joseph's College of Maine"
+        },
+        "nova": {
+            "institution_name": "Nova Southeastern University"
+        },
+        "uvs": {
+            "institution_name": "Anton de Kom University"
+        },
+        "nnu": {
+            "institution_name": "Northwest Nazarene University"
+        },
+        "hcc-nd": {
+            "institution_name": "Holy Cross College"
+        },
+        "orst": {
+            "institution_name": "Oregon State University"
+        },
+        "csuchico": {
+            "institution_name": "California State University, Chico"
+        },
+        "tntemple": {
+            "institution_name": "Tennessee Temple University"
+        },
+        "lincolnuca": {
+            "institution_name": "Lincoln University San Francisco"
+        },
+        "pgi": {
+            "institution_name": "Phillips Graduate Institute"
+        },
+        "usma": {
+            "institution_name": "United States Military Academy"
+        },
+        "uvsc": {
+            "institution_name": "Utah Valley State College"
+        },
+        "uapb": {
+            "institution_name": "University of Arkansas at Pine Bluff"
+        },
+        "bmc": {
+            "institution_name": "Blue Mountain College"
+        },
+        "ouhsc": {
+            "institution_name": "University of Oklahoma Health Sciences Center"
+        },
+        "lbc": {
+            "institution_name": "Lancaster Bible College"
+        },
+        "imtu": {
+            "institution_name": "International Medical &amp; Technological University"
+        },
+        "wwu": {
+            "institution_name": "Western Washington University"
+        },
+        "umn": {
+            "institution_name": "University of Minnesota"
+        },
+        "wnmu": {
+            "institution_name": "Western New Mexico University"
+        },
+        "oswego": {
+            "institution_name": "State University of New York at Oswego"
+        },
+        "mvsu": {
+            "institution_name": "Mississippi Valley State University"
+        },
+        "hastings": {
+            "institution_name": "Hastings College"
+        },
+        "mtaloy": {
+            "institution_name": "Mount Aloysius College"
+        },
+        "hilbert": {
+            "institution_name": "Hilbert College"
+        },
+        "ucr": {
+            "institution_name": "University of California, Riverside"
+        },
+        "utsa": {
+            "institution_name": "University of Texas at San Antonio"
+        },
+        "stthomas": {
+            "institution_name": "University of St. Thomas, St. Paul"
+        },
+        "peru": {
+            "institution_name": "Peru State College"
+        },
+        "nsuok": {
+            "institution_name": "Northeastern State University"
+        },
+        "cheyney": {
+            "institution_name": "Cheyney University of Pennsylvania"
+        },
+        "uca": {
+            "institution_name": "University of Central Arkansas"
+        },
+        "limestone": {
+            "institution_name": "Limestone College"
+        },
+        "uofs": {
+            "institution_name": "University of Scranton"
+        },
+        "bethlehem": {
+            "institution_name": "Bethlehem University"
+        },
+        "umaine": {
+            "institution_name": "University of Maine, Orono"
+        },
+        "unf": {
+            "institution_name": "University of North Florida"
+        },
+        "hawaii": {
+            "institution_name": "University of Hawaii"
+        },
+        "fisk": {
+            "institution_name": "Fisk University"
+        },
+        "stillman": {
+            "institution_name": "Stillman College"
+        },
+        "wvu": {
+            "institution_name": "West Virginia University"
+        },
+        "csufresno": {
+            "institution_name": "California State University, Fresno"
+        },
+        "depauw": {
+            "institution_name": "DePauw University"
+        },
+        "byu": {
+            "institution_name": "Brigham Young University"
+        },
+        "uchastings": {
+            "institution_name": "University of California, Hastings College of Law"
+        },
+        "msstate": {
+            "institution_name": "Mississippi State University"
+        },
+        "usuhs": {
+            "institution_name": "Uniformed Services University of the Health Sciences"
+        },
+        "thiel": {
+            "institution_name": "Thiel College"
+        },
+        "crown": {
+            "institution_name": "Crown College"
+        },
+        "wmitchell": {
+            "institution_name": "William Mitchell College of Law"
+        },
+        "hollins": {
+            "institution_name": "Hollins University"
+        },
+        "adelphi": {
+            "institution_name": "Adelphi University"
+        },
+        "njit": {
+            "institution_name": "New Jersey Institute of Technology"
+        },
+        "bellarmine": {
+            "institution_name": "Bellarmine College"
+        },
+        "peace": {
+            "institution_name": "Peace College"
+        },
+        "bowdoin": {
+            "institution_name": "Bowdoin College"
+        },
+        "asub": {
+            "institution_name": "Arkansas State University, Beebe"
+        },
+        "txwesleyan": {
+            "institution_name": "Texas Wesleyan University"
+        },
+        "schillermadrid": {
+            "institution_name": "Schiller International University, Madrid"
+        },
+        "olhcc": {
+            "institution_name": "Our Lady of Holy Cross College"
+        },
+        "cw": {
+            "institution_name": "The College of Westchester"
+        },
+        "ogi": {
+            "institution_name": "Oregon Graduate Institute of Science and Technology"
+        },
+        "champlain": {
+            "institution_name": "Champlain College"
+        },
+        "fmc": {
+            "institution_name": "Florida Memorial College"
+        },
+        "oc": {
+            "institution_name": "Oklahoma Christian University"
+        },
+        "swu": {
+            "institution_name": "Southern Wesleyan University"
+        },
+        "waldenu": {
+            "institution_name": "Walden University"
+        },
+        "bennett": {
+            "institution_name": "Bennett College"
+        },
+        "sbc": {
+            "institution_name": "Sweet Briar College"
+        },
+        "evms": {
+            "institution_name": "Eastern Virginia Medical School"
+        },
+        "tcnj": {
+            "institution_name": "The College of New Jersey"
+        },
+        "louisville": {
+            "institution_name": "University of Louisville"
+        },
+        "aicag": {
+            "institution_name": "American Indian College of the Assemblies of God"
+        },
+        "unmc": {
+            "institution_name": "University of Nebraska Medical Center"
+        },
+        "chowan": {
+            "institution_name": "Chowan College"
+        },
+        "tiu": {
+            "institution_name": "Trinity International University (Excel), Miami"
+        },
+        "aquinas": {
+            "institution_name": "Aquinas College"
+        },
+        "shsu": {
+            "institution_name": "Sam Houston State University"
+        },
+        "asu": {
+            "institution_name": "Arizona State University"
+        },
+        "cornish": {
+            "institution_name": "Cornish College of the Arts"
+        },
+        "univnorthco": {
+            "institution_name": "University of Northern Colorado"
+        },
+        "uksw": {
+            "institution_name": "Universitas Kristen Satya Wacana"
+        },
+        "hope": {
+            "institution_name": "Hope College"
+        },
+        "wagner": {
+            "institution_name": "Wagner College"
+        },
+        "miami": {
+            "institution_name": "University of Miami"
+        },
+        "fmarion": {
+            "institution_name": "Francis Marion University"
+        },
+        "sbu": {
+            "institution_name": "St. Bonaventure University"
+        },
+        "jones": {
+            "institution_name": "Jones College"
+        },
+        "cobleskill": {
+            "institution_name": "State University of New York College of Agriculture and Technology at Cobleskill"
+        },
+        "duq": {
+            "institution_name": "Duquesne University"
+        },
+        "fmu": {
+            "institution_name": "Florida Metropolitan University"
+        },
+        "latech": {
+            "institution_name": "Louisiana Tech University"
+        },
+        "ou": {
+            "institution_name": "University of Oklahoma"
+        },
+        "uap-bd": {
+            "institution_name": "University of Asia Pacific, Dhanmondi"
+        },
+        "manchester": {
+            "institution_name": "Manchester College"
+        },
+        "wesley": {
+            "institution_name": "Wesley College"
+        },
+        "bnkst": {
+            "institution_name": "Bank Street College of Education"
+        },
+        "hbu": {
+            "institution_name": "Houston Baptist University"
+        },
+        "swc": {
+            "institution_name": "Southwestern College Santa Fe"
+        },
+        "brenau": {
+            "institution_name": "Brenau University"
+        },
+        "kennesaw": {
+            "institution_name": "Kennesaw State University"
+        },
+        "walsh": {
+            "institution_name": "Walsh University"
+        },
+        "marshall": {
+            "institution_name": "Marshall University"
+        },
+        "cedarcrest": {
+            "institution_name": "Cedar Crest College"
+        },
+        "oit": {
+            "institution_name": "Oregon Institute of Technology"
+        },
+        "albertus": {
+            "institution_name": "Albertus Magnus College"
+        },
+        "salem": {
+            "institution_name": "Salem College"
+        },
+        "erau": {
+            "institution_name": "Embry Riddle Aeronautical University, Prescott"
+        },
+        "wright": {
+            "institution_name": "Wright State University"
+        },
+        "malone": {
+            "institution_name": "Malone College"
+        },
+        "eastern": {
+            "institution_name": "Eastern College"
+        },
+        "benedictine": {
+            "institution_name": "Benedictine College"
+        },
+        "esf": {
+            "institution_name": "State University of New York College of Environmental Science and Forestry"
+        },
+        "clayton": {
+            "institution_name": "Clayton College &amp; State University"
+        },
+        "lvc": {
+            "institution_name": "Lebanon Valley College"
+        },
+        "wcu": {
+            "institution_name": "Western Carolina University"
+        },
+        "tiffin": {
+            "institution_name": "Tiffin University"
+        },
+        "uchc": {
+            "institution_name": "University of Connecticut Health Center"
+        },
+        "montreat": {
+            "institution_name": "Montreat College"
+        },
+        "smcvt": {
+            "institution_name": "St. Michael's College"
+        },
+        "alma": {
+            "institution_name": "Alma College"
+        },
+        "cord": {
+            "institution_name": "Concordia College, Moorhead"
+        },
+        "regis": {
+            "institution_name": "Regis University"
+        },
+        "stanford": {
+            "institution_name": "Stanford University"
+        },
+        "milligan": {
+            "institution_name": "Milligan College"
+        },
+        "lcu": {
+            "institution_name": "Lubbock Christian University"
+        },
+        "letu": {
+            "institution_name": "Letourneau University"
+        },
+        "dallas": {
+            "institution_name": "Dallas Christian College"
+        },
+        "uah": {
+            "institution_name": "University of Alabama - Huntsville"
+        },
+        "antiochne": {
+            "institution_name": "Antioch New England Graduate School"
+        },
+        "csld": {
+            "institution_name": "Conway School of Landscape Design"
+        },
+        "clarke": {
+            "institution_name": "Clarke College"
+        },
+        "moore": {
+            "institution_name": "Moore College of Art and Design"
+        },
+        "kendall": {
+            "institution_name": "Kendall College"
+        },
+        "capital": {
+            "institution_name": "Capital University"
+        },
+        "pqc": {
+            "institution_name": "Paul Quinn College"
+        },
+        "mtmary": {
+            "institution_name": "Mount Mary College"
+        },
+        "une": {
+            "institution_name": "University of New England"
+        },
+        "uiowa": {
+            "institution_name": "University of Iowa"
+        },
+        "ulm": {
+            "institution_name": "University of Louisiana at Monroe"
+        },
+        "unr": {
+            "institution_name": "University of Nevada - Reno"
+        },
+        "eku": {
+            "institution_name": "Eastern Kentucky University"
+        },
+        "voorhees": {
+            "institution_name": "Voorhees College"
+        },
+        "lasalle": {
+            "institution_name": "La Salle University"
+        },
+        "berry": {
+            "institution_name": "Berry College"
+        },
+        "ggc": {
+            "institution_name": "Georgia Gwinnett College"
+        },
+        "saintjoe": {
+            "institution_name": "St. Joseph's College"
+        },
+        "stcloudstate": {
+            "institution_name": "St. Cloud State University"
+        },
+        "ncnm": {
+            "institution_name": "National College of Naturopathic Medicine"
+        },
+        "csus": {
+            "institution_name": "California State University, Sacramento"
+        },
+        "urbana": {
+            "institution_name": "Urbana University"
+        },
+        "cofc": {
+            "institution_name": "College of Charleston"
+        },
+        "ncu": {
+            "institution_name": "Northcentral University"
+        },
+        "mercer": {
+            "institution_name": "Mercer University"
+        },
+        "utk": {
+            "institution_name": "University of Tennessee - Knoxville"
+        },
+        "uwp": {
+            "institution_name": "University of Wisconsin - Parkside"
+        },
+        "csuohio": {
+            "institution_name": "Cleveland State University"
+        },
+        "wcupa": {
+            "institution_name": "West Chester University of Pennsylvania"
+        },
+        "rustcollege": {
+            "institution_name": "Rust College"
+        },
+        "sjcny": {
+            "institution_name": "St. Joseph's College New York"
+        },
+        "juniv": {
+            "institution_name": "Jahangirnagar University"
+        },
+        "erskine": {
+            "institution_name": "Erskine College"
+        },
+        "cc": {
+            "institution_name": "Carroll College Waukesha"
+        },
+        "msm": {
+            "institution_name": "Morehouse School of Medicine"
+        },
+        "nd": {
+            "institution_name": "University of Notre Dame"
+        },
+        "wbcoll": {
+            "institution_name": "Williams Baptist College"
+        },
+        "rosemont": {
+            "institution_name": "Rosemont College"
+        },
+        "gratzcollege": {
+            "institution_name": "Gratz College"
+        },
+        "vic": {
+            "institution_name": "Virginia Intermont College"
+        },
+        "csu": {
+            "institution_name": "Chicago State University"
+        },
+        "mcgregor": {
+            "institution_name": "The McGregor School of Antioch University"
+        },
+        "aju": {
+            "institution_name": "Andrew Jackson University"
+        },
+        "marietta": {
+            "institution_name": "Marietta College"
+        },
+        "mit": {
+            "institution_name": "Massachusetts Institute of Technology"
+        },
+        "ttuhsc": {
+            "institution_name": "Texas Tech University Health Science Center"
+        },
+        "regent-college": {
+            "institution_name": "Regent College"
+        },
+        "snc": {
+            "institution_name": "St. Norbert College"
+        },
+        "drew": {
+            "institution_name": "Drew University"
+        },
+        "jbu": {
+            "institution_name": "John Brown University"
+        },
+        "greenmtn": {
+            "institution_name": "Green Mountain College"
+        },
+        "vt": {
+            "institution_name": "Virginia Polytechnic Institute and State University (Virginia Tech)"
+        },
+        "cim": {
+            "institution_name": "Cleveland Institute of Music"
+        },
+        "georgiasouthern": {
+            "institution_name": "Georgia Southern University"
+        },
+        "stac": {
+            "institution_name": "St. Thomas Aquinas College"
+        },
+        "snu": {
+            "institution_name": "Southern Nazarene University"
+        },
+        "vc": {
+            "institution_name": "Virginia College"
+        },
+        "niagara": {
+            "institution_name": "Niagara University"
+        },
+        "wvsom": {
+            "institution_name": "West Virginia School of Osteopathic Medicine"
+        },
+        "uwosh": {
+            "institution_name": "University of Wisconsin - Oshkosh"
+        },
+        "iusb": {
+            "institution_name": "Indiana University at South Bend"
+        },
+        "morehead-st": {
+            "institution_name": "Morehead State University"
+        },
+        "mtech": {
+            "institution_name": "Montana Tech"
+        },
+        "glendalelaw": {
+            "institution_name": "Glendale University College of Law"
+        },
+        "sjfc": {
+            "institution_name": "St. John Fisher College"
+        },
+        "newschool": {
+            "institution_name": "The New School"
+        },
+        "viu": {
+            "institution_name": "Virginia International University"
+        },
+        "sjsu": {
+            "institution_name": "San Jose State University"
+        },
+        "csc": {
+            "institution_name": "Chadron State College"
+        },
+        "brockport": {
+            "institution_name": "State University of New York College at Brockport"
+        },
+        "sterling": {
+            "institution_name": "Sterling College"
+        },
+        "princeton": {
+            "institution_name": "Princeton University"
+        },
+        "fau": {
+            "institution_name": "Florida Atlantic University"
+        },
+        "uwsuper": {
+            "institution_name": "University of Wisconsin - Superior"
+        },
+        "swarthmore": {
+            "institution_name": "Swarthmore College"
+        },
+        "hiram": {
+            "institution_name": "Hiram College"
+        },
+        "rose-hulman": {
+            "institution_name": "Rose-Hulman Institute of Technology"
+        },
+        "jwu": {
+            "institution_name": "Johnson & Wales University"
+        },
+        "wou": {
+            "institution_name": "Western Oregon University"
+        },
+        "ncat": {
+            "institution_name": "North Carolina Agricultural and Technical State University"
+        },
+        "umkc": {
+            "institution_name": "University of Missouri - Kansas City"
+        },
+        "cmsv": {
+            "institution_name": "College of Mount St. Vincent"
+        },
+        "uwf": {
+            "institution_name": "University of West Florida"
+        },
+        "drake": {
+            "institution_name": "Drake University"
+        },
+        "ggu": {
+            "institution_name": "Golden Gate University"
+        },
+        "jcsu": {
+            "institution_name": "Johnson C. Smith University"
+        },
+        "gatech": {
+            "institution_name": "Georgia Institute of Technology"
+        },
+        "thomas": {
+            "institution_name": "Thomas College Maine"
+        },
+        "lynchburg": {
+            "institution_name": "Lynchburg College"
+        },
+        "peachnet": {
+            "institution_name": "University System of Georgia"
+        },
+        "cosc": {
+            "institution_name": "Charter Oak State College"
+        },
+        "mville": {
+            "institution_name": "Manhattanville College"
+        },
+        "dominican": {
+            "institution_name": "Dominican College of San Rafael"
+        },
+        "sunymaritime": {
+            "institution_name": "State University of New York Maritime College"
+        },
+        "bluffton": {
+            "institution_name": "Bluffton College"
+        },
+        "uwlax": {
+            "institution_name": "University of Wisconsin - La Crosse"
+        },
+        "avila": {
+            "institution_name": "Avila College"
+        },
+        "elmhurst": {
+            "institution_name": "Elmhurst College"
+        },
+        "indstate": {
+            "institution_name": "Indiana State University"
+        },
+        "apsu": {
+            "institution_name": "Austin Peay State University"
+        },
+        "lipscomb": {
+            "institution_name": "Lipscomb University"
+        },
+        "darton": {
+            "institution_name": "Darton College"
+        },
+        "morrisbrown": {
+            "institution_name": "Morris Brown College"
+        },
+        "indiana": {
+            "institution_name": "Indiana University"
+        },
+        "ambassador": {
+            "institution_name": "Ambassador University"
+        },
+        "brooks": {
+            "institution_name": "Brooks Institute of Photography"
+        },
+        "lynn": {
+            "institution_name": "Lynn University"
+        },
+        "westernbible": {
+            "institution_name": "Western Bible College"
+        },
+        "mills": {
+            "institution_name": "Mills College"
+        },
+        "gvsu": {
+            "institution_name": "Grand Valley State University"
+        },
+        "touro": {
+            "institution_name": "Touro College"
+        },
+        "suagm": {
+            "institution_name": "Universidad Metropolitana"
+        },
+        "vandercook": {
+            "institution_name": "VanderCook College of Music"
+        },
+        "presby": {
+            "institution_name": "Presbyterian College"
+        },
+        "tesc": {
+            "institution_name": "Thomas A. Edison State College"
+        },
+        "southwestern": {
+            "institution_name": "Southwestern University"
+        },
+        "laurus": {
+            "institution_name": "Laurus Technical Institute"
+        },
+        "mountainstate": {
+            "institution_name": "Mountain State University"
+        },
+        "csubak": {
+            "institution_name": "California State University, Bakersfield"
+        },
+        "national": {
+            "institution_name": "National American University"
+        },
+        "usi": {
+            "institution_name": "University of Southern Indiana"
+        },
+        "upr": {
+            "institution_name": "Universidad de Puerto Rico"
+        },
+        "etf": {
+            "institution_name": "Evangelische Theologische Faculteit, Leuven"
+        },
+        "villanova": {
+            "institution_name": "Villanova University"
+        },
+        "emiratesacademy": {
+            "institution_name": "The Emirates Academy of Hotel Managment"
+        },
+        "sullivan": {
+            "institution_name": "Sullivan College"
+        },
+        "urich": {
+            "institution_name": "University of Richmond"
+        },
+        "ucmerced": {
+            "institution_name": "University of California, Merced"
+        },
+        "uwrf": {
+            "institution_name": "University of Wisconsin - River Falls"
+        },
+        "warren-wilson": {
+            "institution_name": "Warren Wilson College"
+        },
+        "bryan": {
+            "institution_name": "Bryan College"
+        },
+        "cleary": {
+            "institution_name": "Cleary College"
+        },
+        "tui": {
+            "institution_name": "The Union Institute"
+        },
+        "ilstu": {
+            "institution_name": "Illinois State University"
+        },
+        "dsu": {
+            "institution_name": "Dakota State University"
+        },
+        "antioch": {
+            "institution_name": "Antioch University"
+        },
+        "ursinus": {
+            "institution_name": "Ursinus College"
+        },
+        "bloomu": {
+            "institution_name": "Bloomsburg University of Pennsylvania"
+        },
+        "galileo": {
+            "institution_name": "Universidad Galileo"
+        },
+        "asumh": {
+            "institution_name": "Arkansas State University, Mountain Home"
+        },
+        "spc": {
+            "institution_name": "St. Peter's College"
+        },
+        "calvin": {
+            "institution_name": "Calvin College"
+        },
+        "unem": {
+            "institution_name": "Universidad Empresarial"
+        },
+        "cwru": {
+            "institution_name": "Case Western Reserve University"
+        },
+        "stmatthews": {
+            "institution_name": "St. Matthews University"
+        },
+        "hartwick": {
+            "institution_name": "Hartwick College"
+        },
+        "swosu": {
+            "institution_name": "Southwestern Oklahoma State University"
+        },
+        "mmm": {
+            "institution_name": "Marymount Manhattan College"
+        },
+        "ucdavis": {
+            "institution_name": "University of California, Davis"
+        },
+        "oxy": {
+            "institution_name": "Occidental College"
+        },
+        "cmu": {
+            "institution_name": "Carnegie Mellon University"
+        },
+        "ohsu": {
+            "institution_name": "Oregon Health Sciences University"
+        },
+        "poly": {
+            "institution_name": "Polytechnic University"
+        },
+        "atu": {
+            "institution_name": "Arkansas Tech University"
+        },
+        "lincolnu": {
+            "institution_name": "Lincoln University Missouri"
+        },
+        "ipfw": {
+            "institution_name": "Indiana University-Purdue University at Fort Wayne"
+        },
+        "nwcc": {
+            "institution_name": "Northwest Christian College"
+        },
+        "nodak": {
+            "institution_name": "North Dakota State University"
+        },
+        "eckerd": {
+            "institution_name": "Eckerd College"
+        },
+        "vwc": {
+            "institution_name": "Virginia Wesleyan College"
+        },
+        "pacific": {
+            "institution_name": "University of the Pacific"
+        },
+        "denison": {
+            "institution_name": "Denison University"
+        },
+        "cmc": {
+            "institution_name": "Central Methodist College"
+        },
+        "aug": {
+            "institution_name": "Augusta State University"
+        },
+        "mbc": {
+            "institution_name": "Mary Baldwin College"
+        },
+        "wustl": {
+            "institution_name": "Washington University in St. Louis"
+        },
+        "wssu": {
+            "institution_name": "Winston-Salem State University"
+        },
+        "mwsu": {
+            "institution_name": "Midwestern State University"
+        },
+        "svsu": {
+            "institution_name": "Saginaw Valley State University"
+        },
+        "hpu": {
+            "institution_name": "Hawaii Pacific University"
+        },
+        "sapc": {
+            "institution_name": "St. Andrews Presbyterian College"
+        },
+        "messiah": {
+            "institution_name": "Messiah College"
+        },
+        "rush": {
+            "institution_name": "Rush University"
+        },
+        "graceland": {
+            "institution_name": "Graceland College"
+        },
+        "stjohns": {
+            "institution_name": "St. John's University"
+        },
+        "drury": {
+            "institution_name": "Drury College"
+        },
+        "dsc": {
+            "institution_name": "Delaware State University"
+        },
+        "fontys": {
+            "institution_name": "Fontys University of Applied Sciences"
+        },
+        "spu": {
+            "institution_name": "Seattle Pacific University"
+        },
+        "transy": {
+            "institution_name": "Transylvania University"
+        },
+        "central": {
+            "institution_name": "Central College"
+        },
+        "smsu": {
+            "institution_name": "Southwest Missouri State University"
+        },
+        "wcmo": {
+            "institution_name": "Westminster College Fulton"
+        },
+        "onu": {
+            "institution_name": "Ohio Northern University"
+        },
+        "babson": {
+            "institution_name": "Babson College"
+        },
+        "flagler": {
+            "institution_name": "Flagler College"
+        },
+        "utsystem": {
+            "institution_name": "University of Texas"
+        },
+        "morningside": {
+            "institution_name": "Morningside College"
+        },
+        "thechicagoschool": {
+            "institution_name": "The Chicago School of Professional Psychology"
+        },
+        "ups": {
+            "institution_name": "University of Puget Sound"
+        },
+        "colum": {
+            "institution_name": "Columbia College Chicago"
+        },
+        "schiller": {
+            "institution_name": "Schiller International University"
+        },
+        "dixie": {
+            "institution_name": "Dixie College"
+        },
+        "caribbean": {
+            "institution_name": "Caribbean University"
+        },
+        "nhu": {
+            "institution_name": "National Hispanic University"
+        },
+        "calvary": {
+            "institution_name": "Calvary Bible College"
+        },
+        "newberry": {
+            "institution_name": "Newberry College"
+        },
+        "westga": {
+            "institution_name": "State University of West Georgia"
+        },
+        "concord": {
+            "institution_name": "Concord College"
+        },
+        "udayton": {
+            "institution_name": "University of Dayton"
+        },
+        "uky": {
+            "institution_name": "University of Kentucky"
+        },
+        "enmu": {
+            "institution_name": "Eastern New Mexico University"
+        },
+        "knox": {
+            "institution_name": "Knox College"
+        },
+        "umuc": {
+            "institution_name": "University of Maryland University College"
+        },
+        "saintpauls": {
+            "institution_name": "St. Paul's College"
+        },
+        "euruni": {
+            "institution_name": "European Business School"
+        },
+        "wmpenn": {
+            "institution_name": "William Penn College"
+        },
+        "friends": {
+            "institution_name": "Friends University"
+        },
+        "sagrado": {
+            "institution_name": "Universidad del Sagrado Corazon"
+        },
+        "gbcol": {
+            "institution_name": "Grace Bible College"
+        },
+        "alcorn": {
+            "institution_name": "Alcorn State University"
+        },
+        "apus": {
+            "institution_name": "American Public University"
+        },
+        "webster": {
+            "institution_name": "Webster University"
+        },
+        "vesalius": {
+            "institution_name": "Vesalius College"
+        },
+        "ncsu": {
+            "institution_name": "North Carolina State University"
+        },
+        "rivier": {
+            "institution_name": "Rivier College"
+        },
+        "thomasu": {
+            "institution_name": "Thomas University"
+        },
+        "kcc": {
+            "institution_name": "Kentucky Christian College"
+        },
+        "marylhurst": {
+            "institution_name": "Marylhurst University"
+        },
+        "uis": {
+            "institution_name": "University of Illinois at Springfield"
+        },
+        "rhodes": {
+            "institution_name": "Rhodes College"
+        },
+        "ucollege": {
+            "institution_name": "Union College Nebraska"
+        },
+        "providence": {
+            "institution_name": "Providence College"
+        },
+        "plattsburgh": {
+            "institution_name": "State University of New York College at Plattsburgh"
+        },
+        "pcc": {
+            "institution_name": "Portland Community College"
+        },
+        "canisius": {
+            "institution_name": "Canisius College"
+        },
+        "southern": {
+            "institution_name": "Southern Adventist University"
+        },
+        "ndc": {
+            "institution_name": "Notre Dame College of Ohio"
+        },
+        "wsulaw": {
+            "institution_name": "Western State University College of Law"
+        },
+        "stfrancis": {
+            "institution_name": "University of St. Francis"
+        },
+        "du": {
+            "institution_name": "University of Denver"
+        },
+        "thomasaquinas": {
+            "institution_name": "Thomas Aquinas College"
+        },
+        "bard": {
+            "institution_name": "Bard College"
+        },
+        "famu": {
+            "institution_name": "Florida Agricultural and Mechanical University"
+        },
+        "hiu": {
+            "institution_name": "Hope International University"
+        },
+        "centenarycollege": {
+            "institution_name": "Centenary College"
+        },
+        "twu": {
+            "institution_name": "Texas Woman's University"
+        },
+        "uoregon": {
+            "institution_name": "University of Oregon"
+        },
+        "mcneese": {
+            "institution_name": "McNeese State University"
+        },
+        "wpunj": {
+            "institution_name": "William Paterson University"
+        },
+        "ie": {
+            "institution_name": "IE University"
+        },
+        "amc": {
+            "institution_name": "Albany Medical Center"
+        },
+        "spalding": {
+            "institution_name": "Spalding University"
+        },
+        "cau": {
+            "institution_name": "Clark Atlanta University"
+        },
+        "ottawa": {
+            "institution_name": "Ottawa University"
+        },
+        "mnu": {
+            "institution_name": "Mid-America Nazarene University"
+        },
+        "owu": {
+            "institution_name": "Ohio Wesleyan University"
+        },
+        "ripon": {
+            "institution_name": "Ripon College"
+        },
+        "siu": {
+            "institution_name": "Southern Illinois University at Carbondale"
+        },
+        "highpoint": {
+            "institution_name": "High Point University"
+        },
+        "fst": {
+            "institution_name": "Franciscan School of Theology"
+        },
+        "rocky": {
+            "institution_name": "Rocky Mountain College"
+        },
+        "stefan-university": {
+            "institution_name": "Stefan University"
+        },
+        "qc": {
+            "institution_name": "City University of New York, Queens College"
+        },
+        "aud": {
+            "institution_name": "American University in Dubai"
+        },
+        "sierranevada": {
+            "institution_name": "Sierra Nevada College"
+        },
+        "southernchristian": {
+            "institution_name": "The Southern Christian University"
+        },
+        "siena": {
+            "institution_name": "Siena College"
+        },
+        "aus": {
+            "institution_name": "American University of Sharjah"
+        },
+        "fsu": {
+            "institution_name": "Florida State University"
+        },
+        "sit": {
+            "institution_name": "School for International Training"
+        },
+        "nebraska": {
+            "institution_name": "University of Nebraska (System)"
+        },
+        "lycoming": {
+            "institution_name": "Lycoming College"
+        },
+        "oneonta": {
+            "institution_name": "State University of New York College at Oneonta"
+        },
+        "logan": {
+            "institution_name": "Logan College of Chiropractic"
+        },
+        "uncfsu": {
+            "institution_name": "Fayetteville State University"
+        },
+        "obu": {
+            "institution_name": "Ouachita Baptist University"
+        },
+        "sfasu": {
+            "institution_name": "Stephen F. Austin State University"
+        },
+        "sfbc": {
+            "institution_name": "South Florida Bible College &amp; Theological Seminary"
+        },
+        "ctu": {
+            "institution_name": "Catholic Theological Union"
+        },
+        "dc": {
+            "institution_name": "Dominican College"
+        },
+        "finlandia": {
+            "institution_name": "Finlandia University"
+        },
+        "montana": {
+            "institution_name": "Montana State University"
+        },
+        "uthscsa": {
+            "institution_name": "University of Texas Health Science Center at San Antonio"
+        },
+        "warnborough": {
+            "institution_name": "Warnborough University"
+        },
+        "pcom": {
+            "institution_name": "Philadelphia College of Osteopathic Medicine"
+        },
+        "kaplan": {
+            "institution_name": "Kaplan University"
+        },
+        "musc": {
+            "institution_name": "Medical University of South Carolina"
+        },
+        "uidaho": {
+            "institution_name": "University of Idaho"
+        },
+        "millikin": {
+            "institution_name": "Millikin University"
+        },
+        "baker": {
+            "institution_name": "Baker College"
+        },
+        "aust": {
+            "institution_name": "Ahsanullah University of Science &amp; Technology"
+        },
+        "barton": {
+            "institution_name": "Barton College"
+        },
+        "hscbklyn": {
+            "institution_name": "State University of New York Downstate Medical Center"
+        },
+        "mayo": {
+            "institution_name": "Mayo Medical and Graduate School"
+        },
+        "susla": {
+            "institution_name": "Southern University - Shreveport"
+        },
+        "sckans": {
+            "institution_name": "Southwestern College Kansas"
+        },
+        "westminster": {
+            "institution_name": "Westminster College New Wilmington"
+        },
+        "uprag": {
+            "institution_name": "Universidad de Puerto Rico, Aguadilla"
+        },
+        "lifewest": {
+            "institution_name": "Life Chiropractic College West"
+        },
+        "barry": {
+            "institution_name": "Barry University"
+        },
+        "windsor": {
+            "institution_name": "Windsor University School of Medicine"
+        },
+        "lmunet": {
+            "institution_name": "Lincoln Memorial University"
+        },
+        "coker": {
+            "institution_name": "Coker College"
+        },
+        "saumag": {
+            "institution_name": "Southern Arkansas University"
+        },
+        "pacifica": {
+            "institution_name": "Pacifica Graduate Institute"
+        },
+        "bakeru": {
+            "institution_name": "Baker University"
+        },
+        "ysu": {
+            "institution_name": "Youngstown State University"
+        },
+        "dbumn": {
+            "institution_name": "Duluth Business University"
+        },
+        "cccb": {
+            "institution_name": "Central Christian College of the Bible"
+        },
+        "mercyhurst": {
+            "institution_name": "Mercyhurst College"
+        },
+        "emu": {
+            "institution_name": "Eastern Mennonite University"
+        },
+        "gtu": {
+            "institution_name": "Graduate Theological Union"
+        },
+        "mcbc": {
+            "institution_name": "Mid-Continent Baptist Bible College"
+        },
+        "monmouth": {
+            "institution_name": "Monmouth University"
+        },
+        "gac": {
+            "institution_name": "Gustavus Adolphus College"
+        },
+        "toccoafalls": {
+            "institution_name": "Toccoa Falls College"
+        },
+        "marian": {
+            "institution_name": "Marian College"
+        },
+        "csusm": {
+            "institution_name": "California State University, San Marcos"
+        },
+        "kwc": {
+            "institution_name": "Kentucky Wesleyan College"
+        },
+        "usouthal": {
+            "institution_name": "University of South Alabama"
+        },
+        "nmhu": {
+            "institution_name": "New Mexico Highlands University"
+        },
+        "upc": {
+            "institution_name": "Universidad Polit\u00e9cnica de Cataluna"
+        },
+        "ucan": {
+            "institution_name": "Universidade Cat\u00f3lica de Angola"
+        },
+        "emporia": {
+            "institution_name": "Emporia State University"
+        },
+        "parsons": {
+            "institution_name": "Parsons School of Design"
+        },
+        "bsu": {
+            "institution_name": "Ball State University"
+        },
+        "hsutx": {
+            "institution_name": "Hardin-Simmons University"
+        },
+        "mum": {
+            "institution_name": "Maharishi University of Management"
+        },
+        "assumption": {
+            "institution_name": "Assumption College"
+        },
+        "lanecollege": {
+            "institution_name": "Lane College"
+        },
+        "miad": {
+            "institution_name": "Milwaukee Institute of Art and Design"
+        },
+        "fhda": {
+            "institution_name": "Foothill-De Anza Community College District"
+        },
+        "neumont": {
+            "institution_name": "Morrison College"
+        },
+        "sonoma": {
+            "institution_name": "Sonoma State University"
+        },
+        "concordia-ny": {
+            "institution_name": "Concordia College, Bronxville"
+        },
+        "southeasternbaptist": {
+            "institution_name": "Southeastern Baptist College"
+        },
+        "uillinois": {
+            "institution_name": "University of Illinois"
+        },
+        "georgetowncollege": {
+            "institution_name": "Georgetown College"
+        },
+        "soka": {
+            "institution_name": "Soka University of America"
+        },
+        "clearwater": {
+            "institution_name": "Clearwater Christian College"
+        },
+        "lawrence": {
+            "institution_name": "Lawrence University"
+        },
+        "jarvis": {
+            "institution_name": "Jarvis Christian College"
+        },
+        "pratt": {
+            "institution_name": "Pratt Institute"
+        },
+        "stritch": {
+            "institution_name": "Cardinal Stritch University"
+        },
+        "hanover": {
+            "institution_name": "Hanover College"
+        },
+        "unitec": {
+            "institution_name": "Universidad Tecnol\u00f3gica Centroamericana"
+        },
+        "ovc": {
+            "institution_name": "Ohio Valley College"
+        },
+        "tcu": {
+            "institution_name": "Texas Christian University"
+        },
+        "alquds": {
+            "institution_name": "Al-Quds University - The Arab University in Jerusalem"
+        },
+        "shc": {
+            "institution_name": "Spring Hill College"
+        },
+        "tambcd": {
+            "institution_name": "Baylor College of Dentistry"
+        },
+        "mcw": {
+            "institution_name": "Medical College of Wisconsin"
+        },
+        "doane": {
+            "institution_name": "Doane College"
+        },
+        "meca": {
+            "institution_name": "Maine College of Art"
+        },
+        "nyackcollege": {
+            "institution_name": "Nyack College"
+        },
+        "ithaca": {
+            "institution_name": "Ithaca College"
+        },
+        "shu": {
+            "institution_name": "Seton Hall University"
+        },
+        "mca": {
+            "institution_name": "Memphis College of Art"
+        },
+        "farmingdale": {
+            "institution_name": "State University of New York College of Technology at Farmingdale"
+        },
+        "brandeis": {
+            "institution_name": "Brandeis University"
+        },
+        "pc": {
+            "institution_name": "Pikeville College"
+        },
+        "nyls": {
+            "institution_name": "New York Law School"
+        },
+        "duep": {
+            "institution_name": "Alfred Nobel University of Economics and Law"
+        },
+        "argosy": {
+            "institution_name": "Argosy University"
+        },
+        "usaim": {
+            "institution_name": "University of Seychelles - American Institute of Medicine"
+        },
+        "rice": {
+            "institution_name": "Rice University"
+        },
+        "csupomona": {
+            "institution_name": "California State Polytechnic University - Pomona"
+        },
+        "truman": {
+            "institution_name": "Truman State University"
+        },
+        "tougaloo": {
+            "institution_name": "Tougaloo College"
+        },
+        "etsu": {
+            "institution_name": "East Tennessee State University"
+        },
+        "auburn": {
+            "institution_name": "Auburn University"
+        },
+        "lcsc": {
+            "institution_name": "Lewis-Clark State College"
+        },
+        "barclaycollege": {
+            "institution_name": "Barclay College"
+        },
+        "occ": {
+            "institution_name": "Ozark Christian College"
+        },
+        "hood": {
+            "institution_name": "Hood College"
+        },
+        "elmira": {
+            "institution_name": "Elmira College"
+        },
+        "tamuk": {
+            "institution_name": "Texas A&amp;M University - Kingsville"
+        },
+        "bates": {
+            "institution_name": "Bates College"
+        },
+        "wabash": {
+            "institution_name": "Wabash College"
+        },
+        "oak": {
+            "institution_name": "Oakland City University"
+        },
+        "alc": {
+            "institution_name": "Alice Lloyd College"
+        },
+        "loras": {
+            "institution_name": "Loras College"
+        },
+        "wiu": {
+            "institution_name": "Western Illinois University"
+        },
+        "zamorano": {
+            "institution_name": "Escuela Agricola Panamericana Zamorano"
+        },
+        "nec": {
+            "institution_name": "New England College"
+        },
+        "beloit": {
+            "institution_name": "Beloit College"
+        },
+        "elon": {
+            "institution_name": "Elon College"
+        },
+        "taliesin": {
+            "institution_name": "Frank Lloyd Wright School of Architecture"
+        },
+        "lamar": {
+            "institution_name": "Lamar University"
+        },
+        "bsc": {
+            "institution_name": "Birmingham-Southern College"
+        },
+        "upb": {
+            "institution_name": "Universidad Privada Boliviana"
+        },
+        "wmcarey": {
+            "institution_name": "William Carey College"
+        },
+        "njcu": {
+            "institution_name": "New Jersey City University"
+        },
+        "govst": {
+            "institution_name": "Governors State University"
+        },
+        "bgsu": {
+            "institution_name": "Bowling Green State University"
+        },
+        "kwu": {
+            "institution_name": "Kansas Wesleyan University"
+        },
+        "pbc": {
+            "institution_name": "Piedmont Baptist College"
+        },
+        "scripps": {
+            "institution_name": "The Scripps Research Institute"
+        },
+        "uiw": {
+            "institution_name": "University of the Incarnate World"
+        },
+        "dillard": {
+            "institution_name": "Dillard University"
+        },
+        "clarkson": {
+            "institution_name": "Clarkson University"
+        },
+        "wartburg": {
+            "institution_name": "Wartburg College"
+        },
+        "ben": {
+            "institution_name": "Benedictine University"
+        },
+        "ussa": {
+            "institution_name": "United States Sports Academy"
+        },
+        "spsu": {
+            "institution_name": "Southern Polytechnic State Univerisity"
+        },
+        "akbible": {
+            "institution_name": "Alaska Bible College"
+        },
+        "ringling": {
+            "institution_name": "Ringling College of Art and Design"
+        },
+        "ubaguio": {
+            "institution_name": "University of Baguio"
+        },
+        "dmcg": {
+            "institution_name": "Dubai Medical College for Girls"
+        },
+        "iwu": {
+            "institution_name": "Illinois Wesleyan University"
+        },
+        "millsaps": {
+            "institution_name": "Millsaps College"
+        },
+        "albion": {
+            "institution_name": "Albion College"
+        },
+        "cu-portland": {
+            "institution_name": "Concordia University, Portland"
+        },
+        "pupr": {
+            "institution_name": "Universidad Politecnica de Puerto Rico"
+        },
+        "suny": {
+            "institution_name": "Fashion Institute of New York"
+        },
+        "pacificu": {
+            "institution_name": "Pacific University"
+        },
+        "embryriddle": {
+            "institution_name": "Embry-Riddle Aeronautical University"
+        },
+        "swlaw": {
+            "institution_name": "Southwestern University School of Law"
+        },
+        "uiu": {
+            "institution_name": "Upper Iowa University"
+        },
+        "aiub": {
+            "institution_name": "American International University - Bangladesh"
+        },
+        "cedarville": {
+            "institution_name": "Cedarville College"
+        },
+        "niu": {
+            "institution_name": "Northern Illinois University"
+        },
+        "pba": {
+            "institution_name": "Palm Beach Atlantic University"
+        },
+        "jfku": {
+            "institution_name": "John F. Kennedy University"
+        },
+        "uakron": {
+            "institution_name": "University of Akron"
+        },
+        "ucam": {
+            "institution_name": "Universidad Cat\u00f3lica San Antonio"
+        },
+        "gmc": {
+            "institution_name": "Gwynedd-Mercy College"
+        },
+        "rwu": {
+            "institution_name": "Roger Williams University"
+        },
+        "flsouthern": {
+            "institution_name": "Florida Southern College"
+        },
+        "wilson": {
+            "institution_name": "Wilson College"
+        },
+        "muskingum": {
+            "institution_name": "Muskingum College"
+        },
+        "uwsp": {
+            "institution_name": "University of Wisconsin - Stevens Point"
+        },
+        "methodistcollege": {
+            "institution_name": "Nebraska Methodist College of Nursing and Allied Health"
+        },
+        "ic": {
+            "institution_name": "Illinois College"
+        },
+        "uiuc": {
+            "institution_name": "University of Illinois at Urbana-Champaign"
+        },
+        "emich": {
+            "institution_name": "Eastern Michigan University"
+        },
+        "sdc": {
+            "institution_name": "Sojourner-Douglass College"
+        },
+        "jhu": {
+            "institution_name": "Johns Hopkins University"
+        },
+        "nyaa": {
+            "institution_name": "New York Academy of Art, Graduate School of Figurative Art"
+        },
+        "sustech": {
+            "institution_name": "Sudan University for Science and Technology"
+        },
+        "mainemaritime": {
+            "institution_name": "Maine Maritime Academy"
+        },
+        "skidmore": {
+            "institution_name": "Skidmore College"
+        },
+        "aut": {
+            "institution_name": "American University College of Technology"
+        },
+        "uwgb": {
+            "institution_name": "University of Wisconsin - Green Bay"
+        },
+        "creighton": {
+            "institution_name": "Creighton University"
+        },
+        "itttech": {
+            "institution_name": "ITT Technical Institute"
+        },
+        "sl": {
+            "institution_name": "Silver Lake College"
+        },
+        "ctsem": {
+            "institution_name": "Continental Theological Seminary"
+        },
+        "nymc": {
+            "institution_name": "New York Medical College"
+        },
+        "iupui": {
+            "institution_name": "Indiana University-Purdue University at Indianapolis"
+        },
+        "mlc-wels": {
+            "institution_name": "Martin Luther College"
+        },
+        "columbia": {
+            "institution_name": "Columbia University"
+        },
+        "aauj": {
+            "institution_name": "Arab American University - Jenin"
+        },
+        "calcoast": {
+            "institution_name": "California Coast University"
+        },
+        "furman": {
+            "institution_name": "Furman University"
+        },
+        "stamford": {
+            "institution_name": "Stamford International University"
+        },
+        "spertus": {
+            "institution_name": "Spertus Institute of Jewish Studies"
+        },
+        "muohio": {
+            "institution_name": "Miami University of Ohio"
+        },
+        "cuw": {
+            "institution_name": "Concordia University, Mequon"
+        },
+        "vmi": {
+            "institution_name": "Virginia Military Institute"
+        },
+        "sfai": {
+            "institution_name": "San Francisco Art Institute"
+        },
+        "colby-sawyer": {
+            "institution_name": "Colby-Sawyer College"
+        },
+        "neumann": {
+            "institution_name": "Neumann College"
+        },
+        "marywood": {
+            "institution_name": "Marywood University"
+        },
+        "vcu": {
+            "institution_name": "Virginia Commonwealth University"
+        },
+        "clarksoncollege": {
+            "institution_name": "Clarkson College"
+        },
+        "usm": {
+            "institution_name": "University of Southern Mississippi"
+        },
+        "gmu": {
+            "institution_name": "George Mason University"
+        },
+        "strathmore": {
+            "institution_name": "Strathmore University"
+        },
+        "uri": {
+            "institution_name": "University of Rhode Island"
+        },
+        "pnc": {
+            "institution_name": "Purdue University North Central"
+        },
+        "rwc": {
+            "institution_name": "Roberts Wesleyan College"
+        },
+        "swau": {
+            "institution_name": "Southwestern Adventist University"
+        },
+        "uccs": {
+            "institution_name": "University of Colorado at Colorado Springs"
+        },
+        "bucknell": {
+            "institution_name": "Bucknell University"
+        },
+        "utmb": {
+            "institution_name": "University of Texas Medical Branch Galveston"
+        },
+        "rider": {
+            "institution_name": "Rider University"
+        },
+        "dspt": {
+            "institution_name": "Dominican School of Philosophy and Theology"
+        },
+        "ucmo": {
+            "institution_name": "University of Central Missouri"
+        },
+        "hscsyr": {
+            "institution_name": "State University of New York Health Sience Centre Syracuse"
+        },
+        "ucop": {
+            "institution_name": "University of California, Oakland"
+        },
+        "bju": {
+            "institution_name": "Bob Jones University"
+        },
+        "caldwell": {
+            "institution_name": "Caldwell College"
+        },
+        "lyon": {
+            "institution_name": "Lyon College"
+        },
+        "uic": {
+            "institution_name": "University of Illinois at Chicago"
+        },
+        "iwc": {
+            "institution_name": "Iowa Wesleyan College"
+        },
+        "buffalo": {
+            "institution_name": "University at Buffalo"
+        },
+        "mtmc": {
+            "institution_name": "Mount Marty College"
+        },
+        "ufl": {
+            "institution_name": "University of Florida"
+        },
+        "rossmed": {
+            "institution_name": "Ross University, School of Medicine"
+        },
+        "medaille": {
+            "institution_name": "Medaille College"
+        },
+        "simpson": {
+            "institution_name": "Simpson College Iowa"
+        },
+        "uctm": {
+            "institution_name": "University of Chemical Technology and Metallurgy"
+        },
+        "the-bac": {
+            "institution_name": "Boston Architectural Center"
+        },
+        "iuk": {
+            "institution_name": "Indiana University at Kokomo"
+        },
+        "suno": {
+            "institution_name": "Southern University - New Orleans"
+        }
+    },
+
+"ca": {
+    "ufv": {
+        "institution_name": "University of the Fraser Valley"
+    },
+    "firstnationsuniversity": {
+        "institution_name": "First Nations University of Canada"
+    },
+    "ocad": {
+        "institution_name": "Ontario College of Art and Design"
+    },
+    "saskpolytech": {
+        "institution_name": "Saskatchewan Polytechnic"
+    },
+    "ualberta": {
+        "institution_name": "University of Alberta"
+    },
+    "acadiau": {
+        "institution_name": "Acadia University"
+    },
+    "rmc": {
+        "institution_name": "Royal Military College of Canada"
+    },
+    "concordia": {
+        "institution_name": "Concordia University"
+    },
+    "brocku": {
+        "institution_name": "Brock University"
+    },
+    "queensu": {
+        "institution_name": "Queen's University"
+    },
+    "usask": {
+        "institution_name": "University of Saskatchewan"
+    },
+    "nbcc": {
+        "institution_name": "New Brunswick Community College"
+    },
+    "mcgill": {
+        "institution_name": "McGill University"
+    },
+    "cbu": {
+        "institution_name": "Cape Breton University"
+    },
+    "devry": {
+        "institution_name": "DeVry Institute of Technology"
+    },
+    "stfx": {
+        "institution_name": "St. Francis Xavier University"
+    },
+    "mta": {
+        "institution_name": "Mount Allison University"
+    },
+    "uqo": {
+        "institution_name": "Universit\u00e9 du Qu\u00e9bec en Outaouais"
+    },
+    "nait": {
+        "institution_name": "Northern Alberta Institute of Technology"
+    },
+    "polymtl": {
+        "institution_name": "\u00c9cole Polytechnique de Montr\u00e9al, Universit\u00e9 de Montr\u00e9al"
+    },
+    "bcit": {
+        "institution_name": "British Columbia Institute of Technology"
+    },
+    "uregina": {
+        "institution_name": "University of Regina"
+    },
+    "sfu": {
+        "institution_name": "Simon Fraser University"
+    },
+    "centennialcollege": {
+        "institution_name": "Centennial College"
+    },
+    "trentu": {
+        "institution_name": "Trent University"
+    },
+    "universitycanadawest": {
+        "institution_name": "University Canada West"
+    },
+    "ucalgary": {
+        "institution_name": "University of Calgary"
+    },
+    "unbc": {
+        "institution_name": "University of Northern British Columbia"
+    },
+    "dal": {
+        "institution_name": "Dalhousie University"
+    },
+    "usherb": {
+        "institution_name": "Universit\u00e9 de Sherbrooke"
+    },
+    "umoncton": {
+        "institution_name": "University of Moncton"
+    },
+    "humbermail": {
+        "institution_name": "Humber College"
+    },
+    "wlu": {
+        "institution_name": "Wilfrid Laurier University"
+    },
+    "questu": {
+        "institution_name": "Quest University"
+    },
+    "msvu": {
+        "institution_name": "Mount Saint Vincent University"
+    },
+    "stu": {
+        "institution_name": "St. Thomas University"
+    },
+    "lakeheadu": {
+        "institution_name": "Lakehead University"
+    },
+    "ryerson": {
+        "institution_name": "Ryerson Polytechnic University"
+    },
+    "rrc": {
+        "institution_name": "Red River College"
+    },
+    "athabascau": {
+        "institution_name": "Athabasca University"
+    },
+    "royalroads": {
+        "institution_name": "Royal Roads University"
+    },
+    "uqam": {
+        "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al"
+    },
+    "uottawa": {
+        "institution_name": "University of Ottawa"
+    },
+    "boothcollege": {
+        "institution_name": "William and Catherine Booth College"
+    },
+    "bcou": {
+        "institution_name": "British Columbia Open University"
+    },
+    "uoit": {
+        "institution_name": "University of Ontario Institute of Technology"
+    },
+    "uvic": {
+        "institution_name": "University of Victoria"
+    },
+    "tru": {
+        "institution_name": "Thompson Rivers University"
+    },
+    "uwo": {
+        "institution_name": "University of Western Ontario"
+    },
+    "assumptionu": {
+        "institution_name": "Assumption University"
+    },
+    "redeemer": {
+        "institution_name": "Redeemer College"
+    },
+    "brandonu": {
+        "institution_name": "Brandon University"
+    },
+    "ubc": {
+        "institution_name": "University of British Columbia"
+    },
+    "carleton": {
+        "institution_name": "Carleton University"
+    },
+    "columbiacollege": {
+        "institution_name": "Columbia College"
+    },
+    "ecuad": {
+        "institution_name": "Emily Carr University of Art and Design"
+    },
+    "ulaval": {
+        "institution_name": "Universit\u00e9 Laval"
+    },
+    "nipissingu": {
+        "institution_name": "Nipissing University"
+    },
+    "utoronto": {
+        "institution_name": "University of Toronto"
+    },
+    "bowvalleycollege": {
+        "institution_name": "Bow Valley College"
+    },
+    "uqac": {
+        "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi"
+    },
+    "citecollegiale": {
+        "institution_name": "La Cit\u00e9 Coll\u00e9giale"
+    },
+    "yorku": {
+        "institution_name": "York University"
+    },
+    "uoguelph": {
+        "institution_name": "University of Guelph"
+    },
+    "upei": {
+        "institution_name": "University of Prince Edward Island"
+    },
+    "unbsj": {
+        "institution_name": "University of New Brunswick, Saint John"
+    },
+    "myseneca": {
+        "institution_name": "Seneca College"
+    },
+    "unb": {
+        "institution_name": "University of New Brunswick"
+    },
+    "umanitoba": {
+        "institution_name": "University of Manitoba"
+    },
+    "uqtr": {
+        "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Trois-Rivi\u00e8res"
+    },
+    "uquebec": {
+        "institution_name": "University of Qu\u00e9bec"
+    },
+    "inrs": {
+        "institution_name": "Institut Armand-Frappier, Universit\u00e9 du Qu\u00e9bec"
+    },
+    "mohawkcollege": {
+        "institution_name": "Mohawk College"
+    },
+    "stthomasu": {
+        "institution_name": "St. Thomas University"
+    },
+    "uleth": {
+        "institution_name": "University of Lethbridge"
+    },
+    "laurentian": {
+        "institution_name": "Laurentian University of Sudbury"
+    },
+    "mcmaster": {
+        "institution_name": "McMaster University"
+    },
+    "ustpaul": {
+        "institution_name": "St. Paul University"
+    },
+    "viu": {
+        "institution_name": "Vancouver Island University"
+    },
+    "usherbrooke": {
+        "institution_name": "Universit\u00e9 de Sherbrooke"
+    },
+    "mytru": {
+        "institution_name": "Thompson Rivers University"
+    },
+    "capilanou": {
+        "institution_name": "Capilano University"
+    },
+    "cus": {
+        "institution_name": "University of Moncton, Shippagan"
+    },
+    "cegepmontpetit": {
+        "institution_name": "C\u00e9gep \u00c9douard-Montpetit"
+    },
+    "ubishops": {
+        "institution_name": "Bishop's University"
+    },
+    "hec": {
+        "institution_name": "\u00c9cole des Hautes \u00c9tudes Commerciales"
+    },
+    "saultcollege": {
+        "institution_name": "Sault College of Applied Arts & Technology"
+    },
+    "umontreal": {
+        "institution_name": "Universit\u00e9 de Montr\u00e9al"
+    },
+    "cegepdrummond": {
+        "institution_name": "C\u00e9gep de Drummondville"
+    },
+    "ccbc": {
+        "institution_name": "Canadian College of Business &amp; Computers"
+    },
+    "cuslm": {
+        "institution_name": "University of Moncton, Edmundston"
+    },
+    "uwindsor": {
+        "institution_name": "University of Windsor"
+    },
+    "sait": {
+        "institution_name": "Southern Alberta Institute of Technology"
+    },
+    "twu": {
+        "institution_name": "Trinity Western University"
+    },
+    "uwinnipeg": {
+        "institution_name": "University of Winnipeg"
+    },
+    "fanshaweonline": {
+        "institution_name": "Fanshawe College"
+    },
+    "uwaterloo": {
+        "institution_name": "University of Waterloo",
+        "mathsoc": {
+            "institution_name": "Mathematics Society of The University of Waterloo"
+        }
+    },
+    "stmarys": {
+        "institution_name": "St. Mary's University"
+    },
+    "etsmtl": {
+        "institution_name": "\u00c9cole de technologie sup\u00e9rieure, Universit\u00e9 du Qu\u00e9bec"
+    },
+    "mun": {
+        "institution_name": "Memorial University of Newfoundland"
+    },
+    "vcc": {
+        "institution_name": "Vancouver Community College"
+    },
+    "nscc": {
+        "institution_name": "Nova Scotia Community College"
+    },
+    "yk": {
+        "yukoncollege": {
+            "institution_name": "Yukon College"
+        }
+    },
+    "ns": {
+        "nscad": {
+            "institution_name": "Nova Scotia College of Art and Design"
+        },
+        "ukings": {
+            "institution_name": "University of King's College"
+        },
+        "ednet": {
+            "institution_name": "St. Anne University"
+        }
+    },
+    "bc": {
+        "okanagan": {
+            "institution_name": "Okanagan University College"
+        },
+        "langara": {
+            "institution_name": "Langara College"
+        },
+        "cnc": {
+            "institution_name": "College of New Caledonia"
+        },
+        "mala": {
+            "institution_name": "Malaspina University College"
+        },
+        "douglas": {
+            "institution_name": "Douglas College"
+        },
+        "nlc": {
+            "institution_name": "Northern Lights College"
+        },
+        "camosun": {
+            "institution_name": "Camosun College"
+        },
+        "kwantlen": {
+            "institution_name": "Kwantleen University College"
+        },
+        "capcollege": {
+            "institution_name": "Capilano College"
+        },
+        "nvit": {
+            "institution_name": "Nicola Valley Institute of Technology"
+        },
+        "cotr": {
+            "institution_name": "College of the Rockies"
+        },
+        "mylangara": {
+            "institution_name": "Langara College"
+        },
+        "eciad": {
+            "institution_name": "Emily Carr Institute of Art + Design"
+        },
+        "nic": {
+            "institution_name": "North Island College"
+        },
+        "selkirk": {
+            "institution_name": "Selkirk College"
+        }
+    },
+    "ab": {
+        "concordia": {
+            "institution_name": "Concordia University College of Alberta"
+        },
+        "augustana": {
+            "institution_name": "Augustana University College"
+        },
+        "mtroyal": {
+            "institution_name": "Mount Royal College"
+        }
+    },
+    "mb": {
+        "ustboniface": {
+            "institution_name": "University College of Saint-Boniface"
+        }
+    },
+    "on": {
+        "confederationc": {
+            "institution_name": "Confederation College"
+        },
+        "huronuc": {
+            "institution_name": "Huron University College"
+        },
+        "durhamc": {
+            "institution_name": "Durham College"
+        },
+        "sheridanc": {
+            "institution_name": "Sheridan College"
+        },
+        "borealc": {
+            "institution_name": "Coll\u00e8ge Bor\u00e9al"
+        },
+        "gbrownc": {
+            "institution_name": "George Brown College"
+        },
+        "georgianc": {
+            "institution_name": "Georgian College"
+        },
+        "senecac": {
+            "institution_name": "Seneca College"
+        },
+        "conestogac": {
+            "institution_name": "Conestoga College"
+        }
+    },
+    "qc": {
+        "dawsoncollege": {
+            "institution_name": "Dawson College"
+        },
+        "cegep-heritage": {
+            "institution_name": "C\u00e9gep Heritage College"
+        },
+        "cmaisonneuve": {
+            "institution_name": "Coll\u00e8ge de Maisonneuve"
+        },
+        "cstj": {
+            "institution_name": "C\u00e9gep Saint-J\u00e9r\u00f4me"
+        },
+        "cmontmorency": {
+            "institution_name": "Montmorency College"
+        },
+        "cegeptr": {
+            "institution_name": "C\u00e9gep de Trois-Rivi\u00e8res"
+        }
+    }
+},
+"us": {
+    "fuom": {
+        "institution_name": "Florida University of Medicine"
+    },
+    "yorkuniversity": {
+        "institution_name": "York University"
+    },
+    "mycod": {
+        "institution_name": "College of the Desert"
+    },
+    "tx": {
+        "cc": {
+            "austin": {
+                "institution_name": "Austin Community College"
+            }
+        }
+    },
+    "il": {
+        "cc": {
+            "lc": {
+                "institution_name": "Lewis &amp; Clark Community College"
+            },
+            "rvc": {
+                "institution_name": "Rock Valley College"
+            }
+        }
+    }
+},
+"com": {
+    "grenoble-em": {
+        "institution_name": "Grenoble \u00c9cole de Management"
+    },
+    "algonquinlive": {
+        "institution_name": "Algonquin College"
+    },
+    "schillerstrasbourg": {
+        "institution_name": "Schiller International University, Strasbourg"
+    },
+    "lidapoly": {
+        "institution_name": "Shanghai Lida Polytechnic Institute"
+    },
+    "almaarifah": {
+        "institution_name": "Knowledge International University"
+    },
+    "y-nov": {
+        "institution_name": "Y-nov | Lim'art - Ing\u00e9sup - Infosup | Carrefour des formations aux m\u00e9tiers du num\u00e9rique."
+    },
+    "icsw": {
+        "institution_name": "Institute of Clinical Social Work"
+    },
+    "unimetroangola": {
+        "institution_name": "Universidade Metropolitana de Angola"
+    },
+    "suh-edu": {
+        "institution_name": "Salahddin University (Kurdistan Region)"
+    },
+    "hollandcollege": {
+        "institution_name": "Holland College"
+    },
+    "lsmu": {
+        "institution_name": "Luhansk State Medical University"
+    },
+    "cfpj": {
+        "institution_name": "Centre de Formation et de Perfectionnement des Journalistes"
+    },
+    "sbjacksonville": {
+        "institution_name": "Sanford-Brown Institute"
+    },
+    "paneurouni": {
+        "institution_name": "\u0420aneuropean University"
+    },
+    "islamicug": {
+        "institution_name": "Islamic University College"
+    },
+    "columbusu": {
+        "institution_name": "Columbus University"
+    },
+    "uniactiva": {
+        "institution_name": "Universidad Abierta Interactiva"
+    },
+    "thegameassembly": {
+        "institution_name": "The Game Assembly"
+    },
+    "vanarts": {
+        "institution_name": "Vancouver Institute of Media Arts"
+    },
+    "westcoastuniversity-edu": {
+        "institution_name": "West Coast University (WCU)"
+    },
+    "spsmma": {
+        "institution_name": "St. Petersburg StateMechnikov Medical Academy"
+    },
+    "skylineuniversity": {
+        "institution_name": "Skyline University College, Sharjah"
+    },
+    "imi-luzern": {
+        "institution_name": "International Hotel Management Institute"
+    },
+    "ashtoncollege": {
+        "institution_name": "Ashton College"
+    },
+    "umi-pk": {
+        "institution_name": "University of Munawwar-ul-Islam"
+    },
+    "fullsail": {
+        "institution_name": "Full Sail University"
+    },
+    "gollisuniversity": {
+        "institution_name": "Gollis University"
+    },
+    "eieonline": {
+        "institution_name": "European Institute of Education"
+    },
+    "westcoastuniversity": {
+        "institution_name": "West Coast University"
+    },
+    "isi-mtl": {
+        "institution_name": "Institut superieur d'informatique"
+    },
+    "nugaaluniversity": {
+        "institution_name": "Nugaal University"
+    },
+    "moorelanduniversity": {
+        "institution_name": "Mooreland University"
+    },
+    "ionis-stm": {
+        "institution_name": "Ionis School of Technology and Management"
+    },
+    "saadcollege": {
+        "institution_name": "Saad College of Nursing and Allied Health Sciences"
+    },
+    "emc-campus": {
+        "institution_name": "European Management Center Paris"
+    },
+    "oshmed": {
+        "institution_name": "Medical Institute,Osh State University"
+    },
+    "rcsi-mub": {
+        "institution_name": "RCSI-Medical University of Bahrain"
+    },
+    "foundationuniversity": {
+        "institution_name": "Foundation University"
+    },
+    "escdijon": {
+        "institution_name": "\u00c9cole Sup\u00e9rieure de Commerce de Dijon"
+    },
+    "uu-sy": {
+        "institution_name": "Ittihad Private University"
+    },
+    "oradeauniversity": {
+        "institution_name": "Oradea University"
+    },
+    "jpcatholic": {
+        "institution_name": "John Paul the Great Catholic University"
+    },
+    "manukaumail": {
+        "institution_name": "Manukau Institute of Technology"
+    },
+    "eemi": {
+        "institution_name": "\u00c9cole Europ\u00e9enne des M\u00e9tiers de l'Internet"
+    },
+    "stockholm-fu": {
+        "institution_name": "Free University Stockholm"
+    },
+    "infosup": {
+        "institution_name": "Infosup"
+    },
+    "foundationu": {
+        "institution_name": "Foundation University"
+    },
+    "iu-travnik": {
+        "institution_name": "International University of Travnik"
+    },
+    "em-lyon": {
+        "institution_name": "\u00c9cole Sup\u00e9rieure de Commerce de Lyon"
+    },
+    "icn-nancy": {
+        "institution_name": "Institut Commercial de Nancy"
+    },
+    "kkumail": {
+        "institution_name": "Khon Kaen University"
+    },
+    "ici-luzern": {
+        "institution_name": "International Culinary Institute (ICI)"
+    },
+    "vlerick": {
+        "institution_name": "Vlerick Business School",
+        "edu": {
+            "institution_name": "Vlerick Business School"
+        }
+    },
+    "cqumail": {
+        "institution_name": "Central Queensland University (CQU)"
+    },
+    "stenden": {
+        "institution_name": "Stenden University"
+    },
+    "scbaghdad": {
+        "institution_name": "College of Science, Baghdad University"
+    },
+    "uniedpa": {
+        "institution_name": "Universidad Interamericana de Educacion a Distancia de Panama"
+    },
+    "puntlandstateuniversity": {
+        "institution_name": "Puntland State University"
+    },
+    "bmcmedcollege": {
+        "institution_name": "Al-Batterjee Medical College"
+    },
+    "isbm-school": {
+        "institution_name": "International School of Business Management"
+    },
+    "sh-sipopolytechnic": {
+        "institution_name": "Shanghai Sipo Polytechnic"
+    },
+    "collegecanada": {
+        "institution_name": "Canada College"
+    },
+    "crsmu": {
+        "institution_name": "Crimea State Medical University"
+    },
+    "breyerstate": {
+        "institution_name": "Breyer State University (Virtual University)"
+    },
+    "mogadishuuniversity": {
+        "institution_name": "Mogadishu University"
+    },
+    "iesanetwork": {
+        "institution_name": "IESA \u00c9cole Multimedia \u00e0 Paris"
+    },
+    "ftmsglobal": {
+        "institution_name": "FTMS Global Academy"
+    },
+    "edhec": {
+        "institution_name": "\u00c9cole des Hautes \u00c9tudes Commerciales du Nord"
+    },
+    "kolieh": {
+        "institution_name": "International Centre for Isclamic Science"
+    },
+    "atc2u": {
+        "institution_name": "Advance Tertiary College"
+    },
+    "univ-douala": {
+        "institution_name": "Universit\u00e9 de Douala"
+    },
+    "khawarizmi": {
+        "institution_name": "Al Khawarizmi International College"
+    },
+    "buraouniversity": {
+        "institution_name": "University of Burao"
+    },
+    "alustudent": {
+        "institution_name": "African Leadership University"
+    },
+    "madisonu": {
+        "institution_name": "Madison University (Distance Education)"
+    },
+    "ahlulbaitonline": {
+        "institution_name": "Ahlulbait International University"
+    },
+    "tajamar365": {
+        "institution_name": "Fomaci\u00f3n Tajamar"
+    },
+    "ingesup": {
+        "institution_name": "Ing\u00e9sup - \u00c9cole sup\u00e9rieure d'ing\u00e9nierie informatique"
+    },
+    "vsavm": {
+        "institution_name": "Vitebsk State Academy of Veterinary Medicine"
+    },
+    "saedubai": {
+        "institution_name": "SAE Institute | Dubai"
+    },
+    "shannoncollege": {
+        "institution_name": "Shannon College of Hotel Management"
+    },
+    "skadron": {
+        "institution_name": "Skadron College"
+    },
+    "greenwichutc": {
+        "institution_name": "Greenwich University Technical College"
+    },
+    "eu": {
+        "sabi": {
+            "institution_name": "Scandinavian Art and Business Institute"
+        }
+    }
+},
+"org": {
+    "reigategrammar": {
+        "institution_name": "Reigate Grammar School"
+    },
+    "mines-ales": {
+        "institution_name": "\u00c9cole des Mines d'Ales"
+    },
+    "rightchoice": {
+        "institution_name": "Community College of Denver"
+    },
+    "svuonline": {
+        "institution_name": "Syrian Virtual University"
+    },
+    "upeace": {
+        "institution_name": "University for Peace"
+    },
+    "avu": {
+        "institution_name": "African Virtual University"
+    },
+    "upou": {
+        "institution_name": "University of the Philippines Open University"
+    },
+    "ipiaget": {
+        "institution_name": "Instituto Piaget"
+    },
+    "daystarus": {
+        "institution_name": "Daystar University"
+    },
+    "udesmontagnes": {
+        "institution_name": "Universit\u00e9 des Montagnes"
+    },
+    "thiqaruni": {
+        "institution_name": "Thi Qar University"
+    },
+    "auamed": {
+        "institution_name": "American University of Antigua"
+    },
+    "ibsindia": {
+        "institution_name": "ICFAI Business School, India"
+    },
+    "ucnh": {
+        "institution_name": "Universit\u00e9 Chr\u00e9tienne du Nord d'Haiti"
+    },
+    "spartanmed": {
+        "institution_name": "Spartan University of Health Sciences"
+    },
+    "ensta-bretagne": {
+        "institution_name": "\u00c9cole Nationale Sup\u00e9rieure des Techniques Avanc\u00e9es de Bretagne"
+    },
+    "hsrw": {
+        "institution_name": "Hochschule Rhein-Waal"
+    },
+    "ovidunivconstanta-edu": {
+        "institution_name": "University of Constanta Medical School"
+    },
+    "islahonline": {
+        "institution_name": "Al-Islah University"
+    },
+    "hertie-school": {
+        "institution_name": "Hertie School of Governance"
+    },
+    "2isa": {
+        "institution_name": "Institut Informatique Sud Aveyron"
+    },
+    "amouduniversity": {
+        "institution_name": "Amoud University"
+    },
+    "sekuco": {
+        "institution_name": "Sebatian Kolowa University College"
+    },
+    "meltwater": {
+        "institution_name": "Meltwater Entrepreneurial School of Technology"
+    },
+    "icu-edu": {
+        "institution_name": "International Culture University"
+    },
+    "uits-bd": {
+        "institution_name": "University of Information Technology &amp; Sciences (UITS)"
+    },
+    "univ-dschang": {
+        "institution_name": "Universit\u00e9 de Dschang"
+    },
+    "tusom": {
+        "institution_name": "Trinity University School of Medicine"
+    },
+    "santoangel": {
+        "institution_name": "Colegio Santo Angel"
+    },
+    "khazar": {
+        "institution_name": "Khazar University"
+    },
+    "scicu": {
+        "institution_name": "South Carolina Independent Colleges and Universities"
+    },
+    "centraluniversity": {
+        "institution_name": "Central University College"
+    },
+    "toulouse-bs": {
+        "institution_name": "Toulouse Business School"
+    },
+    "iesmontsia": {
+        "institution_name": "iesmontsia"
+    },
+    "sjsm": {
+        "institution_name": "St.James's School of Medicine, Bonaire"
+    },
+    "mtsm": {
+        "institution_name": "Athenaeum of Ohio"
+    },
+    "gniindia": {
+        "institution_name": "Guru Nanak Institutions"
+    },
+    "dubaicollege": {
+        "institution_name": "Dubai College"
+    },
+    "poornima": {
+        "institution_name": "Poornima College Of Engineering"
+    },
+    "usenghor-francophonie": {
+        "institution_name": "Universit\u00e9 Senghor d'Alexandrie"
+    },
+    "ghanacu": {
+        "institution_name": "Ghana Christian University College"
+    },
+    "pmlrru": {
+        "institution_name": "PML University"
+    },
+    "ucapanama": {
+        "institution_name": "Universidad de Cartago"
+    },
+    "hawlermu": {
+        "institution_name": "Hawler Medical University"
+    },
+    "unesco-ihe": {
+        "institution_name": "UNESCO-IHE Institute for Water Education"
+    },
+    "pafa": {
+        "institution_name": "Pennsylvania Academy of the Fine Arts"
+    },
+    "hnulinton": {
+        "institution_name": "Hannam University Linton School of Global Business"
+    },
+    "az-npu": {
+        "institution_name": "Nakhchivan Private University"
+    },
+    "centraliens-lille": {
+        "institution_name": "\u00c9cole Centrale de Lille"
+    },
+    "ceaprc": {
+        "institution_name": "Centro de Estudios Avanzados de Puerto Rico y el Caribe"
+    },
+    "nbkrist": {
+        "institution_name": "N.B.K.R. Institute Of Science & Technology"
+    },
+    "astu": {
+        "institution_name": "Astrahan State Technical University"
+    },
+    "upra": {
+        "institution_name": "Athenaeum Pontificium Regina Apostolorum"
+    },
+    "lios": {
+        "institution_name": "The Leadership Institute of Seattle"
+    },
+    "unibl": {
+        "institution_name": "University of Banja Luka"
+    },
+    "cavendishza": {
+        "institution_name": "Cavendish University"
+    },
+    "univ-ndjamena": {
+        "institution_name": "Universit\u00e9 de N'Djamena"
+    },
+    "almamonuc": {
+        "institution_name": "Mamon University College"
+    },
+    "hhmi": {
+        "institution_name": "Howard Hughes Medical Institute"
+    },
+    "internationaluniversity-schoolofmedicine": {
+        "institution_name": "International University School of Medicine (IUSOM)"
+    },
+    "asdubai": {
+        "institution_name": "American School of Dubai"
+    },
+    "universityliberia": {
+        "institution_name": "University of Liberia"
+    },
+    "ieslosremedios": {
+        "institution_name": "IES Nuestra Se\u00f1ora de los Remedios"
+    },
+    "polytechnic-kabul": {
+        "institution_name": "Polytechnical University of Kabul"
+    },
+    "ipeindia": {
+        "institution_name": "Institute Of Public Enterprise"
+    },
+    "pusa-sy": {
+        "institution_name": "Private University of Science and Arts"
+    },
+    "forestinstitute": {
+        "institution_name": "Forest Institute of Professional Psychology"
+    },
+    "aabfs": {
+        "institution_name": "Arab Academy for Banking and Financial Sciences"
+    },
+    "libopenuniv-edu": {
+        "institution_name": "Libya Open University"
+    },
+    "secupv": {
+        "institution_name": "Universidad Pedag\u00f3gica Veracruzana"
+    },
+    "bsu-edu": {
+        "institution_name": "Baku Slavic University"
+    },
+    "bihe": {
+        "institution_name": "Baha'i Institute for Higher Education"
+    },
+    "cihanuniversity": {
+        "institution_name": "Cihan University"
+    },
+    "allenisd": {
+        "student": {
+            "institution_name": "Allen Independent School District"
+        }
+    }
+}
+}
