@@ -42,7 +42,7 @@ const EmailInput: React.FC<EmailInputProps> = ({ navigate }) => {
                 style={styles.input}
                 value={email}
                 onChangeText={setEmail} />
-            <Button text="Next" variant="primary" size="md" onPress={handleNext} />
+            <Button children="Next" variant="primary" size="md" onPress={handleNext} />
         </View>
     );
 };

@@ -40,7 +40,7 @@ const Login: React.FC<LoginProps> = ({ onSubmit }) => {
       <Button
         variant="primary"
         size="md"
-        text="Login"
+        children="Login"
         onPress={handleSubmit(onSubmit)}
       />
     </View>

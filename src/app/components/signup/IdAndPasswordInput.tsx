@@ -21,7 +21,7 @@ const IdAndPasswordInput: React.FC = () => {
         placeholder="Password" 
         secureTextEntry 
         style={styles.input} />
-      <Button text="Sign Up" variant="primary" size="md" onPress={handleSubmit} />
+      <Button children="Sign Up" variant="primary" size="md" onPress={handleSubmit} />
     </View>
   );
 };
