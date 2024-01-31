@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, ViewStyle, TextStyle } from 'react-native';
 import { ButtonProps, ButtonSize, ButtonVariant } from './types';
-import { Ionicons } from '@expo/vector-icons';
 
 const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
     default: {

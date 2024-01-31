@@ -2,6 +2,8 @@ import { View } from 'react-native';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import Button from '.';
 import { ButtonProps } from './types';
+import Typography from '../../atoms/Typography';
+import { AntDesign } from '@expo/vector-icons';
 
 const meta: ComponentMeta<typeof Button> = {
     title: 'Design System/Atoms/Button',
@@ -34,27 +36,41 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Primary: Story = {
+export const OnlyText: Story = {
+    args: {
+        variant: 'primary',
+        size: 'md',
+    },
+    render: args => (
+        <Button {...args}>
+            <Typography variant="subtitle" color="text">OnlyText</Typography>
+        </Button>
+    ),
+};
+
+export const OnlyIcon: Story = {
+    args: {
+        variant: 'primary',
+        size: 'md',
+    },
+    render: args => (
+        <Button {...args}>
+            <AntDesign name="check" size={24} color="green" />
+        </Button>
+    ),
+};
+
+export const TextIcon: Story = {
     args: {
         variant: 'primary',
         size: 'sm',
-        text: 'Example',
+        style: {flexDirection: 'row'},
     },
-};
-
-export const Secondary = {
-    args: {
-        variant: 'secondary',
-        size: 'sm',
-        text: 'Example',
-    },
-};
-
-export const Tertiary = {
-    args: {
-        variant: 'tertiary',
-        size: 'sm',
-        text: 'Example',
-    },
+    render: args => (
+        <Button {...args}>
+            <Typography variant="subtitle" color="text">Check </Typography>
+            <AntDesign name="check" size={24} color="green" />
+        </Button>
+    ),
 };
 
