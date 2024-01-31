@@ -1,14 +1,25 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ViewStyle, FlatList } from 'react-native';
-import { ListProps, ListItemProps, ListItemButtonProps, ListVariant, ListItemIconProps, ListItemTextProps } from './types';
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    ViewStyle,
+    FlatList,
+} from 'react-native';
+import {
+    ListProps,
+    ListItemProps,
+    ListItemButtonProps,
+    ListVariant,
+    ListItemIconProps,
+    ListItemTextProps,
+    ListItemType,
+} from './types';
 
 const listVariantStyle: Record<ListVariant, ViewStyle> = {
-    horizontal: {
-    },
-    vertical: {
-    },
-}
-
+    horizontal: {},
+    vertical: {},
+};
 
 // <ListItemButton></ListItemButton>
 
@@ -16,32 +27,22 @@ const ListItemButton: React.FC<ListItemButtonProps> = function ({
     style = {},
     children,
     onPress = () => {},
-    selected
 }) {
     return (
-        <TouchableOpacity
-            style={[
-                style,
-            ]}
-            onPress={onPress}
-        >
+        <TouchableOpacity style={[style]} onPress={onPress}>
             {children}
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 // <ListItemIcon></ListItemIcon>
 
 const ListItemIcon: React.FC<ListItemIconProps> = function ({
     style = {},
-    children
+    children,
 }) {
-    return (
-        <View>
-            {children}
-        </View>
-    )
-}
+    return <View>{children}</View>;
+};
 
 // <ListItemText />
 
@@ -50,88 +51,50 @@ const ListItemText: React.FC<ListItemTextProps> = function ({
     primary,
     secondary,
 }) {
-    return(
-        <View
-            style={[style]}
-        >
-            {typeof primary === 'string' ?
-               <Text>{primary}</Text> 
-            :
-                primary
-            }
-            {typeof secondary === 'string' ?
-               <Text>{secondary}</Text> 
-            :
+    return (
+        <View style={[style]}>
+            {typeof primary === 'string' ? <Text>{primary}</Text> : primary}
+            {typeof secondary === 'string' ? (
+                <Text>{secondary}</Text>
+            ) : (
                 secondary
-            }
+            )}
         </View>
-    )
-}
-
+    );
+};
 
 // <ListItem></ListItem>
 
-const ListItem: React.FC<ListItemProps> = function ({
-    style,
-    children,
-}) {
-    return (
-        <View style={[style]}>
-            {children}
-        </View>
-    )
-}
+const ListItem: React.FC<ListItemProps> = function ({ style, children }) {
+    return <View style={[style]}>{children}</View>;
+};
 
-const List: React.FC<ListProps> = function ({
-    style,
-    variant,
-    children,
-}) {
+const List: React.FC<ListProps> = function ({ style, variant, children }) {
     return (
         <View
-            style={variant === 'horizontal' ? listVariantStyle.horizontal : listVariantStyle.vertical}
-        >
-            {variant === 'horizontal' ?
-
+            style={
+                variant === 'horizontal'
+                    ? listVariantStyle.horizontal
+                    : listVariantStyle.vertical
+            }>
+            {variant === 'horizontal' ? (
                 // horizontal list
-                <FlatList 
-                    data={children}
-                    renderItem={({item, index})=>(
-                        <View>
-                            {item}
-                        </View>
-                    )}
+                <FlatList
+                    data={children as ArrayLike<ListItemType>}
+                    renderItem={({ item }) => <View>{item}</View>}
                     horizontal
-                    keyExtractor={(item, index) => {
-                        console.log(index.toString())
-                        return index.toString()
-                    }}
+                    keyExtractor={(item, index) => index.toString()}
                 />
-            :
+            ) : (
                 // vertical list
-                <FlatList 
-                    data={children}
-                    renderItem={({item, index})=>(
-                        <View>
-                            {item}
-                        </View>
-                    )}
-                    keyExtractor={(item, index) => {
-                        console.log(index.toString())
-                        return index.toString()
-                    }}
+                <FlatList
+                    data={children as ArrayLike<ListItemType>}
+                    renderItem={({ item }) => <View>{item}</View>}
+                    keyExtractor={(item, index) => index.toString()}
                 />
-            }
+            )}
         </View>
-        
-    )
-}
-
-
-export {
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
+    );
 };
+
+export { List, ListItem, ListItemButton, ListItemIcon, ListItemText };

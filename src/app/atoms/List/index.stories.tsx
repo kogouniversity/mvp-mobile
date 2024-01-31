@@ -1,7 +1,8 @@
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Text } from 'react-native';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
-import { List, ListItem, ListItemIcon, ListItemText, ListItemButton } from '.';
-import { ListProps } from './types';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '.';
+import { ListItemType, ListProps } from './types';
+import { ImageSrc } from '../../utils/assets';
 
 const meta: ComponentMeta<typeof List> = {
     title: 'Design System/Atoms/List',
@@ -17,9 +18,9 @@ const meta: ComponentMeta<typeof List> = {
             <View>
                 <Story />
             </View>
-        )
-    ]
-}
+        ),
+    ],
+};
 
 export default meta;
 
@@ -28,58 +29,73 @@ type Story = StoryObj<ListProps>;
 const styles = StyleSheet.create({
     images: {
         width: 90,
-        height: 90
+        height: 90,
     },
-    horizontalItem: {
-        alignItems: 'center'
+    horizontalList: {
+        alignItems: 'center',
     },
-    verticalItem: {
-        
-    }
-})
+    verticalList: {},
+});
 
-export const Horizontal: Story = {
+export const BasicList: Story = {
     args: {
-        variant: 'horizontal',
         children: [
-            <ListItem style={styles.horizontalItem}>
-                <ListItemButton
-                    selected={false}
-                >
-                    <ListItemIcon>
-                        <Image style={styles.images} source={require('../../assets/images/alienAstronaut.png')} />
-                    </ListItemIcon>
-                </ListItemButton>
-                <ListItemText primary="Title 1" />
-            </ListItem>
-            ,
-            <ListItem style={styles.horizontalItem}>
+            <ListItem style={styles.verticalList}>
                 <ListItemIcon>
-                    <Image style={styles.images} source={require('../../assets/images/alienAstronaut.png')} />
+                    <Image
+                        style={styles.images}
+                        source={ImageSrc.alienAstronaut}
+                    />
                 </ListItemIcon>
                 <ListItemText primary="Title 2" />
-            </ListItem>
-        ]
+            </ListItem>,
+            <ListItem style={styles.verticalList}>
+                <ListItemIcon>
+                    <Image
+                        style={styles.images}
+                        source={ImageSrc.alienAstronaut}
+                    />
+                </ListItemIcon>
+                <ListItemText primary="Title 2" />
+            </ListItem>,
+        ],
     },
 };
 
-export const Vertical: Story = {
+export const ButtonList: Story = {
     args: {
-        variant: 'vertical',
         children: [
-            <ListItem style={styles.verticalItem}>
-                <ListItemIcon>
-                    <Image source={require('../../assets/images/alienAstronaut.png')} />
-                </ListItemIcon>
-                <ListItemText primary="Hello" />
-            </ListItem>
-            ,
-            <ListItem style={styles.verticalItem}>
-                <ListItemIcon>
-                    <Image source={require('../../assets/images/alienAstronaut.png')} />
-                </ListItemIcon>
-                <ListItemText primary="Hello" />
-            </ListItem>
-        ]
+            <ListItem style={styles.verticalList}>
+                <ListItemButton>
+                    <Text>button item</Text>
+                </ListItemButton>
+            </ListItem>,
+            <ListItem style={styles.verticalList}>
+                <ListItemButton>
+                    <Text>button item</Text>
+                </ListItemButton>
+            </ListItem>,
+        ],
+    },
+};
+
+export const NestedList: Story = {
+    args: {
+        children: [
+            ...(BasicList.args?.children as ListItemType[]),
+            <List>
+                <ListItem>
+                    <ListItemButton style={styles.verticalList}>
+                        <ListItemIcon>
+                            <Image
+                                style={styles.images}
+                                source={ImageSrc.alienAstronaut}
+                            />
+                        </ListItemIcon>
+                        <ListItemText primary="Title 2" />
+                    </ListItemButton>
+                </ListItem>
+            </List>,
+        ],
     },
 };
