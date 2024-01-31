@@ -58,6 +58,7 @@ const getStories = () => {
   return {
     "./src/app/atoms/Button/index.stories.tsx": require("../src/app/atoms/Button/index.stories.tsx"),
     "./src/app/atoms/inputs/TextField/index.stories.tsx": require("../src/app/atoms/inputs/TextField/index.stories.tsx"),
+    "./src/app/atoms/List/index.stories.tsx": require("../src/app/atoms/List/index.stories.tsx"),
     "./src/app/atoms/Typography/index.stories.tsx": require("../src/app/atoms/Typography/index.stories.tsx"),
   };
 };
