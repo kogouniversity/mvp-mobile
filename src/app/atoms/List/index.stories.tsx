@@ -1,7 +1,7 @@
 import { View, Image, StyleSheet, Text } from 'react-native';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '.';
-import { ListItemType, ListProps } from './types';
+import { ListProps } from './types';
 import { ImageSrc } from '../../utils/assets';
 
 const meta: ComponentMeta<typeof List> = {
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
 });
 
 export const BasicList: Story = {
-    args: {
-        children: [
+    render: args => (
+        <List {...args}>
             <ListItem style={styles.verticalList}>
                 <ListItemIcon>
                     <Image
@@ -48,7 +48,7 @@ export const BasicList: Story = {
                     />
                 </ListItemIcon>
                 <ListItemText primary="Title 2" />
-            </ListItem>,
+            </ListItem>
             <ListItem style={styles.verticalList}>
                 <ListItemIcon>
                     <Image
@@ -57,45 +57,42 @@ export const BasicList: Story = {
                     />
                 </ListItemIcon>
                 <ListItemText primary="Title 2" />
-            </ListItem>,
-        ],
-    },
+            </ListItem>
+        </List>
+    ),
 };
 
 export const ButtonList: Story = {
-    args: {
-        children: [
+    render: args => (
+        <List {...args}>
             <ListItem style={styles.verticalList}>
                 <ListItemButton>
                     <Text>button item</Text>
                 </ListItemButton>
-            </ListItem>,
+            </ListItem>
             <ListItem style={styles.verticalList}>
                 <ListItemButton>
                     <Text>button item</Text>
                 </ListItemButton>
-            </ListItem>,
-        ],
-    },
+            </ListItem>
+        </List>
+    ),
 };
 
 export const NestedList: Story = {
-    args: {
-        children: [
-            ...(BasicList.args?.children as ListItemType[]),
-            <List>
-                <ListItem>
-                    <ListItemButton style={styles.verticalList}>
-                        <ListItemIcon>
-                            <Image
-                                style={styles.images}
-                                source={ImageSrc.alienAstronaut}
-                            />
-                        </ListItemIcon>
-                        <ListItemText primary="Title 2" />
-                    </ListItemButton>
-                </ListItem>
-            </List>,
-        ],
-    },
+    render: args => (
+        <List {...args}>
+            <ListItem>
+                <ListItemButton style={styles.verticalList}>
+                    <ListItemIcon>
+                        <Image
+                            style={styles.images}
+                            source={ImageSrc.alienAstronaut}
+                        />
+                    </ListItemIcon>
+                    <ListItemText primary="Title 2" />
+                </ListItemButton>
+            </ListItem>
+        </List>
+    ),
 };
