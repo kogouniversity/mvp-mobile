@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, ViewStyle, TextStyle } from 'react-native';
 import { ButtonProps, ButtonSize, ButtonVariant } from './types';
+import { Ionicons } from '@expo/vector-icons';
 
 const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
     default: {
@@ -8,52 +9,41 @@ const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
         alignItems: 'center',
     },
     primary: {
-        backgroundColor: 'green',
+        backgroundColor: 'black',
     },
     secondary: {
-        backgroundColor: 'blue',
+        backgroundColor: 'white',
+        borderColor: 'black',
+        borderWidth: 3,
     },
-};
-
-const textVariantStyles: Record<ButtonVariant, TextStyle> = {
-    default: {},
-    primary: {},
-    secondary: {
-        color: 'white',
+    tertiary: {
+        backgroundColor: 'transparent',
     },
 };
 
 const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
     default: {
-        width: '100%',
     },
     sm: {
-        width: '100%',
-        padding: 8,
+        width: 69,
+        height: 22,
     },
     md: {
-        width: '100%',
-        padding: 16,
+        width: 129,
+        height: 33,
     },
-};
-
-const textSizeStyles: Record<ButtonSize, TextStyle> = {
-    default: {},
-    sm: {
-        fontSize: 11,
-    },
-    md: {
-        fontSize: 14,
-    },
+    lg:{
+        width: 335,
+        height: 48,
+    }
 };
 
 const Button: React.FC<ButtonProps> = function ({
     variant,
     size,
     style = {},
-    overridingTextStyle = {},
     onPress = () => null,
-    text,
+    children,
 }) {
     return (
         <TouchableOpacity
@@ -65,15 +55,7 @@ const Button: React.FC<ButtonProps> = function ({
             ]}
             onPress={onPress}
             activeOpacity={0.8}>
-            <Text
-                style={[
-                    textVariantStyles.default,
-                    textVariantStyles[variant],
-                    textSizeStyles[size],
-                    overridingTextStyle,
-                ]}>
-                {text}
-            </Text>
+            {children}
         </TouchableOpacity>
     );
 };

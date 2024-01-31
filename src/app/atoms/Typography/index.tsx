@@ -31,6 +31,33 @@ const typographyColorStyles: Record<TypographyColors, TextStyle> = {
     },
 };
 
+// const textVariantStyles: Record<ButtonVariant, TextStyle> = {
+//     default: {},
+//     primary: {
+//         color: 'white',
+//     },
+//     secondary: {
+//         color: 'black',
+//     },
+//     tertiary: {
+//         color: 'black',
+//     },
+// };
+
+// const textSizeStyles: Record<ButtonSize, TextStyle> = {
+//     default: {},
+//     sm: {
+//         fontSize: 11,
+//     },
+//     md: {
+//         fontSize: 14,
+//     },
+//     lg: {
+//         fontSize: 18,
+//     }
+// };
+
+
 const Typography: React.FC<TypographyProps> = function ({
     variant,
     color,

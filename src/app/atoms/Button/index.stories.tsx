@@ -8,11 +8,11 @@ const meta: ComponentMeta<typeof Button> = {
     component: Button,
     argTypes: {
         variant: {
-            options: ['primary', 'secondary'],
+            options: ['primary', 'secondary', 'tertiary'],
             control: { type: 'radio' },
         },
         size: {
-            options: ['sm', 'md'],
+            options: ['sm', 'md', 'lg'],
             control: { type: 'radio' },
         },
     },
@@ -49,3 +49,12 @@ export const Secondary = {
         text: 'Example',
     },
 };
+
+export const Tertiary = {
+    args: {
+        variant: 'tertiary',
+        size: 'sm',
+        text: 'Example',
+    },
+};
+
