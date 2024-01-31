@@ -58,8 +58,11 @@ const getStories = () => {
   return {
     "./src/app/atoms/Button/index.stories.tsx": require("../src/app/atoms/Button/index.stories.tsx"),
     "./src/app/atoms/inputs/TextField/index.stories.tsx": require("../src/app/atoms/inputs/TextField/index.stories.tsx"),
-    "./src/app/atoms/List/index.stories.tsx": require("../src/app/atoms/List/index.stories.tsx"),
     "./src/app/atoms/Typography/index.stories.tsx": require("../src/app/atoms/Typography/index.stories.tsx"),
+    "./src/app/components/login/LoginForm.stories.tsx": require("../src/app/components/login/LoginForm.stories.tsx"),
+    "./src/app/components/signup/EmailInput.stories.tsx": require("../src/app/components/signup/EmailInput.stories.tsx"),
+    "./src/app/components/signup/IdAndPasswordInput.stories.tsx": require("../src/app/components/signup/IdAndPasswordInput.stories.tsx"),
+    "./src/app/components/signup/VerificationCode.stories.tsx": require("../src/app/components/signup/VerificationCode.stories.tsx"),
   };
 };
 
