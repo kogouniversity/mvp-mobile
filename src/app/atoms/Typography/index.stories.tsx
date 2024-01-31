@@ -1,17 +1,31 @@
 import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import Typography from './index';
-import { TextFieldProps } from '../inputs/TextField/types';
+import { TypographyProps} from './types';
+import { View } from 'react-native';
 
 const meta: ComponentMeta<typeof Typography> = {
     title: 'Design System/Atoms/Typography',
     component: Typography,
+    argTypes: {
+        variant: {
+            options: ['title', 'subtitle', 'text', 'subtext'],
+            control: { type: 'radio' },
+        },
+            color: {
+            options: ['text', 'subtext', 'shade', 'notification'],
+            control: { type: 'radio' },
+        },
+    },
     decorators: [
         (Story: StoryFn): JSX.Element => (
-            <Story>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam
-            </Story>
+            <View
+                style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flex: 1,
+                }}>
+                <Story />
+            </View>
         ),
     ],
     parameters: {
@@ -21,8 +35,12 @@ const meta: ComponentMeta<typeof Typography> = {
 
 export default meta;
 
-type Story = StoryObj<TextFieldProps>;
+type Story = StoryObj<TypographyProps>;
 
-export const Primary: Story = {
-    args: {},
+export const Title: Story = {
+    args: {
+        variant: 'title',
+        color: 'text',
+        children: 'Example',
+    },
 };

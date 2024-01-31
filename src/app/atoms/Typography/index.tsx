@@ -1,31 +1,45 @@
 import { Text as NativeText, TextStyle } from 'react-native';
-import { TypographyProps, TypographyVariants } from './types';
+import { TypographyProps, TypographyVariants, TypographyColors } from './types';
 
 const typographyVariantStyles: Record<TypographyVariants, TextStyle> = {
-    h1: {},
-    h2: {},
-    h3: {},
-    h4: {},
-    h5: {},
-    h6: {
-        fontSize: 24,
-        fontWeight: '900',
+    title:{
+        fontSize: 32,
     },
-    subtitle1: {},
-    subtitle2: {},
-    body1: {},
-    body2: {},
-    button: {},
+    subtitle: {
+        fontSize: 20,
+    },
+    text:{
+        fontSize: 13,
+    },
+    subtext:{
+        fontSize: 11,
+    },
+};
+
+const typographyColorStyles: Record<TypographyColors, TextStyle> = {
+    text:{
+        color: '#000000',
+    },
+    subtext:{
+        color: '#5a5a5a',
+    },
+    shade:{
+        color: '#d3d3d3',
+    },
+    notification:{
+        color: '#ff0000',
+    },
 };
 
 const Typography: React.FC<TypographyProps> = function ({
     variant,
+    color,
     style = {},
     ...props
 }) {
     return (
         <NativeText
-            style={[typographyVariantStyles[variant], style]}
+            style={[typographyVariantStyles[variant], typographyColorStyles[color], style]}
             {...props}
         />
     );
