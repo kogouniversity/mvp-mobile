@@ -40,7 +40,7 @@ export default meta;
 
 type Story = StoryObj<TypographyProps>;
 
-export const Title: Story = {
+export const Default: Story = {
     args: {
         variant: 'title',
         color: 'text',
