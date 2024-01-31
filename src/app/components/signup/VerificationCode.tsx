@@ -19,7 +19,7 @@ interface VerificationCodeProps {
         variant="outlined" 
         placeholder="Verification Code" 
         style={styles.input} />
-      <Button text="Next" variant="primary" size="md" onPress={handleNext} />
+      <Button children="Next" variant="primary" size="md" onPress={handleNext} />
     </View>
   );
 };
