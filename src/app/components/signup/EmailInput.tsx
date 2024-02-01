@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import Button from '../../atoms/Button';
-import TextField from '../../atoms/inputs/TextField'; 
 import { z } from 'zod';
-import { isAcademic, getInstitutionName } from '../academicVerifier/AcademicEmailVerifier';
+import Button from '../../atoms/Button';
+import TextField from '../../atoms/inputs/TextField';
+import {
+    isAcademic,
+    getInstitutionName,
+} from '../academicVerifier/AcademicEmailVerifier';
 
 const emailSchema = z.object({
     email: z.string().email(),
@@ -13,7 +16,7 @@ interface EmailInputProps {
     navigate: (screenName: string) => void;
 }
 
-const EmailInput: React.FC<EmailInputProps> = ({ navigate }) => {
+const EmailInput: React.FC<EmailInputProps> = function ({ navigate }) {
     const [email, setEmail] = useState('');
 
     const handleNext = () => {
@@ -24,8 +27,10 @@ const EmailInput: React.FC<EmailInputProps> = ({ navigate }) => {
                 console.log(`Institution Name: ${institutionName}`);
                 navigate('VerificationCode');
             } else {
-                Alert.alert('Error', 'Please enter a valid academic email address.');
-                return;
+                Alert.alert(
+                    'Error',
+                    'Please enter a valid academic email address.',
+                );
             }
         } catch (error) {
             if (error instanceof z.ZodError) {
@@ -36,13 +41,14 @@ const EmailInput: React.FC<EmailInputProps> = ({ navigate }) => {
 
     return (
         <View style={styles.container}>
-            <TextField 
-                variant="outlined" 
-                placeholder="Email" 
+            <TextField
+                variant="outlined"
+                placeholder="Email"
                 style={styles.input}
                 value={email}
-                onChangeText={setEmail} />
-            <Button children="Next" variant="primary" size="md" onPress={handleNext} />
+                onChangeText={setEmail}
+            />
+            <Button variant="primary" size="md" onPress={handleNext} />
         </View>
     );
 };

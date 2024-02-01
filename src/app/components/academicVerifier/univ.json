@@ -4856,956 +4856,956 @@
         }
     },
 
-"ca": {
-    "ufv": {
-        "institution_name": "University of the Fraser Valley"
-    },
-    "firstnationsuniversity": {
-        "institution_name": "First Nations University of Canada"
-    },
-    "ocad": {
-        "institution_name": "Ontario College of Art and Design"
-    },
-    "saskpolytech": {
-        "institution_name": "Saskatchewan Polytechnic"
-    },
-    "ualberta": {
-        "institution_name": "University of Alberta"
-    },
-    "acadiau": {
-        "institution_name": "Acadia University"
-    },
-    "rmc": {
-        "institution_name": "Royal Military College of Canada"
-    },
-    "concordia": {
-        "institution_name": "Concordia University"
-    },
-    "brocku": {
-        "institution_name": "Brock University"
-    },
-    "queensu": {
-        "institution_name": "Queen's University"
-    },
-    "usask": {
-        "institution_name": "University of Saskatchewan"
-    },
-    "nbcc": {
-        "institution_name": "New Brunswick Community College"
-    },
-    "mcgill": {
-        "institution_name": "McGill University"
-    },
-    "cbu": {
-        "institution_name": "Cape Breton University"
-    },
-    "devry": {
-        "institution_name": "DeVry Institute of Technology"
-    },
-    "stfx": {
-        "institution_name": "St. Francis Xavier University"
-    },
-    "mta": {
-        "institution_name": "Mount Allison University"
-    },
-    "uqo": {
-        "institution_name": "Universit\u00e9 du Qu\u00e9bec en Outaouais"
-    },
-    "nait": {
-        "institution_name": "Northern Alberta Institute of Technology"
-    },
-    "polymtl": {
-        "institution_name": "\u00c9cole Polytechnique de Montr\u00e9al, Universit\u00e9 de Montr\u00e9al"
-    },
-    "bcit": {
-        "institution_name": "British Columbia Institute of Technology"
-    },
-    "uregina": {
-        "institution_name": "University of Regina"
-    },
-    "sfu": {
-        "institution_name": "Simon Fraser University"
-    },
-    "centennialcollege": {
-        "institution_name": "Centennial College"
-    },
-    "trentu": {
-        "institution_name": "Trent University"
-    },
-    "universitycanadawest": {
-        "institution_name": "University Canada West"
-    },
-    "ucalgary": {
-        "institution_name": "University of Calgary"
-    },
-    "unbc": {
-        "institution_name": "University of Northern British Columbia"
-    },
-    "dal": {
-        "institution_name": "Dalhousie University"
-    },
-    "usherb": {
-        "institution_name": "Universit\u00e9 de Sherbrooke"
-    },
-    "umoncton": {
-        "institution_name": "University of Moncton"
-    },
-    "humbermail": {
-        "institution_name": "Humber College"
-    },
-    "wlu": {
-        "institution_name": "Wilfrid Laurier University"
-    },
-    "questu": {
-        "institution_name": "Quest University"
-    },
-    "msvu": {
-        "institution_name": "Mount Saint Vincent University"
-    },
-    "stu": {
-        "institution_name": "St. Thomas University"
-    },
-    "lakeheadu": {
-        "institution_name": "Lakehead University"
-    },
-    "ryerson": {
-        "institution_name": "Ryerson Polytechnic University"
-    },
-    "rrc": {
-        "institution_name": "Red River College"
-    },
-    "athabascau": {
-        "institution_name": "Athabasca University"
-    },
-    "royalroads": {
-        "institution_name": "Royal Roads University"
-    },
-    "uqam": {
-        "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al"
-    },
-    "uottawa": {
-        "institution_name": "University of Ottawa"
-    },
-    "boothcollege": {
-        "institution_name": "William and Catherine Booth College"
-    },
-    "bcou": {
-        "institution_name": "British Columbia Open University"
-    },
-    "uoit": {
-        "institution_name": "University of Ontario Institute of Technology"
-    },
-    "uvic": {
-        "institution_name": "University of Victoria"
-    },
-    "tru": {
-        "institution_name": "Thompson Rivers University"
-    },
-    "uwo": {
-        "institution_name": "University of Western Ontario"
-    },
-    "assumptionu": {
-        "institution_name": "Assumption University"
-    },
-    "redeemer": {
-        "institution_name": "Redeemer College"
-    },
-    "brandonu": {
-        "institution_name": "Brandon University"
-    },
-    "ubc": {
-        "institution_name": "University of British Columbia"
-    },
-    "carleton": {
-        "institution_name": "Carleton University"
-    },
-    "columbiacollege": {
-        "institution_name": "Columbia College"
-    },
-    "ecuad": {
-        "institution_name": "Emily Carr University of Art and Design"
-    },
-    "ulaval": {
-        "institution_name": "Universit\u00e9 Laval"
-    },
-    "nipissingu": {
-        "institution_name": "Nipissing University"
-    },
-    "utoronto": {
-        "institution_name": "University of Toronto"
-    },
-    "bowvalleycollege": {
-        "institution_name": "Bow Valley College"
-    },
-    "uqac": {
-        "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi"
-    },
-    "citecollegiale": {
-        "institution_name": "La Cit\u00e9 Coll\u00e9giale"
-    },
-    "yorku": {
-        "institution_name": "York University"
-    },
-    "uoguelph": {
-        "institution_name": "University of Guelph"
-    },
-    "upei": {
-        "institution_name": "University of Prince Edward Island"
-    },
-    "unbsj": {
-        "institution_name": "University of New Brunswick, Saint John"
-    },
-    "myseneca": {
-        "institution_name": "Seneca College"
-    },
-    "unb": {
-        "institution_name": "University of New Brunswick"
-    },
-    "umanitoba": {
-        "institution_name": "University of Manitoba"
-    },
-    "uqtr": {
-        "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Trois-Rivi\u00e8res"
-    },
-    "uquebec": {
-        "institution_name": "University of Qu\u00e9bec"
-    },
-    "inrs": {
-        "institution_name": "Institut Armand-Frappier, Universit\u00e9 du Qu\u00e9bec"
-    },
-    "mohawkcollege": {
-        "institution_name": "Mohawk College"
-    },
-    "stthomasu": {
-        "institution_name": "St. Thomas University"
-    },
-    "uleth": {
-        "institution_name": "University of Lethbridge"
-    },
-    "laurentian": {
-        "institution_name": "Laurentian University of Sudbury"
-    },
-    "mcmaster": {
-        "institution_name": "McMaster University"
-    },
-    "ustpaul": {
-        "institution_name": "St. Paul University"
-    },
-    "viu": {
-        "institution_name": "Vancouver Island University"
-    },
-    "usherbrooke": {
-        "institution_name": "Universit\u00e9 de Sherbrooke"
-    },
-    "mytru": {
-        "institution_name": "Thompson Rivers University"
-    },
-    "capilanou": {
-        "institution_name": "Capilano University"
-    },
-    "cus": {
-        "institution_name": "University of Moncton, Shippagan"
-    },
-    "cegepmontpetit": {
-        "institution_name": "C\u00e9gep \u00c9douard-Montpetit"
-    },
-    "ubishops": {
-        "institution_name": "Bishop's University"
-    },
-    "hec": {
-        "institution_name": "\u00c9cole des Hautes \u00c9tudes Commerciales"
-    },
-    "saultcollege": {
-        "institution_name": "Sault College of Applied Arts & Technology"
-    },
-    "umontreal": {
-        "institution_name": "Universit\u00e9 de Montr\u00e9al"
-    },
-    "cegepdrummond": {
-        "institution_name": "C\u00e9gep de Drummondville"
-    },
-    "ccbc": {
-        "institution_name": "Canadian College of Business &amp; Computers"
-    },
-    "cuslm": {
-        "institution_name": "University of Moncton, Edmundston"
-    },
-    "uwindsor": {
-        "institution_name": "University of Windsor"
-    },
-    "sait": {
-        "institution_name": "Southern Alberta Institute of Technology"
-    },
-    "twu": {
-        "institution_name": "Trinity Western University"
-    },
-    "uwinnipeg": {
-        "institution_name": "University of Winnipeg"
-    },
-    "fanshaweonline": {
-        "institution_name": "Fanshawe College"
-    },
-    "uwaterloo": {
-        "institution_name": "University of Waterloo",
-        "mathsoc": {
-            "institution_name": "Mathematics Society of The University of Waterloo"
-        }
-    },
-    "stmarys": {
-        "institution_name": "St. Mary's University"
-    },
-    "etsmtl": {
-        "institution_name": "\u00c9cole de technologie sup\u00e9rieure, Universit\u00e9 du Qu\u00e9bec"
-    },
-    "mun": {
-        "institution_name": "Memorial University of Newfoundland"
-    },
-    "vcc": {
-        "institution_name": "Vancouver Community College"
-    },
-    "nscc": {
-        "institution_name": "Nova Scotia Community College"
-    },
-    "yk": {
-        "yukoncollege": {
-            "institution_name": "Yukon College"
-        }
-    },
-    "ns": {
-        "nscad": {
-            "institution_name": "Nova Scotia College of Art and Design"
+    "ca": {
+        "ufv": {
+            "institution_name": "University of the Fraser Valley"
         },
-        "ukings": {
-            "institution_name": "University of King's College"
+        "firstnationsuniversity": {
+            "institution_name": "First Nations University of Canada"
         },
-        "ednet": {
-            "institution_name": "St. Anne University"
-        }
-    },
-    "bc": {
-        "okanagan": {
-            "institution_name": "Okanagan University College"
+        "ocad": {
+            "institution_name": "Ontario College of Art and Design"
         },
-        "langara": {
-            "institution_name": "Langara College"
+        "saskpolytech": {
+            "institution_name": "Saskatchewan Polytechnic"
         },
-        "cnc": {
-            "institution_name": "College of New Caledonia"
+        "ualberta": {
+            "institution_name": "University of Alberta"
         },
-        "mala": {
-            "institution_name": "Malaspina University College"
+        "acadiau": {
+            "institution_name": "Acadia University"
         },
-        "douglas": {
-            "institution_name": "Douglas College"
+        "rmc": {
+            "institution_name": "Royal Military College of Canada"
         },
-        "nlc": {
-            "institution_name": "Northern Lights College"
-        },
-        "camosun": {
-            "institution_name": "Camosun College"
-        },
-        "kwantlen": {
-            "institution_name": "Kwantleen University College"
-        },
-        "capcollege": {
-            "institution_name": "Capilano College"
-        },
-        "nvit": {
-            "institution_name": "Nicola Valley Institute of Technology"
-        },
-        "cotr": {
-            "institution_name": "College of the Rockies"
-        },
-        "mylangara": {
-            "institution_name": "Langara College"
-        },
-        "eciad": {
-            "institution_name": "Emily Carr Institute of Art + Design"
-        },
-        "nic": {
-            "institution_name": "North Island College"
-        },
-        "selkirk": {
-            "institution_name": "Selkirk College"
-        }
-    },
-    "ab": {
         "concordia": {
-            "institution_name": "Concordia University College of Alberta"
+            "institution_name": "Concordia University"
         },
-        "augustana": {
-            "institution_name": "Augustana University College"
+        "brocku": {
+            "institution_name": "Brock University"
         },
-        "mtroyal": {
-            "institution_name": "Mount Royal College"
-        }
-    },
-    "mb": {
-        "ustboniface": {
-            "institution_name": "University College of Saint-Boniface"
-        }
-    },
-    "on": {
-        "confederationc": {
-            "institution_name": "Confederation College"
+        "queensu": {
+            "institution_name": "Queen's University"
         },
-        "huronuc": {
-            "institution_name": "Huron University College"
+        "usask": {
+            "institution_name": "University of Saskatchewan"
         },
-        "durhamc": {
-            "institution_name": "Durham College"
+        "nbcc": {
+            "institution_name": "New Brunswick Community College"
         },
-        "sheridanc": {
-            "institution_name": "Sheridan College"
+        "mcgill": {
+            "institution_name": "McGill University"
         },
-        "borealc": {
-            "institution_name": "Coll\u00e8ge Bor\u00e9al"
+        "cbu": {
+            "institution_name": "Cape Breton University"
         },
-        "gbrownc": {
-            "institution_name": "George Brown College"
+        "devry": {
+            "institution_name": "DeVry Institute of Technology"
         },
-        "georgianc": {
-            "institution_name": "Georgian College"
+        "stfx": {
+            "institution_name": "St. Francis Xavier University"
         },
-        "senecac": {
+        "mta": {
+            "institution_name": "Mount Allison University"
+        },
+        "uqo": {
+            "institution_name": "Universit\u00e9 du Qu\u00e9bec en Outaouais"
+        },
+        "nait": {
+            "institution_name": "Northern Alberta Institute of Technology"
+        },
+        "polymtl": {
+            "institution_name": "\u00c9cole Polytechnique de Montr\u00e9al, Universit\u00e9 de Montr\u00e9al"
+        },
+        "bcit": {
+            "institution_name": "British Columbia Institute of Technology"
+        },
+        "uregina": {
+            "institution_name": "University of Regina"
+        },
+        "sfu": {
+            "institution_name": "Simon Fraser University"
+        },
+        "centennialcollege": {
+            "institution_name": "Centennial College"
+        },
+        "trentu": {
+            "institution_name": "Trent University"
+        },
+        "universitycanadawest": {
+            "institution_name": "University Canada West"
+        },
+        "ucalgary": {
+            "institution_name": "University of Calgary"
+        },
+        "unbc": {
+            "institution_name": "University of Northern British Columbia"
+        },
+        "dal": {
+            "institution_name": "Dalhousie University"
+        },
+        "usherb": {
+            "institution_name": "Universit\u00e9 de Sherbrooke"
+        },
+        "umoncton": {
+            "institution_name": "University of Moncton"
+        },
+        "humbermail": {
+            "institution_name": "Humber College"
+        },
+        "wlu": {
+            "institution_name": "Wilfrid Laurier University"
+        },
+        "questu": {
+            "institution_name": "Quest University"
+        },
+        "msvu": {
+            "institution_name": "Mount Saint Vincent University"
+        },
+        "stu": {
+            "institution_name": "St. Thomas University"
+        },
+        "lakeheadu": {
+            "institution_name": "Lakehead University"
+        },
+        "ryerson": {
+            "institution_name": "Ryerson Polytechnic University"
+        },
+        "rrc": {
+            "institution_name": "Red River College"
+        },
+        "athabascau": {
+            "institution_name": "Athabasca University"
+        },
+        "royalroads": {
+            "institution_name": "Royal Roads University"
+        },
+        "uqam": {
+            "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al"
+        },
+        "uottawa": {
+            "institution_name": "University of Ottawa"
+        },
+        "boothcollege": {
+            "institution_name": "William and Catherine Booth College"
+        },
+        "bcou": {
+            "institution_name": "British Columbia Open University"
+        },
+        "uoit": {
+            "institution_name": "University of Ontario Institute of Technology"
+        },
+        "uvic": {
+            "institution_name": "University of Victoria"
+        },
+        "tru": {
+            "institution_name": "Thompson Rivers University"
+        },
+        "uwo": {
+            "institution_name": "University of Western Ontario"
+        },
+        "assumptionu": {
+            "institution_name": "Assumption University"
+        },
+        "redeemer": {
+            "institution_name": "Redeemer College"
+        },
+        "brandonu": {
+            "institution_name": "Brandon University"
+        },
+        "ubc": {
+            "institution_name": "University of British Columbia"
+        },
+        "carleton": {
+            "institution_name": "Carleton University"
+        },
+        "columbiacollege": {
+            "institution_name": "Columbia College"
+        },
+        "ecuad": {
+            "institution_name": "Emily Carr University of Art and Design"
+        },
+        "ulaval": {
+            "institution_name": "Universit\u00e9 Laval"
+        },
+        "nipissingu": {
+            "institution_name": "Nipissing University"
+        },
+        "utoronto": {
+            "institution_name": "University of Toronto"
+        },
+        "bowvalleycollege": {
+            "institution_name": "Bow Valley College"
+        },
+        "uqac": {
+            "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi"
+        },
+        "citecollegiale": {
+            "institution_name": "La Cit\u00e9 Coll\u00e9giale"
+        },
+        "yorku": {
+            "institution_name": "York University"
+        },
+        "uoguelph": {
+            "institution_name": "University of Guelph"
+        },
+        "upei": {
+            "institution_name": "University of Prince Edward Island"
+        },
+        "unbsj": {
+            "institution_name": "University of New Brunswick, Saint John"
+        },
+        "myseneca": {
             "institution_name": "Seneca College"
         },
-        "conestogac": {
-            "institution_name": "Conestoga College"
-        }
-    },
-    "qc": {
-        "dawsoncollege": {
-            "institution_name": "Dawson College"
+        "unb": {
+            "institution_name": "University of New Brunswick"
         },
-        "cegep-heritage": {
-            "institution_name": "C\u00e9gep Heritage College"
+        "umanitoba": {
+            "institution_name": "University of Manitoba"
         },
-        "cmaisonneuve": {
-            "institution_name": "Coll\u00e8ge de Maisonneuve"
+        "uqtr": {
+            "institution_name": "Universit\u00e9 du Qu\u00e9bec \u00e0 Trois-Rivi\u00e8res"
         },
-        "cstj": {
-            "institution_name": "C\u00e9gep Saint-J\u00e9r\u00f4me"
+        "uquebec": {
+            "institution_name": "University of Qu\u00e9bec"
         },
-        "cmontmorency": {
-            "institution_name": "Montmorency College"
+        "inrs": {
+            "institution_name": "Institut Armand-Frappier, Universit\u00e9 du Qu\u00e9bec"
         },
-        "cegeptr": {
-            "institution_name": "C\u00e9gep de Trois-Rivi\u00e8res"
-        }
-    }
-},
-"us": {
-    "fuom": {
-        "institution_name": "Florida University of Medicine"
-    },
-    "yorkuniversity": {
-        "institution_name": "York University"
-    },
-    "mycod": {
-        "institution_name": "College of the Desert"
-    },
-    "tx": {
-        "cc": {
-            "austin": {
-                "institution_name": "Austin Community College"
+        "mohawkcollege": {
+            "institution_name": "Mohawk College"
+        },
+        "stthomasu": {
+            "institution_name": "St. Thomas University"
+        },
+        "uleth": {
+            "institution_name": "University of Lethbridge"
+        },
+        "laurentian": {
+            "institution_name": "Laurentian University of Sudbury"
+        },
+        "mcmaster": {
+            "institution_name": "McMaster University"
+        },
+        "ustpaul": {
+            "institution_name": "St. Paul University"
+        },
+        "viu": {
+            "institution_name": "Vancouver Island University"
+        },
+        "usherbrooke": {
+            "institution_name": "Universit\u00e9 de Sherbrooke"
+        },
+        "mytru": {
+            "institution_name": "Thompson Rivers University"
+        },
+        "capilanou": {
+            "institution_name": "Capilano University"
+        },
+        "cus": {
+            "institution_name": "University of Moncton, Shippagan"
+        },
+        "cegepmontpetit": {
+            "institution_name": "C\u00e9gep \u00c9douard-Montpetit"
+        },
+        "ubishops": {
+            "institution_name": "Bishop's University"
+        },
+        "hec": {
+            "institution_name": "\u00c9cole des Hautes \u00c9tudes Commerciales"
+        },
+        "saultcollege": {
+            "institution_name": "Sault College of Applied Arts & Technology"
+        },
+        "umontreal": {
+            "institution_name": "Universit\u00e9 de Montr\u00e9al"
+        },
+        "cegepdrummond": {
+            "institution_name": "C\u00e9gep de Drummondville"
+        },
+        "ccbc": {
+            "institution_name": "Canadian College of Business &amp; Computers"
+        },
+        "cuslm": {
+            "institution_name": "University of Moncton, Edmundston"
+        },
+        "uwindsor": {
+            "institution_name": "University of Windsor"
+        },
+        "sait": {
+            "institution_name": "Southern Alberta Institute of Technology"
+        },
+        "twu": {
+            "institution_name": "Trinity Western University"
+        },
+        "uwinnipeg": {
+            "institution_name": "University of Winnipeg"
+        },
+        "fanshaweonline": {
+            "institution_name": "Fanshawe College"
+        },
+        "uwaterloo": {
+            "institution_name": "University of Waterloo",
+            "mathsoc": {
+                "institution_name": "Mathematics Society of The University of Waterloo"
             }
-        }
-    },
-    "il": {
-        "cc": {
-            "lc": {
-                "institution_name": "Lewis &amp; Clark Community College"
+        },
+        "stmarys": {
+            "institution_name": "St. Mary's University"
+        },
+        "etsmtl": {
+            "institution_name": "\u00c9cole de technologie sup\u00e9rieure, Universit\u00e9 du Qu\u00e9bec"
+        },
+        "mun": {
+            "institution_name": "Memorial University of Newfoundland"
+        },
+        "vcc": {
+            "institution_name": "Vancouver Community College"
+        },
+        "nscc": {
+            "institution_name": "Nova Scotia Community College"
+        },
+        "yk": {
+            "yukoncollege": {
+                "institution_name": "Yukon College"
+            }
+        },
+        "ns": {
+            "nscad": {
+                "institution_name": "Nova Scotia College of Art and Design"
             },
-            "rvc": {
-                "institution_name": "Rock Valley College"
+            "ukings": {
+                "institution_name": "University of King's College"
+            },
+            "ednet": {
+                "institution_name": "St. Anne University"
+            }
+        },
+        "bc": {
+            "okanagan": {
+                "institution_name": "Okanagan University College"
+            },
+            "langara": {
+                "institution_name": "Langara College"
+            },
+            "cnc": {
+                "institution_name": "College of New Caledonia"
+            },
+            "mala": {
+                "institution_name": "Malaspina University College"
+            },
+            "douglas": {
+                "institution_name": "Douglas College"
+            },
+            "nlc": {
+                "institution_name": "Northern Lights College"
+            },
+            "camosun": {
+                "institution_name": "Camosun College"
+            },
+            "kwantlen": {
+                "institution_name": "Kwantleen University College"
+            },
+            "capcollege": {
+                "institution_name": "Capilano College"
+            },
+            "nvit": {
+                "institution_name": "Nicola Valley Institute of Technology"
+            },
+            "cotr": {
+                "institution_name": "College of the Rockies"
+            },
+            "mylangara": {
+                "institution_name": "Langara College"
+            },
+            "eciad": {
+                "institution_name": "Emily Carr Institute of Art + Design"
+            },
+            "nic": {
+                "institution_name": "North Island College"
+            },
+            "selkirk": {
+                "institution_name": "Selkirk College"
+            }
+        },
+        "ab": {
+            "concordia": {
+                "institution_name": "Concordia University College of Alberta"
+            },
+            "augustana": {
+                "institution_name": "Augustana University College"
+            },
+            "mtroyal": {
+                "institution_name": "Mount Royal College"
+            }
+        },
+        "mb": {
+            "ustboniface": {
+                "institution_name": "University College of Saint-Boniface"
+            }
+        },
+        "on": {
+            "confederationc": {
+                "institution_name": "Confederation College"
+            },
+            "huronuc": {
+                "institution_name": "Huron University College"
+            },
+            "durhamc": {
+                "institution_name": "Durham College"
+            },
+            "sheridanc": {
+                "institution_name": "Sheridan College"
+            },
+            "borealc": {
+                "institution_name": "Coll\u00e8ge Bor\u00e9al"
+            },
+            "gbrownc": {
+                "institution_name": "George Brown College"
+            },
+            "georgianc": {
+                "institution_name": "Georgian College"
+            },
+            "senecac": {
+                "institution_name": "Seneca College"
+            },
+            "conestogac": {
+                "institution_name": "Conestoga College"
+            }
+        },
+        "qc": {
+            "dawsoncollege": {
+                "institution_name": "Dawson College"
+            },
+            "cegep-heritage": {
+                "institution_name": "C\u00e9gep Heritage College"
+            },
+            "cmaisonneuve": {
+                "institution_name": "Coll\u00e8ge de Maisonneuve"
+            },
+            "cstj": {
+                "institution_name": "C\u00e9gep Saint-J\u00e9r\u00f4me"
+            },
+            "cmontmorency": {
+                "institution_name": "Montmorency College"
+            },
+            "cegeptr": {
+                "institution_name": "C\u00e9gep de Trois-Rivi\u00e8res"
+            }
+        }
+    },
+    "us": {
+        "fuom": {
+            "institution_name": "Florida University of Medicine"
+        },
+        "yorkuniversity": {
+            "institution_name": "York University"
+        },
+        "mycod": {
+            "institution_name": "College of the Desert"
+        },
+        "tx": {
+            "cc": {
+                "austin": {
+                    "institution_name": "Austin Community College"
+                }
+            }
+        },
+        "il": {
+            "cc": {
+                "lc": {
+                    "institution_name": "Lewis &amp; Clark Community College"
+                },
+                "rvc": {
+                    "institution_name": "Rock Valley College"
+                }
+            }
+        }
+    },
+    "com": {
+        "grenoble-em": {
+            "institution_name": "Grenoble \u00c9cole de Management"
+        },
+        "algonquinlive": {
+            "institution_name": "Algonquin College"
+        },
+        "schillerstrasbourg": {
+            "institution_name": "Schiller International University, Strasbourg"
+        },
+        "lidapoly": {
+            "institution_name": "Shanghai Lida Polytechnic Institute"
+        },
+        "almaarifah": {
+            "institution_name": "Knowledge International University"
+        },
+        "y-nov": {
+            "institution_name": "Y-nov | Lim'art - Ing\u00e9sup - Infosup | Carrefour des formations aux m\u00e9tiers du num\u00e9rique."
+        },
+        "icsw": {
+            "institution_name": "Institute of Clinical Social Work"
+        },
+        "unimetroangola": {
+            "institution_name": "Universidade Metropolitana de Angola"
+        },
+        "suh-edu": {
+            "institution_name": "Salahddin University (Kurdistan Region)"
+        },
+        "hollandcollege": {
+            "institution_name": "Holland College"
+        },
+        "lsmu": {
+            "institution_name": "Luhansk State Medical University"
+        },
+        "cfpj": {
+            "institution_name": "Centre de Formation et de Perfectionnement des Journalistes"
+        },
+        "sbjacksonville": {
+            "institution_name": "Sanford-Brown Institute"
+        },
+        "paneurouni": {
+            "institution_name": "\u0420aneuropean University"
+        },
+        "islamicug": {
+            "institution_name": "Islamic University College"
+        },
+        "columbusu": {
+            "institution_name": "Columbus University"
+        },
+        "uniactiva": {
+            "institution_name": "Universidad Abierta Interactiva"
+        },
+        "thegameassembly": {
+            "institution_name": "The Game Assembly"
+        },
+        "vanarts": {
+            "institution_name": "Vancouver Institute of Media Arts"
+        },
+        "westcoastuniversity-edu": {
+            "institution_name": "West Coast University (WCU)"
+        },
+        "spsmma": {
+            "institution_name": "St. Petersburg StateMechnikov Medical Academy"
+        },
+        "skylineuniversity": {
+            "institution_name": "Skyline University College, Sharjah"
+        },
+        "imi-luzern": {
+            "institution_name": "International Hotel Management Institute"
+        },
+        "ashtoncollege": {
+            "institution_name": "Ashton College"
+        },
+        "umi-pk": {
+            "institution_name": "University of Munawwar-ul-Islam"
+        },
+        "fullsail": {
+            "institution_name": "Full Sail University"
+        },
+        "gollisuniversity": {
+            "institution_name": "Gollis University"
+        },
+        "eieonline": {
+            "institution_name": "European Institute of Education"
+        },
+        "westcoastuniversity": {
+            "institution_name": "West Coast University"
+        },
+        "isi-mtl": {
+            "institution_name": "Institut superieur d'informatique"
+        },
+        "nugaaluniversity": {
+            "institution_name": "Nugaal University"
+        },
+        "moorelanduniversity": {
+            "institution_name": "Mooreland University"
+        },
+        "ionis-stm": {
+            "institution_name": "Ionis School of Technology and Management"
+        },
+        "saadcollege": {
+            "institution_name": "Saad College of Nursing and Allied Health Sciences"
+        },
+        "emc-campus": {
+            "institution_name": "European Management Center Paris"
+        },
+        "oshmed": {
+            "institution_name": "Medical Institute,Osh State University"
+        },
+        "rcsi-mub": {
+            "institution_name": "RCSI-Medical University of Bahrain"
+        },
+        "foundationuniversity": {
+            "institution_name": "Foundation University"
+        },
+        "escdijon": {
+            "institution_name": "\u00c9cole Sup\u00e9rieure de Commerce de Dijon"
+        },
+        "uu-sy": {
+            "institution_name": "Ittihad Private University"
+        },
+        "oradeauniversity": {
+            "institution_name": "Oradea University"
+        },
+        "jpcatholic": {
+            "institution_name": "John Paul the Great Catholic University"
+        },
+        "manukaumail": {
+            "institution_name": "Manukau Institute of Technology"
+        },
+        "eemi": {
+            "institution_name": "\u00c9cole Europ\u00e9enne des M\u00e9tiers de l'Internet"
+        },
+        "stockholm-fu": {
+            "institution_name": "Free University Stockholm"
+        },
+        "infosup": {
+            "institution_name": "Infosup"
+        },
+        "foundationu": {
+            "institution_name": "Foundation University"
+        },
+        "iu-travnik": {
+            "institution_name": "International University of Travnik"
+        },
+        "em-lyon": {
+            "institution_name": "\u00c9cole Sup\u00e9rieure de Commerce de Lyon"
+        },
+        "icn-nancy": {
+            "institution_name": "Institut Commercial de Nancy"
+        },
+        "kkumail": {
+            "institution_name": "Khon Kaen University"
+        },
+        "ici-luzern": {
+            "institution_name": "International Culinary Institute (ICI)"
+        },
+        "vlerick": {
+            "institution_name": "Vlerick Business School",
+            "edu": {
+                "institution_name": "Vlerick Business School"
+            }
+        },
+        "cqumail": {
+            "institution_name": "Central Queensland University (CQU)"
+        },
+        "stenden": {
+            "institution_name": "Stenden University"
+        },
+        "scbaghdad": {
+            "institution_name": "College of Science, Baghdad University"
+        },
+        "uniedpa": {
+            "institution_name": "Universidad Interamericana de Educacion a Distancia de Panama"
+        },
+        "puntlandstateuniversity": {
+            "institution_name": "Puntland State University"
+        },
+        "bmcmedcollege": {
+            "institution_name": "Al-Batterjee Medical College"
+        },
+        "isbm-school": {
+            "institution_name": "International School of Business Management"
+        },
+        "sh-sipopolytechnic": {
+            "institution_name": "Shanghai Sipo Polytechnic"
+        },
+        "collegecanada": {
+            "institution_name": "Canada College"
+        },
+        "crsmu": {
+            "institution_name": "Crimea State Medical University"
+        },
+        "breyerstate": {
+            "institution_name": "Breyer State University (Virtual University)"
+        },
+        "mogadishuuniversity": {
+            "institution_name": "Mogadishu University"
+        },
+        "iesanetwork": {
+            "institution_name": "IESA \u00c9cole Multimedia \u00e0 Paris"
+        },
+        "ftmsglobal": {
+            "institution_name": "FTMS Global Academy"
+        },
+        "edhec": {
+            "institution_name": "\u00c9cole des Hautes \u00c9tudes Commerciales du Nord"
+        },
+        "kolieh": {
+            "institution_name": "International Centre for Isclamic Science"
+        },
+        "atc2u": {
+            "institution_name": "Advance Tertiary College"
+        },
+        "univ-douala": {
+            "institution_name": "Universit\u00e9 de Douala"
+        },
+        "khawarizmi": {
+            "institution_name": "Al Khawarizmi International College"
+        },
+        "buraouniversity": {
+            "institution_name": "University of Burao"
+        },
+        "alustudent": {
+            "institution_name": "African Leadership University"
+        },
+        "madisonu": {
+            "institution_name": "Madison University (Distance Education)"
+        },
+        "ahlulbaitonline": {
+            "institution_name": "Ahlulbait International University"
+        },
+        "tajamar365": {
+            "institution_name": "Fomaci\u00f3n Tajamar"
+        },
+        "ingesup": {
+            "institution_name": "Ing\u00e9sup - \u00c9cole sup\u00e9rieure d'ing\u00e9nierie informatique"
+        },
+        "vsavm": {
+            "institution_name": "Vitebsk State Academy of Veterinary Medicine"
+        },
+        "saedubai": {
+            "institution_name": "SAE Institute | Dubai"
+        },
+        "shannoncollege": {
+            "institution_name": "Shannon College of Hotel Management"
+        },
+        "skadron": {
+            "institution_name": "Skadron College"
+        },
+        "greenwichutc": {
+            "institution_name": "Greenwich University Technical College"
+        },
+        "eu": {
+            "sabi": {
+                "institution_name": "Scandinavian Art and Business Institute"
+            }
+        }
+    },
+    "org": {
+        "reigategrammar": {
+            "institution_name": "Reigate Grammar School"
+        },
+        "mines-ales": {
+            "institution_name": "\u00c9cole des Mines d'Ales"
+        },
+        "rightchoice": {
+            "institution_name": "Community College of Denver"
+        },
+        "svuonline": {
+            "institution_name": "Syrian Virtual University"
+        },
+        "upeace": {
+            "institution_name": "University for Peace"
+        },
+        "avu": {
+            "institution_name": "African Virtual University"
+        },
+        "upou": {
+            "institution_name": "University of the Philippines Open University"
+        },
+        "ipiaget": {
+            "institution_name": "Instituto Piaget"
+        },
+        "daystarus": {
+            "institution_name": "Daystar University"
+        },
+        "udesmontagnes": {
+            "institution_name": "Universit\u00e9 des Montagnes"
+        },
+        "thiqaruni": {
+            "institution_name": "Thi Qar University"
+        },
+        "auamed": {
+            "institution_name": "American University of Antigua"
+        },
+        "ibsindia": {
+            "institution_name": "ICFAI Business School, India"
+        },
+        "ucnh": {
+            "institution_name": "Universit\u00e9 Chr\u00e9tienne du Nord d'Haiti"
+        },
+        "spartanmed": {
+            "institution_name": "Spartan University of Health Sciences"
+        },
+        "ensta-bretagne": {
+            "institution_name": "\u00c9cole Nationale Sup\u00e9rieure des Techniques Avanc\u00e9es de Bretagne"
+        },
+        "hsrw": {
+            "institution_name": "Hochschule Rhein-Waal"
+        },
+        "ovidunivconstanta-edu": {
+            "institution_name": "University of Constanta Medical School"
+        },
+        "islahonline": {
+            "institution_name": "Al-Islah University"
+        },
+        "hertie-school": {
+            "institution_name": "Hertie School of Governance"
+        },
+        "2isa": {
+            "institution_name": "Institut Informatique Sud Aveyron"
+        },
+        "amouduniversity": {
+            "institution_name": "Amoud University"
+        },
+        "sekuco": {
+            "institution_name": "Sebatian Kolowa University College"
+        },
+        "meltwater": {
+            "institution_name": "Meltwater Entrepreneurial School of Technology"
+        },
+        "icu-edu": {
+            "institution_name": "International Culture University"
+        },
+        "uits-bd": {
+            "institution_name": "University of Information Technology &amp; Sciences (UITS)"
+        },
+        "univ-dschang": {
+            "institution_name": "Universit\u00e9 de Dschang"
+        },
+        "tusom": {
+            "institution_name": "Trinity University School of Medicine"
+        },
+        "santoangel": {
+            "institution_name": "Colegio Santo Angel"
+        },
+        "khazar": {
+            "institution_name": "Khazar University"
+        },
+        "scicu": {
+            "institution_name": "South Carolina Independent Colleges and Universities"
+        },
+        "centraluniversity": {
+            "institution_name": "Central University College"
+        },
+        "toulouse-bs": {
+            "institution_name": "Toulouse Business School"
+        },
+        "iesmontsia": {
+            "institution_name": "iesmontsia"
+        },
+        "sjsm": {
+            "institution_name": "St.James's School of Medicine, Bonaire"
+        },
+        "mtsm": {
+            "institution_name": "Athenaeum of Ohio"
+        },
+        "gniindia": {
+            "institution_name": "Guru Nanak Institutions"
+        },
+        "dubaicollege": {
+            "institution_name": "Dubai College"
+        },
+        "poornima": {
+            "institution_name": "Poornima College Of Engineering"
+        },
+        "usenghor-francophonie": {
+            "institution_name": "Universit\u00e9 Senghor d'Alexandrie"
+        },
+        "ghanacu": {
+            "institution_name": "Ghana Christian University College"
+        },
+        "pmlrru": {
+            "institution_name": "PML University"
+        },
+        "ucapanama": {
+            "institution_name": "Universidad de Cartago"
+        },
+        "hawlermu": {
+            "institution_name": "Hawler Medical University"
+        },
+        "unesco-ihe": {
+            "institution_name": "UNESCO-IHE Institute for Water Education"
+        },
+        "pafa": {
+            "institution_name": "Pennsylvania Academy of the Fine Arts"
+        },
+        "hnulinton": {
+            "institution_name": "Hannam University Linton School of Global Business"
+        },
+        "az-npu": {
+            "institution_name": "Nakhchivan Private University"
+        },
+        "centraliens-lille": {
+            "institution_name": "\u00c9cole Centrale de Lille"
+        },
+        "ceaprc": {
+            "institution_name": "Centro de Estudios Avanzados de Puerto Rico y el Caribe"
+        },
+        "nbkrist": {
+            "institution_name": "N.B.K.R. Institute Of Science & Technology"
+        },
+        "astu": {
+            "institution_name": "Astrahan State Technical University"
+        },
+        "upra": {
+            "institution_name": "Athenaeum Pontificium Regina Apostolorum"
+        },
+        "lios": {
+            "institution_name": "The Leadership Institute of Seattle"
+        },
+        "unibl": {
+            "institution_name": "University of Banja Luka"
+        },
+        "cavendishza": {
+            "institution_name": "Cavendish University"
+        },
+        "univ-ndjamena": {
+            "institution_name": "Universit\u00e9 de N'Djamena"
+        },
+        "almamonuc": {
+            "institution_name": "Mamon University College"
+        },
+        "hhmi": {
+            "institution_name": "Howard Hughes Medical Institute"
+        },
+        "internationaluniversity-schoolofmedicine": {
+            "institution_name": "International University School of Medicine (IUSOM)"
+        },
+        "asdubai": {
+            "institution_name": "American School of Dubai"
+        },
+        "universityliberia": {
+            "institution_name": "University of Liberia"
+        },
+        "ieslosremedios": {
+            "institution_name": "IES Nuestra Se\u00f1ora de los Remedios"
+        },
+        "polytechnic-kabul": {
+            "institution_name": "Polytechnical University of Kabul"
+        },
+        "ipeindia": {
+            "institution_name": "Institute Of Public Enterprise"
+        },
+        "pusa-sy": {
+            "institution_name": "Private University of Science and Arts"
+        },
+        "forestinstitute": {
+            "institution_name": "Forest Institute of Professional Psychology"
+        },
+        "aabfs": {
+            "institution_name": "Arab Academy for Banking and Financial Sciences"
+        },
+        "libopenuniv-edu": {
+            "institution_name": "Libya Open University"
+        },
+        "secupv": {
+            "institution_name": "Universidad Pedag\u00f3gica Veracruzana"
+        },
+        "bsu-edu": {
+            "institution_name": "Baku Slavic University"
+        },
+        "bihe": {
+            "institution_name": "Baha'i Institute for Higher Education"
+        },
+        "cihanuniversity": {
+            "institution_name": "Cihan University"
+        },
+        "allenisd": {
+            "student": {
+                "institution_name": "Allen Independent School District"
             }
         }
     }
-},
-"com": {
-    "grenoble-em": {
-        "institution_name": "Grenoble \u00c9cole de Management"
-    },
-    "algonquinlive": {
-        "institution_name": "Algonquin College"
-    },
-    "schillerstrasbourg": {
-        "institution_name": "Schiller International University, Strasbourg"
-    },
-    "lidapoly": {
-        "institution_name": "Shanghai Lida Polytechnic Institute"
-    },
-    "almaarifah": {
-        "institution_name": "Knowledge International University"
-    },
-    "y-nov": {
-        "institution_name": "Y-nov | Lim'art - Ing\u00e9sup - Infosup | Carrefour des formations aux m\u00e9tiers du num\u00e9rique."
-    },
-    "icsw": {
-        "institution_name": "Institute of Clinical Social Work"
-    },
-    "unimetroangola": {
-        "institution_name": "Universidade Metropolitana de Angola"
-    },
-    "suh-edu": {
-        "institution_name": "Salahddin University (Kurdistan Region)"
-    },
-    "hollandcollege": {
-        "institution_name": "Holland College"
-    },
-    "lsmu": {
-        "institution_name": "Luhansk State Medical University"
-    },
-    "cfpj": {
-        "institution_name": "Centre de Formation et de Perfectionnement des Journalistes"
-    },
-    "sbjacksonville": {
-        "institution_name": "Sanford-Brown Institute"
-    },
-    "paneurouni": {
-        "institution_name": "\u0420aneuropean University"
-    },
-    "islamicug": {
-        "institution_name": "Islamic University College"
-    },
-    "columbusu": {
-        "institution_name": "Columbus University"
-    },
-    "uniactiva": {
-        "institution_name": "Universidad Abierta Interactiva"
-    },
-    "thegameassembly": {
-        "institution_name": "The Game Assembly"
-    },
-    "vanarts": {
-        "institution_name": "Vancouver Institute of Media Arts"
-    },
-    "westcoastuniversity-edu": {
-        "institution_name": "West Coast University (WCU)"
-    },
-    "spsmma": {
-        "institution_name": "St. Petersburg StateMechnikov Medical Academy"
-    },
-    "skylineuniversity": {
-        "institution_name": "Skyline University College, Sharjah"
-    },
-    "imi-luzern": {
-        "institution_name": "International Hotel Management Institute"
-    },
-    "ashtoncollege": {
-        "institution_name": "Ashton College"
-    },
-    "umi-pk": {
-        "institution_name": "University of Munawwar-ul-Islam"
-    },
-    "fullsail": {
-        "institution_name": "Full Sail University"
-    },
-    "gollisuniversity": {
-        "institution_name": "Gollis University"
-    },
-    "eieonline": {
-        "institution_name": "European Institute of Education"
-    },
-    "westcoastuniversity": {
-        "institution_name": "West Coast University"
-    },
-    "isi-mtl": {
-        "institution_name": "Institut superieur d'informatique"
-    },
-    "nugaaluniversity": {
-        "institution_name": "Nugaal University"
-    },
-    "moorelanduniversity": {
-        "institution_name": "Mooreland University"
-    },
-    "ionis-stm": {
-        "institution_name": "Ionis School of Technology and Management"
-    },
-    "saadcollege": {
-        "institution_name": "Saad College of Nursing and Allied Health Sciences"
-    },
-    "emc-campus": {
-        "institution_name": "European Management Center Paris"
-    },
-    "oshmed": {
-        "institution_name": "Medical Institute,Osh State University"
-    },
-    "rcsi-mub": {
-        "institution_name": "RCSI-Medical University of Bahrain"
-    },
-    "foundationuniversity": {
-        "institution_name": "Foundation University"
-    },
-    "escdijon": {
-        "institution_name": "\u00c9cole Sup\u00e9rieure de Commerce de Dijon"
-    },
-    "uu-sy": {
-        "institution_name": "Ittihad Private University"
-    },
-    "oradeauniversity": {
-        "institution_name": "Oradea University"
-    },
-    "jpcatholic": {
-        "institution_name": "John Paul the Great Catholic University"
-    },
-    "manukaumail": {
-        "institution_name": "Manukau Institute of Technology"
-    },
-    "eemi": {
-        "institution_name": "\u00c9cole Europ\u00e9enne des M\u00e9tiers de l'Internet"
-    },
-    "stockholm-fu": {
-        "institution_name": "Free University Stockholm"
-    },
-    "infosup": {
-        "institution_name": "Infosup"
-    },
-    "foundationu": {
-        "institution_name": "Foundation University"
-    },
-    "iu-travnik": {
-        "institution_name": "International University of Travnik"
-    },
-    "em-lyon": {
-        "institution_name": "\u00c9cole Sup\u00e9rieure de Commerce de Lyon"
-    },
-    "icn-nancy": {
-        "institution_name": "Institut Commercial de Nancy"
-    },
-    "kkumail": {
-        "institution_name": "Khon Kaen University"
-    },
-    "ici-luzern": {
-        "institution_name": "International Culinary Institute (ICI)"
-    },
-    "vlerick": {
-        "institution_name": "Vlerick Business School",
-        "edu": {
-            "institution_name": "Vlerick Business School"
-        }
-    },
-    "cqumail": {
-        "institution_name": "Central Queensland University (CQU)"
-    },
-    "stenden": {
-        "institution_name": "Stenden University"
-    },
-    "scbaghdad": {
-        "institution_name": "College of Science, Baghdad University"
-    },
-    "uniedpa": {
-        "institution_name": "Universidad Interamericana de Educacion a Distancia de Panama"
-    },
-    "puntlandstateuniversity": {
-        "institution_name": "Puntland State University"
-    },
-    "bmcmedcollege": {
-        "institution_name": "Al-Batterjee Medical College"
-    },
-    "isbm-school": {
-        "institution_name": "International School of Business Management"
-    },
-    "sh-sipopolytechnic": {
-        "institution_name": "Shanghai Sipo Polytechnic"
-    },
-    "collegecanada": {
-        "institution_name": "Canada College"
-    },
-    "crsmu": {
-        "institution_name": "Crimea State Medical University"
-    },
-    "breyerstate": {
-        "institution_name": "Breyer State University (Virtual University)"
-    },
-    "mogadishuuniversity": {
-        "institution_name": "Mogadishu University"
-    },
-    "iesanetwork": {
-        "institution_name": "IESA \u00c9cole Multimedia \u00e0 Paris"
-    },
-    "ftmsglobal": {
-        "institution_name": "FTMS Global Academy"
-    },
-    "edhec": {
-        "institution_name": "\u00c9cole des Hautes \u00c9tudes Commerciales du Nord"
-    },
-    "kolieh": {
-        "institution_name": "International Centre for Isclamic Science"
-    },
-    "atc2u": {
-        "institution_name": "Advance Tertiary College"
-    },
-    "univ-douala": {
-        "institution_name": "Universit\u00e9 de Douala"
-    },
-    "khawarizmi": {
-        "institution_name": "Al Khawarizmi International College"
-    },
-    "buraouniversity": {
-        "institution_name": "University of Burao"
-    },
-    "alustudent": {
-        "institution_name": "African Leadership University"
-    },
-    "madisonu": {
-        "institution_name": "Madison University (Distance Education)"
-    },
-    "ahlulbaitonline": {
-        "institution_name": "Ahlulbait International University"
-    },
-    "tajamar365": {
-        "institution_name": "Fomaci\u00f3n Tajamar"
-    },
-    "ingesup": {
-        "institution_name": "Ing\u00e9sup - \u00c9cole sup\u00e9rieure d'ing\u00e9nierie informatique"
-    },
-    "vsavm": {
-        "institution_name": "Vitebsk State Academy of Veterinary Medicine"
-    },
-    "saedubai": {
-        "institution_name": "SAE Institute | Dubai"
-    },
-    "shannoncollege": {
-        "institution_name": "Shannon College of Hotel Management"
-    },
-    "skadron": {
-        "institution_name": "Skadron College"
-    },
-    "greenwichutc": {
-        "institution_name": "Greenwich University Technical College"
-    },
-    "eu": {
-        "sabi": {
-            "institution_name": "Scandinavian Art and Business Institute"
-        }
-    }
-},
-"org": {
-    "reigategrammar": {
-        "institution_name": "Reigate Grammar School"
-    },
-    "mines-ales": {
-        "institution_name": "\u00c9cole des Mines d'Ales"
-    },
-    "rightchoice": {
-        "institution_name": "Community College of Denver"
-    },
-    "svuonline": {
-        "institution_name": "Syrian Virtual University"
-    },
-    "upeace": {
-        "institution_name": "University for Peace"
-    },
-    "avu": {
-        "institution_name": "African Virtual University"
-    },
-    "upou": {
-        "institution_name": "University of the Philippines Open University"
-    },
-    "ipiaget": {
-        "institution_name": "Instituto Piaget"
-    },
-    "daystarus": {
-        "institution_name": "Daystar University"
-    },
-    "udesmontagnes": {
-        "institution_name": "Universit\u00e9 des Montagnes"
-    },
-    "thiqaruni": {
-        "institution_name": "Thi Qar University"
-    },
-    "auamed": {
-        "institution_name": "American University of Antigua"
-    },
-    "ibsindia": {
-        "institution_name": "ICFAI Business School, India"
-    },
-    "ucnh": {
-        "institution_name": "Universit\u00e9 Chr\u00e9tienne du Nord d'Haiti"
-    },
-    "spartanmed": {
-        "institution_name": "Spartan University of Health Sciences"
-    },
-    "ensta-bretagne": {
-        "institution_name": "\u00c9cole Nationale Sup\u00e9rieure des Techniques Avanc\u00e9es de Bretagne"
-    },
-    "hsrw": {
-        "institution_name": "Hochschule Rhein-Waal"
-    },
-    "ovidunivconstanta-edu": {
-        "institution_name": "University of Constanta Medical School"
-    },
-    "islahonline": {
-        "institution_name": "Al-Islah University"
-    },
-    "hertie-school": {
-        "institution_name": "Hertie School of Governance"
-    },
-    "2isa": {
-        "institution_name": "Institut Informatique Sud Aveyron"
-    },
-    "amouduniversity": {
-        "institution_name": "Amoud University"
-    },
-    "sekuco": {
-        "institution_name": "Sebatian Kolowa University College"
-    },
-    "meltwater": {
-        "institution_name": "Meltwater Entrepreneurial School of Technology"
-    },
-    "icu-edu": {
-        "institution_name": "International Culture University"
-    },
-    "uits-bd": {
-        "institution_name": "University of Information Technology &amp; Sciences (UITS)"
-    },
-    "univ-dschang": {
-        "institution_name": "Universit\u00e9 de Dschang"
-    },
-    "tusom": {
-        "institution_name": "Trinity University School of Medicine"
-    },
-    "santoangel": {
-        "institution_name": "Colegio Santo Angel"
-    },
-    "khazar": {
-        "institution_name": "Khazar University"
-    },
-    "scicu": {
-        "institution_name": "South Carolina Independent Colleges and Universities"
-    },
-    "centraluniversity": {
-        "institution_name": "Central University College"
-    },
-    "toulouse-bs": {
-        "institution_name": "Toulouse Business School"
-    },
-    "iesmontsia": {
-        "institution_name": "iesmontsia"
-    },
-    "sjsm": {
-        "institution_name": "St.James's School of Medicine, Bonaire"
-    },
-    "mtsm": {
-        "institution_name": "Athenaeum of Ohio"
-    },
-    "gniindia": {
-        "institution_name": "Guru Nanak Institutions"
-    },
-    "dubaicollege": {
-        "institution_name": "Dubai College"
-    },
-    "poornima": {
-        "institution_name": "Poornima College Of Engineering"
-    },
-    "usenghor-francophonie": {
-        "institution_name": "Universit\u00e9 Senghor d'Alexandrie"
-    },
-    "ghanacu": {
-        "institution_name": "Ghana Christian University College"
-    },
-    "pmlrru": {
-        "institution_name": "PML University"
-    },
-    "ucapanama": {
-        "institution_name": "Universidad de Cartago"
-    },
-    "hawlermu": {
-        "institution_name": "Hawler Medical University"
-    },
-    "unesco-ihe": {
-        "institution_name": "UNESCO-IHE Institute for Water Education"
-    },
-    "pafa": {
-        "institution_name": "Pennsylvania Academy of the Fine Arts"
-    },
-    "hnulinton": {
-        "institution_name": "Hannam University Linton School of Global Business"
-    },
-    "az-npu": {
-        "institution_name": "Nakhchivan Private University"
-    },
-    "centraliens-lille": {
-        "institution_name": "\u00c9cole Centrale de Lille"
-    },
-    "ceaprc": {
-        "institution_name": "Centro de Estudios Avanzados de Puerto Rico y el Caribe"
-    },
-    "nbkrist": {
-        "institution_name": "N.B.K.R. Institute Of Science & Technology"
-    },
-    "astu": {
-        "institution_name": "Astrahan State Technical University"
-    },
-    "upra": {
-        "institution_name": "Athenaeum Pontificium Regina Apostolorum"
-    },
-    "lios": {
-        "institution_name": "The Leadership Institute of Seattle"
-    },
-    "unibl": {
-        "institution_name": "University of Banja Luka"
-    },
-    "cavendishza": {
-        "institution_name": "Cavendish University"
-    },
-    "univ-ndjamena": {
-        "institution_name": "Universit\u00e9 de N'Djamena"
-    },
-    "almamonuc": {
-        "institution_name": "Mamon University College"
-    },
-    "hhmi": {
-        "institution_name": "Howard Hughes Medical Institute"
-    },
-    "internationaluniversity-schoolofmedicine": {
-        "institution_name": "International University School of Medicine (IUSOM)"
-    },
-    "asdubai": {
-        "institution_name": "American School of Dubai"
-    },
-    "universityliberia": {
-        "institution_name": "University of Liberia"
-    },
-    "ieslosremedios": {
-        "institution_name": "IES Nuestra Se\u00f1ora de los Remedios"
-    },
-    "polytechnic-kabul": {
-        "institution_name": "Polytechnical University of Kabul"
-    },
-    "ipeindia": {
-        "institution_name": "Institute Of Public Enterprise"
-    },
-    "pusa-sy": {
-        "institution_name": "Private University of Science and Arts"
-    },
-    "forestinstitute": {
-        "institution_name": "Forest Institute of Professional Psychology"
-    },
-    "aabfs": {
-        "institution_name": "Arab Academy for Banking and Financial Sciences"
-    },
-    "libopenuniv-edu": {
-        "institution_name": "Libya Open University"
-    },
-    "secupv": {
-        "institution_name": "Universidad Pedag\u00f3gica Veracruzana"
-    },
-    "bsu-edu": {
-        "institution_name": "Baku Slavic University"
-    },
-    "bihe": {
-        "institution_name": "Baha'i Institute for Higher Education"
-    },
-    "cihanuniversity": {
-        "institution_name": "Cihan University"
-    },
-    "allenisd": {
-        "student": {
-            "institution_name": "Allen Independent School District"
-        }
-    }
-}
 }

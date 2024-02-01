@@ -2,9 +2,11 @@ import domainData from './univ.json';
 
 interface DomainData {
     [country: string]: {
-        [domain: string]: {
-            institution_name: string;
-        } | DomainData; 
+        [domain: string]:
+            | {
+                  institution_name: string;
+              }
+            | DomainData;
     };
 }
 
@@ -14,6 +16,7 @@ const isAcademic = (emailAddress: string): boolean => {
     const domainParts = extractDomainDetails(emailAddress);
     let currentLevel = typedDomainData;
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const part of domainParts) {
         if (part in currentLevel) {
             currentLevel = currentLevel[part] as DomainData;
@@ -29,23 +32,25 @@ const getInstitutionName = (emailAddress: string): string => {
     const domainParts = extractDomainDetails(emailAddress);
     let currentLevel = typedDomainData;
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const part of domainParts) {
         if (part in currentLevel) {
             currentLevel = currentLevel[part] as DomainData;
         } else {
-            return "";
+            return '';
         }
     }
 
-    return (currentLevel as any).institution_name || "";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (currentLevel as any).institution_name || '';
 };
 
 const extractDomainDetails = (emailAddress: string): string[] => {
-    const domain = emailAddress.split("@").pop();
+    const domain = emailAddress.split('@').pop();
     if (!domain) {
-        throw new Error("Invalid email address format.");
+        throw new Error('Invalid email address format.');
     }
-    return domain.split('.').reverse(); 
+    return domain.split('.').reverse();
 };
 
 export { isAcademic, getInstitutionName };

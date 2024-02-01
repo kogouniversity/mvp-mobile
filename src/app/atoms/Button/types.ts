@@ -9,5 +9,5 @@ export type ButtonProps = {
     size: ButtonSize;
     style?: ViewStyle;
     onPress?: () => void;
-    children: ReactNode;
+    children?: ReactNode;
 };
