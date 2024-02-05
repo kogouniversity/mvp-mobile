@@ -36,4 +36,4 @@ yarn-error.*
 *.tsbuildinfo
 
 # storybook
-storybook/storybook.requires.js
+**/storybook.requires.js
