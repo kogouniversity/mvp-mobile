@@ -32,24 +32,33 @@ const styles = StyleSheet.create({
         height: 90,
     },
     horizontalList: {
-        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
     },
-    verticalList: {},
+    verticalList: {
+        borderBottomWidth: 0.5,
+        borderColor: '#d3d3d3',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    text: {}
 });
 
 export const BasicList: Story = {
     render: args => (
         <List {...args}>
-            <ListItem style={styles.verticalList}>
+            <ListItem style={args.variant == 'vertical' ? styles.verticalList : styles.horizontalList}>
                 <ListItemIcon>
                     <Image
                         style={styles.images}
                         source={ImageSrc.alienAstronaut}
                     />
                 </ListItemIcon>
-                <ListItemText primary="Title 2" />
+                <ListItemText primary="Title 1" style={styles.text}/>
             </ListItem>
-            <ListItem style={styles.verticalList}>
+            <ListItem style={args.variant == 'vertical' ? styles.verticalList : styles.horizontalList}>
                 <ListItemIcon>
                     <Image
                         style={styles.images}
