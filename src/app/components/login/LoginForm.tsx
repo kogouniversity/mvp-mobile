@@ -2,19 +2,19 @@ import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { View, StyleSheet } from 'react-native';
 import Button from '../../atoms/Button';
-import TextField from '../../atoms/inputs/TextField';
+import TextField from '../../atoms/TextField';
 
-export interface LoginInput {
+interface LoginFormInput {
     id: string;
     password: string;
 }
 
-export interface LoginProps {
-    onSubmit: SubmitHandler<LoginInput>;
+export interface LoginFormProps {
+    onSubmit: SubmitHandler<LoginFormInput>;
 }
 
-const Login: React.FC<LoginProps> = function ({ onSubmit }) {
-    const { register, handleSubmit, setValue } = useForm<LoginInput>();
+const LoginForm: React.FC<LoginFormProps> = function ({ onSubmit }) {
+    const { register, handleSubmit, setValue } = useForm<LoginFormInput>();
 
     React.useEffect(() => {
         register('id', { required: true });
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Login;
+export default LoginForm;

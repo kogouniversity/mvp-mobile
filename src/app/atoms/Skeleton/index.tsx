@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Animated, ViewStyle } from 'react-native';
+import { Animated, ViewStyle } from 'react-native';
 import { SkeletonProps, SkeletonVariant } from './types';
 
 const skeletonVariantStyles: Record<SkeletonVariant, ViewStyle> = {
@@ -13,12 +13,12 @@ const skeletonVariantStyles: Record<SkeletonVariant, ViewStyle> = {
     },
 };
 
-const Skeleton: React.FC<SkeletonProps> = ({
+const Skeleton: React.FC<SkeletonProps> = function ({
     variant = 'text',
     width,
     height,
     style = {},
-}) => {
+}) {
     const opacity = useRef(new Animated.Value(0.3)).current;
 
     useEffect(() => {

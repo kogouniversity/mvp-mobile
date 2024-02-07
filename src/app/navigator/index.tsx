@@ -2,15 +2,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationParamList } from './types';
 import { withStatusBar } from '../screens/hoc';
-import SchoolEmailVerif from '../screens/signup/SchoolEmailVerif';
-import SchoolEmailVerifCode from '../screens/signup/SchoolEmailVerifCode';
 import Intro from '../screens/Intro';
-import Login from '../screens/Login';
-import NewUserSignUp from '../screens/signup/NewUserSignUp';
+import Login from '../screens/login/Login';
 import Home from '../screens/main/Home';
-import Group from '../screens/main/Group';
+import Thread from '../screens/main/Thread';
 import Profile from '../screens/main/Profile';
-import Tools from '../screens/main/Tools';
+import Explore from '../screens/main/Explore';
+import EmailInput from '../screens/signup/EmailInput';
+import EmailVerificationCodeInput from '../screens/signup/EmailVerificationCodeInput';
+import IdAndPasswordInput from '../screens/signup/IdAndPasswordInput';
 
 // ======================
 // Stack Navigator
@@ -32,19 +32,19 @@ function OnBoardingNavigator(): JSX.Element {
 function SignUpNavigator(): JSX.Element {
     return (
         <Stack.Navigator
-            initialRouteName="SchoolEmailVerif"
+            initialRouteName="EmailInput"
             screenOptions={{ headerShown: false }}>
             <Stack.Screen
-                name="SchoolEmailVerif"
-                component={withStatusBar(SchoolEmailVerif)}
+                name="EmailInput"
+                component={withStatusBar(EmailInput)}
             />
             <Stack.Screen
-                name="SchoolEmailVerifCode"
-                component={withStatusBar(SchoolEmailVerifCode)}
+                name="EmailVerificationCodeInput"
+                component={withStatusBar(EmailVerificationCodeInput)}
             />
             <Stack.Screen
-                name="NewUserSignUp"
-                component={withStatusBar(NewUserSignUp)}
+                name="IdAndPasswordInput"
+                component={withStatusBar(IdAndPasswordInput)}
             />
         </Stack.Navigator>
     );
@@ -61,8 +61,8 @@ function MainNavigator(): JSX.Element {
             initialRouteName="Home"
             screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={withStatusBar(Home)} />
-            <Tab.Screen name="Feed" component={withStatusBar(Group)} />
-            <Tab.Screen name="Tools" component={withStatusBar(Tools)} />
+            <Tab.Screen name="Thread" component={withStatusBar(Thread)} />
+            <Tab.Screen name="Explore" component={withStatusBar(Explore)} />
             <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
         </Tab.Navigator>
     );

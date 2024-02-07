@@ -4,7 +4,7 @@ import Typography from '../../atoms/Typography';
 function Profile(): JSX.Element {
     return (
         <View>
-            <Typography variant="h6">Profile</Typography>
+            <Typography variant="title">Profile</Typography>
         </View>
     );
 }

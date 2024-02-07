@@ -4,7 +4,7 @@ import Typography from '../../atoms/Typography';
 function Tools(): JSX.Element {
     return (
         <View>
-            <Typography variant="h6">Schedule</Typography>
+            <Typography variant="title">Schedule</Typography>
         </View>
     );
 }

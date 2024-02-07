@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { screen, render, fireEvent } from '../../test-utils';
-import EmailInput from '../../../app/components/signup/EmailInput';
+import EmailInput from '../../../app/components/signup/EmailInputForm';
 
 jest.spyOn(Alert, 'alert');
 

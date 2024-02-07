@@ -11,15 +11,15 @@ type OnBoardingStackParamList = {
 };
 
 type SignUpStackParamList = {
-    SchoolEmailVerif: object | undefined;
-    SchoolEmailVerifCode: object | undefined;
-    NewUserSignUp: object | undefined;
+    EmailInput: object | undefined;
+    EmailVerificationCodeInput: object | undefined;
+    IdAndPasswordInput: object | undefined;
 };
 
 type MainTabParamList = {
     Home: object | undefined;
-    Feed: object | undefined;
-    Tools: object | undefined;
+    Thread: object | undefined;
+    Explore: object | undefined;
     Profile: object | undefined;
 };
 

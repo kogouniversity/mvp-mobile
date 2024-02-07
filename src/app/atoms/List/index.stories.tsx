@@ -51,7 +51,7 @@ export const BasicList: Story = {
         <List {...args}>
             <ListItem
                 style={
-                    args.variant == 'vertical'
+                    args.variant === 'vertical'
                         ? styles.verticalList
                         : styles.horizontalList
                 }>
@@ -65,7 +65,7 @@ export const BasicList: Story = {
             </ListItem>
             <ListItem
                 style={
-                    args.variant == 'vertical'
+                    args.variant === 'vertical'
                         ? styles.verticalList
                         : styles.horizontalList
                 }>

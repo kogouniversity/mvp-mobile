@@ -1,20 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
 import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
-import EmailInput from './EmailInput';
-import VerificationCode from './VerificationCode';
-import IdAndPasswordInput from './IdAndPasswordInput';
-import Navigator from './Navigator';
+import IdAndPasswordInputForm, { IdAndPasswordInputFormProps } from '.';
 
-const screens = {
-    EmailInput,
-    VerificationCode,
-    IdAndPasswordInput,
-};
-
-const meta: ComponentMeta<typeof EmailInput> = {
-    title: 'Components/EmailInput',
-    component: EmailInput,
+const meta: ComponentMeta<typeof IdAndPasswordInputForm> = {
+    title: 'Components/IdAndPasswordInputForm',
+    component: IdAndPasswordInputForm,
     decorators: [
         (Story: StoryFn): JSX.Element => (
             <View
@@ -32,8 +23,13 @@ const meta: ComponentMeta<typeof EmailInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof EmailInput>;
+type Story = StoryObj<IdAndPasswordInputFormProps>;
 
 export const Default: Story = {
-    render: () => <Navigator screens={screens} />,
+    args: {
+        onSubmit: data => {
+            console.log('onSubmit (IdAndPasswordInputForm)');
+            console.log(data);
+        },
+    },
 };

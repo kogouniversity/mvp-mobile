@@ -1,7 +1,7 @@
 import {
     isAcademic,
     getInstitutionName,
-} from '../../../app/components/academicVerifier/AcademicEmailVerifier';
+} from '../../app/lib/academicEmailVerifier';
 
 describe('Email Verification Tests', () => {
     it('correctly identifies an academic email', () => {

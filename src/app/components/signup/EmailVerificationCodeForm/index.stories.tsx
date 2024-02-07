@@ -1,11 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
-import { ComponentMeta, StoryObj, StoryFn } from '@storybook/react-native';
-import Login, { LoginFormProps } from './LoginForm';
+import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
+import EmailVerificationCodeForm, { EmailVerificationCodeFormProps } from '.';
 
-const meta: ComponentMeta<typeof Login> = {
-    title: 'Components/Login',
-    component: Login,
+const meta: ComponentMeta<typeof EmailVerificationCodeForm> = {
+    title: 'Components/EmailVerificationCodeForm',
+    component: EmailVerificationCodeForm,
     decorators: [
         (Story: StoryFn): JSX.Element => (
             <View
@@ -23,11 +23,12 @@ const meta: ComponentMeta<typeof Login> = {
 
 export default meta;
 
-type Story = StoryObj<LoginFormProps>;
+type Story = StoryObj<EmailVerificationCodeFormProps>;
+
 export const Default: Story = {
     args: {
         onSubmit: data => {
-            console.log('onSubmit (LoginForm)');
+            console.log('onSubmit (EmailVerificationCodeForm)');
             console.log(data);
         },
     },
