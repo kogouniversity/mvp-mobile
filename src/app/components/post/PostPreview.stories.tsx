@@ -53,51 +53,79 @@ export const Default: PPStory = {
         authorSchoolName: "UBC",
         authorName: "unknown123",
     },
+    render: args => (
+        <PostPreview {...args}></PostPreview>
+    ),
 };
 
 export const ListDefault: PPLStory = {
-    args: [
-        {
-            width: 390,
-            height: 74,
-            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-            groupName: "벤쿠버 유학생 방",
-            title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-            contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
-            timestamp: new Date(),
-            numOfLikes: 13,
-            numOfComments: 5,
-            authorSchoolName: "UBC",
-            authorName: "unknown123",
-            onPress: () => console.log("pressed"),
+    args: [Default.args],
+    argTypes: {
+        args: {
+            control: {
+                type: 'object',
+            },
         },
-        {
-            width: 390,
-            height: 74,
-            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-            groupName: "벤쿠버 유학생 방",
-            title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-            contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
-            timestamp: new Date(),
-            numOfLikes: 300,
-            numOfComments: 5,
-            authorSchoolName: "UBC",
-            authorName: "unknown123",
-            onPress: () => console.log("pressed"),
-        },
-    ],
-    render: args => (
-        <List {...args}>
-            <ListItem style={styles.verticalList}>
+    },
+    render: ({args}) => { 
+        const posts = args.map((postPropsArray, index) => (
+            <ListItem styles={styles.verticalList} key={index}>
                 <ListItemButton>
-                    <PostPreview {...args[0]} />
+                    <PostPreview {...postProps} />
                 </ListItemButton>
             </ListItem>
-            <ListItem style={styles.verticalList}>
-                <ListItemButton>
-                    <PostPreview {...args[0]} />
-                </ListItemButton>
-            </ListItem>
-        </List>
-    ),
+        ));
+        return (
+            <List>
+                {posts}
+            </List>
+        );
+    },
 };
+
+// export const ListDefault: PPLStory = {
+//     args: [
+//         {
+//             width: 390,
+//             height: 74,
+//             imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+//             groupName: "벤쿠버 유학생 방",
+//             title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
+//             contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+//             timestamp: new Date(),
+//             numOfLikes: 13,
+//             numOfComments: 5,
+//             authorSchoolName: "UBC",
+//             authorName: "unknown123",
+//             onPress: () => console.log("pressed"),
+//         },
+//         {
+//             width: 390,
+//             height: 74,
+//             imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+//             groupName: "SFU Students",
+//             title: "What should I do if I put my laptop in my car",
+//             contentPreview: "and took a bus to school",
+//             timestamp: new Date(),
+//             numOfLikes: 13,
+//             numOfComments: 5,
+//             authorSchoolName: "SFU",
+//             authorName: "unknown123",
+//             onPress: () => console.log("pressed"),
+//         },
+//     ],
+//     render: args => (
+//         <List {...args}>
+//             <ListItem style={styles.verticalList}>
+//                 <ListItemButton>
+//                     <PostPreview {...args[0]}></PostPreview>
+//                 </ListItemButton>
+//             </ListItem>
+//             <ListItem style={styles.verticalList}>
+//                 <ListItemButton>
+//                     <PostPreview {...args[1]}></PostPreview>
+//                 </ListItemButton>
+//             </ListItem>
+//         </List>
+//     ),
+// };
