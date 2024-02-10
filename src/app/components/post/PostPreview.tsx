@@ -1,7 +1,8 @@
 import React from 'react';
 import { PostPreviewProps } from './types';
-import { unknown } from 'zod';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 const PostPreview: React.FC<PostPreviewProps> = function ({
     width,
@@ -13,102 +14,107 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
     numOfLikes,
     numOfComments,
     authorSchoolName,
-    authorName,
     imageLink,
-    onPress = () => unknown,
+    onPress = () => {},
 }) {
-    const getMaxTextWidth = (...texts: string[]): number => {
-      return Math.max(...texts.map(text => text.length));
-    };
 
     const formatTimeDigits = (value: number): string => {
-      return value.toString().padStart(2, '0');
+        return value.toString().padStart(2, '0');
     };
 
-
-    const rightContainerWidth = getMaxTextWidth(
-      `${formatTimeDigits(timestamp.getHours())}:${formatTimeDigits(timestamp.getMinutes())}`,
-      `${numOfLikes} ${numOfComments}`,
-      `${authorSchoolName} ${authorName}`
-    ) * 8; 
+    const renderLikesAndComments = (count: number): number => {
+      if (count > 1000) {
+          return 999;
+      } else {
+          return count;
+      }
+  }; 
 
     return (
-      <TouchableOpacity onPress={onPress} style={[styles.container, { width, height }]}>
-        <View style={styles.leftContainer}>
-          <View style={styles.groupContainer}>
-            <Image source={imageLink} style={styles.image} />
-            <Text style={styles.normalText}> {groupName}</Text>
-          </View>
-          <View style={styles.contentContainer}>
-              <Text style={styles.titleText}>{title}</Text>
-              <Text style={styles.normalText}>{contentPreview}</Text>
-          </View>
-        </View>
-        <View style={[styles.rightContainer, { width: rightContainerWidth }]}>
-          <View style={styles.textContainer}>
-            <Text style={styles.normalText}>{formatTimeDigits(timestamp.getHours())}:{formatTimeDigits(timestamp.getMinutes())}</Text>
-            <View style={styles.NumsContainer}>
-              <Text style={styles.normalText}>{numOfLikes} </Text>
-              <Text style={styles.normalText}>{numOfComments}</Text>
+        <TouchableOpacity onPress={onPress} style={[styles.container, { width, height }]}>
+            <View style={styles.leftContainer}>
+                <View style={styles.groupContainer}>
+                    <Image source={imageLink} style={styles.image} />
+                    <Text style={styles.normalText}> {groupName}</Text>
+                </View>
+                <View style={styles.contentContainer}>
+                    <Text style={styles.titleText}>{title}</Text>
+                    <Text numberOfLines={1} ellipsizeMode="tail" style={styles.normalText}>{contentPreview}</Text>
+                </View>
             </View>
-            <View style={styles.authorContainer}>
-              <View style={styles.authorSchoolNameContainer}>
-                <Text style={styles.normalText}>{authorSchoolName}</Text>
-              </View>
-              <Text style={styles.normalText}> {authorName}</Text>
+            <View style={styles.rightContainer}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.normalText}>
+                        {formatTimeDigits(timestamp.getHours())}:{formatTimeDigits(timestamp.getMinutes())}
+                    </Text>
+                    <View style={styles.NumsContainer}>
+                        <AntDesign name="hearto" size={12} color="#B10606" style={styles.icon}/>
+                        <Text style={styles.normalText}>{renderLikesAndComments(numOfLikes)} </Text>
+                        <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" style={styles.icon}/>
+                        <Text style={styles.normalText}>{renderLikesAndComments(numOfComments)}</Text>
+                    </View>
+                        <View style={styles.authorSchoolNameContainer}>
+                            <Text style={styles.normalText}>{authorSchoolName}</Text>
+                        </View>
+                </View>
             </View>
-          </View>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
     );
-  };
-  
+};
+
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    padding: 10,
-    justifyContent: 'center',
-  },
-  leftContainer:{
-    flex: 1,
-    justifyContent: 'center',
-  },
-  groupContainer: {
-    flexDirection: 'row'
-  },
-  normalText: {
-    fontSize: 11,
-    color: '#5a5a5a'
-  },
-  contentContainer: { 
-    paddingLeft: 17,
-  },
-  titleText: {
-    fontSize: 13,
-    fontWeight: 'bold',
-  },
-  image: {
-    width: 10,
-    height: 10,
-  },
-  rightContainer: {
-    marginLeft: 'auto',
-    justifyContent: 'center',
-  },
-  textContainer: {
-    alignItems: 'flex-end',
-  },
-  NumsContainer: {
-    flexDirection: 'row',
-  },
-  authorContainer:{
-    flexDirection: 'row',
-  },
-  authorSchoolNameContainer: {
-    backgroundColor: '#d3d3d3', // 회색 배경
-    borderRadius: 42,
-    paddingHorizontal: 5.5,
-  }
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    leftContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        paddingLeft: 7,
+        marginTop: 2,
+    },
+    groupContainer: {
+        flexDirection: 'row',
+    },
+    normalText: {
+        fontSize: 11,
+        color: '#5a5a5a',
+        marginBottom: 2,
+    },
+    contentContainer: {
+        paddingLeft: 17,
+    },
+    titleText: {
+        fontSize: 13,
+        fontWeight: 'bold',
+        marginBottom: 2,
+    },
+    image: {
+        width: 10,
+        height: 10,
+        marginBottom: 3,
+    },
+    icon:{
+      marginTop: 1,
+    },
+    rightContainer: {
+        marginLeft: 'auto',
+        justifyContent: 'center',
+        width: 80,
+        marginTop: 2,
+        paddingRight: 7,
+    },
+    textContainer: {
+        alignItems: 'flex-end',
+    },
+    NumsContainer: {
+        flexDirection: 'row',
+    },
+    authorSchoolNameContainer: {
+        backgroundColor: '#d3d3d3',
+        borderRadius: 42,
+        paddingHorizontal: 5.5,
+    }
 });
 
 export default PostPreview;

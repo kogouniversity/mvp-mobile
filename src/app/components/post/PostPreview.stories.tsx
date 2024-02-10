@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PostPreview from './PostPreview';
 import { PostPreviewProps } from './types';
-import { View } from 'react-native';
+import { TouchableOpacity, ViewStyle, View, Text } from 'react-native';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import { ImageSourcePropType } from 'react-native';
 import { List, ListItem, ListItemButton } from '../../atoms/List/index';
@@ -51,7 +51,42 @@ export const Default: PPStory = {
         numOfLikes: 13,
         numOfComments: 5,
         authorSchoolName: "UBC",
-        authorName: "unknown123",
+    },
+    render: args => (
+        <PostPreview {...args}></PostPreview>
+    ),
+};
+
+export const ContentOverload: PPStory = {
+    args: {
+        width: 390,
+        height: 74,
+        imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+        groupName: "벤쿠버 유학생 방",
+        title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
+        contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥 ㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㄴㅇㄴㅇ",
+        timestamp: new Date(),
+        numOfLikes: 13,
+        numOfComments: 5,
+        authorSchoolName: "UBC",
+    },
+    render: args => (
+        <PostPreview {...args}></PostPreview>
+    ),
+};
+
+export const LikeCommentOverload: PPStory = {
+    args: {
+        width: 390,
+        height: 74,
+        imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+        groupName: "벤쿠버 유학생 방",
+        title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
+        contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+        timestamp: new Date(),
+        numOfLikes: 5000,
+        numOfComments: 5000,
+        authorSchoolName: "UBC",
     },
     render: args => (
         <PostPreview {...args}></PostPreview>
@@ -59,73 +94,54 @@ export const Default: PPStory = {
 };
 
 export const ListDefault: PPLStory = {
-    args: [Default.args],
-    argTypes: {
-        args: {
-            control: {
-                type: 'object',
-            },
+    args: [
+        {
+            width: 390,
+            height: 74,
+            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+            groupName: "벤쿠버 유학생 방",
+            title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
+            contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+            timestamp: new Date(),
+            numOfLikes: 13,
+            numOfComments: 5,
+            authorSchoolName: "UBC",
+            onPress: () => console.log("pressed"),
         },
-    },
-    render: ({args}) => { 
-        const posts = args.map((postPropsArray, index) => (
-            <ListItem styles={styles.verticalList} key={index}>
-                <ListItemButton>
-                    <PostPreview {...postProps} />
-                </ListItemButton>
-            </ListItem>
-        ));
-        return (
-            <List>
-                {posts}
-            </List>
-        );
-    },
+        {
+            width: 390,
+            height: 74,
+            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+            groupName: "SFU Students",
+            title: "What should I do if I put my laptop in my car",
+            contentPreview: "and took a bus to school sdssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaa",
+            timestamp: new Date(),
+            numOfLikes: 13,
+            numOfComments: 5,
+            authorSchoolName: "SFU",
+            onPress: () => console.log("pressed"),
+        },
+        {
+            width: 390,
+            height: 74,
+            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
+            groupName: "벤쿠버 유학생 방",
+            title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
+            contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+            timestamp: new Date(),
+            numOfLikes: 5000,
+            numOfComments: 5000,
+            authorSchoolName: "UBC",
+            onPress: () => console.log("pressed"),
+        },
+    ],
+    render: args => (
+        <List>
+            {Object.values(args).map((postProps, index) => (
+                <ListItem key={index} style={styles.verticalList}>
+                    <PostPreview {...postProps}></PostPreview>
+                </ListItem>
+            ))}
+        </List>
+    ),
 };
-
-// export const ListDefault: PPLStory = {
-//     args: [
-//         {
-//             width: 390,
-//             height: 74,
-//             imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-//             groupName: "벤쿠버 유학생 방",
-//             title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-//             contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
-//             timestamp: new Date(),
-//             numOfLikes: 13,
-//             numOfComments: 5,
-//             authorSchoolName: "UBC",
-//             authorName: "unknown123",
-//             onPress: () => console.log("pressed"),
-//         },
-//         {
-//             width: 390,
-//             height: 74,
-//             imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-//             groupName: "SFU Students",
-//             title: "What should I do if I put my laptop in my car",
-//             contentPreview: "and took a bus to school",
-//             timestamp: new Date(),
-//             numOfLikes: 13,
-//             numOfComments: 5,
-//             authorSchoolName: "SFU",
-//             authorName: "unknown123",
-//             onPress: () => console.log("pressed"),
-//         },
-//     ],
-//     render: args => (
-//         <List {...args}>
-//             <ListItem style={styles.verticalList}>
-//                 <ListItemButton>
-//                     <PostPreview {...args[0]}></PostPreview>
-//                 </ListItemButton>
-//             </ListItem>
-//             <ListItem style={styles.verticalList}>
-//                 <ListItemButton>
-//                     <PostPreview {...args[1]}></PostPreview>
-//                 </ListItemButton>
-//             </ListItem>
-//         </List>
-//     ),
-// };
