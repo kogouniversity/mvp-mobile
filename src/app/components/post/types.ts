@@ -12,4 +12,4 @@ export type PostPreviewProps = {
     numOfComments: number;
     authorSchoolName: string;
     onPress: () => void;
-  }
+};
