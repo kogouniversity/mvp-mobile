@@ -10,17 +10,11 @@ export default {
 
 export const Default: StoryObj<SelectFieldProps> = {
     render: ({ label, data }) => {
-
-        const onSelect = (item: OptionType) => {
-        };
+        const onSelect = (item: OptionType) => {};
 
         return (
             <>
-                <SelectField
-                    label={label}
-                    data={data}
-                    onSelect={onSelect}
-                />
+                <SelectField label={label} data={data} onSelect={onSelect} />
             </>
         );
     },

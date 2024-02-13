@@ -1,6 +1,7 @@
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
-import HeroSlider, { HeroSliderProps } from './HeroSlider';
+import HeroSlider from './HeroSlider';
 import { View } from 'react-native';
+import Typography from '../../atoms/Typography';
 
 const meta: ComponentMeta<typeof HeroSlider> = {
     title: 'Components/HeroSlider',
@@ -16,9 +17,9 @@ const meta: ComponentMeta<typeof HeroSlider> = {
 
 export default meta;
 
-type Story = StoryObj<HeroSliderProps>;
+type Story = StoryObj;
 
-const sample = [
+const sampleData = [
     {
         courseName: 'CMPT 361 D100',
         location: 'Blusson Hall 9660',
@@ -36,9 +37,34 @@ const sample = [
     },
 ];
 
+const sampleRenderItem = (
+    <View>
+        <View>
+            <Typography variant="subtitle" color="text">
+                Today's Lecture
+            </Typography>
+        </View>
+        <View>
+            <View>
+                <Typography variant="text" color="text">
+                    course name
+                </Typography>
+            </View>
+            <View>
+                <Typography variant="text" color="text">
+                    location
+                </Typography>
+                <Typography variant="text" color="text">
+                    Time
+                </Typography>
+            </View>
+        </View>
+    </View>
+);
+
 export const Default: Story = {
     args: {
-        data: sample,
+        data: sampleData,
     },
     render: args => <HeroSlider {...args} />,
 };

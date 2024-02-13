@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         borderColor: '#d3d3d3',
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 });
 
@@ -43,54 +43,52 @@ export const Default: PPStory = {
     args: {
         width: 390,
         height: 74,
-        imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-        groupName: "벤쿠버 유학생 방",
-        title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-        contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+        imageLink:
+            require('../../assets/images/chick.png') as ImageSourcePropType,
+        groupName: '벤쿠버 유학생 방',
+        title: '오늘 저녁 뭐 먹을지 고르는거 도와주셈',
+        contentPreview: '모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥',
         timestamp: new Date(),
         numOfLikes: 13,
         numOfComments: 5,
-        authorSchoolName: "UBC",
+        authorSchoolName: 'UBC',
     },
-    render: args => (
-        <PostPreview {...args}></PostPreview>
-    ),
+    render: args => <PostPreview {...args}></PostPreview>,
 };
 
 export const ContentOverload: PPStory = {
     args: {
         width: 390,
         height: 74,
-        imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-        groupName: "벤쿠버 유학생 방",
-        title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-        contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥 ㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㄴㅇㄴㅇ",
+        imageLink:
+            require('../../assets/images/chick.png') as ImageSourcePropType,
+        groupName: '벤쿠버 유학생 방',
+        title: '오늘 저녁 뭐 먹을지 고르는거 도와주셈',
+        contentPreview:
+            '모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥 ㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㅇㄴㄴㅇㄴㅇ',
         timestamp: new Date(),
         numOfLikes: 13,
         numOfComments: 5,
-        authorSchoolName: "UBC",
+        authorSchoolName: 'UBC',
     },
-    render: args => (
-        <PostPreview {...args}></PostPreview>
-    ),
+    render: args => <PostPreview {...args}></PostPreview>,
 };
 
 export const LikeCommentOverload: PPStory = {
     args: {
         width: 390,
         height: 74,
-        imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-        groupName: "벤쿠버 유학생 방",
-        title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-        contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+        imageLink:
+            require('../../assets/images/chick.png') as ImageSourcePropType,
+        groupName: '벤쿠버 유학생 방',
+        title: '오늘 저녁 뭐 먹을지 고르는거 도와주셈',
+        contentPreview: '모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥',
         timestamp: new Date(),
         numOfLikes: 5000,
         numOfComments: 5000,
-        authorSchoolName: "UBC",
+        authorSchoolName: 'UBC',
     },
-    render: args => (
-        <PostPreview {...args}></PostPreview>
-    ),
+    render: args => <PostPreview {...args}></PostPreview>,
 };
 
 export const ListDefault: PPLStory = {
@@ -98,41 +96,45 @@ export const ListDefault: PPLStory = {
         {
             width: 390,
             height: 74,
-            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-            groupName: "벤쿠버 유학생 방",
-            title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-            contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+            imageLink:
+                require('../../assets/images/chick.png') as ImageSourcePropType,
+            groupName: '벤쿠버 유학생 방',
+            title: '오늘 저녁 뭐 먹을지 고르는거 도와주셈',
+            contentPreview: '모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥',
             timestamp: new Date(),
             numOfLikes: 13,
             numOfComments: 5,
-            authorSchoolName: "UBC",
-            onPress: () => console.log("pressed"),
+            authorSchoolName: 'UBC',
+            onPress: () => console.log('pressed'),
         },
         {
             width: 390,
             height: 74,
-            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-            groupName: "SFU Students",
-            title: "What should I do if I put my laptop in my car",
-            contentPreview: "and took a bus to school sdssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaa",
+            imageLink:
+                require('../../assets/images/chick.png') as ImageSourcePropType,
+            groupName: 'SFU Students',
+            title: 'What should I do if I put my laptop in my car',
+            contentPreview:
+                'and took a bus to school sdssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaa',
             timestamp: new Date(),
             numOfLikes: 13,
             numOfComments: 5,
-            authorSchoolName: "SFU",
-            onPress: () => console.log("pressed"),
+            authorSchoolName: 'SFU',
+            onPress: () => console.log('pressed'),
         },
         {
             width: 390,
             height: 74,
-            imageLink: require('../../assets/images/chick.png') as ImageSourcePropType,
-            groupName: "벤쿠버 유학생 방",
-            title: "오늘 저녁 뭐 먹을지 고르는거 도와주셈",
-            contentPreview: "모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥",
+            imageLink:
+                require('../../assets/images/chick.png') as ImageSourcePropType,
+            groupName: '벤쿠버 유학생 방',
+            title: '오늘 저녁 뭐 먹을지 고르는거 도와주셈',
+            contentPreview: '모짜솔솔김볶밥 vs 차돌돌돌만불닭볶밥',
             timestamp: new Date(),
             numOfLikes: 5000,
             numOfComments: 5000,
-            authorSchoolName: "UBC",
-            onPress: () => console.log("pressed"),
+            authorSchoolName: 'UBC',
+            onPress: () => console.log('pressed'),
         },
     ],
     render: args => (

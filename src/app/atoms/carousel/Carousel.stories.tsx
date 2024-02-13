@@ -1,7 +1,7 @@
-import React from 'react';
-import Carousel from '../../atoms/carousel/Carousel';
-import { Dimensions, View, StyleSheet } from 'react-native';
-import Typography from '../../atoms/Typography';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import Typography from '../Typography';
+import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
+import Carousel, { CarouselProp } from './Carousel';
 
 type courseInfo = {
     courseName: string;
@@ -115,12 +115,28 @@ const styles = StyleSheet.create({
     },
 });
 
-const HeroSlider: React.FC = () => {
-    return (
-        <View>
-            <Carousel data={sampleData} renderItem={sampleRenderItem} />
-        </View>
-    );
+const meta: ComponentMeta<typeof Carousel> = {
+    title: 'Design System/Atoms/Carousel',
+    component: Carousel,
+    decorators: [
+        (Story: StoryFn): JSX.Element => (
+            <View>
+                <Story />
+            </View>
+        ),
+    ],
 };
 
-export default HeroSlider;
+export default meta;
+
+type Story = StoryObj<CarouselProp<dataType<courseInfo | string>>>;
+
+export const Default: Story = {
+    args: {
+        data: sampleData,
+        renderItem: sampleRenderItem,
+    },
+    render: args => {
+        return <Carousel {...args} />;
+    },
+};
