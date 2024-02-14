@@ -1,8 +1,7 @@
 import React from 'react';
-import { PostPreviewProps } from './types';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { PostPreviewProps } from './types';
 
 const PostPreview: React.FC<PostPreviewProps> = function ({
     width,
@@ -17,16 +16,26 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
     imageLink,
     onPress = () => {},
 }) {
+<<<<<<< HEAD:src/app/components/post/PostPreview.tsx
     const formatTimeDigits = (value: number): string => {
         return value.toString().padStart(2, '0');
     };
+=======
+    const formatTimeDigits = (value: number): string =>
+        value.toString().padStart(2, '0');
+>>>>>>> 234bd82 (add msw):src/app/components/post/PostPreview/index.tsx
 
     const renderLikesAndComments = (count: number): number => {
         if (count > 1000) {
             return 999;
+<<<<<<< HEAD:src/app/components/post/PostPreview.tsx
         } else {
             return count;
         }
+=======
+        }
+        return count;
+>>>>>>> 234bd82 (add msw):src/app/components/post/PostPreview/index.tsx
     };
 
     return (

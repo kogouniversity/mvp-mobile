@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 import App from './app/App';
 
 // Preload Assets
-import './app/utils/assets';
+import './app/utils/images';
 
 let AppEntryPoint;
 

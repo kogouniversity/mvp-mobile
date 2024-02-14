@@ -5,7 +5,11 @@ import {
     AuthErrorResponse,
     AuthUserDataResponse,
 } from '../../../app/hooks/api/auth/types';
-import { renderHook } from '../../test-utils';
+import {
+    createAxiosMockErrorRejected,
+    createAxiosMockResolved,
+    renderHook,
+} from '../../test-utils';
 import { captureAxiosError } from '../../../app/utils/sentry';
 
 // Mock jest and set the type
@@ -22,16 +26,15 @@ describe('useFetchedData', () => {
         expect(isError).toBe(false);
     });
     describe('when data is fetch successfully', () => {
-        let mockData: AuthUserDataResponse;
+        const mockData: AuthUserDataResponse = {
+            user: {},
+            jwt: 'userjwt',
+        };
 
         beforeEach(() => {
-            mockData = {
-                data: {
-                    user: {},
-                    jwt: 'userjwt',
-                },
-            };
-            mockedAxios.post.mockResolvedValue({ data: mockData, status: 200 });
+            mockedAxios.post.mockResolvedValue(
+                createAxiosMockResolved(mockData),
+            );
         });
         it('should return user data in json object', async () => {
             const { result } = renderHook(() => useSignIn());
@@ -53,21 +56,17 @@ describe('useFetchedData', () => {
         });
     });
     describe('When data is failed to be fetched', () => {
-        let mockErrorData: AuthErrorResponse;
+        const mockErrorData: AuthErrorResponse = {
+            data: null,
+            error: {
+                message: 'failed',
+            },
+        };
 
         beforeEach(() => {
-            mockErrorData = {
-                data: null,
-                error: {
-                    message: 'failed',
-                },
-            };
-            mockedAxios.post.mockRejectedValue({
-                response: {
-                    data: mockErrorData,
-                    status: 400,
-                },
-            });
+            mockedAxios.post.mockRejectedValue(
+                createAxiosMockErrorRejected(mockErrorData),
+            );
         });
         it('should return error response as json object', async () => {
             const { result } = renderHook(() => useSignIn());

@@ -2,7 +2,7 @@ import { View, Image, StyleSheet, Text } from 'react-native';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '.';
 import { ListProps } from './types';
-import { ImageSrc } from '../../utils/assets';
+import { ImageSrcUrl } from '../../utils/images';
 
 const meta: ComponentMeta<typeof List> = {
     title: 'Design System/Atoms/List',
@@ -58,7 +58,7 @@ export const BasicList: Story = {
                 <ListItemIcon>
                     <Image
                         style={styles.images}
-                        source={ImageSrc.alienAstronaut}
+                        source={ImageSrcUrl.alienAstronaut}
                     />
                 </ListItemIcon>
                 <ListItemText primary="Title 1" style={styles.text} />
@@ -72,7 +72,7 @@ export const BasicList: Story = {
                 <ListItemIcon>
                     <Image
                         style={styles.images}
-                        source={ImageSrc.alienAstronaut}
+                        source={ImageSrcUrl.alienAstronaut}
                     />
                 </ListItemIcon>
                 <ListItemText primary="Title 2" />
@@ -106,7 +106,7 @@ export const NestedList: Story = {
                     <ListItemIcon>
                         <Image
                             style={styles.images}
-                            source={ImageSrc.alienAstronaut}
+                            source={ImageSrcUrl.alienAstronaut}
                         />
                     </ListItemIcon>
                     <ListItemText primary="Title 2" />

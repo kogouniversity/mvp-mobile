@@ -2,7 +2,7 @@ import { View, Image, Dimensions } from 'react-native';
 import { CommonActions } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { useNavigation } from '../utils/navigation';
-import { ImageSrc } from '../utils/assets';
+import { ImageSrcUrl } from '../utils/images';
 
 function Intro(): JSX.Element {
     const navigation = useNavigation();
@@ -30,7 +30,7 @@ function Intro(): JSX.Element {
                     position: 'absolute',
                     top: Dimensions.get('window').height / 2 - 150,
                 }}
-                source={ImageSrc.alienAstronaut}
+                source={ImageSrcUrl.alienAstronaut}
             />
         </View>
     );

@@ -18,7 +18,7 @@ type SignUpStackParamList = {
 
 type MainTabParamList = {
     Home: object | undefined;
-    Thread: object | undefined;
+    MySchool: object | undefined;
     Explore: object | undefined;
     Profile: object | undefined;
 };

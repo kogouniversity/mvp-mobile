@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
 import { isAcademic } from '../../../lib/academicEmailVerifier';
+import Typography from '../../../atoms/Typography';
 
 const emailSchema = z.object({
     email: z.string().email(),
@@ -52,8 +53,9 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
             <Button
                 variant="primary"
                 size="md"
-                onPress={handleSubmit(onSubmit)}
-            />
+                onPress={handleSubmit(onSubmit)}>
+                <Typography variant="subtitle">Next</Typography>
+            </Button>
         </View>
     );
 };

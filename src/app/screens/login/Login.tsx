@@ -24,7 +24,7 @@ function Login(): JSX.Element {
     const navigation = useNavigation();
     return (
         <View style={{ alignItems: 'center' }}>
-            <LoginForm onSubmit={data => null} />
+            <LoginForm onSignIn={() => navigation.navigate('Home')} />
             <View>
                 <Typography variant="subtext" style={styles.typo}>
                     Don&apos;t have a Kogo account yet?&nbsp;

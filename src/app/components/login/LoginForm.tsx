@@ -1,8 +1,11 @@
-import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { View, StyleSheet } from 'react-native';
 import Button from '../../atoms/Button';
 import TextField from '../../atoms/TextField';
+import useSignIn from '../../hooks/api/auth/useSignIn';
+import Typography from '../../atoms/Typography';
+import { AuthUserDataResponse } from '../../hooks/api/auth/types';
 
 interface LoginFormInput {
     id: string;
@@ -10,16 +13,32 @@ interface LoginFormInput {
 }
 
 export interface LoginFormProps {
-    onSubmit: SubmitHandler<LoginFormInput>;
+    onSignIn: (user: AuthUserDataResponse) => unknown;
 }
 
-const LoginForm: React.FC<LoginFormProps> = function ({ onSubmit }) {
-    const { register, handleSubmit, setValue } = useForm<LoginFormInput>();
+const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
+    const { register, handleSubmit, setValue, getValues } =
+        useForm<LoginFormInput>();
+    const { mutateAsync: attemptSignIn } = useSignIn();
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     React.useEffect(() => {
         register('id', { required: true });
         register('password', { required: true });
     }, [register]);
+
+    async function handleValidSubmit() {
+        attemptSignIn({
+            identifier: getValues('id'),
+            password: getValues('password'),
+        })
+            .then(data => onSignIn(data))
+            .catch(() => {
+                setErrorMessage(
+                    'Failed to login, please check your connection',
+                );
+            });
+    }
 
     return (
         <View style={styles.container}>
@@ -39,8 +58,13 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSubmit }) {
             <Button
                 variant="primary"
                 size="md"
-                onPress={handleSubmit(onSubmit)}
+                onPress={handleSubmit(handleValidSubmit)}
             />
+            {errorMessage && (
+                <Typography variant="subtext" style={{ color: 'red' }}>
+                    {errorMessage}
+                </Typography>
+            )}
         </View>
     );
 };

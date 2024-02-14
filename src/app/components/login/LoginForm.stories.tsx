@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { ComponentMeta, StoryObj, StoryFn } from '@storybook/react-native';
 import Login, { LoginFormProps } from './LoginForm';
 
@@ -26,9 +26,8 @@ export default meta;
 type Story = StoryObj<LoginFormProps>;
 export const Default: Story = {
     args: {
-        onSubmit: data => {
-            console.log('onSubmit (LoginForm)');
-            console.log(data);
+        onSignIn: data => {
+            Alert.alert(`LoginForm: ${JSON.stringify(data.user)}`);
         },
     },
 };

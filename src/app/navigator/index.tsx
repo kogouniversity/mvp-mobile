@@ -5,7 +5,7 @@ import { withStatusBar } from '../screens/hoc';
 import Intro from '../screens/Intro';
 import Login from '../screens/login/Login';
 import Home from '../screens/main/Home';
-import Thread from '../screens/main/Thread';
+import MySchool from '../screens/main/MySchool';
 import Profile from '../screens/main/Profile';
 import Explore from '../screens/main/Explore';
 import EmailInput from '../screens/signup/EmailInput';
@@ -61,7 +61,7 @@ function MainNavigator(): JSX.Element {
             initialRouteName="Home"
             screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={withStatusBar(Home)} />
-            <Tab.Screen name="Thread" component={withStatusBar(Thread)} />
+            <Tab.Screen name="MySchool" component={withStatusBar(MySchool)} />
             <Tab.Screen name="Explore" component={withStatusBar(Explore)} />
             <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
         </Tab.Navigator>
