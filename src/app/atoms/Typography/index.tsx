@@ -59,7 +59,7 @@ const typographyColorStyles: Record<TypographyColors, TextStyle> = {
 
 const Typography: React.FC<TypographyProps> = function ({
     variant,
-    color,
+    color = 'text',
     style = {},
     ...props
 }) {

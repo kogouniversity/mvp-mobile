@@ -7,6 +7,6 @@ export type TypographyColors = 'text' | 'subtext' | 'shade' | 'notification';
 
 export type TypographyProps = {
     variant: TypographyVariants;
-    color: TypographyColors;
+    color?: TypographyColors;
     style?: TextStyle;
 } & TextProps;

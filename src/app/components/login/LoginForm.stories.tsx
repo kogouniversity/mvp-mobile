@@ -1,7 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { ComponentMeta, StoryObj, StoryFn } from '@storybook/react-native';
-import Login, { LoginProps } from './LoginForm';
+import Login, { LoginFormProps } from './LoginForm';
 
 const meta: ComponentMeta<typeof Login> = {
     title: 'Components/Login',
@@ -23,11 +23,11 @@ const meta: ComponentMeta<typeof Login> = {
 
 export default meta;
 
-type Story = StoryObj<LoginProps>;
+type Story = StoryObj<LoginFormProps>;
 export const Default: Story = {
     args: {
-        onSubmit: async data => {
-            console.log('Login data', data);
+        onSignIn: data => {
+            Alert.alert(`LoginForm: ${JSON.stringify(data.user)}`);
         },
     },
 };

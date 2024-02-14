@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         width: 681,
         height: 187,
         top: 0,
-        background: '#171C47',
+        backgroundColor: '#171C47',
     },
 });
 
@@ -15,7 +15,7 @@ function Home(): JSX.Element {
     return (
         <View>
             <View style={styles.wave} />
-            <Typography variant="h6">Home</Typography>
+            <Typography variant="title">Home</Typography>
         </View>
     );
 }
