@@ -1,19 +1,8 @@
 import { View, StyleSheet, Dimensions } from 'react-native';
-import Typography from '../Typography';
 import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
-import Carousel, { CarouselProp } from './Carousel';
-
-type courseInfo = {
-    courseName: string;
-    location: string;
-    time: string;
-};
-
-type dataType<T> = {
-    [x: string]: any;
-    type: string;
-    data: T[];
-};
+import Typography from '../Typography';
+import Carousel from '.';
+import { CarouselProp } from './types';
 
 const sampleData = [
     {
@@ -42,29 +31,27 @@ const sampleData = [
     },
 ];
 
-const sampleRenderItem = (items: dataType<courseInfo | string>) => {
-    const newItem = items.item;
+const sampleRenderItem = (item: (typeof sampleData)[number]) =>
     // flatlist에서 주는 각 item들의 형식이 정해져있음
     // 여기선 필요한 data가 items.item안에 있음
-
-    return newItem.type == 'lectures' ? (
+    item.type === 'lectures' ? (
         <View style={styles.box}>
             <Typography variant="subtitle" color="text" style={styles.title}>
-                Today's Lectures
+                Today&apos;s Lectures
             </Typography>
-            {newItem.data.map((item: courseInfo) => (
+            {item.data.map(courseInfo => (
                 <View style={styles.lectureInfo}>
                     <View style={styles.leftText}>
                         <Typography variant="text" color="text">
-                            {item.courseName}
+                            {courseInfo.courseName}
                         </Typography>
                         <Typography variant="subtext" color="text">
-                            {item.location}
+                            {courseInfo.location}
                         </Typography>
                     </View>
                     <View style={styles.rightText}>
                         <Typography variant="text" color="text">
-                            {item.time}
+                            {courseInfo.time}
                         </Typography>
                     </View>
                 </View>
@@ -73,20 +60,17 @@ const sampleRenderItem = (items: dataType<courseInfo | string>) => {
     ) : (
         <View style={styles.box}>
             <Typography variant="subtitle" color="text" style={styles.title}>
-                Today's TODO
+                Today&apos;s TODO
             </Typography>
-            {newItem.data.map((item: string) => {
-                return (
-                    <View>
-                        <Typography variant="text" color="text">
-                            {item}
-                        </Typography>
-                    </View>
-                );
-            })}
+            {item.data.map(todoItem => (
+                <View>
+                    <Typography variant="text" color="text">
+                        {todoItem}
+                    </Typography>
+                </View>
+            ))}
         </View>
     );
-};
 
 const width = Dimensions.get('screen').width - 20;
 
@@ -129,14 +113,12 @@ const meta: ComponentMeta<typeof Carousel> = {
 
 export default meta;
 
-type Story = StoryObj<CarouselProp<dataType<courseInfo | string>>>;
+type Story = StoryObj<CarouselProp<(typeof sampleData)[number]>>;
 
 export const Default: Story = {
     args: {
         data: sampleData,
-        renderItem: sampleRenderItem,
+        renderItem: data => sampleRenderItem(data),
     },
-    render: args => {
-        return <Carousel {...args} />;
-    },
+    render: args => <Carousel {...args} />,
 };

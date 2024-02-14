@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import {
     Animated,
     Dimensions,
@@ -8,22 +8,10 @@ import {
     NativeSyntheticEvent,
     StyleSheet,
     View,
-    ViewStyle,
-    ViewToken,
 } from 'react-native';
+import { CarouselProp, PaginationProp } from './types';
 
-const width = Dimensions.get('screen').width;
-
-export type CarouselProp<T> = {
-    data: T[];
-    renderItem: (data: T) => React.ReactNode;
-    boxStyle?: ViewStyle;
-};
-
-export type PaginationProp<T> = {
-    data: T[];
-    scrollX: Animated.Value;
-};
+const { width } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
     container: {
@@ -44,7 +32,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const Pagination = <T extends object>({ data, scrollX }: PaginationProp<T>) => {
+function Pagination<T extends object>({ data, scrollX }: PaginationProp<T>) {
     return (
         <View style={styles.dotsContainer}>
             {data.map((_, i) => {
@@ -60,6 +48,7 @@ const Pagination = <T extends object>({ data, scrollX }: PaginationProp<T>) => {
                 });
                 return (
                     <Animated.View
+                        // eslint-disable-next-line react/no-array-index-key
                         key={i.toString()}
                         style={[styles.dot, { width: dotWidth }]}
                     />
@@ -67,13 +56,13 @@ const Pagination = <T extends object>({ data, scrollX }: PaginationProp<T>) => {
             })}
         </View>
     );
-};
+}
 
-const Carousel = <T extends object>({
+function Carousel<T extends object>({
     data,
     renderItem,
-    boxStyle,
-}: CarouselProp<T>) => {
+    boxStyle = {},
+}: CarouselProp<T>): JSX.Element {
     const scrollX = useRef(new Animated.Value(0)).current;
 
     const handleOnScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -109,6 +98,6 @@ const Carousel = <T extends object>({
             <Pagination data={data} scrollX={scrollX} />
         </View>
     );
-};
+}
 
 export default Carousel;

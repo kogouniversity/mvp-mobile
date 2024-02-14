@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentMeta, StoryObj } from '@storybook/react-native';
 import SelectField from './index';
 import { SelectFieldProps, OptionType } from './types';
@@ -12,11 +12,7 @@ export const Default: StoryObj<SelectFieldProps> = {
     render: ({ label, data }) => {
         const onSelect = (item: OptionType) => {};
 
-        return (
-            <>
-                <SelectField label={label} data={data} onSelect={onSelect} />
-            </>
-        );
+        return <SelectField label={label} data={data} onSelect={onSelect} />;
     },
     args: {
         label: 'Select an Option',

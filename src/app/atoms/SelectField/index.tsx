@@ -7,10 +7,14 @@ import {
     FlatList,
     StyleSheet,
 } from 'react-native';
-import { SelectFieldProps, OptionType } from './types';
 import { AntDesign } from '@expo/vector-icons';
+import { SelectFieldProps, OptionType } from './types';
 
-const SelectField: React.FC<SelectFieldProps> = ({ label, data, onSelect }) => {
+const SelectField: React.FC<SelectFieldProps> = function ({
+    label,
+    data,
+    onSelect,
+}) {
     const [visible, setVisible] = useState(false);
     const [selectTop, setSelectTop] = useState(0);
     const [buttonMeasurements, setButtonMeasurements] = useState({
@@ -18,7 +22,7 @@ const SelectField: React.FC<SelectFieldProps> = ({ label, data, onSelect }) => {
         left: 0,
         width: 0,
     });
-    const SelectButton = useRef<any>(null);
+    const SelectButton = useRef<TouchableOpacity>(null);
     const [selectedItem, setSelectedItem] = useState<OptionType | null>(null);
 
     const toggleSelect = (): void => {
@@ -30,7 +34,7 @@ const SelectField: React.FC<SelectFieldProps> = ({ label, data, onSelect }) => {
     };
 
     const openSelect = (): void => {
-        SelectButton.current.measure(
+        SelectButton.current?.measure(
             (
                 fx: number,
                 fy: number,
