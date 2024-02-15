@@ -5,7 +5,7 @@ import { ListProps } from './types';
 import { ImageSrcUrl } from '../../utils/images';
 
 const meta: ComponentMeta<typeof List> = {
-    title: 'Design System/Atoms/List',
+    title: 'Atoms/List',
     component: List,
     argTypes: {
         variant: {

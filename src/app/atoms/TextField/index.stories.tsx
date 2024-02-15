@@ -4,7 +4,7 @@ import TextField from '.';
 import { TextFieldProps } from './types';
 
 const meta: ComponentMeta<typeof TextField> = {
-    title: 'Design System/Atoms/Inputs/TextField',
+    title: 'Atoms/Inputs/TextField',
     component: TextField,
     argTypes: {
         variant: {

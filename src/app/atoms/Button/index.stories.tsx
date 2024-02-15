@@ -6,7 +6,7 @@ import { ButtonProps } from './types';
 import Typography from '../Typography';
 
 const meta: ComponentMeta<typeof Button> = {
-    title: 'Design System/Atoms/Button',
+    title: 'Atoms/Button',
     component: Button,
     argTypes: {
         variant: {

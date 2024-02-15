@@ -87,7 +87,9 @@ function Carousel<T extends object>({
             <View style={[styles.container, boxStyle]}>
                 <FlatList
                     data={data}
-                    renderItem={renderItem as ListRenderItem<T>}
+                    renderItem={
+                        (info => renderItem(info.item)) as ListRenderItem<T>
+                    }
                     horizontal
                     pagingEnabled
                     snapToAlignment="center"

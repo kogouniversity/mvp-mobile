@@ -4,7 +4,21 @@ import Typography from '../Typography';
 import Carousel from '.';
 import { CarouselProp } from './types';
 
-const sampleData = [
+type LectureDataType = {
+    type: string;
+    data: {
+        courseName: string;
+        location: string;
+        time: string;
+    }[];
+};
+
+type TodoDataType = {
+    type: string;
+    data: string[];
+};
+
+const sampleDataSet = [
     {
         type: 'lectures',
         data: [
@@ -31,7 +45,7 @@ const sampleData = [
     },
 ];
 
-const sampleRenderItem = (item: (typeof sampleData)[number]) =>
+const sampleRenderItem = (item: (typeof sampleDataSet)[number]) =>
     // flatlist에서 주는 각 item들의 형식이 정해져있음
     // 여기선 필요한 data가 items.item안에 있음
     item.type === 'lectures' ? (
@@ -39,7 +53,7 @@ const sampleRenderItem = (item: (typeof sampleData)[number]) =>
             <Typography variant="subtitle" color="text" style={styles.title}>
                 Today&apos;s Lectures
             </Typography>
-            {item.data.map(courseInfo => (
+            {(item as LectureDataType).data.map(courseInfo => (
                 <View style={styles.lectureInfo}>
                     <View style={styles.leftText}>
                         <Typography variant="text" color="text">
@@ -62,7 +76,7 @@ const sampleRenderItem = (item: (typeof sampleData)[number]) =>
             <Typography variant="subtitle" color="text" style={styles.title}>
                 Today&apos;s TODO
             </Typography>
-            {item.data.map(todoItem => (
+            {(item as TodoDataType).data.map(todoItem => (
                 <View>
                     <Typography variant="text" color="text">
                         {todoItem}
@@ -100,7 +114,7 @@ const styles = StyleSheet.create({
 });
 
 const meta: ComponentMeta<typeof Carousel> = {
-    title: 'Design System/Atoms/Carousel',
+    title: 'Atoms/Carousel',
     component: Carousel,
     decorators: [
         (Story: StoryFn): JSX.Element => (
@@ -113,11 +127,11 @@ const meta: ComponentMeta<typeof Carousel> = {
 
 export default meta;
 
-type Story = StoryObj<CarouselProp<(typeof sampleData)[number]>>;
+type Story = StoryObj<CarouselProp<LectureDataType | TodoDataType>>;
 
 export const Default: Story = {
     args: {
-        data: sampleData,
+        data: sampleDataSet,
         renderItem: data => sampleRenderItem(data),
     },
     render: args => <Carousel {...args} />,

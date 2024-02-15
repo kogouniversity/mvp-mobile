@@ -5,7 +5,7 @@ import Skeleton from '.';
 import { SkeletonProps } from './types';
 
 const meta: ComponentMeta<typeof Skeleton> = {
-    title: 'Design System/Atoms/Skeleton',
+    title: 'Atoms/Skeleton',
     component: Skeleton,
     argTypes: {
         variant: {

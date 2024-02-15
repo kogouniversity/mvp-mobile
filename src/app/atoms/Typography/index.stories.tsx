@@ -4,7 +4,7 @@ import Typography from './index';
 import { TypographyProps } from './types';
 
 const meta: ComponentMeta<typeof Typography> = {
-    title: 'Design System/Atoms/Typography',
+    title: 'Atoms/Typography',
     component: Typography,
     render: args => (
         <Typography {...args}>Lorem ipsum dolor sit amet</Typography>

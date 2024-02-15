@@ -3,6 +3,20 @@ import { Dimensions, View, StyleSheet } from 'react-native';
 import Carousel from '../../atoms/carousel';
 import Typography from '../../atoms/Typography';
 
+type LectureDataType = {
+    type: string;
+    data: {
+        courseName: string;
+        location: string;
+        time: string;
+    }[];
+};
+
+type TodoDataType = {
+    type: string;
+    data: string[];
+};
+
 const sampleData = [
     {
         type: 'lectures',
@@ -38,7 +52,7 @@ const sampleRenderItem = (item: (typeof sampleData)[number]) =>
             <Typography variant="subtitle" color="text" style={styles.title}>
                 Today&apos;s Lectures
             </Typography>
-            {item.data.map(courseInfo => (
+            {(item as LectureDataType).data.map(courseInfo => (
                 <View style={styles.lectureInfo}>
                     <View style={styles.leftText}>
                         <Typography variant="text" color="text">
@@ -61,7 +75,7 @@ const sampleRenderItem = (item: (typeof sampleData)[number]) =>
             <Typography variant="subtitle" color="text" style={styles.title}>
                 Today&apos;s TODO
             </Typography>
-            {item.data.map(todoItem => (
+            {(item as TodoDataType).data.map(todoItem => (
                 <View>
                     <Typography variant="text" color="text">
                         {todoItem}
@@ -103,7 +117,7 @@ const HeroSlider: React.FC = function () {
         <View>
             <Carousel
                 data={sampleData}
-                renderItem={item => sampleRenderItem(item)}
+                renderItem={data => sampleRenderItem(data)}
             />
         </View>
     );

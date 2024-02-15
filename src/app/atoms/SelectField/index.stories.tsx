@@ -4,7 +4,7 @@ import SelectField from './index';
 import { SelectFieldProps, OptionType } from './types';
 
 export default {
-    title: 'Design System/Atoms/SelectField',
+    title: 'Atoms/SelectField',
     component: SelectField,
 } as ComponentMeta<typeof SelectField>;
 

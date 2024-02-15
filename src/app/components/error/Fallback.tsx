@@ -12,7 +12,7 @@ function Fallback(): React.JSX.Element {
                 alignItems: 'center',
                 justifyContent: 'center',
             }}>
-            <Typography variant="h6">An error has occurred</Typography>
+            <Typography variant="subtitle">An error has occurred</Typography>
         </View>
     );
 }
