@@ -4,6 +4,20 @@ import Typography from '../Typography';
 import Carousel from '.';
 import { CarouselProp } from './types';
 
+const meta: ComponentMeta<typeof Carousel> = {
+    title: 'Atoms/Carousel',
+    component: Carousel,
+    decorators: [
+        (Story: StoryFn): JSX.Element => (
+            <View>
+                <Story />
+            </View>
+        ),
+    ],
+};
+
+export default meta;
+
 type LectureDataType = {
     type: string;
     data: {
@@ -13,12 +27,7 @@ type LectureDataType = {
     }[];
 };
 
-type TodoDataType = {
-    type: string;
-    data: string[];
-};
-
-const sampleDataSet = [
+const sampleDataSet: LectureDataType[] = [
     {
         type: 'lectures',
         data: [
@@ -39,52 +48,42 @@ const sampleDataSet = [
             },
         ],
     },
-    {
-        type: 'todo',
-        data: ['CMPT 362 Final Project', 'CMPT 102 Test 1', 'CMPT 102 note'],
-    },
 ];
 
-const sampleRenderItem = (item: (typeof sampleDataSet)[number]) =>
-    // flatlist에서 주는 각 item들의 형식이 정해져있음
-    // 여기선 필요한 data가 items.item안에 있음
-    item.type === 'lectures' ? (
-        <View style={styles.box}>
-            <Typography variant="subtitle" color="text" style={styles.title}>
-                Today&apos;s Lectures
-            </Typography>
-            {(item as LectureDataType).data.map(courseInfo => (
-                <View style={styles.lectureInfo}>
-                    <View style={styles.leftText}>
-                        <Typography variant="text" color="text">
-                            {courseInfo.courseName}
-                        </Typography>
-                        <Typography variant="subtext" color="text">
-                            {courseInfo.location}
-                        </Typography>
-                    </View>
-                    <View style={styles.rightText}>
-                        <Typography variant="text" color="text">
-                            {courseInfo.time}
-                        </Typography>
-                    </View>
-                </View>
-            ))}
-        </View>
-    ) : (
-        <View style={styles.box}>
-            <Typography variant="subtitle" color="text" style={styles.title}>
-                Today&apos;s TODO
-            </Typography>
-            {(item as TodoDataType).data.map(todoItem => (
-                <View>
+const sampleRenderItem = (item: (typeof sampleDataSet)[number]) => (
+    <View style={styles.box}>
+        <Typography variant="subtitle" color="text" style={styles.title}>
+            Today&apos;s Lectures
+        </Typography>
+        {(item as LectureDataType).data.map(courseInfo => (
+            <View style={styles.lectureInfo}>
+                <View style={styles.leftText}>
                     <Typography variant="text" color="text">
-                        {todoItem}
+                        {courseInfo.courseName}
+                    </Typography>
+                    <Typography variant="subtext" color="text">
+                        {courseInfo.location}
                     </Typography>
                 </View>
-            ))}
-        </View>
-    );
+                <View style={styles.rightText}>
+                    <Typography variant="text" color="text">
+                        {courseInfo.time}
+                    </Typography>
+                </View>
+            </View>
+        ))}
+    </View>
+);
+
+type Story = StoryObj<CarouselProp<LectureDataType>>;
+
+export const Default: Story = {
+    args: {
+        data: sampleDataSet,
+        renderItem: data => sampleRenderItem(data),
+    },
+    render: args => <Carousel {...args} />,
+};
 
 const width = Dimensions.get('screen').width - 20;
 
@@ -112,27 +111,3 @@ const styles = StyleSheet.create({
         marginRight: 5,
     },
 });
-
-const meta: ComponentMeta<typeof Carousel> = {
-    title: 'Atoms/Carousel',
-    component: Carousel,
-    decorators: [
-        (Story: StoryFn): JSX.Element => (
-            <View>
-                <Story />
-            </View>
-        ),
-    ],
-};
-
-export default meta;
-
-type Story = StoryObj<CarouselProp<LectureDataType | TodoDataType>>;
-
-export const Default: Story = {
-    args: {
-        data: sampleDataSet,
-        renderItem: data => sampleRenderItem(data),
-    },
-    render: args => <Carousel {...args} />,
-};
