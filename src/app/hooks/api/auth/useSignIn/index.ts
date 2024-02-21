@@ -2,7 +2,8 @@ import axios, { AxiosError } from 'axios';
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { captureAxiosError } from '../../../../utils/sentry';
 import { UserSignInParams } from './types';
-import { AuthErrorResponse, AuthUserDataResponse } from '../types';
+import { AuthUserDataResponse } from '../types';
+import { BaseErrorResponse } from '../../types';
 
 const signIn = async ({
     identifier,
@@ -28,18 +29,34 @@ const signIn = async ({
     }
 };
 
-export default function useSignIn(): UseMutationResult<
+type UseSignInMutationResult = UseMutationResult<
     AuthUserDataResponse,
-    AuthErrorResponse,
+    BaseErrorResponse,
     UserSignInParams,
     unknown
-> {
-    return useMutation<
+>;
+
+export default function useSignIn(): UseSignInMutationResult & {
+    requestSignIn: UseSignInMutationResult['mutate'];
+    requestSignInAsync: UseSignInMutationResult['mutateAsync'];
+} {
+    const {
+        mutate: requestSignIn,
+        mutateAsync: requestSignInAsync,
+        ...mutation
+    } = useMutation<
         AuthUserDataResponse,
-        AuthErrorResponse,
+        BaseErrorResponse,
         UserSignInParams,
         unknown
     >({
         mutationFn: (params: UserSignInParams) => signIn(params),
     });
+    return {
+        requestSignIn,
+        requestSignInAsync,
+        mutate: requestSignIn,
+        mutateAsync: requestSignInAsync,
+        ...mutation,
+    };
 }

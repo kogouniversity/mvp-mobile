@@ -7,8 +7,8 @@ function EmailInput(): JSX.Element {
     return (
         <View style={{ alignItems: 'center' }}>
             <EmailInputForm
-                onSubmit={data =>
-                    navigation.navigate('EmailVerificationCodeInput')
+                onSubmitValidEmail={email =>
+                    navigation.navigate('EmailVerificationCodeInput', { email })
                 }
             />
         </View>

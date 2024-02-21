@@ -19,7 +19,7 @@ export interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
     const { register, handleSubmit, setValue, getValues } =
         useForm<LoginFormInput>();
-    const { mutateAsync: attemptSignIn } = useSignIn();
+    const { requestSignInAsync } = useSignIn();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     React.useEffect(() => {
@@ -27,15 +27,15 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
         register('password', { required: true });
     }, [register]);
 
-    async function handleValidSubmit() {
-        attemptSignIn({
+    async function submitCallback() {
+        requestSignInAsync({
             identifier: getValues('id'),
             password: getValues('password'),
         })
             .then(data => onSignIn(data))
             .catch(() => {
                 setErrorMessage(
-                    'Failed to login, please check your connection',
+                    'Failed to login, please check your connection.',
                 );
             });
     }
@@ -58,7 +58,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
             <Button
                 variant="primary"
                 size="md"
-                onPress={handleSubmit(handleValidSubmit)}
+                onPress={handleSubmit(submitCallback)}
             />
             {errorMessage && (
                 <Typography variant="subtext" style={{ color: 'red' }}>
