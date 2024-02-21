@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
 import { z } from 'zod';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
 import { isAcademic } from '../../../lib/academicEmailVerifier';
 import Typography from '../../../atoms/Typography';
+import { useSchools } from '../../../hooks/api/useSchools';
+import { ListSchoolResponse } from '../../../hooks/api/useSchools/types';
+
+function extractSchoolEmailDomain(
+    schoolDataList: ListSchoolResponse,
+): string[] {
+    return [];
+}
 
 const emailSchema = z.object({
     email: z.string().email(),
@@ -16,15 +24,41 @@ interface EmailInputFormInput {
 }
 
 export interface EmailInputFormProps {
-    onSubmit: SubmitHandler<EmailInputFormInput>;
+    onSubmitValidEmail: (email: string) => unknown;
 }
 
-const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
-    const { register, handleSubmit, setValue } = useForm<EmailInputFormInput>();
+/**
+ * Email Input Form communicates with school list API to check if the given email is valid.
+ * The valid email is an email with a university domain mailing address.
+ */
+const EmailInputForm: React.FC<EmailInputFormProps> = function ({
+    onSubmitValidEmail,
+}) {
+    const { register, handleSubmit, setValue, getValues } =
+        useForm<EmailInputFormInput>();
+    const { data, isSuccess } = useSchools();
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+    const schoolEmailDomains = useMemo(
+        () => (isSuccess ? extractSchoolEmailDomain(data) : []),
+        [data, isSuccess],
+    );
 
     React.useEffect(() => {
         register('email', { required: true });
     }, [register]);
+
+    async function submitCallback() {
+        if (isSuccess) {
+            if (schoolEmailDomains.includes(getValues('email'))) {
+                onSubmitValidEmail(getValues('email'));
+            } else {
+                setErrorMessage('Sorry, this email is not valid.');
+            }
+        } else {
+            setErrorMessage('Failed to proceed, please check your connection.');
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -43,9 +77,9 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
                                 'Please enter a valid academic email address.',
                             );
                         }
-                    } catch (error) {
-                        if (error instanceof z.ZodError) {
-                            Alert.alert('Error', error.errors[0].message);
+                    } catch (e) {
+                        if (e instanceof z.ZodError) {
+                            Alert.alert('Error', e.errors[0].message);
                         }
                     }
                 }}
@@ -53,9 +87,14 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
             <Button
                 variant="primary"
                 size="md"
-                onPress={handleSubmit(onSubmit)}>
+                onPress={handleSubmit(submitCallback)}>
                 <Typography variant="subtitle">Next</Typography>
             </Button>
+            {errorMessage && (
+                <Typography variant="subtext" style={{ color: 'red' }}>
+                    {errorMessage}
+                </Typography>
+            )}
         </View>
     );
 };

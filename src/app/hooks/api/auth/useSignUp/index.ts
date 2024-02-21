@@ -1,8 +1,9 @@
 import axios, { AxiosError } from 'axios';
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { captureAxiosError } from '../../../../utils/sentry';
-import { AuthErrorResponse, AuthUserDataResponse } from '../types';
+import { AuthUserDataResponse } from '../types';
 import { UserSignUpParams } from './types';
+import { BaseErrorResponse } from '../../types';
 
 const signUp = async ({
     username,
@@ -30,18 +31,35 @@ const signUp = async ({
     }
 };
 
-export default function useSignUp(): UseMutationResult<
+type UseSignUpMutationResult = UseMutationResult<
     AuthUserDataResponse,
-    AuthErrorResponse,
+    BaseErrorResponse,
     UserSignUpParams,
     unknown
-> {
-    return useMutation<
+>;
+
+export default function useSignUp(): UseSignUpMutationResult & {
+    requestSignUp: UseSignUpMutationResult['mutate'];
+    requestSignUpAsync: UseSignUpMutationResult['mutateAsync'];
+} {
+    const {
+        mutate: requestSignUp,
+        mutateAsync: requestSignUpAsync,
+        ...mutation
+    } = useMutation<
         AuthUserDataResponse,
-        AuthErrorResponse,
+        BaseErrorResponse,
         UserSignUpParams,
         unknown
     >({
         mutationFn: (params: UserSignUpParams) => signUp(params),
     });
+
+    return {
+        requestSignUp,
+        requestSignUpAsync,
+        mutate: requestSignUp,
+        mutateAsync: requestSignUpAsync,
+        ...mutation,
+    };
 }

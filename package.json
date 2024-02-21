@@ -44,7 +44,8 @@
     "react-native-svg-transformer": "^1.3.0",
     "react-native-typography": "^1.4.1",
     "react-native-vector-icons": "^10.0.3",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -88,6 +89,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,d.ts}": ["prettier", "eslint --fix"]
+    "src/**/*.{js,jsx,ts,tsx,d.ts}": [
+      "prettier",
+      "eslint --fix"
+    ]
   }
 }
