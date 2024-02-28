@@ -1,15 +1,7 @@
 import { Ref, useRef } from 'react';
-import {
-    QueryClient,
-    QueryClientConfig,
-    QueryClientProvider,
-    onlineManager,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientConfig, QueryClientProvider, onlineManager } from '@tanstack/react-query';
 import NetInfo from '@react-native-community/netinfo';
-import {
-    NavigationContainer,
-    NavigationContainerRef,
-} from '@react-navigation/native';
+import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import RootNavigator from './navigator';
 import { NavigationProps } from './utils/navigation';
 import Fallback from './components/error/Fallback';
@@ -38,9 +30,7 @@ function App(): React.JSX.Element {
             <NavigationContainer
                 ref={navigation}
                 onReady={() => {
-                    routingInstrumentation.registerNavigationContainer(
-                        navigation,
-                    );
+                    routingInstrumentation.registerNavigationContainer(navigation);
                 }}>
                 <RootNavigator />
             </NavigationContainer>
@@ -48,6 +38,4 @@ function App(): React.JSX.Element {
     );
 }
 
-export default Sentry.wrap(
-    Sentry.withErrorBoundary(App, { fallback: Fallback }),
-);
+export default Sentry.wrap(Sentry.withErrorBoundary(App, { fallback: Fallback }));

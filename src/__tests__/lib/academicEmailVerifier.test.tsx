@@ -1,7 +1,4 @@
-import {
-    isAcademic,
-    getInstitutionName,
-} from '../../app/lib/academicEmailVerifier';
+import { isAcademic, getInstitutionName } from '../../app/lib/academicEmailVerifier';
 
 describe('Email Verification Tests', () => {
     it('correctly identifies an academic email', () => {
@@ -13,18 +10,10 @@ describe('Email Verification Tests', () => {
     });
 
     it('returns the correct institution name', () => {
-        expect(getInstitutionName('example@sfu.ca')).toBe(
-            'Simon Fraser University',
-        );
-        expect(getInstitutionName('example@ubc.ca')).toBe(
-            'University of British Columbia',
-        );
-        expect(getInstitutionName('example@okanagan.bc.ca')).toBe(
-            'Okanagan University College',
-        );
-        expect(getInstitutionName('example@mit.edu')).toBe(
-            'Massachusetts Institute of Technology',
-        );
+        expect(getInstitutionName('example@sfu.ca')).toBe('Simon Fraser University');
+        expect(getInstitutionName('example@ubc.ca')).toBe('University of British Columbia');
+        expect(getInstitutionName('example@okanagan.bc.ca')).toBe('Okanagan University College');
+        expect(getInstitutionName('example@mit.edu')).toBe('Massachusetts Institute of Technology');
         expect(getInstitutionName('example@gmail.com')).toBe('');
     });
 });

@@ -13,12 +13,7 @@ const skeletonVariantStyles: Record<SkeletonVariant, ViewStyle> = {
     },
 };
 
-const Skeleton: React.FC<SkeletonProps> = function ({
-    variant = 'text',
-    width,
-    height,
-    style = {},
-}) {
+const Skeleton: React.FC<SkeletonProps> = function ({ variant = 'text', width, height, style = {} }) {
     const opacity = useRef(new Animated.Value(0.3)).current;
 
     useEffect(() => {
@@ -44,16 +39,7 @@ const Skeleton: React.FC<SkeletonProps> = function ({
         backgroundColor: '#e0e0e0',
     };
 
-    return (
-        <Animated.View
-            style={[
-                baseStyle,
-                skeletonVariantStyles[variant],
-                style,
-                { opacity },
-            ]}
-        />
-    );
+    return <Animated.View style={[baseStyle, skeletonVariantStyles[variant], style, { opacity }]} />;
 };
 
 export default Skeleton;

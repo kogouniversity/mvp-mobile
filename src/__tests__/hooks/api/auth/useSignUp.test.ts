@@ -1,24 +1,33 @@
 import { act, waitFor } from '@testing-library/react-native';
 import axios from 'axios';
-import useSignIn from '../../../app/hooks/api/auth/useSignIn';
-import {
-    AuthErrorResponse,
-    AuthUserDataResponse,
-} from '../../../app/hooks/api/auth/types';
-import {
-    createAxiosMockErrorRejected,
-    createAxiosMockResolved,
-    renderHook,
-} from '../../test-utils';
-import { captureAxiosError } from '../../../app/utils/sentry';
+import useSignUp from '../../../../app/hooks/api/auth/useSignUp';
+import { AuthUserDataResponse } from '../../../../app/hooks/api/auth/types';
+import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHook } from '../../../test-utils';
+import { captureAxiosError } from '../../../../app/utils/sentry';
+import { BaseErrorResponse } from '../../../../app/hooks/api/types';
 
 // Mock jest and set the type
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('useFetchedData', () => {
+const testUser = {
+    id: '3',
+    username: 'testuser',
+    email: 'test@gmail.com',
+    createdAt: 'Tue Aug 19 1975 23:15:30',
+    updatedAt: 'Tue Aug 19 1975 23:15:30',
+};
+
+const errorResponse = {
+    status: '',
+    name: '',
+    message: 'failed',
+    details: {},
+};
+
+describe('useSignUp', () => {
     it('should return the initial values', () => {
-        const { result } = renderHook(() => useSignIn());
+        const { result } = renderHook(() => useSignUp());
         const { data, error, isSuccess, isError } = result.current;
         expect(data).toBe(undefined);
         expect(error).toBe(null);
@@ -27,22 +36,22 @@ describe('useFetchedData', () => {
     });
     describe('when data is fetch successfully', () => {
         const mockData: AuthUserDataResponse = {
-            user: {},
+            user: testUser,
             jwt: 'userjwt',
         };
 
         beforeEach(() => {
-            mockedAxios.post.mockResolvedValue(
-                createAxiosMockResolved(mockData),
-            );
+            mockedAxios.post.mockResolvedValue(createAxiosMockResolved(mockData));
         });
         it('should return user data in json object', async () => {
-            const { result } = renderHook(() => useSignIn());
+            const { result } = renderHook(() => useSignUp());
             const { mutate } = result.current;
             act(() => {
                 mutate({
-                    identifier: 'abc',
+                    username: 'abc',
+                    email: 'test@email.com',
                     password: 'def',
+                    emailToken: 'abcd1234',
                 });
             });
             await waitFor(() =>
@@ -56,25 +65,23 @@ describe('useFetchedData', () => {
         });
     });
     describe('When data is failed to be fetched', () => {
-        const mockErrorData: AuthErrorResponse = {
+        const mockErrorData: BaseErrorResponse = {
             data: null,
-            error: {
-                message: 'failed',
-            },
+            error: errorResponse,
         };
 
         beforeEach(() => {
-            mockedAxios.post.mockRejectedValue(
-                createAxiosMockErrorRejected(mockErrorData),
-            );
+            mockedAxios.post.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response as json object', async () => {
-            const { result } = renderHook(() => useSignIn());
+            const { result } = renderHook(() => useSignUp());
             const { mutate } = result.current;
             act(() => {
                 mutate({
-                    identifier: 'abc',
+                    username: 'abc',
+                    email: 'test@email.com',
                     password: 'def',
+                    emailToken: 'abcd1234',
                 });
             });
             await waitFor(() =>
@@ -85,9 +92,7 @@ describe('useFetchedData', () => {
                     isError: true,
                 }),
             );
-            await waitFor(() =>
-                expect(captureAxiosError).toHaveBeenCalledTimes(1),
-            );
+            await waitFor(() => expect(captureAxiosError).toHaveBeenCalledTimes(1));
         });
     });
 });

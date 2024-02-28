@@ -5,17 +5,13 @@ import { AuthUserDataResponse } from '../types';
 import { UserSignUpParams } from './types';
 import { BaseErrorResponse } from '../../types';
 
-const signUp = async ({
-    username,
-    email,
-    password,
-}: UserSignUpParams): Promise<AuthUserDataResponse> => {
+const signUp = async ({ username, emailToken, password }: UserSignUpParams): Promise<AuthUserDataResponse> => {
     try {
         const response = await axios.post<AuthUserDataResponse>(
             '/api/auth/local/register',
             {
                 username,
-                email,
+                emailToken,
                 password,
             },
             {
@@ -31,12 +27,7 @@ const signUp = async ({
     }
 };
 
-type UseSignUpMutationResult = UseMutationResult<
-    AuthUserDataResponse,
-    BaseErrorResponse,
-    UserSignUpParams,
-    unknown
->;
+type UseSignUpMutationResult = UseMutationResult<AuthUserDataResponse, BaseErrorResponse, UserSignUpParams, unknown>;
 
 export default function useSignUp(): UseSignUpMutationResult & {
     requestSignUp: UseSignUpMutationResult['mutate'];
@@ -46,12 +37,7 @@ export default function useSignUp(): UseSignUpMutationResult & {
         mutate: requestSignUp,
         mutateAsync: requestSignUpAsync,
         ...mutation
-    } = useMutation<
-        AuthUserDataResponse,
-        BaseErrorResponse,
-        UserSignUpParams,
-        unknown
-    >({
+    } = useMutation<AuthUserDataResponse, BaseErrorResponse, UserSignUpParams, unknown>({
         mutationFn: (params: UserSignUpParams) => signUp(params),
     });
 

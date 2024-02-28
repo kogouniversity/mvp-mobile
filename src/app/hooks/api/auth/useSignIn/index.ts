@@ -5,10 +5,7 @@ import { UserSignInParams } from './types';
 import { AuthUserDataResponse } from '../types';
 import { BaseErrorResponse } from '../../types';
 
-const signIn = async ({
-    identifier,
-    password,
-}: UserSignInParams): Promise<AuthUserDataResponse> => {
+const signIn = async ({ identifier, password }: UserSignInParams): Promise<AuthUserDataResponse> => {
     try {
         const response = await axios.post<AuthUserDataResponse>(
             '/api/auth/local',
@@ -29,12 +26,7 @@ const signIn = async ({
     }
 };
 
-type UseSignInMutationResult = UseMutationResult<
-    AuthUserDataResponse,
-    BaseErrorResponse,
-    UserSignInParams,
-    unknown
->;
+type UseSignInMutationResult = UseMutationResult<AuthUserDataResponse, BaseErrorResponse, UserSignInParams, unknown>;
 
 export default function useSignIn(): UseSignInMutationResult & {
     requestSignIn: UseSignInMutationResult['mutate'];
@@ -44,12 +36,7 @@ export default function useSignIn(): UseSignInMutationResult & {
         mutate: requestSignIn,
         mutateAsync: requestSignInAsync,
         ...mutation
-    } = useMutation<
-        AuthUserDataResponse,
-        BaseErrorResponse,
-        UserSignInParams,
-        unknown
-    >({
+    } = useMutation<AuthUserDataResponse, BaseErrorResponse, UserSignInParams, unknown>({
         mutationFn: (params: UserSignInParams) => signIn(params),
     });
     return {

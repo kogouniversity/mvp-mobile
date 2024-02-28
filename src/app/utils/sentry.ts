@@ -46,13 +46,7 @@ const { captureException, captureMessage } = Sentry;
 const captureAxiosError = (err: AxiosError): void => {
     Sentry.withScope((scope: Sentry.Scope) => {
         scope.setTag('error-type', 'axios-request-failure');
-        const {
-            method,
-            url,
-            params,
-            data: requestData,
-            headers,
-        } = err.config as any;
+        const { method, url, params, data: requestData, headers } = err.config as any;
         const { data: responseData, status } = err.response as any;
         Sentry.setContext('API Request Detail', {
             method,
@@ -69,12 +63,7 @@ const captureAxiosError = (err: AxiosError): void => {
     });
 };
 
-export {
-    captureException,
-    captureMessage,
-    routingInstrumentation,
-    captureAxiosError,
-};
+export { captureException, captureMessage, routingInstrumentation, captureAxiosError };
 
 export default Sentry;
 

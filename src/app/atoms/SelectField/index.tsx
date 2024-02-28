@@ -1,20 +1,9 @@
 import React, { useState, useRef } from 'react';
-import {
-    Modal,
-    View,
-    TouchableOpacity,
-    Text,
-    FlatList,
-    StyleSheet,
-} from 'react-native';
+import { Modal, View, TouchableOpacity, Text, FlatList, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { SelectFieldProps, OptionType } from './types';
 
-const SelectField: React.FC<SelectFieldProps> = function ({
-    label,
-    data,
-    onSelect,
-}) {
+const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelect }) {
     const [visible, setVisible] = useState(false);
     const [selectTop, setSelectTop] = useState(0);
     const [buttonMeasurements, setButtonMeasurements] = useState({
@@ -35,14 +24,7 @@ const SelectField: React.FC<SelectFieldProps> = function ({
 
     const openSelect = (): void => {
         SelectButton.current?.measure(
-            (
-                fx: number,
-                fy: number,
-                width: number,
-                height: number,
-                px: number,
-                py: number,
-            ) => {
+            (fx: number, fy: number, width: number, height: number, px: number, py: number) => {
                 setSelectTop(py + height);
                 setButtonMeasurements({ top: py, left: px, width });
                 setVisible(true);
@@ -58,12 +40,7 @@ const SelectField: React.FC<SelectFieldProps> = function ({
 
     const renderItem = ({ item }: { item: OptionType }): React.ReactElement => (
         <TouchableOpacity
-            style={[
-                styles.item,
-                selectedItem && selectedItem.value === item.value
-                    ? styles.selectedItem
-                    : {},
-            ]}
+            style={[styles.item, selectedItem && selectedItem.value === item.value ? styles.selectedItem : {}]}
             onPress={() => onItemPress(item)}>
             <Text>{item.label}</Text>
         </TouchableOpacity>
@@ -72,25 +49,14 @@ const SelectField: React.FC<SelectFieldProps> = function ({
         <View>
             <TouchableOpacity
                 ref={SelectButton}
-                style={[
-                    styles.button,
-                    { width: buttonMeasurements.width || '90%' },
-                ]}
+                style={[styles.button, { width: buttonMeasurements.width || '90%' }]}
                 onPress={toggleSelect}>
-                <Text style={styles.buttonText}>
-                    {selectedItem ? selectedItem.label : label}
-                </Text>
-                <AntDesign
-                    name={visible ? 'upcircleo' : 'downcircleo'}
-                    size={24}
-                    color="black"
-                />
+                <Text style={styles.buttonText}>{selectedItem ? selectedItem.label : label}</Text>
+                <AntDesign name={visible ? 'upcircleo' : 'downcircleo'} size={24} color="black" />
             </TouchableOpacity>
             {visible && (
                 <Modal visible={visible} transparent animationType="none">
-                    <TouchableOpacity
-                        style={styles.overlay}
-                        onPress={() => setVisible(false)}>
+                    <TouchableOpacity style={styles.overlay} onPress={() => setVisible(false)}>
                         <View
                             style={[
                                 styles.select,
@@ -100,11 +66,7 @@ const SelectField: React.FC<SelectFieldProps> = function ({
                                     width: buttonMeasurements.width,
                                 },
                             ]}>
-                            <FlatList
-                                data={data}
-                                renderItem={renderItem}
-                                keyExtractor={item => item.value}
-                            />
+                            <FlatList data={data} renderItem={renderItem} keyExtractor={item => item.value} />
                         </View>
                     </TouchableOpacity>
                 </Modal>

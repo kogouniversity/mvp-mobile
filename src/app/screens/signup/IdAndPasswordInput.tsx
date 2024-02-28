@@ -1,13 +1,17 @@
 import { View } from 'react-native';
-import { useNavigation } from '../../utils/navigation';
+import { useNavigation, useRoute } from '../../utils/navigation';
 import IdAndPasswordInputForm from '../../components/signup/IdAndPasswordInputForm';
 
 function IdAndPasswordInput(): JSX.Element {
     const navigation = useNavigation();
+    const route = useRoute<'IdAndPasswordInput'>();
+    const { email, emailToken } = route.params;
     return (
         <View style={{ alignItems: 'center' }}>
             <IdAndPasswordInputForm
-                onSubmit={data => navigation.navigate('Home')}
+                email={email}
+                emailToken={emailToken}
+                onSubmit={() => navigation.navigate('Home')}
             />
         </View>
     );

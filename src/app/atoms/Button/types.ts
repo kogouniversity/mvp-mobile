@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { ViewStyle } from 'react-native';
 
 export type ButtonVariant = 'default' | 'primary' | 'secondary' | 'tertiary';
@@ -7,7 +6,9 @@ export type ButtonSize = 'default' | 'sm' | 'md' | 'lg';
 export type ButtonProps = {
     variant: ButtonVariant;
     size: ButtonSize;
+    label: string;
     style?: ViewStyle;
+    disabled?: boolean;
+    isLoading?: boolean;
     onPress?: () => void;
-    children?: ReactNode;
 };

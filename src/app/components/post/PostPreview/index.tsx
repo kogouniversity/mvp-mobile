@@ -16,8 +16,7 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
     imageLink,
     onPress = () => {},
 }) {
-    const formatTimeDigits = (value: number): string =>
-        value.toString().padStart(2, '0');
+    const formatTimeDigits = (value: number): string => value.toString().padStart(2, '0');
 
     const renderLikesAndComments = (count: number): number => {
         if (count > 1000) {
@@ -27,9 +26,7 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
     };
 
     return (
-        <TouchableOpacity
-            onPress={onPress}
-            style={[styles.container, { width, height }]}>
+        <TouchableOpacity onPress={onPress} style={[styles.container, { width, height }]}>
             <View style={styles.leftContainer}>
                 <View style={styles.groupContainer}>
                     <Image source={imageLink} style={styles.image} />
@@ -37,10 +34,7 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
                 </View>
                 <View style={styles.contentContainer}>
                     <Text style={styles.titleText}>{title}</Text>
-                    <Text
-                        numberOfLines={1}
-                        ellipsizeMode="tail"
-                        style={styles.normalText}>
+                    <Text numberOfLines={1} ellipsizeMode="tail" style={styles.normalText}>
                         {contentPreview}
                     </Text>
                 </View>
@@ -48,33 +42,16 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
             <View style={styles.rightContainer}>
                 <View style={styles.textContainer}>
                     <Text style={styles.normalText}>
-                        {formatTimeDigits(timestamp.getHours())}:
-                        {formatTimeDigits(timestamp.getMinutes())}
+                        {formatTimeDigits(timestamp.getHours())}:{formatTimeDigits(timestamp.getMinutes())}
                     </Text>
                     <View style={styles.NumsContainer}>
-                        <AntDesign
-                            name="hearto"
-                            size={12}
-                            color="#B10606"
-                            style={styles.icon}
-                        />
-                        <Text style={styles.normalText}>
-                            {renderLikesAndComments(numOfLikes)}{' '}
-                        </Text>
-                        <Ionicons
-                            name="chatbox-outline"
-                            size={12}
-                            color="#5A5A5A"
-                            style={styles.icon}
-                        />
-                        <Text style={styles.normalText}>
-                            {renderLikesAndComments(numOfComments)}
-                        </Text>
+                        <AntDesign name="hearto" size={12} color="#B10606" style={styles.icon} />
+                        <Text style={styles.normalText}>{renderLikesAndComments(numOfLikes)} </Text>
+                        <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" style={styles.icon} />
+                        <Text style={styles.normalText}>{renderLikesAndComments(numOfComments)}</Text>
                     </View>
                     <View style={styles.authorSchoolNameContainer}>
-                        <Text style={styles.normalText}>
-                            {authorSchoolName}
-                        </Text>
+                        <Text style={styles.normalText}>{authorSchoolName}</Text>
                     </View>
                 </View>
             </View>

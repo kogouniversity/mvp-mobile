@@ -49,31 +49,15 @@ const styles = StyleSheet.create({
 export const BasicList: Story = {
     render: args => (
         <List {...args}>
-            <ListItem
-                style={
-                    args.variant === 'vertical'
-                        ? styles.verticalList
-                        : styles.horizontalList
-                }>
+            <ListItem style={args.variant === 'vertical' ? styles.verticalList : styles.horizontalList}>
                 <ListItemIcon>
-                    <Image
-                        style={styles.images}
-                        source={ImageSrcUrl.alienAstronaut}
-                    />
+                    <Image style={styles.images} source={ImageSrcUrl.alienAstronaut} />
                 </ListItemIcon>
                 <ListItemText primary="Title 1" style={styles.text} />
             </ListItem>
-            <ListItem
-                style={
-                    args.variant === 'vertical'
-                        ? styles.verticalList
-                        : styles.horizontalList
-                }>
+            <ListItem style={args.variant === 'vertical' ? styles.verticalList : styles.horizontalList}>
                 <ListItemIcon>
-                    <Image
-                        style={styles.images}
-                        source={ImageSrcUrl.alienAstronaut}
-                    />
+                    <Image style={styles.images} source={ImageSrcUrl.alienAstronaut} />
                 </ListItemIcon>
                 <ListItemText primary="Title 2" />
             </ListItem>
@@ -104,10 +88,7 @@ export const NestedList: Story = {
             <ListItem>
                 <ListItemButton style={styles.verticalList}>
                     <ListItemIcon>
-                        <Image
-                            style={styles.images}
-                            source={ImageSrcUrl.alienAstronaut}
-                        />
+                        <Image style={styles.images} source={ImageSrcUrl.alienAstronaut} />
                     </ListItemIcon>
                     <ListItemText primary="Title 2" />
                 </ListItemButton>

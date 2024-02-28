@@ -74,42 +74,17 @@ export const Example: StoryObj = {
         <View style={styles.container}>
             <View style={styles.row}>
                 <Skeleton variant="circular" width={50} height={50} />
-                <Skeleton
-                    variant="rectangular"
-                    width={300}
-                    height={50}
-                    style={styles.marginLeft}
-                />
+                <Skeleton variant="rectangular" width={300} height={50} style={styles.marginLeft} />
             </View>
 
             <View style={styles.row}>
                 <Skeleton variant="circular" width={50} height={50} />
-                <Skeleton
-                    variant="rounded"
-                    width={300}
-                    height={50}
-                    style={styles.marginLeft}
-                />
+                <Skeleton variant="rounded" width={300} height={50} style={styles.marginLeft} />
             </View>
 
-            <Skeleton
-                variant="text"
-                width={360}
-                height={20}
-                style={styles.textLine}
-            />
-            <Skeleton
-                variant="text"
-                width={360}
-                height={20}
-                style={styles.textLine}
-            />
-            <Skeleton
-                variant="text"
-                width={360}
-                height={20}
-                style={styles.textLine}
-            />
+            <Skeleton variant="text" width={360} height={20} style={styles.textLine} />
+            <Skeleton variant="text" width={360} height={20} style={styles.textLine} />
+            <Skeleton variant="text" width={360} height={20} style={styles.textLine} />
         </View>
     ),
 };
