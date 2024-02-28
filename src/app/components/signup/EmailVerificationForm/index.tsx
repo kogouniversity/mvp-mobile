@@ -9,7 +9,7 @@ import useRequestEmailVerificationCode from '../../../hooks/api/auth/useRequestE
 import Typography from '../../../atoms/Typography';
 
 const fieldScheme = z.object({
-    emailVerificationCode: z.number(),
+    emailVerificationCode: z.string().length(6),
 });
 
 interface EmailVerificationFormInput {
