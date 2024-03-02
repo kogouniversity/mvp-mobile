@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated, View, StyleSheet } from 'react-native';
 
-const IntroAnimation: React.FC = () => {
+const IntroAnimation: React.FC = function () {
     const animationValue = useRef(new Animated.Value(0)).current;
     const sproutMove = useRef(new Animated.Value(0)).current;
     const sproutTilt = useRef(new Animated.Value(0)).current;
@@ -64,7 +64,7 @@ const IntroAnimation: React.FC = () => {
                 }),
             ]).start();
         }, 1650);
-    }, []);
+    }, [animationValue, sproutMove, sproutTilt]);
 
     const ballStyle = {
         transform: [{ scale: animationValue }],
