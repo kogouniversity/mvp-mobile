@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import EmailInputForm, { EmailInputFormProps } from '.';
 
@@ -27,9 +27,6 @@ type Story = StoryObj<EmailInputFormProps>;
 
 export const Default: Story = {
     args: {
-        onSubmit: data => {
-            console.log('onSubmit (EmailInputForm)');
-            console.log(data);
-        },
+        onEmailEntered: email => Alert.alert(`EmailInputForm user email: ${email}`),
     },
 };

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    ViewStyle,
-    FlatList,
-} from 'react-native';
+import { View, Text, TouchableOpacity, ViewStyle, FlatList } from 'react-native';
 import uuid from '../../utils/uuid';
 import {
     ListProps,
@@ -24,11 +18,7 @@ const listVariantStyle: Record<ListVariant, ViewStyle> = {
 
 // <ListItemButton></ListItemButton>
 
-const ListItemButton: React.FC<ListItemButtonProps> = function ({
-    style = {},
-    children,
-    onPress = () => {},
-}) {
+const ListItemButton: React.FC<ListItemButtonProps> = function ({ style = {}, children, onPress = () => {} }) {
     return (
         <TouchableOpacity style={[style]} onPress={onPress}>
             {children}
@@ -38,28 +28,17 @@ const ListItemButton: React.FC<ListItemButtonProps> = function ({
 
 // <ListItemIcon></ListItemIcon>
 
-const ListItemIcon: React.FC<ListItemIconProps> = function ({
-    style = {},
-    children,
-}) {
+const ListItemIcon: React.FC<ListItemIconProps> = function ({ style = {}, children }) {
     return <View>{children}</View>;
 };
 
 // <ListItemText />
 
-const ListItemText: React.FC<ListItemTextProps> = function ({
-    style,
-    primary,
-    secondary,
-}) {
+const ListItemText: React.FC<ListItemTextProps> = function ({ style, primary, secondary }) {
     return (
         <View style={[style]}>
             {typeof primary === 'string' ? <Text>{primary}</Text> : primary}
-            {typeof secondary === 'string' ? (
-                <Text>{secondary}</Text>
-            ) : (
-                secondary
-            )}
+            {typeof secondary === 'string' ? <Text>{secondary}</Text> : secondary}
         </View>
     );
 };
@@ -72,28 +51,19 @@ const ListItem: React.FC<ListItemProps> = function ({ style, children }) {
 
 const List: React.FC<ListProps> = function ({ style, variant, children }) {
     return (
-        <View
-            style={
-                variant === 'horizontal'
-                    ? listVariantStyle.horizontal
-                    : listVariantStyle.vertical
-            }>
+        <View style={variant === 'horizontal' ? listVariantStyle.horizontal : listVariantStyle.vertical}>
             {variant === 'horizontal' ? (
                 // horizontal list
                 <FlatList
                     data={children as ArrayLike<ListItemType>}
-                    renderItem={({ item, index }) => (
-                        <View key={uuid(index)}>{item}</View>
-                    )}
+                    renderItem={({ item, index }) => <View key={uuid(index)}>{item}</View>}
                     horizontal
                 />
             ) : (
                 // vertical list
                 <FlatList
                     data={children as ArrayLike<ListItemType>}
-                    renderItem={({ item, index }) => (
-                        <View key={uuid(index)}>{item}</View>
-                    )}
+                    renderItem={({ item, index }) => <View key={uuid(index)}>{item}</View>}
                 />
             )}
         </View>

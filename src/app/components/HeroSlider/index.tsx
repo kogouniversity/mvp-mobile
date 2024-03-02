@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, View, StyleSheet } from 'react-native';
-import Carousel from '../../atoms/carousel';
+import Carousel from '../../atoms/Carousel';
 import Typography from '../../atoms/Typography';
 
 type LectureDataType = {
@@ -115,10 +115,7 @@ const styles = StyleSheet.create({
 const HeroSlider: React.FC = function () {
     return (
         <View>
-            <Carousel
-                data={sampleData}
-                renderItem={data => sampleRenderItem(data)}
-            />
+            <Carousel data={sampleData} renderItem={data => sampleRenderItem(data)} />
         </View>
     );
 };

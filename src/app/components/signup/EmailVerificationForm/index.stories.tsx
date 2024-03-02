@@ -1,7 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
-import EmailVerificationCodeForm, { EmailVerificationCodeFormProps } from '.';
+import EmailVerificationCodeForm, { EmailVerificationFormProps } from '.';
 
 const meta: ComponentMeta<typeof EmailVerificationCodeForm> = {
     title: 'Components/EmailVerificationCodeForm',
@@ -23,13 +23,10 @@ const meta: ComponentMeta<typeof EmailVerificationCodeForm> = {
 
 export default meta;
 
-type Story = StoryObj<EmailVerificationCodeFormProps>;
+type Story = StoryObj<EmailVerificationFormProps>;
 
 export const Default: Story = {
     args: {
-        onSubmit: data => {
-            console.log('onSubmit (EmailVerificationCodeForm)');
-            console.log(data);
-        },
+        onEmailVerified: emailToken => Alert.alert(`EmailVerificationForm email token: ${emailToken}`),
     },
 };

@@ -25,18 +25,8 @@ const textFieldVariantStyles: Record<TextFieldVariants, TextStyle> = {
     },
 };
 
-const TextField: React.FC<TextFieldProps> = function ({
-    variant,
-    style = {},
-    ...props
-}) {
-    return (
-        <TextInput
-            style={[textFieldVariantStyles[variant], style]}
-            selectTextOnFocus
-            {...props}
-        />
-    );
+const TextField: React.FC<TextFieldProps> = function ({ variant, style = {}, ...props }) {
+    return <TextInput style={[textFieldVariantStyles[variant], style]} selectTextOnFocus {...props} />;
 };
 
 export default TextField;

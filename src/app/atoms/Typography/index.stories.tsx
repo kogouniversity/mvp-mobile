@@ -6,9 +6,7 @@ import { TypographyProps } from './types';
 const meta: ComponentMeta<typeof Typography> = {
     title: 'Atoms/Typography',
     component: Typography,
-    render: args => (
-        <Typography {...args}>Lorem ipsum dolor sit amet</Typography>
-    ),
+    render: args => <Typography {...args}>Lorem ipsum dolor sit amet</Typography>,
     argTypes: {
         variant: {
             options: ['title', 'subtitle', 'text', 'subtext'],

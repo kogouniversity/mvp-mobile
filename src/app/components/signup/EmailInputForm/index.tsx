@@ -6,13 +6,12 @@ import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
 import { isAcademic } from '../../../lib/academicEmailVerifier';
 import Typography from '../../../atoms/Typography';
-import { useSchools } from '../../../hooks/api/useSchools';
-import { ListSchoolResponse } from '../../../hooks/api/useSchools/types';
+import { useSchoolList } from '../../../hooks/api/school/useSchoolList';
+import { SchoolListEntryResponse } from '../../../hooks/api/school/useSchoolList/types';
 
-function extractSchoolEmailDomain(
-    schoolDataList: ListSchoolResponse,
-): string[] {
-    return [];
+function extractSchoolEmailDomain(schoolListData: SchoolListEntryResponse): string[] {
+    const domains = schoolListData.data.map(entryObj => entryObj.attributes.email_domain);
+    return domains;
 }
 
 const emailSchema = z.object({
@@ -24,25 +23,21 @@ interface EmailInputFormInput {
 }
 
 export interface EmailInputFormProps {
-    onSubmitValidEmail: (email: string) => unknown;
+    onEmailEntered: (email: string) => unknown;
 }
 
 /**
  * Email Input Form communicates with school list API to check if the given email is valid.
  * The valid email is an email with a university domain mailing address.
  */
-const EmailInputForm: React.FC<EmailInputFormProps> = function ({
-    onSubmitValidEmail,
-}) {
-    const { register, handleSubmit, setValue, getValues } =
-        useForm<EmailInputFormInput>();
-    const { data, isSuccess } = useSchools();
+const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onEmailEntered }) {
+    const { register, handleSubmit, setValue, getValues } = useForm<EmailInputFormInput>();
+    const { data, isSuccess, isLoading } = useSchoolList({
+        retry: true,
+    });
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    const schoolEmailDomains = useMemo(
-        () => (isSuccess ? extractSchoolEmailDomain(data) : []),
-        [data, isSuccess],
-    );
+    const schoolEmailDomains = useMemo(() => (isSuccess ? extractSchoolEmailDomain(data) : []), [data, isSuccess]);
 
     React.useEffect(() => {
         register('email', { required: true });
@@ -51,7 +46,7 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({
     async function submitCallback() {
         if (isSuccess) {
             if (schoolEmailDomains.includes(getValues('email'))) {
-                onSubmitValidEmail(getValues('email'));
+                onEmailEntered(getValues('email'));
             } else {
                 setErrorMessage('Sorry, this email is not valid.');
             }
@@ -72,10 +67,7 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({
                         if (isAcademic(email)) {
                             setValue('email', email);
                         } else {
-                            Alert.alert(
-                                'Error',
-                                'Please enter a valid academic email address.',
-                            );
+                            Alert.alert('Error', 'Please enter a valid academic email address.');
                         }
                     } catch (e) {
                         if (e instanceof z.ZodError) {
@@ -85,11 +77,12 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({
                 }}
             />
             <Button
+                label="Next"
                 variant="primary"
                 size="md"
-                onPress={handleSubmit(submitCallback)}>
-                <Typography variant="subtitle">Next</Typography>
-            </Button>
+                disabled={isLoading}
+                onPress={handleSubmit(submitCallback)}
+            />
             {errorMessage && (
                 <Typography variant="subtext" style={{ color: 'red' }}>
                     {errorMessage}

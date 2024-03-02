@@ -17,6 +17,14 @@ const meta: ComponentMeta<typeof Button> = {
             options: ['sm', 'md', 'lg'],
             control: { type: 'radio' },
         },
+        disabled: {
+            options: [false, true],
+            control: { type: 'radio' },
+        },
+        isLoading: {
+            options: [false, true],
+            control: { type: 'radio' },
+        },
     },
     decorators: [
         (Story: StoryFn): JSX.Element => (

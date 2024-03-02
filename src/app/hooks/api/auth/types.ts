@@ -1,4 +1,6 @@
+import { UserEntry } from '../user/useUserInformation/types';
+
 export type AuthUserDataResponse = {
-    user: object;
+    user: UserEntry;
     jwt: string;
 };

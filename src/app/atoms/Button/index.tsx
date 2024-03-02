@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, ViewStyle } from 'react-native';
+import { TouchableOpacity, Text, ViewStyle, TextStyle, ActivityIndicator } from 'react-native';
 import { ButtonProps, ButtonSize, ButtonVariant } from './types';
 
 const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
@@ -20,6 +20,13 @@ const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
     },
 };
 
+const buttonVariantTextStyles: Record<ButtonVariant, TextStyle> = {
+    default: {},
+    primary: {},
+    secondary: {},
+    tertiary: {},
+};
+
 const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
     default: {},
     sm: {
@@ -36,24 +43,40 @@ const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
     },
 };
 
+const buttonSizeTextStyles: Record<ButtonSize, TextStyle> = {
+    default: {},
+    sm: {},
+    md: {},
+    lg: {},
+};
+
 const Button: React.FC<ButtonProps> = function ({
     variant,
     size,
+    label,
     style = {},
+    disabled = false,
+    isLoading = false,
     onPress = () => null,
-    children,
 }) {
     return (
         <TouchableOpacity
-            style={[
-                buttonVariantStyles.default,
-                buttonVariantStyles[variant],
-                buttonSizeStyles[size],
-                style,
-            ]}
+            style={[buttonVariantStyles.default, buttonVariantStyles[variant], buttonSizeStyles[size], style]}
+            disabled={disabled || isLoading}
             onPress={onPress}
             activeOpacity={0.8}>
-            {children}
+            {isLoading ? (
+                <ActivityIndicator />
+            ) : (
+                <Text
+                    style={[
+                        buttonVariantTextStyles.default,
+                        buttonVariantTextStyles[variant],
+                        buttonSizeTextStyles[size],
+                    ]}>
+                    {label}
+                </Text>
+            )}
         </TouchableOpacity>
     );
 };

@@ -36,11 +36,7 @@ function Pagination<T extends object>({ data, scrollX }: PaginationProp<T>) {
     return (
         <View style={styles.dotsContainer}>
             {data.map((_, i) => {
-                const inputRange = [
-                    (i - 1) * width,
-                    i * width,
-                    (i + 1) * width,
-                ];
+                const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
                 const dotWidth = scrollX.interpolate({
                     inputRange,
                     outputRange: [12, 30, 12],
@@ -58,11 +54,7 @@ function Pagination<T extends object>({ data, scrollX }: PaginationProp<T>) {
     );
 }
 
-function Carousel<T extends object>({
-    data,
-    renderItem,
-    boxStyle = {},
-}: CarouselProp<T>): JSX.Element {
+function Carousel<T extends object>({ data, renderItem, boxStyle = {} }: CarouselProp<T>): JSX.Element {
     const scrollX = useRef(new Animated.Value(0)).current;
 
     const handleOnScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -87,9 +79,7 @@ function Carousel<T extends object>({
             <View style={[styles.container, boxStyle]}>
                 <FlatList
                     data={data}
-                    renderItem={
-                        (info => renderItem(info.item)) as ListRenderItem<T>
-                    }
+                    renderItem={(info => renderItem(info.item)) as ListRenderItem<T>}
                     horizontal
                     pagingEnabled
                     snapToAlignment="center"

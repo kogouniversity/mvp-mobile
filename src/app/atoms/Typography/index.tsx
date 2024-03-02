@@ -57,22 +57,8 @@ const typographyColorStyles: Record<TypographyColors, TextStyle> = {
 //     }
 // };
 
-const Typography: React.FC<TypographyProps> = function ({
-    variant,
-    color = 'text',
-    style = {},
-    ...props
-}) {
-    return (
-        <NativeText
-            style={[
-                typographyVariantStyles[variant],
-                typographyColorStyles[color],
-                style,
-            ]}
-            {...props}
-        />
-    );
+const Typography: React.FC<TypographyProps> = function ({ variant, color = 'text', style = {}, ...props }) {
+    return <NativeText style={[typographyVariantStyles[variant], typographyColorStyles[color], style]} {...props} />;
 };
 
 export default Typography;

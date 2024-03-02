@@ -17,8 +17,7 @@ export interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
-    const { register, handleSubmit, setValue, getValues } =
-        useForm<LoginFormInput>();
+    const { register, handleSubmit, setValue, getValues } = useForm<LoginFormInput>();
     const { requestSignInAsync } = useSignIn();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -34,9 +33,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
         })
             .then(data => onSignIn(data))
             .catch(() => {
-                setErrorMessage(
-                    'Failed to login, please check your connection.',
-                );
+                setErrorMessage('Failed to login, please check your connection.');
             });
     }
 
@@ -55,11 +52,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
                 secureTextEntry
                 style={styles.input}
             />
-            <Button
-                variant="primary"
-                size="md"
-                onPress={handleSubmit(submitCallback)}
-            />
+            <Button label="Log In" variant="primary" size="md" onPress={handleSubmit(submitCallback)} />
             {errorMessage && (
                 <Typography variant="subtext" style={{ color: 'red' }}>
                     {errorMessage}

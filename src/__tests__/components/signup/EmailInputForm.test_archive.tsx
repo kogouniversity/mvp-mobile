@@ -8,7 +8,7 @@ jest.spyOn(Alert, 'alert');
 describe('EmailInput Component', () => {
     it('navigates to the next screen for a valid academic email', () => {
         const mockCallback = jest.fn();
-        render(<EmailInput onSubmit={mockCallback} />);
+        render(<EmailInput onEmailEntered={mockCallback} />);
         const emailInput = screen.getByPlaceholderText('Email');
         const nextButton = screen.getByText('Next');
 
@@ -20,7 +20,7 @@ describe('EmailInput Component', () => {
     });
 
     it('shows an alert with "Invalid Email!" for an incorrectly formatted email', () => {
-        render(<EmailInput onSubmit={() => {}} />);
+        render(<EmailInput onEmailEntered={() => {}} />);
         const emailInput = screen.getByPlaceholderText('Email');
         const nextButton = screen.getByText('Next');
 
@@ -31,7 +31,7 @@ describe('EmailInput Component', () => {
     });
 
     it('shows an alert for a non-academic email address', () => {
-        render(<EmailInput onSubmit={() => {}} />);
+        render(<EmailInput onEmailEntered={() => {}} />);
         const emailInput = screen.getByPlaceholderText('Email');
         const nextButton = screen.getByText('Next');
 
