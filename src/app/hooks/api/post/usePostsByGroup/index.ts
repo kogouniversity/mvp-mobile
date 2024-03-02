@@ -18,17 +18,14 @@ const fetchPostsByGroup = async (
     };
 
     try {
-        const response = await axios.get<ListPostResponse>(
-            '/api/posts?populate=group',
-            {
-                headers: { 'Content-Type': 'application/json' },
-                params,
-            },
-        );
+        const response = await axios.get<ListPostResponse>('/api/posts?populate=group', {
+            headers: { 'Content-Type': 'application/json' },
+            params,
+        });
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError<BaseErrorResponse>);
-        throw (err as AxiosError<BaseErrorResponse>).response?.data;
+        throw (err as AxiosError).response?.data;
     }
 };
 

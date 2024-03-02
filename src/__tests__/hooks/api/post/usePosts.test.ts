@@ -1,14 +1,10 @@
 import axios from 'axios';
-import { act, waitFor } from '@testing-library/react-native';
-import {
-    createAxiosMockErrorRejected,
-    createAxiosMockResolved,
-    renderHook,
-} from '../../test-utils';
-import { usePosts } from '../../../app/hooks/api/post/usePosts/index';
-import { captureAxiosError } from '../../../app/utils/sentry';
-import { BaseErrorResponse } from '../../../app/hooks/api/types';
-import { ListPostResponse } from '../../../app/hooks/api/post/usePosts/types';
+import { waitFor } from '@testing-library/react-native';
+import { createAxiosMockErrorRejected, renderHook } from '../../../test-utils';
+import { usePosts } from '../../../../app/hooks/api/post/usePosts/index';
+import { captureAxiosError } from '../../../../app/utils/sentry';
+import { BaseErrorResponse } from '../../../../app/hooks/api/types';
+import { ListPostResponse } from '../../../../app/hooks/api/post/usePosts/types';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -22,7 +18,7 @@ const postData: ListPostResponse = {
         {
             id: 1,
             attributes: {
-                content: [],
+                content: 'body text',
                 title: 'Post 1',
                 createdAt: '2020-01-01T00:00:00Z',
                 updatedAt: '2020-01-02T00:00:00Z',
@@ -96,9 +92,7 @@ describe('usePosts', () => {
         };
 
         beforeEach(() => {
-            mockedAxios.get.mockRejectedValue(
-                createAxiosMockErrorRejected(mockErrorData),
-            );
+            mockedAxios.get.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response', async () => {
             const { result } = renderHook(() => usePosts({ retry: false }));

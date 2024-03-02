@@ -1,13 +1,8 @@
 import axios from 'axios';
-import { act, waitFor } from '@testing-library/react-native';
-import { usePostsByGroup } from '../../../app/hooks/api/post/usePostsByGroup';
-import {
-    createAxiosMockErrorRejected,
-    createAxiosMockResolved,
-    renderHook,
-} from '../../test-utils';
-import { captureAxiosError } from '../../../app/utils/sentry';
-import { BaseErrorResponse } from '../../../app/hooks/api/types';
+import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHook, waitFor } from '../../../test-utils';
+import { usePostsByGroup } from '../../../../app/hooks/api/post/usePostsByGroup';
+import { BaseErrorResponse } from '../../../../app/hooks/api/types';
+import { captureAxiosError } from '../../../../app/utils/sentry';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -65,9 +60,7 @@ describe('usePostsByGroup', () => {
 
     describe('when data is fetched successfully', () => {
         beforeEach(() => {
-            mockedAxios.get.mockResolvedValue(
-                createAxiosMockResolved(groupPostsData),
-            );
+            mockedAxios.get.mockResolvedValue(createAxiosMockResolved(groupPostsData));
         });
 
         it('should retrieve posts by group', async () => {
@@ -90,14 +83,10 @@ describe('usePostsByGroup', () => {
         };
 
         beforeEach(() => {
-            mockedAxios.get.mockRejectedValue(
-                createAxiosMockErrorRejected(mockErrorData),
-            );
+            mockedAxios.get.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response', async () => {
-            const { result } = renderHook(() =>
-                usePostsByGroup('Group None', { retry: false }),
-            );
+            const { result } = renderHook(() => usePostsByGroup('Group None', { retry: false }));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: undefined,

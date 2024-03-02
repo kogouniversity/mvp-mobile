@@ -13,7 +13,7 @@ export interface Group {
 }
 
 export interface PostAttributes {
-    content: any[];
+    content: string;
     title: string;
     createdAt: string;
     updatedAt: string;

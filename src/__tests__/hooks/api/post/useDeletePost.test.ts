@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { act, waitFor } from '@testing-library/react-native';
-import { useDeletePost } from '../../../app/hooks/api/post/useDeletePost';
-import { renderHook } from '../../test-utils';
-import { captureAxiosError } from '../../../app/utils/sentry';
+import { waitFor } from '@testing-library/react-native';
+import { useDeletePost } from '../../../../app/hooks/api/post/useDeletePost';
+import { renderHook } from '../../../test-utils';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

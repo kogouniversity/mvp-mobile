@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import IdAndPasswordInputForm, { IdAndPasswordInputFormProps } from '.';
 
@@ -27,9 +27,6 @@ type Story = StoryObj<IdAndPasswordInputFormProps>;
 
 export const Default: Story = {
     args: {
-        onSubmit: data => {
-            console.log('onSubmit (IdAndPasswordInputForm)');
-            console.log(data);
-        },
+        onSubmit: data => Alert.alert(`IdAndPasswordInputForm: ${JSON.stringify(data)}`),
     },
 };

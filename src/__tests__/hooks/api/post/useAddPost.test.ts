@@ -1,16 +1,16 @@
 import axios from 'axios';
-import { act, waitFor } from '@testing-library/react-native';
-import { renderHook } from '../../test-utils';
-import { useAddPost } from '../../../app/hooks/api/post/useAddPost/index';
-import { ListPostResponse } from '../../../app/hooks/api/post/useAddPost/types';
-import { captureAxiosError } from '../../../app/utils/sentry';
+import { waitFor } from '@testing-library/react-native';
+import { renderHook } from '../../../test-utils';
+import { useAddPost } from '../../../../app/hooks/api/post/useAddPost/index';
+import { ListPostResponse } from '../../../../app/hooks/api/post/useAddPost/types';
+import { captureAxiosError } from '../../../../app/utils/sentry';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 const postData = {
     title: 'Test Post',
-    content: ['Content of the post'],
+    content: 'Content of the post',
     groupName: 'Test Group',
 };
 
@@ -19,7 +19,7 @@ const mockPostResponse: ListPostResponse = {
         {
             id: 1,
             attributes: {
-                content: [],
+                content: 'body text',
                 title: 'Post 1',
                 createdAt: '2020-01-01T00:00:00Z',
                 updatedAt: '2020-01-02T00:00:00Z',

@@ -5,12 +5,7 @@ const deletePost = async (postId: number): Promise<void> => {
     await axios.delete(`/api/posts/${postId}`);
 };
 
-export function useDeletePost(): UseMutationResult<
-    void,
-    Error,
-    number,
-    unknown
-> {
+export function useDeletePost(): UseMutationResult<void, Error, number, unknown> {
     return useMutation({
         mutationFn: deletePost,
     });

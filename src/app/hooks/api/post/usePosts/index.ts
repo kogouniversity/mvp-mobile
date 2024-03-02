@@ -4,10 +4,7 @@ import { BaseErrorResponse } from '../../types';
 import { ListPostResponse } from './types';
 import { captureAxiosError } from '../../../../utils/sentry';
 
-const fetchPosts = async (
-    page: number = 1,
-    pageSize: number = 25,
-): Promise<ListPostResponse> => {
+const fetchPosts = async (page: number = 1, pageSize: number = 25): Promise<ListPostResponse> => {
     const params: AxiosRequestConfig['params'] = {
         _sort: 'createdAt:desc',
         _page: page,
@@ -22,7 +19,7 @@ const fetchPosts = async (
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError<BaseErrorResponse>);
-        throw (err as AxiosError<BaseErrorResponse>).response?.data;
+        throw (err as AxiosError).response?.data;
     }
 };
 
