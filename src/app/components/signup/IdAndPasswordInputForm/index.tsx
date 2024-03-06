@@ -1,91 +1,78 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
-import { useForm } from 'react-hook-form';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
-import useSignUp from '../../../hooks/api/auth/useSignUp';
 import Typography from '../../../atoms/Typography';
-import { AuthUserDataResponse } from '../../../hooks/api/auth/types';
 
-const fieldScheme = z.object({
-    id: z.string(),
-    password: z.string(),
+const schema = z.object({
+    id: z.string().min(3),
+    password: z.string().min(4),
 });
 
-interface IdAndPasswordInputFormInput {
-    id: string;
-    password: string;
-}
-
 export interface IdAndPasswordInputFormProps {
-    email: string;
-    emailToken: string;
-    onSubmit: (userData: AuthUserDataResponse) => unknown;
+    onSubmit: (id: string, password: string) => unknown;
 }
 
-const IdAndPasswordInputForm: React.FC<IdAndPasswordInputFormProps> = function ({ email, emailToken, onSubmit }) {
-    const { register, handleSubmit, setValue, getValues } = useForm<IdAndPasswordInputFormInput>();
-    const { requestSignUpAsync } = useSignUp();
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-    React.useEffect(() => {
-        register('id', { required: true });
-        register('password', { required: true });
-    }, [register]);
+const IdAndPasswordInputForm: React.FC<IdAndPasswordInputFormProps> = function ({ onSubmit }) {
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        getValues,
+    } = useForm({
+        resolver: zodResolver(schema),
+    });
 
     async function submitCallback() {
-        requestSignUpAsync({
-            username: getValues('id'),
-            password: getValues('password'),
-            email,
-            emailToken,
-        })
-            .then(data => onSubmit(data))
-            .catch(() => {
-                setErrorMessage('Failed to sign up, please check your connection.');
-            });
+        onSubmit(getValues('id'), getValues('password'));
     }
 
     return (
         <View style={styles.container}>
-            <TextField
-                variant="outlined"
-                placeholder="ID"
-                style={styles.input}
-                onChangeText={id => {
-                    try {
-                        fieldScheme.parse({ id });
-                        setValue('id', id);
-                    } catch (error) {
-                        if (error instanceof z.ZodError) {
-                            Alert.alert('Error', error.errors[0].message);
-                        }
-                    }
-                }}
+            <Controller
+                name="id"
+                control={control}
+                rules={{ required: true }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                    <TextField
+                        variant="outlined"
+                        placeholder="ID"
+                        style={styles.input}
+                        value={value}
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                    />
+                )}
             />
-            <TextField
-                variant="outlined"
-                placeholder="Password"
-                secureTextEntry
-                style={styles.input}
-                onChangeText={password => {
-                    try {
-                        fieldScheme.parse({ password });
-                        setValue('password', password);
-                    } catch (error) {
-                        if (error instanceof z.ZodError) {
-                            Alert.alert('Error', error.errors[0].message);
-                        }
-                    }
-                }}
-            />
-            <Button label="Sign Up" variant="primary" size="md" onPress={handleSubmit(submitCallback)} />
-            {errorMessage && (
+            {errors.id?.message && (
                 <Typography variant="subtext" style={{ color: 'red' }}>
-                    {errorMessage}
+                    {errors.id?.message as string}
                 </Typography>
             )}
+            <Controller
+                name="password"
+                control={control}
+                rules={{ required: true }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                    <TextField
+                        variant="outlined"
+                        placeholder="Password"
+                        style={styles.input}
+                        value={value}
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                    />
+                )}
+            />
+            {errors.password?.message && (
+                <Typography variant="subtext" style={{ color: 'red' }}>
+                    {errors.password?.message as string}
+                </Typography>
+            )}
+            <Button label="Next" variant="primary" size="md" onPress={handleSubmit(submitCallback)} />
         </View>
     );
 };

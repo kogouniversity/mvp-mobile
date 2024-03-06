@@ -29,10 +29,10 @@ function OnBoardingNavigator(): JSX.Element {
 
 function SignUpNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="EmailInput" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName="IdAndPasswordInput" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="IdAndPasswordInput" component={withStatusBar(IdAndPasswordInput)} />
             <Stack.Screen name="EmailInput" component={withStatusBar(EmailInput)} />
             <Stack.Screen name="EmailVerificationInput" component={withStatusBar(EmailVerificationInput)} />
-            <Stack.Screen name="IdAndPasswordInput" component={withStatusBar(IdAndPasswordInput)} />
         </Stack.Navigator>
     );
 }

@@ -11,9 +11,9 @@ type OnBoardingStackParamList = {
 };
 
 type SignUpStackParamList = {
-    EmailInput: object | undefined;
+    IdAndPasswordInput: object | undefined;
+    EmailInput: { username: string; password: string; email: string };
     EmailVerificationInput: { email: string };
-    IdAndPasswordInput: { email: string; emailToken: string };
 };
 
 type MainTabParamList = {

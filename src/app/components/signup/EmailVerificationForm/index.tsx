@@ -1,67 +1,53 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Alert } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
-import useRequestEmailToken from '../../../hooks/api/auth/useRequestEmailToken';
-import useRequestEmailVerificationCode from '../../../hooks/api/auth/useRequestEmailVerificationCode';
 import Typography from '../../../atoms/Typography';
+import { AuthUserDataResponse } from '../../../hooks/api/auth/types';
+import useEmailVerification from '../../../hooks/api/auth/useEmailVerification';
+import useRequestNewVerificationEmail from '../../../hooks/api/auth/useRequestNewVerificationEmail';
 
-const fieldScheme = z.object({
-    emailVerificationCode: z.string().length(6),
+const schema = z.object({
+    verificationCode: z.string().length(6),
 });
-
-interface EmailVerificationFormInput {
-    code: string;
-}
 
 export interface EmailVerificationFormProps {
     email: string;
-    onEmailVerified: (verifiedEmailToken: string) => unknown;
+    onSubmit: (userData: AuthUserDataResponse) => unknown;
 }
 
-const EmailVerificationForm: React.FC<EmailVerificationFormProps> = function ({ email, onEmailVerified }) {
-    const { register, handleSubmit, setValue, getValues } = useForm<EmailVerificationFormInput>();
-    const { requestEmailVerificationCodeAsync } = useRequestEmailVerificationCode();
-    const { requestEmailTokenAsync } = useRequestEmailToken();
-    const [verificationCodeAnswer, setVerificationCodeAnswer] = useState<string | null>(null);
-    const [verificationCodeExpiry, setVerificationCodeExpiry] = useState<Date | null>(null);
+const EmailVerificationForm: React.FC<EmailVerificationFormProps> = function ({ email, onSubmit }) {
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        getValues,
+    } = useForm({
+        resolver: zodResolver(schema),
+    });
+
+    const { requestEmailVerificationAsync } = useEmailVerification();
+    const { requestNewVerificationEmailAsync } = useRequestNewVerificationEmail();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    const resendVerificationCode = useCallback(async () => {
-        requestEmailVerificationCodeAsync({
-            email,
-        })
-            .then(({ verificationCode, expiry }) => {
-                setVerificationCodeAnswer(verificationCode);
-                setVerificationCodeExpiry(new Date(expiry));
+    async function resendVerificationCode() {
+        requestNewVerificationEmailAsync({ email })
+            .then(() => {
+                Alert.alert(`New verification code is sent to ${email}.`);
             })
-            .catch(() =>
-                setErrorMessage(`Failed to send a verification code to ${email}, please check your connection.`),
-            );
-    }, [requestEmailVerificationCodeAsync, email]);
-
-    React.useEffect(() => {
-        register('code', { required: true });
-        resendVerificationCode();
-    }, [register, resendVerificationCode]);
+            .catch(() => {
+                setErrorMessage('Failed to request a verification code, please check your connection.');
+            });
+    }
 
     async function submitCallback() {
-        if (verificationCodeExpiry && new Date() > verificationCodeExpiry) {
-            setErrorMessage('The code is expired. Please resend a verification code to your email.');
-            return;
-        }
-
-        if (getValues('code') !== verificationCodeAnswer) {
-            setErrorMessage('The code you entered is not correct.');
-            return;
-        }
-
-        requestEmailTokenAsync({ verificationCode: getValues('code') })
-            .then(({ emailToken }) => onEmailVerified(emailToken))
+        requestEmailVerificationAsync({ email, verificationCode: getValues('verificationCode') })
+            .then(res => onSubmit(res))
             .catch(() => {
-                setErrorMessage('Failed to proceed, please check your connection.');
+                setErrorMessage('This code is expired. Please resend a verification code to your email.');
             });
     }
 
@@ -69,28 +55,33 @@ const EmailVerificationForm: React.FC<EmailVerificationFormProps> = function ({ 
         <View style={styles.container}>
             <Typography variant="title">Code Sent!</Typography>
             <Typography variant="subtitle">We sent a verification code to {email}. Enter it below.</Typography>
-            <TextField
-                variant="outlined"
-                placeholder="Verification Code"
-                style={styles.input}
-                onChangeText={code => {
-                    try {
-                        fieldScheme.parse({ code });
-                        setValue('code', code);
-                    } catch (error) {
-                        if (error instanceof z.ZodError) {
-                            Alert.alert('Error', error.errors[0].message);
-                        }
-                    }
-                }}
+            <Controller
+                name="verificationCode"
+                control={control}
+                rules={{ required: true }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                    <TextField
+                        variant="outlined"
+                        placeholder="Verification Code"
+                        style={styles.input}
+                        value={value}
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                    />
+                )}
             />
+            {errors.verificationCode?.message && (
+                <Typography variant="subtext" style={{ color: 'red' }}>
+                    {errors.verificationCode?.message as string}
+                </Typography>
+            )}
             <Button label="Confirm" variant="primary" size="md" onPress={handleSubmit(submitCallback)} />
-            <Button label="Resend Code" variant="tertiary" size="sm" onPress={() => resendVerificationCode()} />
             {errorMessage && (
                 <Typography variant="subtext" style={{ color: 'red' }}>
                     {errorMessage}
                 </Typography>
             )}
+            <Button label="Resend Code" variant="tertiary" size="sm" onPress={() => resendVerificationCode()} />
         </View>
     );
 };

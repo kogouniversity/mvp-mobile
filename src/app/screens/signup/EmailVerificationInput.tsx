@@ -8,10 +8,7 @@ function EmailVerificationInput(): JSX.Element {
     const { email } = route.params;
     return (
         <View style={{ alignItems: 'center' }}>
-            <EmailVerificationForm
-                email={email}
-                onEmailVerified={emailToken => navigation.navigate('IdAndPasswordInput', { email, emailToken })}
-            />
+            <EmailVerificationForm email={email} onSubmit={() => navigation.navigate('Home')} />
         </View>
     );
 }
