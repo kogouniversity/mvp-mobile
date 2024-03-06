@@ -1,54 +1,64 @@
 import React, { useMemo, useState } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { z } from 'zod';
-import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
-import { isAcademic } from '../../../lib/academicEmailVerifier';
 import Typography from '../../../atoms/Typography';
 import { useSchoolList } from '../../../hooks/api/school/useSchoolList';
 import { SchoolListEntryResponse } from '../../../hooks/api/school/useSchoolList/types';
+import useSignUp from '../../../hooks/api/auth/useSignUp';
 
 function extractSchoolEmailDomain(schoolListData: SchoolListEntryResponse): string[] {
     const domains = schoolListData.data.map(entryObj => entryObj.attributes.email_domain);
     return domains;
 }
 
-const emailSchema = z.object({
+const schema = z.object({
     email: z.string().email(),
 });
 
-interface EmailInputFormInput {
-    email: string;
-}
-
 export interface EmailInputFormProps {
-    onEmailEntered: (email: string) => unknown;
+    username: string;
+    password: string;
+    onSubmit: (email: string) => unknown;
 }
 
 /**
  * Email Input Form communicates with school list API to check if the given email is valid.
  * The valid email is an email with a university domain mailing address.
  */
-const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onEmailEntered }) {
-    const { register, handleSubmit, setValue, getValues } = useForm<EmailInputFormInput>();
+const EmailInputForm: React.FC<EmailInputFormProps> = function ({ username, password, onSubmit }) {
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        getValues,
+    } = useForm({
+        resolver: zodResolver(schema),
+    });
+
     const { data, isSuccess, isLoading } = useSchoolList({
         retry: true,
     });
+    const { requestSignUpAsync } = useSignUp();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const schoolEmailDomains = useMemo(() => (isSuccess ? extractSchoolEmailDomain(data) : []), [data, isSuccess]);
 
-    React.useEffect(() => {
-        register('email', { required: true });
-    }, [register]);
-
     async function submitCallback() {
         if (isSuccess) {
             if (schoolEmailDomains.includes(getValues('email'))) {
-                onEmailEntered(getValues('email'));
+                requestSignUpAsync({
+                    username,
+                    password,
+                    email: getValues('email'),
+                })
+                    .then(() => onSubmit(getValues('email')))
+                    .catch(() => setErrorMessage('Failed to proceed, please check your connection.'));
             } else {
-                setErrorMessage('Sorry, this email is not valid.');
+                setErrorMessage('Sorry, this email is not a valid student email.');
             }
         } else {
             setErrorMessage('Failed to proceed, please check your connection.');
@@ -57,25 +67,26 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onEmailEntered
 
     return (
         <View style={styles.container}>
-            <TextField
-                variant="outlined"
-                placeholder="Email"
-                style={styles.input}
-                onChangeText={email => {
-                    try {
-                        emailSchema.parse({ email });
-                        if (isAcademic(email)) {
-                            setValue('email', email);
-                        } else {
-                            Alert.alert('Error', 'Please enter a valid academic email address.');
-                        }
-                    } catch (e) {
-                        if (e instanceof z.ZodError) {
-                            Alert.alert('Error', e.errors[0].message);
-                        }
-                    }
-                }}
+            <Controller
+                name="email"
+                control={control}
+                rules={{ required: true }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                    <TextField
+                        variant="outlined"
+                        placeholder="Email"
+                        style={styles.input}
+                        value={value}
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                    />
+                )}
             />
+            {errors.email?.message && (
+                <Typography variant="subtext" style={{ color: 'red' }}>
+                    {errors.email?.message as string}
+                </Typography>
+            )}
             <Button
                 label="Next"
                 variant="primary"

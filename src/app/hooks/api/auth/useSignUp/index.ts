@@ -1,18 +1,17 @@
 import axios, { AxiosError } from 'axios';
 import { UseMutationResult, useMutation } from '@tanstack/react-query';
 import { captureAxiosError } from '../../../../utils/sentry';
-import { AuthUserDataResponse } from '../types';
-import { UserSignUpParams } from './types';
+import { AuthSignUpResponse, UserSignUpParams } from './types';
 import { BaseErrorResponse } from '../../types';
 
-const signUp = async ({ username, emailToken, password }: UserSignUpParams): Promise<AuthUserDataResponse> => {
+const signUp = async ({ username, email, password }: UserSignUpParams): Promise<AuthSignUpResponse> => {
     try {
-        const response = await axios.post<AuthUserDataResponse>(
+        const response = await axios.post<AuthSignUpResponse>(
             '/api/auth/local/register',
             {
                 username,
-                emailToken,
                 password,
+                email,
             },
             {
                 headers: {
@@ -27,7 +26,7 @@ const signUp = async ({ username, emailToken, password }: UserSignUpParams): Pro
     }
 };
 
-type UseSignUpMutationResult = UseMutationResult<AuthUserDataResponse, BaseErrorResponse, UserSignUpParams, unknown>;
+type UseSignUpMutationResult = UseMutationResult<AuthSignUpResponse, BaseErrorResponse, UserSignUpParams, unknown>;
 
 export default function useSignUp(): UseSignUpMutationResult & {
     requestSignUp: UseSignUpMutationResult['mutate'];
@@ -37,7 +36,7 @@ export default function useSignUp(): UseSignUpMutationResult & {
         mutate: requestSignUp,
         mutateAsync: requestSignUpAsync,
         ...mutation
-    } = useMutation<AuthUserDataResponse, BaseErrorResponse, UserSignUpParams, unknown>({
+    } = useMutation<AuthSignUpResponse, BaseErrorResponse, UserSignUpParams, unknown>({
         mutationFn: (params: UserSignUpParams) => signUp(params),
     });
 

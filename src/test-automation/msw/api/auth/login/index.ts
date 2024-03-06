@@ -9,12 +9,10 @@ export const handlers = [
      * Return error response if there's none
      */
     rest.post(mswApiUrl('/api/auth/local'), async (req, res, ctx) => {
-        console.log('received2');
         await sleep(200);
         const { identifier } = await req.json();
         const matchUser = users.filter(userData => userData.user.email === identifier);
         if (matchUser.length > 0) {
-            console.log(matchUser[0]);
             return res(ctx.status(200), ctx.json(matchUser[0]));
         }
 
