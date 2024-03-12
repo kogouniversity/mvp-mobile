@@ -6,10 +6,8 @@ export interface GroupAttributes {
 }
 
 export interface Group {
-    data: {
-        id: number;
-        attributes: GroupAttributes;
-    };
+    id: number;
+    attributes: GroupAttributes;
 }
 
 export interface Pagination {

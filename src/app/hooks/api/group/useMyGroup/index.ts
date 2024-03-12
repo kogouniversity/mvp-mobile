@@ -7,7 +7,7 @@ import { useUserInformation } from '../../user/useUserInformation';
 
 const fetchMyGroups = async (userId: string): Promise<ListGroupResponse> => {
     try {
-        const response = await axios.get<ListGroupResponse>(`/api/users/${userId}/groups`);
+        const response = await axios.get<ListGroupResponse>(`/api/groups?filters[users]=${userId}`); // strapi field에서 filtering 해서 가져오는 api
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError<BaseErrorResponse>);
@@ -16,14 +16,12 @@ const fetchMyGroups = async (userId: string): Promise<ListGroupResponse> => {
 };
 
 export function useMyGroup(
-    userToken: string,
+    userId: string,
     queryOptions?: QueryOptions<ListGroupResponse, BaseErrorResponse>,
 ): UseQueryResult<ListGroupResponse, BaseErrorResponse> {
-    const userQueryResult = useUserInformation(userToken);
-    const userId = userQueryResult.data?.user?.id;
     return useQuery<ListGroupResponse, BaseErrorResponse>({
         ...(queryOptions ?? {}),
-        queryKey: ['myGroups', userToken],
+        queryKey: ['myGroups', userId],
         queryFn: () => (userId ? fetchMyGroups(userId) : Promise.reject(new Error('User information not available'))),
     });
 }
