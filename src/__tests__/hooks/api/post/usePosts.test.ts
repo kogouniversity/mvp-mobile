@@ -9,10 +9,6 @@ import { ListPostResponse } from '../../../../app/hooks/api/post/usePosts/types'
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-jest.mock('../../../app/utils/sentry', () => ({
-    captureAxiosError: jest.fn(),
-}));
-
 const postData: ListPostResponse = {
     data: [
         {
