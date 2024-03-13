@@ -10,13 +10,16 @@ import { AuthUserDataResponse } from '../../../hooks/api/auth/types';
 import useEmailVerification from '../../../hooks/api/auth/useEmailVerification';
 import useRequestNewVerificationEmail from '../../../hooks/api/auth/useRequestNewVerificationEmail';
 
+const CODE_LENGTH = 6;
+const RESEND_REQUEST_DELAY_SECONDS = 30;
+
 const schema = z.object({
-    verificationCode: z.string().length(6),
+    verificationCode: z.string().length(CODE_LENGTH),
 });
 
 export interface EmailVerificationFormProps {
     email: string;
-    onSubmit: (userData: AuthUserDataResponse) => unknown;
+    onSubmit: (verifiedUserData: AuthUserDataResponse) => unknown;
 }
 
 const EmailVerificationForm: React.FC<EmailVerificationFormProps> = function ({ email, onSubmit }) {
@@ -25,30 +28,45 @@ const EmailVerificationForm: React.FC<EmailVerificationFormProps> = function ({ 
         handleSubmit,
         formState: { errors },
         getValues,
+        resetField,
     } = useForm({
         resolver: zodResolver(schema),
     });
 
     const { requestEmailVerificationAsync } = useEmailVerification();
     const { requestNewVerificationEmailAsync } = useRequestNewVerificationEmail();
+    const [isLoading, setLoading] = useState<boolean>(false);
+    const [resendReqTimestamp, setResendReqTimestamp] = useState<Date | null>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    async function resendVerificationCode() {
-        requestNewVerificationEmailAsync({ email })
-            .then(() => {
-                Alert.alert(`New verification code is sent to ${email}.`);
-            })
-            .catch(() => {
-                setErrorMessage('Failed to request a verification code, please check your connection.');
-            });
+    function resendVerificationCode() {
+        setLoading(true);
+        if (
+            !resendReqTimestamp ||
+            (new Date().getTime() - resendReqTimestamp.getTime()) / 1000 >= RESEND_REQUEST_DELAY_SECONDS
+        ) {
+            requestNewVerificationEmailAsync({ email })
+                .then(() => {
+                    Alert.alert(`A new code is sent to ${email}.`);
+                    resetField('verificationCode');
+                    setLoading(false);
+                })
+                .catch(() => {
+                    setErrorMessage('Failed to request a verification code, please check your connection.');
+                    setLoading(false);
+                });
+            setResendReqTimestamp(new Date());
+        }
     }
 
     async function submitCallback() {
-        requestEmailVerificationAsync({ email, verificationCode: getValues('verificationCode') })
-            .then(res => onSubmit(res))
-            .catch(() => {
-                setErrorMessage('This code is expired. Please resend a verification code to your email.');
-            });
+        if (!errors.verificationCode) {
+            requestEmailVerificationAsync({ email, verificationCode: getValues('verificationCode') })
+                .then(res => onSubmit(res))
+                .catch(() => {
+                    setErrorMessage("This code is correct, either it's wrong or expired.");
+                });
+        }
     }
 
     return (
@@ -70,18 +88,27 @@ const EmailVerificationForm: React.FC<EmailVerificationFormProps> = function ({ 
                     />
                 )}
             />
-            {errors.verificationCode?.message && (
-                <Typography variant="subtext" style={{ color: 'red' }}>
-                    {errors.verificationCode?.message as string}
-                </Typography>
-            )}
-            <Button label="Confirm" variant="primary" size="md" onPress={handleSubmit(submitCallback)} />
+            <Button
+                label="Confirm"
+                disabled={!getValues('verificationCode') || getValues('verificationCode').length !== CODE_LENGTH}
+                variant="primary"
+                size="md"
+                onPress={handleSubmit(submitCallback)}
+                testID="submit-btn"
+            />
+            <Button
+                label="Resend Code"
+                variant="tertiary"
+                isLoading={isLoading}
+                size="sm"
+                onPress={() => resendVerificationCode()}
+                testID="resend-btn"
+            />
             {errorMessage && (
                 <Typography variant="subtext" style={{ color: 'red' }}>
                     {errorMessage}
                 </Typography>
             )}
-            <Button label="Resend Code" variant="tertiary" size="sm" onPress={() => resendVerificationCode()} />
         </View>
     );
 };

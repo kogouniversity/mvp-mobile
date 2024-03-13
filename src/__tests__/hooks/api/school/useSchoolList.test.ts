@@ -1,6 +1,6 @@
 import { waitFor } from '@testing-library/react-native';
 import axios from 'axios';
-import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHook } from '../../../test-utils';
+import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHookWithQueryClient } from '../../../test-utils';
 import { captureAxiosError } from '../../../../app/utils/sentry';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
 import { useSchoolList } from '../../../../app/hooks/api/school/useSchoolList';
@@ -14,13 +14,15 @@ const schoolData = [
     {
         id: 3,
         attributes: {
-            email_domain: 'sfu.ca',
+            schoolName: 'Simon Fraser University',
+            schoolEmailDomain: 'sfu.ca',
         },
     },
     {
         id: 4,
         attributes: {
-            email_domain: 'ubc.ca',
+            schoolName: 'University of British Columbia',
+            schoolEmailDomain: 'ubc.ca',
         },
     },
 ];
@@ -34,7 +36,7 @@ const errorResponse = {
 
 describe('useSchoolList', () => {
     it('should return the initial values', () => {
-        const { result } = renderHook(() => useSchoolList());
+        const { result } = renderHookWithQueryClient(() => useSchoolList());
         const { data, error, isSuccess, isError } = result.current;
         expect(data).toBe(undefined);
         expect(error).toBe(null);
@@ -44,14 +46,14 @@ describe('useSchoolList', () => {
     describe('when data is fetch successfully', () => {
         const mockData: SchoolListEntryResponse = {
             data: schoolData,
-            error: {},
+            meta: {},
         };
 
         beforeEach(() => {
             mockedAxios.get.mockResolvedValue(createAxiosMockResolved(mockData));
         });
         it('should retrieve school list data', async () => {
-            const { result } = renderHook(() => useSchoolList());
+            const { result } = renderHookWithQueryClient(() => useSchoolList());
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: mockData,
@@ -72,7 +74,7 @@ describe('useSchoolList', () => {
             mockedAxios.get.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response', async () => {
-            const { result } = renderHook(() => useSchoolList({ retry: false }));
+            const { result } = renderHookWithQueryClient(() => useSchoolList({ retry: false }));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: undefined,

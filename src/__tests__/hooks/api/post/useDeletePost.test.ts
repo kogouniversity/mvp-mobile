@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { waitFor } from '@testing-library/react-native';
 import { useDeletePost } from '../../../../app/hooks/api/post/useDeletePost';
-import { renderHook } from '../../../test-utils';
+import { renderHookWithQueryClient } from '../../../test-utils';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -12,7 +12,7 @@ describe('useDeletePost', () => {
     it('successfully deletes a post', async () => {
         mockedAxios.delete.mockResolvedValueOnce({});
 
-        const { result } = renderHook(() => useDeletePost());
+        const { result } = renderHookWithQueryClient(() => useDeletePost());
 
         result.current.mutate(postId);
 
@@ -25,7 +25,7 @@ describe('useDeletePost', () => {
         const errorMessage = 'Deletion failed';
         mockedAxios.delete.mockRejectedValueOnce(new Error(errorMessage));
 
-        const { result } = renderHook(() => useDeletePost());
+        const { result } = renderHookWithQueryClient(() => useDeletePost());
 
         result.current.mutate(postId);
 
