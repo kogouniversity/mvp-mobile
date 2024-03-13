@@ -1,9 +1,6 @@
 module.exports = {
     preset: 'jest-expo',
-    setupFilesAfterEnv: [
-        '@testing-library/react-native/extend-expect',
-        './src/setupTest.ts',
-    ],
+    setupFilesAfterEnv: ['@testing-library/react-native/extend-expect', './src/setupTest.ts'],
     transform: {
         '^.+\\.(js|ts|tsx)$': 'babel-jest',
     },

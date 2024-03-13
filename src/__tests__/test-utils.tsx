@@ -2,21 +2,21 @@ import { render, renderHook } from '@testing-library/react-native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AxiosError, AxiosRequestHeaders, AxiosResponse } from 'axios';
 
-const TestWrapper: React.FC<{
+const QueryClientWrapper: React.FC<{
     children: JSX.Element[];
 }> = function ({ children }) {
     const queryClient = new QueryClient();
     return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
-const customRender: typeof render = (ui, options) => render(ui, { wrapper: TestWrapper, ...options });
+const renderWithQueryClient: typeof render = (ui, options) => render(ui, { wrapper: QueryClientWrapper, ...options });
 
-const customRenderHook: typeof renderHook = (callback, options) =>
-    renderHook(callback, { wrapper: TestWrapper, ...options });
+const renderHookWithQueryClient: typeof renderHook = (callback, options) =>
+    renderHook(callback, { wrapper: QueryClientWrapper, ...options });
 
 export * from '@testing-library/react-native';
 
-export { customRender as render, customRenderHook as renderHook };
+export { renderWithQueryClient, renderHookWithQueryClient };
 
 export function createAxiosMockResolved<T>(
     data: T,
@@ -65,4 +65,10 @@ export function createAxiosMockErrorRejected<T>(
         name: '',
         message: '',
     };
+}
+
+export async function delay(ms: number): Promise<void> {
+    await new Promise(resolve => {
+        setTimeout(resolve, ms);
+    });
 }

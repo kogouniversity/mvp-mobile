@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHook, waitFor } from '../../../test-utils';
+import {
+    createAxiosMockErrorRejected,
+    createAxiosMockResolved,
+    renderHookWithQueryClient,
+    waitFor,
+} from '../../../test-utils';
 import { usePostsByGroup } from '../../../../app/hooks/api/post/usePostsByGroup';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
 import { captureAxiosError } from '../../../../app/utils/sentry';
@@ -50,7 +55,7 @@ const errorResponse = {
 
 describe('usePostsByGroup', () => {
     it('should return the initial values', () => {
-        const { result } = renderHook(() => usePostsByGroup('Group 1'));
+        const { result } = renderHookWithQueryClient(() => usePostsByGroup('Group 1'));
         const { data, error, isSuccess, isError } = result.current;
         expect(data).toBe(undefined);
         expect(error).toBe(null);
@@ -64,7 +69,7 @@ describe('usePostsByGroup', () => {
         });
 
         it('should retrieve posts by group', async () => {
-            const { result } = renderHook(() => usePostsByGroup('Group 1'));
+            const { result } = renderHookWithQueryClient(() => usePostsByGroup('Group 1'));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: groupPostsData,
@@ -86,7 +91,7 @@ describe('usePostsByGroup', () => {
             mockedAxios.get.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response', async () => {
-            const { result } = renderHook(() => usePostsByGroup('Group None', { retry: false }));
+            const { result } = renderHookWithQueryClient(() => usePostsByGroup('Group None', { retry: false }));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: undefined,

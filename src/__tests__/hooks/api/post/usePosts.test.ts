@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { waitFor } from '@testing-library/react-native';
-import { createAxiosMockErrorRejected, renderHook } from '../../../test-utils';
+import { createAxiosMockErrorRejected, renderHookWithQueryClient } from '../../../test-utils';
 import { usePosts } from '../../../../app/hooks/api/post/usePosts/index';
 import { captureAxiosError } from '../../../../app/utils/sentry';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
@@ -56,7 +56,7 @@ describe('usePosts', () => {
     });
 
     it('should return the initial values', () => {
-        const { result } = renderHook(() => usePosts());
+        const { result } = renderHookWithQueryClient(() => usePosts());
         expect(result.current.data).toBe(undefined);
         expect(result.current.error).toBe(null);
         expect(result.current.isSuccess).toBe(false);
@@ -69,7 +69,7 @@ describe('usePosts', () => {
         });
 
         it('should retrieve post list data', async () => {
-            const { result } = renderHook(() => usePosts());
+            const { result } = renderHookWithQueryClient(() => usePosts());
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: postData,
@@ -91,7 +91,7 @@ describe('usePosts', () => {
             mockedAxios.get.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response', async () => {
-            const { result } = renderHook(() => usePosts({ retry: false }));
+            const { result } = renderHookWithQueryClient(() => usePosts({ retry: false }));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: undefined,

@@ -2,7 +2,7 @@ import { act, waitFor } from '@testing-library/react-native';
 import axios from 'axios';
 import useSignUp from '../../../../app/hooks/api/auth/useSignUp';
 import { AuthUserDataResponse } from '../../../../app/hooks/api/auth/types';
-import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHook } from '../../../test-utils';
+import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHookWithQueryClient } from '../../../test-utils';
 import { captureAxiosError } from '../../../../app/utils/sentry';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
 
@@ -27,7 +27,7 @@ const errorResponse = {
 
 describe('useSignUp', () => {
     it('should return the initial values', () => {
-        const { result } = renderHook(() => useSignUp());
+        const { result } = renderHookWithQueryClient(() => useSignUp());
         const { data, error, isSuccess, isError } = result.current;
         expect(data).toBe(undefined);
         expect(error).toBe(null);
@@ -44,14 +44,13 @@ describe('useSignUp', () => {
             mockedAxios.post.mockResolvedValue(createAxiosMockResolved(mockData));
         });
         it('should return user data in json object', async () => {
-            const { result } = renderHook(() => useSignUp());
+            const { result } = renderHookWithQueryClient(() => useSignUp());
             const { mutate } = result.current;
             act(() => {
                 mutate({
                     username: 'abc',
                     email: 'test@email.com',
                     password: 'def',
-                    emailToken: 'abcd1234',
                 });
             });
             await waitFor(() =>
@@ -74,14 +73,13 @@ describe('useSignUp', () => {
             mockedAxios.post.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response as json object', async () => {
-            const { result } = renderHook(() => useSignUp());
+            const { result } = renderHookWithQueryClient(() => useSignUp());
             const { mutate } = result.current;
             act(() => {
                 mutate({
                     username: 'abc',
                     email: 'test@email.com',
                     password: 'def',
-                    emailToken: 'abcd1234',
                 });
             });
             await waitFor(() =>

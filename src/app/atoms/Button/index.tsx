@@ -20,6 +20,17 @@ const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
     },
 };
 
+const buttonVariantDisabledStyles: Record<ButtonVariant, ViewStyle> = {
+    default: {},
+    primary: {
+        backgroundColor: 'gray',
+    },
+    secondary: {
+        backgroundColor: 'lightgray',
+    },
+    tertiary: {},
+};
+
 const buttonVariantTextStyles: Record<ButtonVariant, TextStyle> = {
     default: {},
     primary: {},
@@ -58,13 +69,15 @@ const Button: React.FC<ButtonProps> = function ({
     disabled = false,
     isLoading = false,
     onPress = () => null,
+    testID = undefined,
 }) {
     return (
         <TouchableOpacity
             style={[buttonVariantStyles.default, buttonVariantStyles[variant], buttonSizeStyles[size], style]}
             disabled={disabled || isLoading}
             onPress={onPress}
-            activeOpacity={0.8}>
+            activeOpacity={0.8}
+            testID={testID}>
             {isLoading ? (
                 <ActivityIndicator />
             ) : (
@@ -73,6 +86,7 @@ const Button: React.FC<ButtonProps> = function ({
                         buttonVariantTextStyles.default,
                         buttonVariantTextStyles[variant],
                         buttonSizeTextStyles[size],
+                        disabled ? buttonVariantDisabledStyles[variant] : [],
                     ]}>
                     {label}
                 </Text>

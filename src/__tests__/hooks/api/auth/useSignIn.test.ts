@@ -2,7 +2,7 @@ import { act, waitFor } from '@testing-library/react-native';
 import axios from 'axios';
 import useSignIn from '../../../../app/hooks/api/auth/useSignIn';
 import { AuthUserDataResponse } from '../../../../app/hooks/api/auth/types';
-import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHook } from '../../../test-utils';
+import { createAxiosMockErrorRejected, createAxiosMockResolved, renderHookWithQueryClient } from '../../../test-utils';
 import { captureAxiosError } from '../../../../app/utils/sentry';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
 
@@ -27,7 +27,7 @@ const errorResponse = {
 
 describe('useSignIn', () => {
     it('should return the initial values', () => {
-        const { result } = renderHook(() => useSignIn());
+        const { result } = renderHookWithQueryClient(() => useSignIn());
         const { data, error, isSuccess, isError } = result.current;
         expect(data).toBe(undefined);
         expect(error).toBe(null);
@@ -44,7 +44,7 @@ describe('useSignIn', () => {
             mockedAxios.post.mockResolvedValue(createAxiosMockResolved(mockData));
         });
         it('should return user data in json object', async () => {
-            const { result } = renderHook(() => useSignIn());
+            const { result } = renderHookWithQueryClient(() => useSignIn());
             const { mutate } = result.current;
             act(() => {
                 mutate({
@@ -72,7 +72,7 @@ describe('useSignIn', () => {
             mockedAxios.post.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
         it('should return error response as json object', async () => {
-            const { result } = renderHook(() => useSignIn());
+            const { result } = renderHookWithQueryClient(() => useSignIn());
             const { mutate } = result.current;
             act(() => {
                 mutate({

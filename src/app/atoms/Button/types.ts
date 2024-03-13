@@ -10,5 +10,6 @@ export type ButtonProps = {
     style?: ViewStyle;
     disabled?: boolean;
     isLoading?: boolean;
+    testID?: string;
     onPress?: () => void;
 };

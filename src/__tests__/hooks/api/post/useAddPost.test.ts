@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { waitFor } from '@testing-library/react-native';
-import { renderHook } from '../../../test-utils';
+import { renderHookWithQueryClient } from '../../../test-utils';
 import { useAddPost } from '../../../../app/hooks/api/post/useAddPost/index';
 import { ListPostResponse } from '../../../../app/hooks/api/post/useAddPost/types';
 import { captureAxiosError } from '../../../../app/utils/sentry';
@@ -57,7 +57,7 @@ describe('useAddPost', () => {
         });
 
         it('should return post data on success', async () => {
-            const { result } = renderHook(() => useAddPost());
+            const { result } = renderHookWithQueryClient(() => useAddPost());
             result.current.mutate(postData);
 
             await waitFor(() =>
@@ -77,7 +77,7 @@ describe('useAddPost', () => {
         });
 
         it('should return an error response', async () => {
-            const { result } = renderHook(() => useAddPost());
+            const { result } = renderHookWithQueryClient(() => useAddPost());
             result.current.mutate(postData);
 
             await waitFor(() =>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { waitFor } from '@testing-library/react-native';
-import { createAxiosMockErrorRejected, renderHook } from '../../../test-utils';
+import { createAxiosMockErrorRejected, renderHookWithQueryClient } from '../../../test-utils';
 import { useMyGroup } from '../../../../app/hooks/api/group/useMyGroup/index';
 import { captureAxiosError } from '../../../../app/utils/sentry';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
@@ -14,40 +14,40 @@ const useGroupData: ListGroupResponse = {
         {
             id: 1,
             attributes: {
-                name: "Vancouver_KR",
-                createdAt: "2024-03-12T07:58:15.556Z",
-                updatedAt: "2024-03-12T08:08:15.515Z",
-                publishedAt: "2024-03-12T08:08:15.513Z"
-            }
+                name: 'Vancouver_KR',
+                createdAt: '2024-03-12T07:58:15.556Z',
+                updatedAt: '2024-03-12T08:08:15.515Z',
+                publishedAt: '2024-03-12T08:08:15.513Z',
+            },
         },
         {
             id: 2,
             attributes: {
-                name: "Toronto_KR",
-                createdAt: "2024-03-12T21:37:14.713Z",
-                updatedAt: "2024-03-12T21:37:16.015Z",
-                publishedAt: "2024-03-12T21:37:16.013Z"
-            }
+                name: 'Toronto_KR',
+                createdAt: '2024-03-12T21:37:14.713Z',
+                updatedAt: '2024-03-12T21:37:16.015Z',
+                publishedAt: '2024-03-12T21:37:16.013Z',
+            },
         },
         {
             id: 3,
             attributes: {
-                name: "Canada_KR",
-                createdAt: "2024-03-12T21:52:56.926Z",
-                updatedAt: "2024-03-12T21:52:57.668Z",
-                publishedAt: "2024-03-12T21:52:57.667Z"
-            }
-        }
+                name: 'Canada_KR',
+                createdAt: '2024-03-12T21:52:56.926Z',
+                updatedAt: '2024-03-12T21:52:57.668Z',
+                publishedAt: '2024-03-12T21:52:57.667Z',
+            },
+        },
     ],
     meta: {
         pagination: {
             page: 1,
             pageSize: 25,
             pageCount: 1,
-            total: 3
-        }
-    }
-}
+            total: 3,
+        },
+    },
+};
 
 const errorResponse = {
     status: '',
@@ -61,24 +61,24 @@ const dumbId = '0'; // non-existing user id
 
 describe('useMyGroup', () => {
     beforeEach(() => {
-      jest.clearAllMocks();
+        jest.clearAllMocks();
     });
-  
+
     it('should return the initial values', () => {
-      const { result } = renderHook(() => useMyGroup(userId));
-      expect(result.current.data).toBe(undefined);
-      expect(result.current.error).toBe(null);
-      expect(result.current.isSuccess).toBe(false);
-      expect(result.current.isError).toBe(false);
+        const { result } = renderHookWithQueryClient(() => useMyGroup(userId));
+        expect(result.current.data).toBe(undefined);
+        expect(result.current.error).toBe(null);
+        expect(result.current.isSuccess).toBe(false);
+        expect(result.current.isError).toBe(false);
     });
-  
+
     describe('when data is fetched successfully', () => {
         beforeEach(() => {
             mockedAxios.get.mockResolvedValue({ data: useGroupData });
         });
-  
+
         it('should retrieve group list data for the given user id', async () => {
-            const { result } = renderHook(() => useMyGroup(userId));
+            const { result } = renderHookWithQueryClient(() => useMyGroup(userId));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
                     data: useGroupData,
@@ -89,26 +89,26 @@ describe('useMyGroup', () => {
             );
         });
     });
-  
+
     describe('when data is failed to be fetched', () => {
         const mockErrorData: BaseErrorResponse = {
             data: null,
             error: errorResponse,
         };
-  
+
         beforeEach(() => {
             mockedAxios.get.mockRejectedValue(createAxiosMockErrorRejected(mockErrorData));
         });
-  
+
         it('should handle error correctly', async () => {
-            const { result } = renderHook(() => useMyGroup(dumbId, { retry: false }));
+            const { result } = renderHookWithQueryClient(() => useMyGroup(dumbId, { retry: false }));
             await waitFor(() =>
                 expect(result.current).toMatchObject({
-                data: undefined,
-                error: mockErrorData,
-                isSuccess: false,
-                isError: true,
-            }),
+                    data: undefined,
+                    error: mockErrorData,
+                    isSuccess: false,
+                    isError: true,
+                }),
             );
             await waitFor(() => expect(captureAxiosError).toHaveBeenCalled());
         });

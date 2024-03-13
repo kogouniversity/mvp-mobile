@@ -2,8 +2,9 @@ export type SchoolListEntryResponse = {
     data: {
         id: number;
         attributes: {
-            email_domain: string;
+            schoolEmailDomain: string;
+            schoolName: string;
         };
     }[];
-    error: object;
+    meta: object;
 };

@@ -3,6 +3,7 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-empty-function */
 /* eslint-disable @typescript-eslint/no-useless-constructor */
+import '@testing-library/jest-dom';
 
 // Mock Sentry
 jest.mock('./app/utils/sentry', () => ({
