@@ -1,0 +1,126 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "attributes": {
+                "name": "밴쿠버 유학생 방",
+                "createdAt": "2024-03-12T07:58:15.556Z",
+                "updatedAt": "2024-03-13T02:52:34.112Z",
+                "publishedAt": "2024-03-12T08:08:15.513Z",
+                "description": "밴쿠버에 있는 모든 대학교 학생들을 위한 소통방입니다^^",
+                "users": {
+                    "data": [
+                        {
+                            "id": 1,
+                            "attributes": {
+                                "username": "test1",
+                                "email": "test1@gmail.com",
+                                "provider": "local",
+                                "confirmed": true,
+                                "blocked": false,
+                                "createdAt": "2024-02-21T07:16:18.918Z",
+                                "updatedAt": "2024-03-12T08:18:42.187Z"
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "attributes": {
+                                "username": "test2",
+                                "email": "test2@gmail.com",
+                                "provider": "local",
+                                "confirmed": true,
+                                "blocked": false,
+                                "createdAt": "2024-02-21T07:16:43.022Z",
+                                "updatedAt": "2024-03-12T08:18:54.716Z"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 2,
+            "attributes": {
+                "name": "Toronto_KR",
+                "createdAt": "2024-03-12T21:37:14.713Z",
+                "updatedAt": "2024-03-13T03:33:32.838Z",
+                "publishedAt": "2024-03-12T21:37:16.013Z",
+                "description": "토론토 방",
+                "users": {
+                    "data": [
+                        {
+                            "id": 3,
+                            "attributes": {
+                                "username": "test3",
+                                "email": "test3@gmail.com",
+                                "provider": "local",
+                                "confirmed": true,
+                                "blocked": false,
+                                "createdAt": "2024-03-12T21:36:36.108Z",
+                                "updatedAt": "2024-03-12T21:36:36.108Z"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "attributes": {
+                "name": "Canada_KR",
+                "createdAt": "2024-03-12T21:52:56.926Z",
+                "updatedAt": "2024-03-13T03:33:39.646Z",
+                "publishedAt": "2024-03-12T21:52:57.667Z",
+                "description": "캐나다 한인 방",
+                "users": {
+                    "data": [
+                        {
+                            "id": 1,
+                            "attributes": {
+                                "username": "test1",
+                                "email": "test1@gmail.com",
+                                "provider": "local",
+                                "confirmed": true,
+                                "blocked": false,
+                                "createdAt": "2024-02-21T07:16:18.918Z",
+                                "updatedAt": "2024-03-12T08:18:42.187Z"
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "attributes": {
+                                "username": "test2",
+                                "email": "test2@gmail.com",
+                                "provider": "local",
+                                "confirmed": true,
+                                "blocked": false,
+                                "createdAt": "2024-02-21T07:16:43.022Z",
+                                "updatedAt": "2024-03-12T08:18:54.716Z"
+                            }
+                        },
+                        {
+                            "id": 3,
+                            "attributes": {
+                                "username": "test3",
+                                "email": "test3@gmail.com",
+                                "provider": "local",
+                                "confirmed": true,
+                                "blocked": false,
+                                "createdAt": "2024-03-12T21:36:36.108Z",
+                                "updatedAt": "2024-03-12T21:36:36.108Z"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 3
+        }
+    }
+}
