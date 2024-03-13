@@ -3,6 +3,20 @@ export interface GroupAttributes {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+    description: string;
+    userCount: number;
+    icon:{
+        data: IconAttributes | null;
+    }
+}
+
+export interface IconAttributes {
+    attributes:{
+        name: string;
+        ext: string;
+        size: number;
+        url: string;
+    }
 }
 
 export interface Group {
