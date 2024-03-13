@@ -1,17 +1,20 @@
 import { rest } from 'msw';
 import { mswApiUrl, sleep } from '../../../utils';
-import groupsData from './groups.json';
+import allGroupsData from './all_groups.json';
+import filtertedGroupsData from './filtered_groups.json';
+import emptyGroupsData from './empty_groups.json';
 
 export const handlers = [
-    rest.get(mswApiUrl('/api/groups'), async (req, res, ctx) => {
+    // Get all groups
+    rest.get(mswApiUrl('/api/groups?populate=icon'), async (req, res, ctx) => {
         await sleep(200);
         const userId = req.url.searchParams.get('filters[users]');
-        if (userId) {
-            const userGroups = groupsData.data.filter(group =>
-                group.attributes.users.data.some(user => user.id === parseInt(userId, 10)),
-            );
-            return res(ctx.status(200), ctx.json({ data: userGroups }));
+        if (userId == '3') {
+            return res(ctx.status(200), ctx.json( filtertedGroupsData ));
         }
-        return res(ctx.status(200), ctx.json({ data: [] }));
+        else if(userId){
+            return res(ctx.status(200), ctx.json( emptyGroupsData ));
+        }
+        return res(ctx.status(200), ctx.json( allGroupsData ));
     }),
 ];

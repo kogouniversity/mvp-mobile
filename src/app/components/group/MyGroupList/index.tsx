@@ -11,32 +11,39 @@ export type MyGroupListProps = {
 
 const MyGroupList: React.FC<MyGroupListProps> = function ({ userId }) {
     // Get user's groups
-    const { data: myGroups, isLoading: groupsLoading } = useMyGroup(userId);
-    
-    return (
-    <View>
-        {groupsLoading && <Text>Loading...</Text>}
-        {myGroups && (
-            <List>
-                {myGroups.data.map(group => (
-                    <ListItem style={styles.verticalList} key={group.id}>
-                        <GroupPreview
-                            width={390}
-                            height={74}
-                            imageLink={ImageSrcUrl.chick}
-                            groupName={group.attributes.name}
-                            groupDescription={group.attributes.description}
-                            numOfMembers={group.attributes.users.data.length}
-                            onPress={() => {
-                                console.log(`${group.attributes.name} pressed!`);
-                            }}
-                        />
-                    </ListItem>
-                ))}
-            </List>
-        )}
-    </View>
-    );
+    const { data: myGroups } = useMyGroup(userId);
+    console.log('myGroups', myGroups);
+    if(myGroups) {
+        return (
+            <View>
+                {myGroups && (
+                    <List>
+                        {myGroups.data.map(group => (
+                            <ListItem style={styles.verticalList} key={group.id}>
+                                <GroupPreview
+                                    width={390}
+                                    height={74}
+                                    imageLink={group.attributes.icon.data ? group.attributes.icon.data.attributes.url : ImageSrcUrl.default_gp}
+                                    groupName={group.attributes.name}
+                                    groupDescription={group.attributes.description}
+                                    numOfMembers={group.attributes.userCount}
+                                    onPress={() => {
+                                        console.log(`${group.attributes.name} pressed!`);
+                                    }}
+                                />
+                            </ListItem>
+                        ))}
+                    </List>
+                )}
+            </View>
+        );
+    }  else {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        )
+    }
 };
 
 const styles = StyleSheet.create({

@@ -3,7 +3,7 @@ import { ImageSourcePropType } from 'react-native';
 export type GroupPreviewProps = {
     width: number;
     height: number;
-    imageLink: ImageSourcePropType;
+    imageLink: ImageSourcePropType | string;
     groupName: string;
     groupDescription: string;
     numOfMembers: number;

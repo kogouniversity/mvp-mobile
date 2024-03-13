@@ -4,7 +4,7 @@ import { createAxiosMockErrorRejected, renderHookWithQueryClient } from '../../.
 import { useMyGroup } from '../../../../app/hooks/api/group/useMyGroup/index';
 import { captureAxiosError } from '../../../../app/utils/sentry';
 import { BaseErrorResponse } from '../../../../app/hooks/api/types';
-import { ListGroupResponse } from '../../../../app/hooks/api/group/useMyGroup/types';
+import { ListGroupResponse } from '../../../../app/hooks/api/group/types';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
