@@ -9,12 +9,11 @@ export const handlers = [
     rest.get(mswApiUrl('/api/groups?populate=icon'), async (req, res, ctx) => {
         await sleep(200);
         const userId = req.url.searchParams.get('filters[users]');
-        if (userId == '3') {
-            return res(ctx.status(200), ctx.json( filtertedGroupsData ));
+        if (userId === '3') {
+            return res(ctx.status(200), ctx.json(filtertedGroupsData));
+        } else if (userId) {
+            return res(ctx.status(200), ctx.json(emptyGroupsData));
         }
-        else if(userId){
-            return res(ctx.status(200), ctx.json( emptyGroupsData ));
-        }
-        return res(ctx.status(200), ctx.json( allGroupsData ));
+        return res(ctx.status(200), ctx.json(allGroupsData));
     }),
 ];

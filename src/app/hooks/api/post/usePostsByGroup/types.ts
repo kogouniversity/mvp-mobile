@@ -12,13 +12,16 @@ export interface Group {
     };
 }
 
+export interface PostAttributeContent {
+    type: string;
+    children: { type: string; text: string }[];
+}
+
 export interface PostAttributes {
-    content: string;
     title: string;
     createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    group: Group;
+    content: PostAttributeContent[];
+    group?: Group;
 }
 
 export interface Post {
@@ -26,16 +29,14 @@ export interface Post {
     attributes: PostAttributes;
 }
 
-export interface Pagination {
-    page: number;
-    pageSize: number;
-    pageCount: number;
-    total: number;
-}
-
 export interface ListPostResponse {
     data: Post[];
     meta: {
-        pagination: Pagination;
+        pagination: {
+            page: number;
+            pageCount: number;
+            pageSize: number;
+            total: number;
+        };
     };
 }

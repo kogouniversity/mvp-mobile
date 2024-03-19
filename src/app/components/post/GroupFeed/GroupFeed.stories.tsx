@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta,ComponentStory, StoryObj, StoryFn } from '@storybook/react-native';
+import { ComponentMeta, ComponentStory, StoryObj, StoryFn } from '@storybook/react-native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import GroupFeed from './GroupFeed';
 
@@ -17,15 +17,14 @@ const meta: ComponentMeta<typeof GroupFeed> = {
 
 export default meta;
 
-const Template: ComponentStory<typeof GroupFeed> = (args) => <GroupFeed {...args} />;
+const Template: ComponentStory<typeof GroupFeed> = args => <GroupFeed {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  groupName: 'group1',
+    groupName: 'group1',
 };
-
 
 export const NoResult = Template.bind({});
 NoResult.args = {
-  groupName: 'aaa',
+    groupName: 'aaa',
 };

@@ -13,7 +13,7 @@ const fetchPostsByGroup = async (
         _sort: 'groupName:asc',
         _page: page,
         _limit: pageSize,
-        'groupName': groupName,
+        groupName: groupName,
         populate: 'group',
     };
 
