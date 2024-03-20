@@ -39,9 +39,7 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
     };
 
     const renderItem = ({ item }: { item: OptionType }): React.ReactElement => (
-        <TouchableOpacity
-            style={[styles.item]}
-            onPress={() => onItemPress(item)}>
+        <TouchableOpacity style={[styles.item]} onPress={() => onItemPress(item)}>
             <Text>{item.label}</Text>
         </TouchableOpacity>
     );
@@ -50,12 +48,12 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
         <View>
             <TouchableOpacity
                 ref={SelectButton}
-                style={[styles.button, { width: buttonMeasurements.width || '20%' }]}
+                style={[styles.button, { width: buttonMeasurements.width || '18%' }]}
                 onPress={toggleSelect}>
                 <Text style={[styles.buttonText, selectedItem ? styles.selectedItem : {}]}>
                     {selectedItem ? selectedItem.label : label}
                 </Text>
-                <AntDesign name={visible ? 'caretup' : 'caretdown'} size={24} color="black" style={styles.caretIcon} />
+                <AntDesign name={visible ? 'caretup' : 'caretdown'} size={13} color="black" style={styles.caretIcon} />
             </TouchableOpacity>
             {visible && (
                 <Modal visible={visible} transparent animationType="none">
@@ -84,8 +82,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 50,
         backgroundColor: 'transparent',
-        alignSelf: 'center',
-       
+        alignSelf: 'flex-start',
+        marginLeft: 15,
     },
     buttonText: {
         flex: 1,

@@ -27,7 +27,9 @@ const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ userId, onGr
                                 }
                                 style={[
                                     styles.imageContainer,
-                                    group.attributes.name === selectedGroup && styles.selectedGroupContainer,
+                                    group.attributes.name === selectedGroup
+                                        ? styles.selectedGroupContainer
+                                        : styles.nonSelectedGroupContainer,
                                 ]}
                             />
                         </View>
@@ -56,12 +58,15 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 10,
     },
-    image: {
-        width: 25,
-        height: 25,
-    },
     selectedGroupContainer: {
         borderColor: '#007bff',
+    },
+    nonSelectedGroupContainer: {
+        opacity: 0.5,
+        width: 45,
+        height: 45,
+        backgroundColor: 'grey',
+        borderRadius: 50,
     },
 });
 

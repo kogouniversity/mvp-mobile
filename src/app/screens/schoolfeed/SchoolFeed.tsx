@@ -19,7 +19,6 @@ const UserSchoolScreen = () => {
 
     if (!data) {
         return (
-            
             <View style={styles.container}>
                 <Text>Loading user information...</Text>
             </View>
@@ -27,15 +26,11 @@ const UserSchoolScreen = () => {
     }
 
     return (
-      <View style={{ flex: 1 }}>
-          <TextField
-              variant="outlined"
-              placeholder="Search..."
-              style={{ margin: 10 }}
-          />
-          <GroupFeed groupName={data.school.schoolName} />
-      </View>
-  );
+        <View style={{ flex: 1 }}>
+            <TextField variant="outlined" placeholder="Search..." style={{ margin: 10 }} />
+            <GroupFeed groupName={data.school.schoolName} />
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
