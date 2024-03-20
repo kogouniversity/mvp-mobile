@@ -12,7 +12,6 @@ export type MyGroupListProps = {
 const MyGroupList: React.FC<MyGroupListProps> = function ({ userId }) {
     // Get user's groups
     const { data: myGroups } = useMyGroup(userId);
-    console.log('myGroups', myGroups);
     if (myGroups) {
         return (
             <View>
