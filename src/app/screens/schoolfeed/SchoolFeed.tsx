@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useUserInformation } from '../../hooks/api/user/useUserInformation';
 import GroupFeed from '../../components/post/GroupFeed/GroupFeed';
+import TextField from '../../atoms/TextField';
 
 const userToken = 'token';
 
@@ -24,7 +25,12 @@ const UserSchoolScreen = () => {
         );
     }
 
-    return <GroupFeed groupName={data.school.schoolName} />;
+    return (
+        <View style={{ flex: 1 }}>
+            <TextField variant="outlined" placeholder="Search..." style={{ margin: 10 }} />
+            <GroupFeed groupName={data.school.schoolName} />
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
