@@ -50,7 +50,7 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
         <View>
             <TouchableOpacity
                 ref={SelectButton}
-                style={[styles.button, { width: buttonMeasurements.width || '30%' }]}
+                style={[styles.button, { width: buttonMeasurements.width || '20%' }]}
                 onPress={toggleSelect}>
                 <Text style={[styles.buttonText, selectedItem ? styles.selectedItem : {}]}>
                     {selectedItem ? selectedItem.label : label}
