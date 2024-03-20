@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     selectedGroupContainer: {
-        borderColor: '#007bff',
+        borderColor: 'black',
     },
     nonSelectedGroupContainer: {
         opacity: 0.5,
         width: 45,
         height: 45,
-        backgroundColor: 'grey',
+        backgroundColor: '#acacac',
         borderRadius: 50,
     },
 });
