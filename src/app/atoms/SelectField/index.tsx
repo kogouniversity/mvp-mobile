@@ -40,19 +40,22 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
 
     const renderItem = ({ item }: { item: OptionType }): React.ReactElement => (
         <TouchableOpacity
-            style={[styles.item, selectedItem && selectedItem.value === item.value ? styles.selectedItem : {}]}
+            style={[styles.item]}
             onPress={() => onItemPress(item)}>
             <Text>{item.label}</Text>
         </TouchableOpacity>
     );
+
     return (
         <View>
             <TouchableOpacity
                 ref={SelectButton}
-                style={[styles.button, { width: buttonMeasurements.width || '90%' }]}
+                style={[styles.button, { width: buttonMeasurements.width || '30%' }]}
                 onPress={toggleSelect}>
-                <Text style={styles.buttonText}>{selectedItem ? selectedItem.label : label}</Text>
-                <AntDesign name={visible ? 'upcircleo' : 'downcircleo'} size={24} color="black" />
+                <Text style={[styles.buttonText, selectedItem ? styles.selectedItem : {}]}>
+                    {selectedItem ? selectedItem.label : label}
+                </Text>
+                <AntDesign name={visible ? 'caretup' : 'caretdown'} size={24} color="black" style={styles.caretIcon} />
             </TouchableOpacity>
             {visible && (
                 <Modal visible={visible} transparent animationType="none">
@@ -79,20 +82,17 @@ const styles = StyleSheet.create({
     button: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingHorizontal: 10,
         height: 50,
-        width: '100%',
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 5,
         backgroundColor: 'transparent',
         alignSelf: 'center',
-        marginHorizontal: '5%',
+       
     },
     buttonText: {
         flex: 1,
         textAlign: 'left',
+    },
+    selectedItem: {
+        textDecorationLine: 'underline',
     },
     overlay: {
         ...StyleSheet.absoluteFillObject,
@@ -112,8 +112,9 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white',
     },
-    selectedItem: {
-        backgroundColor: '#E0F7FA',
+    caretIcon: {
+        marginHorizontal: 0,
+        padding: 0,
     },
 });
 
