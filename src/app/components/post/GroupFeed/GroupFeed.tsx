@@ -6,6 +6,7 @@ import Skeleton from '../../../atoms/Skeleton';
 import SelectField from '../../../atoms/SelectField';
 import { List } from '../../../atoms/List';
 import { GroupPostsProps, PostData, OptionType } from './types';
+import { ImageSrcUrl } from '../../../utils/images';
 
 const GroupFeed: React.FC<GroupPostsProps> = ({ groupName }) => {
     const { data: queryData, isLoading, isError } = usePostsByGroup(groupName);
@@ -40,7 +41,7 @@ const GroupFeed: React.FC<GroupPostsProps> = ({ groupName }) => {
                 key={item.id}
                 width={390}
                 height={74}
-                imageLink={{ uri: '/image' }}
+                imageLink={ImageSrcUrl.sfu}
                 groupName={groupName}
                 title={item.attributes.title}
                 contentPreview={contentPreview}

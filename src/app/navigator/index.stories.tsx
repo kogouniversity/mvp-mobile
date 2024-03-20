@@ -3,7 +3,7 @@ import { ComponentMeta, StoryObj } from '@storybook/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/main/Home'; 
-import MySchool from '../screens/main/MySchool';
+import SchoolFeed from '../screens/schoolfeed/SchoolFeed'
 import NewPost from '../screens/newpost/NewPost';
 import Profile from '../screens/main/Profile';
 import Explore from '../screens/main/Explore';
@@ -44,7 +44,7 @@ const MainNavigator = () => (
         })}
     >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="MySchool" component={MySchool} />
+        <Tab.Screen name="MySchool" component={SchoolFeed} />
         <Tab.Screen name="NewPost" component={NewPost} />
         <Tab.Screen name="Explore" component={Explore} />
         <Tab.Screen name="Profile" component={Profile} />
