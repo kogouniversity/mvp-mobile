@@ -1,5 +1,3 @@
-// CreatePost.stories.tsx
-
 import React from 'react';
 import { View } from 'react-native';
 import { ComponentMeta, StoryObj, StoryFn } from '@storybook/react-native';

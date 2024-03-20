@@ -5,13 +5,13 @@ import { withStatusBar } from '../screens/hoc';
 import Intro from '../screens/Intro';
 import Login from '../screens/login/Login';
 import Home from '../screens/main/Home';
-import MySchool from '../screens/main/MySchool';
 import Profile from '../screens/main/Profile';
 import Explore from '../screens/main/Explore';
 import NewPost from '../screens/newpost/NewPost';
 import EmailInput from '../screens/signup/EmailInput';
 import EmailVerificationInput from '../screens/signup/EmailVerificationInput';
 import IdAndPasswordInput from '../screens/signup/IdAndPasswordInput';
+import SchoolFeed from '../screens/schoolfeed/SchoolFeed'
 
 // ======================
 // Stack Navigator
@@ -47,7 +47,7 @@ function MainNavigator(): JSX.Element {
     return (
         <Tab.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={withStatusBar(Home)} />
-            <Tab.Screen name="MySchool" component={withStatusBar(MySchool)} />
+            <Tab.Screen name="MySchool" component={withStatusBar(SchoolFeed)} />
             <Tab.Screen name="NewPost" component={withStatusBar(NewPost)} />
             <Tab.Screen name="Explore" component={withStatusBar(Explore)} />
             <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
