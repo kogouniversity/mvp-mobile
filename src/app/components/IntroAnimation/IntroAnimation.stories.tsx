@@ -1,5 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react-native';
+import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import IntroAnimation from './IntroAnimation';
 
-storiesOf('IntroAnimation', module).add('default', () => <IntroAnimation />);
+export default {
+    title: 'Components/IntroAnimation',
+    component: IntroAnimation,
+} as ComponentMeta<typeof IntroAnimation>;
+
+const Template: StoryFn<typeof IntroAnimation> = () => <IntroAnimation />;
+
+export const Default: StoryObj<typeof IntroAnimation> = {
+    render: Template,
+};

@@ -4,8 +4,7 @@ export type UserGetEntryResponse = {
     email: string;
     createdAt: string; // Date parsable string
     updatedAt: string; // Date parsable string
-    school:{
-        schoolName:string;
-    }
+    school: {
+        schoolName: string;
+    };
 };
-

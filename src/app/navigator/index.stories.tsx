@@ -1,16 +1,14 @@
-import React from 'react';
 import { ComponentMeta, StoryObj } from '@storybook/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../screens/main/Home'; 
-import SchoolFeed from '../screens/schoolfeed/SchoolFeed'
+import Home from '../screens/main/Home';
+import SchoolFeed from '../screens/schoolfeed/SchoolFeed';
 import NewPost from '../screens/newpost/NewPost';
 import Profile from '../screens/main/Profile';
-import Explore from '../screens/main/Explore';
+import MyGroup from '../screens/group/MyGroup';
 import { Ionicons, AntDesign, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
-
 const MainNavigator = () => (
     <Tab.Navigator
         initialRouteName="Home"
@@ -41,12 +39,11 @@ const MainNavigator = () => (
                 color = focused ? 'blue' : 'gray';
                 return <Component name={iconName} size={24} color={color} />;
             },
-        })}
-    >
+        })}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="MySchool" component={SchoolFeed} />
         <Tab.Screen name="NewPost" component={NewPost} />
-        <Tab.Screen name="Explore" component={Explore} />
+        <Tab.Screen name="Explore" component={MyGroup} />
         <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
 );
@@ -54,7 +51,7 @@ const MainNavigator = () => (
 export default {
     title: 'Navigators/MainNavigator',
     component: MainNavigator,
-    decorators: [(Story) => <NavigationContainer>{Story()}</NavigationContainer>],
+    decorators: [Story => <NavigationContainer>{Story()}</NavigationContainer>],
 } as ComponentMeta<typeof MainNavigator>;
 
 const Template: StoryObj<typeof MainNavigator> = {
