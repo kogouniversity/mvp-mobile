@@ -12,7 +12,6 @@ export type MyGroupListIconProps = {
 
 const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ userId, onGroupSelect, selectedGroup }) {
     const { data: myGroups } = useMyGroup(userId);
-    console.log('working', myGroups);
 
     if (myGroups) {
         return (

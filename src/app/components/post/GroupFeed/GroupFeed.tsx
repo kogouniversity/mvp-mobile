@@ -31,7 +31,6 @@ const GroupFeed: React.FC<GroupPostsProps> = ({ groupName }) => {
     const data = queryData.data;
 
     const renderPost = ({ item }: { item: PostData }) => {
-        console.log(item.attributes.content);
         const contentPreview = Array.isArray(item.attributes.content)
             ? item.attributes.content.map(content => content.children.map(child => child.text).join(' ')).join(' ')
             : '';
