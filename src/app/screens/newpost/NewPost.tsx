@@ -4,8 +4,9 @@ import TextField from '../../atoms/TextField';
 import Typography from '../../atoms/Typography';
 import Button from '../../atoms/Button';
 import { useAddPost } from '../../hooks/api/post/useAddPost';
-import { AntDesign } from '@expo/vector-icons';
 import MyGroupListIcon from '../../components/group/MyGroupListIcon';
+import { useNavigation } from '../../utils/navigation';
+import BackButton from '../../components/BackButton';
 
 const styles = StyleSheet.create({
     container: {
@@ -15,17 +16,15 @@ const styles = StyleSheet.create({
     },
     header: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
         marginBottom: 20,
     },
     headerTitle: {
-        position: 'absolute',
-        width: '100%',
-        textAlign: 'center',
         fontSize: 20,
         fontWeight: 'bold',
+        textAlign: 'center',
+        flex: 1,
     },
     titleInput: {
         marginVertical: 10,
@@ -42,6 +41,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
         marginLeft: -15,
+        alignSelf: 'center',
     },
     selectedGroup: {
         marginBottom: 15,
@@ -52,7 +52,7 @@ function NewPost(): JSX.Element {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [selectedGroup, setSelectedGroup] = useState('');
-
+    const navigation = useNavigation();
     const addPostMutation = useAddPost();
 
     const onSubmit = async () => {
@@ -75,8 +75,8 @@ function NewPost(): JSX.Element {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.header}>
-                <TouchableOpacity style={styles.backButton} onPress={() => {}}>
-                    <AntDesign name="close" size={24} color="black" />
+                <TouchableOpacity style={styles.backButton}>
+                    <BackButton navigation={navigation} />
                 </TouchableOpacity>
                 <Typography variant="subtext" style={styles.headerTitle}>
                     New Post

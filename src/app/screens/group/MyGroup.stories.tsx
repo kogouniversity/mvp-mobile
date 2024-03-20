@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import MyGroup from './MyGroup';
 
 const meta: ComponentMeta<typeof MyGroup> = {
-    title: 'Screens/group/MyGroupScreen',
+    title: 'screens/group/MyGroupScreen',
     component: MyGroup,
     decorators: [
         (Story: StoryFn): JSX.Element => (
@@ -34,5 +34,5 @@ export const Default: MGSStory = {
                 <MyGroup />
             </Text>
         </View>
-    )
-}
+    ),
+};
