@@ -1,15 +1,5 @@
-export interface GroupAttributes {
-    name: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-}
-
-export interface Group {
-    data: {
-        id: number;
-        attributes: GroupAttributes;
-    };
+export interface GroupPostsProps {
+    groupName: string;
 }
 
 export interface PostAttributeContent {
@@ -21,16 +11,15 @@ export interface PostAttributes {
     title: string;
     createdAt: string;
     content: PostAttributeContent[];
-    group?: Group;
 }
 
-export interface Post {
+export interface PostData {
     id: number;
     attributes: PostAttributes;
 }
 
 export interface ListPostResponse {
-    data: Post[];
+    data: PostData[];
     meta: {
         pagination: {
             page: number;
@@ -39,4 +28,15 @@ export interface ListPostResponse {
             total: number;
         };
     };
+}
+
+export interface OptionType {
+    label: string;
+    value: string;
+}
+
+export interface SelectFieldProps {
+    label: string;
+    data: OptionType[];
+    onSelect: (option: OptionType) => void;
 }

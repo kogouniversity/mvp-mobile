@@ -14,33 +14,33 @@ const groupData: ListGroupResponse = {
         {
             id: 1,
             attributes: {
-                name: "Vancouver_KR",
-                createdAt: "2024-03-12T07:58:15.556Z",
-                updatedAt: "2024-03-12T08:08:15.515Z",
-                publishedAt: "2024-03-12T08:08:15.513Z",
-                description: "밴쿠버에 있는 모든 대학교 학생들을 위한 소통방입니다^^",
-            }
+                name: 'Vancouver_KR',
+                createdAt: '2024-03-12T07:58:15.556Z',
+                updatedAt: '2024-03-12T08:08:15.515Z',
+                publishedAt: '2024-03-12T08:08:15.513Z',
+                description: '밴쿠버에 있는 모든 대학교 학생들을 위한 소통방입니다^^',
+            },
         },
         {
             id: 2,
             attributes: {
-                name: "Toronto_KR",
-                createdAt: "2024-03-12T21:37:14.713Z",
-                updatedAt: "2024-03-12T21:37:16.015Z",
-                publishedAt: "2024-03-12T21:37:16.013Z",
-                description: "토론토 방",
-            }
+                name: 'Toronto_KR',
+                createdAt: '2024-03-12T21:37:14.713Z',
+                updatedAt: '2024-03-12T21:37:16.015Z',
+                publishedAt: '2024-03-12T21:37:16.013Z',
+                description: '토론토 방',
+            },
         },
         {
             id: 3,
             attributes: {
-                name: "Canada_KR",
-                createdAt: "2024-03-12T21:52:56.926Z",
-                updatedAt: "2024-03-12T21:52:57.668Z",
-                publishedAt: "2024-03-12T21:52:57.667Z",
-                description: "캐나다 한인 방",
-            }
-        }
+                name: 'Canada_KR',
+                createdAt: '2024-03-12T21:52:56.926Z',
+                updatedAt: '2024-03-12T21:52:57.668Z',
+                publishedAt: '2024-03-12T21:52:57.667Z',
+                description: '캐나다 한인 방',
+            },
+        },
     ],
     meta: {
         pagination: {

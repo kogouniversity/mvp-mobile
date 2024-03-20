@@ -5,18 +5,18 @@ export interface GroupAttributes {
     publishedAt: string;
     description: string;
     userCount: number;
-    icon:{
+    icon: {
         data: IconAttributes | null;
-    }
+    };
 }
 
 export interface IconAttributes {
-    attributes:{
+    attributes: {
         name: string;
         ext: string;
         size: number;
         url: string;
-    }
+    };
 }
 
 export interface Group {
