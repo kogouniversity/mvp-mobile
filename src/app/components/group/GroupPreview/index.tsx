@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, ImageSourcePropType } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { GroupPreviewProps } from './types';
 
@@ -16,7 +16,7 @@ const GroupPreview: React.FC<GroupPreviewProps> = function ({
         <TouchableOpacity onPress={onPress} style={[styles.container, { width, height }]}>
             <View style={styles.leftContainer}>
                 <View style={styles.imageContainer}>
-                    <Image source={imageLink} style={styles.image} />
+                    <Image source={imageLink as ImageSourcePropType} style={styles.image} />
                 </View>
             </View>
             <View style={styles.rightContainer}>

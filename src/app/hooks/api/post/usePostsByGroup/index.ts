@@ -10,10 +10,10 @@ const fetchPostsByGroup = async (
     pageSize: number = 25,
 ): Promise<ListPostResponse> => {
     const params: AxiosRequestConfig['params'] = {
-        _sort: 'group.name:asc',
+        _sort: 'groupName:asc',
         _page: page,
         _limit: pageSize,
-        'group.name': groupName,
+        groupName: groupName,
         populate: 'group',
     };
 

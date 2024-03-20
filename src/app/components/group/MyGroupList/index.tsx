@@ -12,7 +12,7 @@ export type MyGroupListProps = {
 const MyGroupList: React.FC<MyGroupListProps> = function ({ userId }) {
     // Get user's groups
     const { data: myGroups } = useMyGroup(userId);
-    if(myGroups) {
+    if (myGroups) {
         return (
             <View>
                 {myGroups && (
@@ -22,7 +22,11 @@ const MyGroupList: React.FC<MyGroupListProps> = function ({ userId }) {
                                 <GroupPreview
                                     width={390}
                                     height={74}
-                                    imageLink={group.attributes.icon.data ? group.attributes.icon.data.attributes.url : ImageSrcUrl.default_gp}
+                                    imageLink={
+                                        group.attributes.icon.data
+                                            ? group.attributes.icon.data.attributes.url
+                                            : ImageSrcUrl.default_gp
+                                    }
                                     groupName={group.attributes.name}
                                     groupDescription={group.attributes.description}
                                     numOfMembers={group.attributes.userCount}
@@ -36,12 +40,12 @@ const MyGroupList: React.FC<MyGroupListProps> = function ({ userId }) {
                 )}
             </View>
         );
-    }  else {
+    } else {
         return (
             <View>
                 <Text>Loading...</Text>
             </View>
-        )
+        );
     }
 };
 

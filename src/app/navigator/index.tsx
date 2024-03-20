@@ -8,6 +8,7 @@ import Home from '../screens/main/Home';
 import MySchool from '../screens/main/MySchool';
 import Profile from '../screens/main/Profile';
 import Explore from '../screens/main/Explore';
+import NewPost from '../screens/newpost/NewPost';
 import EmailInput from '../screens/signup/EmailInput';
 import EmailVerificationInput from '../screens/signup/EmailVerificationInput';
 import IdAndPasswordInput from '../screens/signup/IdAndPasswordInput';
@@ -47,6 +48,7 @@ function MainNavigator(): JSX.Element {
         <Tab.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={withStatusBar(Home)} />
             <Tab.Screen name="MySchool" component={withStatusBar(MySchool)} />
+            <Tab.Screen name="NewPost" component={withStatusBar(NewPost)} />
             <Tab.Screen name="Explore" component={withStatusBar(Explore)} />
             <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
         </Tab.Navigator>
