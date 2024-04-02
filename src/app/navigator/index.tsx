@@ -12,6 +12,7 @@ import EmailVerificationInput from '../screens/signup/EmailVerificationInput';
 import IdAndPasswordInput from '../screens/signup/IdAndPasswordInput';
 import SchoolFeed from '../screens/schoolfeed/SchoolFeed';
 import MyGroup from '../screens/group/MyGroup';
+import NewGroup from '../screens/newgroup/NewGroup';
 
 // ======================
 // Stack Navigator
@@ -49,6 +50,7 @@ function MainNavigator(): JSX.Element {
             <Tab.Screen name="Home" component={withStatusBar(Home)} />
             <Tab.Screen name="MySchool" component={withStatusBar(SchoolFeed)} />
             <Tab.Screen name="NewPost" component={withStatusBar(NewPost)} />
+            <Tab.Screen name="NewGroup" component={withStatusBar(NewGroup)} />
             <Tab.Screen name="Explore" component={withStatusBar(MyGroup)} />
             <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
         </Tab.Navigator>

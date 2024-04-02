@@ -4,7 +4,6 @@ import TextField from '../../atoms/TextField';
 import Typography from '../../atoms/Typography';
 import Button from '../../atoms/Button';
 import { useAddPost } from '../../hooks/api/post/useAddPost';
-import MyGroupListIcon from '../../components/group/MyGroupListIcon';
 import { useNavigation } from '../../utils/navigation';
 import BackButton from '../../components/BackButton';
 
@@ -49,29 +48,11 @@ const styles = StyleSheet.create({
     },
 });
 
-function NewPost(): JSX.Element {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [selectedGroup, setSelectedGroup] = useState('');
+function NewGroup(): JSX.Element {
     const navigation = useNavigation();
     const addPostMutation = useAddPost();
 
-    const onSubmit = async () => {
-        try {
-            await addPostMutation.mutateAsync({
-                title,
-                content,
-                groupName: selectedGroup,
-            });
-            Alert.alert('Success', 'Post added successfully');
-        } catch (error) {
-            Alert.alert('Error', 'Failed to add post');
-            console.error(error);
-        }
-    };
-    const handleGroupSelect = (groupName: string) => {
-        setSelectedGroup(groupName);
-    };
+    const onSubmit = async () => {};
 
     return (
         <ScrollView style={styles.container}>
@@ -80,32 +61,18 @@ function NewPost(): JSX.Element {
                     <BackButton navigation={navigation} />
                 </TouchableOpacity>
                 <Typography variant="subtext" style={styles.headerTitle}>
-                    New Post
+                    New Group
                 </Typography>
                 <TouchableOpacity>
                     <Button variant="primary" size="sm" label="Submit" onPress={onSubmit} style={styles.button} />
                 </TouchableOpacity>
             </View>
-            <View>{selectedGroup && <Text style={styles.selectedGroup}>Selected group: {selectedGroup}</Text>}</View>
-            <MyGroupListIcon userId="3" onGroupSelect={handleGroupSelect} selectedGroup={selectedGroup} />
-            <TextField
-                variant="outlined"
-                placeholder="Title"
-                value={title}
-                onChangeText={setTitle}
-                style={styles.titleInput}
-            />
-            <TextField
-                variant="outlined"
-                placeholder="What do you want to share today?"
-                multiline
-                numberOfLines={4}
-                value={content}
-                onChangeText={setContent}
-                style={styles.descriptionInput}
-            />
+
+            <TextField variant="outlined" placeholder="name" />
+            <TextField variant="outlined" placeholder="short description" />
+            <TextField variant="outlined" placeholder="#" />
         </ScrollView>
     );
 }
 
-export default NewPost;
+export default NewGroup;

@@ -6,7 +6,9 @@ import SchoolFeed from '../screens/schoolfeed/SchoolFeed';
 import NewPost from '../screens/newpost/NewPost';
 import Profile from '../screens/main/Profile';
 import MyGroup from '../screens/group/MyGroup';
-import { Ionicons, AntDesign, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import NewPostPopup from '../components/NewButton';
+import React from 'react';
 
 const Tab = createBottomTabNavigator();
 const MainNavigator = () => (
@@ -25,9 +27,6 @@ const MainNavigator = () => (
                 } else if (route.name === 'MySchool') {
                     iconName = 'school';
                     Component = Ionicons;
-                } else if (route.name === 'NewPost') {
-                    iconName = 'pluscircleo';
-                    Component = AntDesign;
                 } else if (route.name === 'Explore') {
                     iconName = 'sprout';
                     Component = MaterialCommunityIcons;
@@ -42,7 +41,13 @@ const MainNavigator = () => (
         })}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="MySchool" component={SchoolFeed} />
-        <Tab.Screen name="NewPost" component={NewPost} />
+        <Tab.Screen
+            name="NewPost"
+            component={NewPost}
+            options={{
+                tabBarButton: props => <NewPostPopup {...props} />,
+            }}
+        />
         <Tab.Screen name="Explore" component={MyGroup} />
         <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
