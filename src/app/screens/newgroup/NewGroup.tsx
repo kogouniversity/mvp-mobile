@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, ScrollView, Alert, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Controller, useForm } from 'react-hook-form';
+import { z } from 'zod';
 import TextField from '../../atoms/TextField';
 import Typography from '../../atoms/Typography';
 import Button from '../../atoms/Button';
-import { useAddPost } from '../../hooks/api/post/useAddPost';
 import { useNavigation } from '../../utils/navigation';
 import BackButton from '../../components/BackButton';
+import GroupImage from '../../components/GroupImage';
+import TagInput from '../../components/TagInput';
+
+const schema = z.object({
+    groupName: z.string().max(15),
+    description: z.string().max(50),
+    tags: z.string().array().max(5),
+});
 
 const styles = StyleSheet.create({
     container: {
@@ -46,13 +56,43 @@ const styles = StyleSheet.create({
     selectedGroup: {
         marginBottom: 15,
     },
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    textField: {
+        width: '90%',
+        marginTop: 20,
+    },
+    textFieldDescrptn: {
+        width: '90%',
+        padding: 0,
+        marginVertical: 0,
+    },
 });
 
-function NewGroup(): JSX.Element {
-    const navigation = useNavigation();
-    const addPostMutation = useAddPost();
+export type NewGroupProps = {
+    onSubmit: (groupName: string, descrptn: string, tags: string[]) => unknown;
+};
 
-    const onSubmit = async () => {};
+const NewGroup: React.FC<NewGroupProps> = function ({ onSubmit }) {
+    const [tags, setTags] = useState<string[]>([]);
+
+    const navigation = useNavigation();
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        getValues,
+    } = useForm({
+        resolver: zodResolver(schema),
+    });
+
+    const submitCB = async () => {
+        onSubmit(getValues('groupName'), getValues('description'), tags);
+    };
 
     return (
         <ScrollView style={styles.container}>
@@ -64,15 +104,78 @@ function NewGroup(): JSX.Element {
                     New Group
                 </Typography>
                 <TouchableOpacity>
-                    <Button variant="primary" size="sm" label="Submit" onPress={onSubmit} style={styles.button} />
+                    <Button
+                        variant="primary"
+                        size="sm"
+                        label="Submit"
+                        onPress={handleSubmit(submitCB)}
+                        style={styles.button}
+                    />
                 </TouchableOpacity>
             </View>
 
-            <TextField variant="outlined" placeholder="name" />
-            <TextField variant="outlined" placeholder="short description" />
-            <TextField variant="outlined" placeholder="#" />
+            <View style={styles.content}>
+                <GroupImage />
+                <Controller
+                    name="groupName"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextField
+                            variant="standard"
+                            placeholder="name"
+                            style={styles.textField}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                        />
+                    )}
+                />
+                <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
+                    (max. 15 characters)
+                </Typography>
+                {errors.groupName?.message && (
+                    <Typography variant="subtext" style={{ color: 'red' }}>
+                        {errors.groupName?.message as string}
+                    </Typography>
+                )}
+                <Controller
+                    name="description"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TextField
+                            variant="standard"
+                            placeholder="short description"
+                            style={styles.textField}
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                        />
+                    )}
+                />
+                <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
+                    (max. 50 characters)
+                </Typography>
+                {errors.descrptn?.message && (
+                    <Typography variant="subtext" style={{ color: 'red' }}>
+                        {errors.descrptn?.message as string}
+                    </Typography>
+                )}
+                <Controller
+                    name="tags"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <TagInput
+                            setTagValues={setTags}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            style={styles.textField}
+                        />
+                    )}
+                />
+            </View>
         </ScrollView>
     );
-}
+};
 
 export default NewGroup;
