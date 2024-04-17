@@ -13,15 +13,7 @@ export const initialize = () => {
 export const withMsw = (storyFn, { parameters: { msw } }) => {
     if (msw) {    
         if (Array.isArray(msw) && msw.length > 0) {
-            server.use(...msw)    
-        } 
-        else if ('handlers' in msw && msw.handlers) {
-            const handlers = Object.values(msw.handlers)        
-                .filter(Boolean)        
-                .reduce((handlers, handlersList) => handlers.concat(handlersList), []);
-            if (handlers.length > 0) {        
-                server.use(...handlers);
-            }
+            server.use(...msw);
         }
     }
     return storyFn();

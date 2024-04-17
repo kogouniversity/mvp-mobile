@@ -27,6 +27,6 @@ type Story = StoryObj<IdAndPasswordInputFormProps>;
 
 export const Default: Story = {
     args: {
-        onSubmit: (id, password) => Alert.alert(`IdAndPasswordInputForm: id: ${id}, password: ${password}`),
+        onSubmit: (id, password) => Alert.alert(`IdAndPasswordInputForm`, `id: ${id}, password: ${password}`),
     },
 };

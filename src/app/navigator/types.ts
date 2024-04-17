@@ -1,32 +1,26 @@
 type RootStackParamList = {
-    OnBoarding: object | undefined;
-    Login: object | undefined;
-    Main: object | undefined;
+    IntroNav: undefined;
+    HomeNav: undefined;
 };
 
-type OnBoardingStackParamList = {
+type IntroStackParamList = {
     Intro: object | undefined;
-    Login: object | undefined;
-    SignUp: object | undefined;
+    AuthLogin: object | undefined;
+    SignUpNav: undefined;
 };
 
-type SignUpStackParamList = {
-    IdAndPasswordInput: object | undefined;
-    EmailInput: { username: string; password: string; email: string };
-    EmailVerificationInput: { email: string };
+type SignupStackParamList = {
+    AuthSignupIdAndPassword: object | undefined;
+    AuthSignupEmailInput: object | undefined;
+    AuthSignupEmailVerification: { email: string };
 };
 
-type MainTabParamList = {
-    Home: object | undefined;
-    MySchool: object | undefined;
-    Schedule: object | undefined;
-    NewPost: object | undefined;
-    NewGroup: object | undefined;
-    Explore: object | undefined;
-    Profile: object | undefined;
+type HomeTabParamList = {
+    HomeFeed: object | undefined;
+    HomeMyGroup: object | undefined;
+    HomeGadget: object | undefined;
+    HomeExplore: object | undefined;
+    HomeProfile: object | undefined;
 };
 
-export type NavigationParamList = RootStackParamList &
-    OnBoardingStackParamList &
-    SignUpStackParamList &
-    MainTabParamList;
+export type NavigationParamList = RootStackParamList & IntroStackParamList & SignupStackParamList & HomeTabParamList;

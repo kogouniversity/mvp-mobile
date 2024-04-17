@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { ImageSourcePropType } from 'react-native';
 
 import alienAstronaut from '../assets/images/alienAstronaut.png';

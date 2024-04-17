@@ -1,6 +1,4 @@
-export type ResendEmailVerificationParam = {
-    email: string;
-};
+export type ResendEmailVerificationParam = object;
 
 export type AuthResendEmailVerificationResponse = {
     message: string;

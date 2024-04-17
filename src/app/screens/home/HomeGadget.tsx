@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import Typography from '../../atoms/Typography';
 
-function Group(): JSX.Element {
+function HomeGadget(): JSX.Element {
     return (
         <View>
-            <Typography variant="title">MyGroup</Typography>
+            <Typography variant="title">HomeGadget</Typography>
         </View>
     );
 }
 
-export default Group;
+export default HomeGadget;

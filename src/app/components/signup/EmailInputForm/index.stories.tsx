@@ -27,8 +27,6 @@ type Story = StoryObj<EmailInputFormProps>;
 
 export const Default: Story = {
     args: {
-        username: 'test',
-        password: '123456',
-        onSubmit: email => Alert.alert(`EmailInputForm email:${email}`),
+        onSubmit: email => Alert.alert(`EmailInputForm`, email),
     },
 };

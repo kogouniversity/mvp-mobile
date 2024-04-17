@@ -11,13 +11,13 @@ const styles = StyleSheet.create({
     },
 });
 
-function Home(): JSX.Element {
+function HomeFeed(): JSX.Element {
     return (
         <View>
             <View style={styles.wave} />
-            <Typography variant="title">Home</Typography>
+            <Typography variant="title">HomeFeed</Typography>
         </View>
     );
 }
 
-export default Home;
+export default HomeFeed;

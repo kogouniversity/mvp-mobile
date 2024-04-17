@@ -27,6 +27,7 @@ type Story = StoryObj<EmailVerificationFormProps>;
 
 export const Default: Story = {
     args: {
-        onSubmit: userData => Alert.alert(`EmailVerificationForm userdata: ${JSON.stringify(userData)}`),
+        onSubmit: (code: string) => Alert.alert(`EmailVerificationForm`, code),
+        onResendCode: () => Alert.alert(`EmailVerificationForm.`, 'new code is requested'),
     },
 };

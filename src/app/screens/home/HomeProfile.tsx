@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-function Profile(): JSX.Element {
+
+function HomeProfile(): JSX.Element {
     const [isOn, setIsOn] = useState(false);
     const onPress = () => setIsOn(prev => !prev);
 
@@ -144,4 +145,4 @@ function Profile(): JSX.Element {
     );
 }
 
-export default Profile;
+export default HomeProfile;

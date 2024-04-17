@@ -1,12 +1,12 @@
 import { View } from 'react-native';
 import Typography from '../../atoms/Typography';
 
-function Tools(): JSX.Element {
+function HomeExplore(): JSX.Element {
     return (
         <View>
-            <Typography variant="title">Schedule</Typography>
+            <Typography variant="title">HomeExplore</Typography>
         </View>
     );
 }
 
-export default Tools;
+export default HomeExplore;

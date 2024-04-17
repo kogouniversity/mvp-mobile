@@ -4,16 +4,12 @@ import { captureAxiosError } from '../../../../utils/sentry';
 import { AuthEmailVerificationResponse, EmailVerificationParam } from './types';
 import { BaseErrorResponse } from '../../types';
 
-const postEmailVerification = async ({
-    email,
-    verificationCode,
-}: EmailVerificationParam): Promise<AuthEmailVerificationResponse> => {
+const postEmailVerification = async ({ code }: EmailVerificationParam): Promise<AuthEmailVerificationResponse> => {
     try {
         const response = await axios.post<AuthEmailVerificationResponse>(
             '/api/auth/local/email-verification',
             {
-                email,
-                verification_code: verificationCode,
+                code,
             },
             {
                 headers: {

@@ -1,8 +1,10 @@
 import { AuthUserDataResponse } from '../types';
 
 export type EmailVerificationParam = {
-    email: string;
-    verificationCode: string;
+    code: string;
 };
 
-export type AuthEmailVerificationResponse = AuthUserDataResponse;
+export type AuthEmailVerificationResponse = {
+    message: string;
+    user: AuthUserDataResponse['user'];
+};

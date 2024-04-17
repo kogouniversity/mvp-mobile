@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
     },
 });
 
-function Login(): JSX.Element {
+function AuthLogin(): JSX.Element {
     const navigation = useNavigation();
     return (
         <View style={{ alignItems: 'center' }}>
-            <LoginForm onSignIn={() => navigation.navigate('Home')} />
+            <LoginForm onSignIn={() => navigation.navigate('HomeNav')} />
             <View>
                 <Typography variant="subtext" style={styles.typo}>
                     Don&apos;t have a Kogo account yet?&nbsp;
@@ -34,7 +34,7 @@ function Login(): JSX.Element {
                             ...styles.typo,
                             textDecorationLine: 'underline',
                         }}
-                        onPress={() => navigation.navigate('SignUp', {})}>
+                        onPress={() => navigation.navigate('SignUpNav')}>
                         Sign Up
                     </Typography>
                 </Typography>
@@ -43,4 +43,4 @@ function Login(): JSX.Element {
     );
 }
 
-export default Login;
+export default AuthLogin;
