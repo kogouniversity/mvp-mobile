@@ -26,11 +26,10 @@ const MainNavigator = () => (
                 } else if (route.name === 'MySchool') {
                     iconName = 'school';
                     Component = Ionicons;
-                    
                 } else if (route.name === 'Schedule') {
                     iconName = 'calendar';
                     Component = Entypo;
-                }else if (route.name === 'Explore') {
+                } else if (route.name === 'Explore') {
                     iconName = 'sprout';
                     Component = MaterialCommunityIcons;
                 } else if (route.name === 'Profile') {
@@ -44,7 +43,7 @@ const MainNavigator = () => (
         })}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="MySchool" component={SchoolFeed} />
-        <Tab.Screen name="Schedule" component={Schedule}/>
+        <Tab.Screen name="Schedule" component={Schedule} />
         <Tab.Screen name="Explore" component={MyGroup} />
         <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
