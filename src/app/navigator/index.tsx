@@ -6,13 +6,12 @@ import Intro from '../screens/Intro';
 import Login from '../screens/login/Login';
 import Home from '../screens/main/Home';
 import Profile from '../screens/main/Profile';
-import NewPost from '../screens/newpost/NewPost';
+import Schedule from '../screens/schedule/Schedule';
 import EmailInput from '../screens/signup/EmailInput';
 import EmailVerificationInput from '../screens/signup/EmailVerificationInput';
 import IdAndPasswordInput from '../screens/signup/IdAndPasswordInput';
 import SchoolFeed from '../screens/schoolfeed/SchoolFeed';
 import MyGroup from '../screens/group/MyGroup';
-import NewGroup from '../screens/newgroup/NewGroup';
 
 // ======================
 // Stack Navigator
@@ -49,8 +48,7 @@ function MainNavigator(): JSX.Element {
         <Tab.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={withStatusBar(Home)} />
             <Tab.Screen name="MySchool" component={withStatusBar(SchoolFeed)} />
-            <Tab.Screen name="NewPost" component={withStatusBar(NewPost)} />
-            <Tab.Screen name="NewGroup" component={withStatusBar(NewGroup)} />
+            <Tab.Screen name="Schedule" component={withStatusBar(Schedule)} />
             <Tab.Screen name="Explore" component={withStatusBar(MyGroup)} />
             <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
         </Tab.Navigator>

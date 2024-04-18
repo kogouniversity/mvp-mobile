@@ -3,11 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/main/Home';
 import SchoolFeed from '../screens/schoolfeed/SchoolFeed';
-import NewPost from '../screens/newpost/NewPost';
+import Schedule from '../screens/schedule/Schedule';
 import Profile from '../screens/main/Profile';
 import MyGroup from '../screens/group/MyGroup';
-import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
-import NewPostPopup from '../components/NewButton';
+import { Ionicons, MaterialCommunityIcons, FontAwesome5, Entypo } from '@expo/vector-icons';
 import React from 'react';
 
 const Tab = createBottomTabNavigator();
@@ -27,7 +26,11 @@ const MainNavigator = () => (
                 } else if (route.name === 'MySchool') {
                     iconName = 'school';
                     Component = Ionicons;
-                } else if (route.name === 'Explore') {
+                    
+                } else if (route.name === 'Schedule') {
+                    iconName = 'calendar';
+                    Component = Entypo;
+                }else if (route.name === 'Explore') {
                     iconName = 'sprout';
                     Component = MaterialCommunityIcons;
                 } else if (route.name === 'Profile') {
@@ -41,13 +44,7 @@ const MainNavigator = () => (
         })}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="MySchool" component={SchoolFeed} />
-        <Tab.Screen
-            name="NewPost"
-            component={NewPost}
-            options={{
-                tabBarButton: props => <NewPostPopup {...props} />,
-            }}
-        />
+        <Tab.Screen name="Schedule" component={Schedule}/>
         <Tab.Screen name="Explore" component={MyGroup} />
         <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>

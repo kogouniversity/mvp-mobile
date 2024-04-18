@@ -19,6 +19,7 @@ type SignUpStackParamList = {
 type MainTabParamList = {
     Home: object | undefined;
     MySchool: object | undefined;
+    Schedule:object | undefined;
     NewPost: object | undefined;
     NewGroup: object | undefined;
     Explore: object | undefined;
