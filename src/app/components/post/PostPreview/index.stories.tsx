@@ -7,7 +7,7 @@ import PostPreview from '.';
 import { ImageSrcUrl } from '../../../utils/images';
 
 const meta: ComponentMeta<typeof PostPreview> = {
-    title: 'Components/post/PostPreview',
+    title: 'Components/Post/PostPreview',
     component: PostPreview,
     decorators: [
         (Story: StoryFn): JSX.Element => (

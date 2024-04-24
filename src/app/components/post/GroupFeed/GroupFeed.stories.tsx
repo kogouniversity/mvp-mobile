@@ -1,13 +1,13 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory, StoryObj, StoryFn } from '@storybook/react-native';
+import { ComponentMeta, ComponentStory, StoryFn } from '@storybook/react-native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import GroupFeed from './GroupFeed';
 
 const meta: ComponentMeta<typeof GroupFeed> = {
-    title: 'Components/post/GroupFeed',
+    title: 'Components/Post/GroupFeed',
     component: GroupFeed,
     decorators: [
-        (Story: StoryFn) => (
+        (Story: StoryFn): JSX.Element => (
             <QueryClientProvider client={new QueryClient()}>
                 <Story />
             </QueryClientProvider>
@@ -17,7 +17,9 @@ const meta: ComponentMeta<typeof GroupFeed> = {
 
 export default meta;
 
-const Template: ComponentStory<typeof GroupFeed> = args => <GroupFeed {...args} />;
+const Template: ComponentStory<typeof GroupFeed> = function (args) {
+    return <GroupFeed {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {

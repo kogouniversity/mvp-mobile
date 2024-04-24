@@ -1,79 +1,83 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { NavigationParamList } from './types';
+import { withStatusBar } from './hoc';
 import Intro from '../screens/Intro';
 import AuthLogin from '../screens/auth/AuthLogin';
 import AuthSignupEmailInput from '../screens/auth/signup/AuthSignupEmailInput';
 import AuthSignupEmailVerification from '../screens/auth/signup/AuthSignupEmailVerification';
 import AuthSignupIdAndPassword from '../screens/auth/signup/AuthSignupIdAndPassword';
-import HomeFeed from '../screens/home/HomeFeed';
-import HomeMyGroup from '../screens/home/HomeMyGroup';
-import HomeGadget from '../screens/home/HomeProfile';
-import HomeExplore from '../screens/home/HomeExplore';
-import HomeProfile from '../screens/home/HomeGadget';
+import GroupMyGroups from '../screens/group/GroupMyGroups';
+import Feed from '../screens/Feed';
+import Profile from '../screens/Profile';
+import Gadget from '../screens/Gadget';
+import { NavigationParamList } from './types';
+import GroupNewGroup from '../screens/group/GroupNewGroup';
 
-const withStatusBar = (WrappedComponent: React.ComponentType): React.FC =>
-    function () {
-        return (
-            <View>
-                <StatusBar />
-                <WrappedComponent />
-            </View>
-        );
-    };
-
-// ======================
-// Stack Navigator
-// ======================
+const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
 
-function IntroStackNavigator(): JSX.Element {
+export default function RootNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Intro" component={withStatusBar(Intro)} />
-            <Stack.Screen name="AuthLogin" component={withStatusBar(AuthLogin)} />
-            <Stack.Screen name="SignUpNav" component={SignupStackNavigator} />
+        <Stack.Navigator initialRouteName="/" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/" component={withStatusBar(Intro)} />
+            <Stack.Screen name="/Login" component={withStatusBar(AuthLogin)} />
+            <Stack.Screen name="/Signup" component={withStatusBar(AuthSignupIdAndPassword)} />
+            <Stack.Screen name="/Signup/EmailInput" component={withStatusBar(AuthSignupEmailInput)} />
+            <Stack.Screen name="/Signup/EmailVerification" component={withStatusBar(AuthSignupEmailVerification)} />
+            <Stack.Screen name="/Home" component={HomeTabNavigator} />
         </Stack.Navigator>
     );
 }
-
-function SignupStackNavigator(): JSX.Element {
-    return (
-        <Stack.Navigator initialRouteName="AuthSignupIdAndPassword" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="AuthSignupIdAndPassword" component={withStatusBar(AuthSignupIdAndPassword)} />
-            <Stack.Screen name="AuthSignupEmailInput" component={withStatusBar(AuthSignupEmailInput)} />
-            <Stack.Screen name="AuthSignupEmailVerification" component={withStatusBar(AuthSignupEmailVerification)} />
-        </Stack.Navigator>
-    );
-}
-
-// ======================
-// Tab Navigator
-// ======================
-const Tab = createBottomTabNavigator<NavigationParamList>();
 
 function HomeTabNavigator(): JSX.Element {
     return (
-        <Tab.Navigator initialRouteName="HomeFeed" screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="HomeFeed" component={withStatusBar(HomeFeed)} />
-            <Tab.Screen name="HomeMyGroup" component={withStatusBar(HomeMyGroup)} />
-            <Tab.Screen name="HomeGadget" component={withStatusBar(HomeGadget)} />
-            <Tab.Screen name="HomeExplore" component={withStatusBar(HomeExplore)} />
-            <Tab.Screen name="HomeProfile" component={withStatusBar(HomeProfile)} />
+        <Tab.Navigator initialRouteName="/Home/Gadget" screenOptions={{ headerShown: false }}>
+            <Tab.Screen name="/Home/Feed" component={withStatusBar(FeedStackNavigator)} />
+            <Tab.Screen name="/Home/MyGroups" component={withStatusBar(MyGroupStackNavigator)} />
+            <Tab.Screen name="/Home/Gadget" component={withStatusBar(GadgetStackNavigator)} />
+            <Tab.Screen name="/Home/GroupExplore" component={withStatusBar(GroupExploreStackNavigator)} />
+            <Tab.Screen name="/Home/Profile" component={withStatusBar(ProfileStackNavigator)} />
         </Tab.Navigator>
     );
 }
 
-// ======================
-// Root Navigator
-// ======================
-export default function RootNavigator(): JSX.Element {
+function MyGroupStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="IntroNav" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="IntroNav" component={IntroStackNavigator} />
-            <Stack.Screen name="HomeNav" component={HomeTabNavigator} />
+        <Stack.Navigator initialRouteName="/Home/MyGroups" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/MyGroups" component={withStatusBar(GroupMyGroups)} />
+        </Stack.Navigator>
+    );
+}
+
+function GroupExploreStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/GroupExplore" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/GroupExplore" component={withStatusBar(GroupMyGroups)} />
+            <Stack.Screen name="/Home/GroupExplore/NewGroup" component={withStatusBar(GroupNewGroup)} />
+        </Stack.Navigator>
+    );
+}
+
+function FeedStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/Feed" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/Feed" component={withStatusBar(Feed)} />
+        </Stack.Navigator>
+    );
+}
+
+function GadgetStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/Gadget" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/Gadget" component={withStatusBar(Gadget)} />
+        </Stack.Navigator>
+    );
+}
+
+function ProfileStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/Profile" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/Profile" component={withStatusBar(Profile)} />
         </Stack.Navigator>
     );
 }

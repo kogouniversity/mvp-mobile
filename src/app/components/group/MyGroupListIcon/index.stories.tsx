@@ -4,7 +4,7 @@ import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import MyGroupListIcon, { MyGroupListIconProps } from './index';
 
 const meta: ComponentMeta<typeof MyGroupListIcon> = {
-    title: 'Components/group/MyGroupListIcon',
+    title: 'Components/Group/MyGroupListIcon',
     component: MyGroupListIcon,
     decorators: [
         (Story: StoryFn): JSX.Element => (

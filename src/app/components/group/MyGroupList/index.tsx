@@ -40,13 +40,12 @@ const MyGroupList: React.FC<MyGroupListProps> = function ({ userId }) {
                 )}
             </View>
         );
-    } else {
-        return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
-        );
     }
+    return (
+        <View>
+            <Text>Loading...</Text>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({

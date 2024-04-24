@@ -4,7 +4,7 @@ import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import IdAndPasswordInputForm, { IdAndPasswordInputFormProps } from '.';
 
 const meta: ComponentMeta<typeof IdAndPasswordInputForm> = {
-    title: 'Components/IdAndPasswordInputForm',
+    title: 'Components/Signup/IdAndPasswordInputForm',
     component: IdAndPasswordInputForm,
     decorators: [
         (Story: StoryFn): JSX.Element => (

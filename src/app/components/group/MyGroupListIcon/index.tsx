@@ -37,13 +37,12 @@ const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ userId, onGr
                 ))}
             </List>
         );
-    } else {
-        return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
-        );
     }
+    return (
+        <View>
+            <Text>Loading...</Text>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({

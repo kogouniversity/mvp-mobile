@@ -6,7 +6,7 @@ import GroupPreview from '.';
 import { ImageSrcUrl } from '../../../utils/images';
 
 const meta: ComponentMeta<typeof GroupPreview> = {
-    title: 'Components/group/GroupPreview',
+    title: 'Components/Group/GroupPreview',
     component: GroupPreview,
     decorators: [
         (Story: StoryFn): JSX.Element => (

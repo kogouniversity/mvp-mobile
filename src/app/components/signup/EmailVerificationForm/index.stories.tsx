@@ -4,7 +4,7 @@ import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import EmailVerificationCodeForm, { EmailVerificationFormProps } from '.';
 
 const meta: ComponentMeta<typeof EmailVerificationCodeForm> = {
-    title: 'Components/EmailVerificationCodeForm',
+    title: 'Components/Signup/EmailVerificationCodeForm',
     component: EmailVerificationCodeForm,
     decorators: [
         (Story: StoryFn): JSX.Element => (
