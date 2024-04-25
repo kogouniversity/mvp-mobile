@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,13 +6,6 @@ import { Controller, useForm } from 'react-hook-form';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
 import Typography from '../../../atoms/Typography';
-import { useSchoolList } from '../../../hooks/api/school/useSchoolList';
-import { SchoolListEntryResponse } from '../../../hooks/api/school/useSchoolList/types';
-
-function extractSchoolEmailDomain(schoolListData: SchoolListEntryResponse): string[] {
-    const domains = schoolListData.data.map(entryObj => entryObj.attributes.schoolEmailDomain);
-    return domains;
-}
 
 const schema = z.object({
     email: z.string().email('Invalid email'),
@@ -32,30 +25,12 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
         handleSubmit,
         formState: { errors },
         getValues,
-        setError,
     } = useForm({
         resolver: zodResolver(schema),
     });
 
-    const { data, isSuccess } = useSchoolList({
-        retry: true,
-    });
-    const schoolEmailDomains = useMemo(() => (isSuccess ? extractSchoolEmailDomain(data) : []), [data, isSuccess]);
-
     async function submitCallback() {
-        const emailSuffix = getValues('email').match(/.+@(.+)/);
-        let match = false;
-        if (emailSuffix.length > 1) {
-            const suffix = emailSuffix[1];
-            schoolEmailDomains.forEach(schoolDomain => {
-                if (suffix.includes(schoolDomain)) match = true;
-            });
-        }
-        if (match) {
-            onSubmit(getValues('email'));
-        } else {
-            setError('email', { type: 'custom', message: 'Sorry, this email is not a valid student email.' });
-        }
+        onSubmit(getValues('email'));
     }
 
     return (
@@ -85,7 +60,7 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
                 variant="primary"
                 size="md"
                 testID="submit-btn"
-                disabled={!isSuccess}
+                disabled={getValues('email') && getValues('email').length > 0}
                 onPress={handleSubmit(submitCallback)}
             />
         </View>

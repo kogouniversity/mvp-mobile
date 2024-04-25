@@ -1,8 +1,8 @@
 import { View, Image, Dimensions } from 'react-native';
 import { CommonActions } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { useNavigation } from '../utils/navigation';
 import { ImageSrcUrl } from '../utils/images';
+import { useNavigation } from '../navigator/useNavigation';
 
 function Intro(): JSX.Element {
     const navigation = useNavigation();

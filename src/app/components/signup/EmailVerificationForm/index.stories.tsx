@@ -4,7 +4,7 @@ import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import EmailVerificationCodeForm, { EmailVerificationFormProps } from '.';
 
 const meta: ComponentMeta<typeof EmailVerificationCodeForm> = {
-    title: 'Components/EmailVerificationCodeForm',
+    title: 'Components/Signup/EmailVerificationCodeForm',
     component: EmailVerificationCodeForm,
     decorators: [
         (Story: StoryFn): JSX.Element => (
@@ -27,6 +27,7 @@ type Story = StoryObj<EmailVerificationFormProps>;
 
 export const Default: Story = {
     args: {
-        onSubmit: userData => Alert.alert(`EmailVerificationForm userdata: ${JSON.stringify(userData)}`),
+        onSubmit: (code: string) => Alert.alert(`EmailVerificationForm`, code),
+        onResendCode: () => Alert.alert(`EmailVerificationForm.`, 'new code is requested'),
     },
 };

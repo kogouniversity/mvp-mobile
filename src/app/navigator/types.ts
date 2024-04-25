@@ -1,32 +1,21 @@
-type RootStackParamList = {
-    OnBoarding: object | undefined;
-    Login: object | undefined;
-    Main: object | undefined;
+export type ComponentRouteParam = {
+    AuthSignupEmailInput: { username: string; password: string };
+    AuthSignupEmailVerification: { email: string };
+    GroupMyGroupFeed: { groupId: string | number };
 };
 
-type OnBoardingStackParamList = {
-    Intro: object | undefined;
-    Login: object | undefined;
-    SignUp: object | undefined;
+export type NavigationParamList = {
+    '/': undefined;
+    '/Login': undefined;
+    '/Signup': undefined;
+    '/Signup/EmailInput': ComponentRouteParam['AuthSignupEmailInput'];
+    '/Signup/EmailVerification': ComponentRouteParam['AuthSignupEmailVerification'];
+    '/Home': undefined;
+    '/Home/Feed': undefined;
+    '/Home/MyGroups': undefined;
+    '/Home/MyGroups/GroupMyGroupFeed': ComponentRouteParam['GroupMyGroupFeed'];
+    '/Home/Gadget': undefined;
+    '/Home/GroupExplore': undefined;
+    '/Home/GroupExplore/NewGroup': undefined;
+    '/Home/Profile': undefined;
 };
-
-type SignUpStackParamList = {
-    IdAndPasswordInput: object | undefined;
-    EmailInput: { username: string; password: string; email: string };
-    EmailVerificationInput: { email: string };
-};
-
-type MainTabParamList = {
-    Home: object | undefined;
-    MySchool: object | undefined;
-    Schedule: object | undefined;
-    NewPost: object | undefined;
-    NewGroup: object | undefined;
-    Explore: object | undefined;
-    Profile: object | undefined;
-};
-
-export type NavigationParamList = RootStackParamList &
-    OnBoardingStackParamList &
-    SignUpStackParamList &
-    MainTabParamList;

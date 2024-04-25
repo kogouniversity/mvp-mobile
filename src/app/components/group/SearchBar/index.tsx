@@ -1,7 +1,8 @@
+/* eslint-disable global-require */
 import React, { useState } from 'react';
+import { Feather, Ionicons } from '@expo/vector-icons';
 import { View, StyleSheet, FlatList, TouchableOpacity, Keyboard } from 'react-native';
 import { Group, GroupSearchResponse } from './types';
-import { Feather, Ionicons } from '@expo/vector-icons';
 import { List } from '../../../atoms/List';
 import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
@@ -10,7 +11,7 @@ import useSearchGroup from '../../../hooks/api/group/useSearchGroup';
 import GroupPreview from '../GroupPreview';
 import Skeleton from '../../../atoms/Skeleton';
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC = function (): JSX.Element {
     const [input, setInput] = useState('');
     const [currentKeyword, setCurrentKeyword] = useState('');
     const [searchHistory, setSearchHistory] = useState<string[]>([]);
@@ -123,6 +124,7 @@ const SearchBar: React.FC = () => {
                 <View style={{ alignItems: 'center', marginTop: 10 }}>
                     {Array.from(new Array(3)).map((_, idx) => (
                         <Skeleton
+                            // eslint-disable-next-line react/no-array-index-key
                             key={idx}
                             variant="rectangular"
                             width={390}

@@ -1,68 +1,83 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationParamList } from './types';
-import { withStatusBar } from '../screens/hoc';
+import { withStatusBar } from './hoc';
 import Intro from '../screens/Intro';
-import Login from '../screens/login/Login';
-import Home from '../screens/main/Home';
-import Profile from '../screens/main/Profile';
-import Schedule from '../screens/schedule/Schedule';
-import EmailInput from '../screens/signup/EmailInput';
-import EmailVerificationInput from '../screens/signup/EmailVerificationInput';
-import IdAndPasswordInput from '../screens/signup/IdAndPasswordInput';
-import SchoolFeed from '../screens/schoolfeed/SchoolFeed';
-import MyGroup from '../screens/group/MyGroup';
+import AuthLogin from '../screens/auth/AuthLogin';
+import AuthSignupEmailInput from '../screens/auth/signup/AuthSignupEmailInput';
+import AuthSignupEmailVerification from '../screens/auth/signup/AuthSignupEmailVerification';
+import AuthSignupIdAndPassword from '../screens/auth/signup/AuthSignupIdAndPassword';
+import GroupMyGroups from '../screens/group/GroupMyGroups';
+import Feed from '../screens/Feed';
+import Profile from '../screens/Profile';
+import Gadget from '../screens/Gadget';
+import { NavigationParamList } from './types';
+import GroupNewGroup from '../screens/group/GroupNewGroup';
 
-// ======================
-// Stack Navigator
-// ======================
+const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
 
-function OnBoardingNavigator(): JSX.Element {
+export default function RootNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Intro" component={withStatusBar(Intro)} />
-            <Stack.Screen name="Login" component={withStatusBar(Login)} />
-            <Stack.Screen name="SignUp" component={SignUpNavigator} />
+        <Stack.Navigator initialRouteName="/" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/" component={withStatusBar(Intro)} />
+            <Stack.Screen name="/Login" component={withStatusBar(AuthLogin)} />
+            <Stack.Screen name="/Signup" component={withStatusBar(AuthSignupIdAndPassword)} />
+            <Stack.Screen name="/Signup/EmailInput" component={withStatusBar(AuthSignupEmailInput)} />
+            <Stack.Screen name="/Signup/EmailVerification" component={withStatusBar(AuthSignupEmailVerification)} />
+            <Stack.Screen name="/Home" component={HomeTabNavigator} />
         </Stack.Navigator>
     );
 }
 
-function SignUpNavigator(): JSX.Element {
+function HomeTabNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="IdAndPasswordInput" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="IdAndPasswordInput" component={withStatusBar(IdAndPasswordInput)} />
-            <Stack.Screen name="EmailInput" component={withStatusBar(EmailInput)} />
-            <Stack.Screen name="EmailVerificationInput" component={withStatusBar(EmailVerificationInput)} />
-        </Stack.Navigator>
-    );
-}
-
-// ======================
-// Tab Navigator
-// ======================
-const Tab = createBottomTabNavigator<NavigationParamList>();
-
-function MainNavigator(): JSX.Element {
-    return (
-        <Tab.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="Home" component={withStatusBar(Home)} />
-            <Tab.Screen name="MySchool" component={withStatusBar(SchoolFeed)} />
-            <Tab.Screen name="Schedule" component={withStatusBar(Schedule)} />
-            <Tab.Screen name="Explore" component={withStatusBar(MyGroup)} />
-            <Tab.Screen name="Profile" component={withStatusBar(Profile)} />
+        <Tab.Navigator initialRouteName="/Home/Gadget" screenOptions={{ headerShown: false }}>
+            <Tab.Screen name="/Home/Feed" component={withStatusBar(FeedStackNavigator)} />
+            <Tab.Screen name="/Home/MyGroups" component={withStatusBar(MyGroupStackNavigator)} />
+            <Tab.Screen name="/Home/Gadget" component={withStatusBar(GadgetStackNavigator)} />
+            <Tab.Screen name="/Home/GroupExplore" component={withStatusBar(GroupExploreStackNavigator)} />
+            <Tab.Screen name="/Home/Profile" component={withStatusBar(ProfileStackNavigator)} />
         </Tab.Navigator>
     );
 }
 
-// ======================
-// Root Navigation
-// ======================
-export default function RootNavigator(): JSX.Element {
+function MyGroupStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="OnBoarding" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="OnBoarding" component={OnBoardingNavigator} />
-            <Stack.Screen name="Main" component={MainNavigator} />
+        <Stack.Navigator initialRouteName="/Home/MyGroups" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/MyGroups" component={withStatusBar(GroupMyGroups)} />
+        </Stack.Navigator>
+    );
+}
+
+function GroupExploreStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/GroupExplore" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/GroupExplore" component={withStatusBar(GroupMyGroups)} />
+            <Stack.Screen name="/Home/GroupExplore/NewGroup" component={withStatusBar(GroupNewGroup)} />
+        </Stack.Navigator>
+    );
+}
+
+function FeedStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/Feed" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/Feed" component={withStatusBar(Feed)} />
+        </Stack.Navigator>
+    );
+}
+
+function GadgetStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/Gadget" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/Gadget" component={withStatusBar(Gadget)} />
+        </Stack.Navigator>
+    );
+}
+
+function ProfileStackNavigator(): JSX.Element {
+    return (
+        <Stack.Navigator initialRouteName="/Home/Profile" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="/Home/Profile" component={withStatusBar(Profile)} />
         </Stack.Navigator>
     );
 }

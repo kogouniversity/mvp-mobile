@@ -4,7 +4,7 @@ import type { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import MyGroupList, { MyGroupListProps } from './index';
 
 const meta: ComponentMeta<typeof MyGroupList> = {
-    title: 'Components/group/MyGroupList',
+    title: 'Components/Group/MyGroupList',
     component: MyGroupList,
     decorators: [
         (Story: StoryFn): JSX.Element => (

@@ -4,7 +4,7 @@ import { ComponentMeta, StoryFn, StoryObj } from '@storybook/react-native';
 import EmailInputForm, { EmailInputFormProps } from '.';
 
 const meta: ComponentMeta<typeof EmailInputForm> = {
-    title: 'Components/EmailInputForm',
+    title: 'Components/Signup/EmailInputForm',
     component: EmailInputForm,
     decorators: [
         (Story: StoryFn): JSX.Element => (
@@ -27,8 +27,6 @@ type Story = StoryObj<EmailInputFormProps>;
 
 export const Default: Story = {
     args: {
-        username: 'test',
-        password: '123456',
-        onSubmit: email => Alert.alert(`EmailInputForm email:${email}`),
+        onSubmit: email => Alert.alert(`EmailInputForm`, email),
     },
 };
