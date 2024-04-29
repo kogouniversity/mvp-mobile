@@ -10,7 +10,7 @@ import { mswApiUrl } from '../msw/utils';
 /**
  * To force quitting Jest process after the test completion
  */
-afterAll(() => setTimeout(() => process.exit(), 1000));
+afterAll(() => setTimeout(() => process.exit(), 3000));
 
 // Mock Sentry
 jest.mock('./app/utils/sentry', () => ({
