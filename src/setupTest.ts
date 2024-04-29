@@ -5,6 +5,11 @@
 /* eslint-disable @typescript-eslint/no-useless-constructor */
 import '@testing-library/jest-dom';
 
+/**
+ * To force quitting Jest process after the test completion
+ */
+afterAll(() => setTimeout(() => process.exit(), 1000));
+
 // Mock Sentry
 jest.mock('./app/utils/sentry', () => ({
     Sentry: {

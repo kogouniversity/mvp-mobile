@@ -7,6 +7,11 @@ import axios from 'axios';
 import server from '../msw/server';
 import { mswApiUrl } from '../msw/utils';
 
+/**
+ * To force quitting Jest process after the test completion
+ */
+afterAll(() => setTimeout(() => process.exit(), 1000));
+
 // Mock Sentry
 jest.mock('./app/utils/sentry', () => ({
     Sentry: {
