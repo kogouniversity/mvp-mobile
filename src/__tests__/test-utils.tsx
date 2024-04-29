@@ -1,11 +1,19 @@
 import { render, renderHook } from '@testing-library/react-native';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientConfig, QueryClientProvider } from '@tanstack/react-query';
 import { AxiosError, AxiosRequestHeaders, AxiosResponse } from 'axios';
+
+const queryConfig: QueryClientConfig = {
+    defaultOptions: {
+        queries: {
+            retry: false,
+        },
+    },
+};
 
 const QueryClientWrapper: React.FC<{
     children: JSX.Element[];
 }> = function ({ children }) {
-    const queryClient = new QueryClient();
+    const queryClient = new QueryClient(queryConfig);
     return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
