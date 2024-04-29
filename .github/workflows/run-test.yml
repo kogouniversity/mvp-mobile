@@ -27,7 +27,7 @@ jobs:
               run: npm install
 
             - name: Run Unit Tests
-              run: CI=true npm test
+              run: CI=true npm test --detectOpenHandles
 
             #- name: Run Integration Tests
             #  run: CI=true npm run test:integration
