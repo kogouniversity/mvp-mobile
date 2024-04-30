@@ -7,5 +7,5 @@ export interface SelectFieldProps {
     label: string;
     data: OptionType[];
     onSelect: (option: OptionType) => void;
-    width?: number; 
+    width?: number;
 }

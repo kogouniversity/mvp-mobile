@@ -14,11 +14,9 @@ const fetchScheduleBySemester = async (semester: string): Promise<Courses> => {
     }
 };
 
-export function useGetSchedule(
-    semester: string
-):UseQueryResult<Courses, BaseErrorResponse> {
+export function useGetSchedule(semester: string): UseQueryResult<Courses, BaseErrorResponse> {
     return useQuery<Courses, BaseErrorResponse>({
         queryKey: ['semester', semester],
-        queryFn: () => fetchScheduleBySemester(semester)
+        queryFn: () => fetchScheduleBySemester(semester),
     });
 }

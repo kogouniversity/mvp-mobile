@@ -3,12 +3,11 @@ export interface Session {
     startTime: string;
     endTime: string;
     type: string;
-  }
-  
-  export interface Course {
+}
+
+export interface Course {
     courseName: string;
     sessions: Session[];
-  }
-  
-  export type Courses = Course[];
-  
+}
+
+export type Courses = Course[];

@@ -22,7 +22,7 @@ interface Course {
     sessions: Session[];
 }
 
-const Schedule = function ({ courses }: { courses: Course[] }): JSX.Element {
+const Schedule = ({ courses }: { courses: Course[] }) => {
     const timeToMinutes = (time: string) => {
         const [hours, minutes] = time.split(':').map(Number);
         return hours * totalMinutesInHour + minutes;
@@ -30,15 +30,16 @@ const Schedule = function ({ courses }: { courses: Course[] }): JSX.Element {
 
     const calculateTopOffset = (startTime: string, baseHour: string) => {
         const startTimeMinutes = timeToMinutes(startTime);
-        const baseHourMinutes = timeToMinutes(`${baseHour}:00`);
+        const baseHourMinutes = timeToMinutes(baseHour + ':00');
         return ((startTimeMinutes - baseHourMinutes) / totalMinutesInHour) * timeSlotHeight;
     };
 
-    const calculateSessionDuration = (startTime: string, endTime: string) =>
-        ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
+    const calculateSessionDuration = (startTime: string, endTime: string) => {
+        return ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
+    };
 
-    const renderSessions = (day: string) =>
-        courses.flatMap((course, courseIndex) =>
+    const renderSessions = (day: string) => {
+        return courses.flatMap((course, courseIndex) =>
             course.sessions
                 .filter(session => session.day === day)
                 .map((session, sessionIndex) => {
@@ -65,6 +66,7 @@ const Schedule = function ({ courses }: { courses: Course[] }): JSX.Element {
                     );
                 }),
         );
+    };
 
     return (
         <View style={styles.container}>
@@ -83,7 +85,7 @@ const Schedule = function ({ courses }: { courses: Course[] }): JSX.Element {
                         <Text>{hour}:00</Text>
                     </View>
                     {daysOfWeek.map(day => (
-                        <View key={`${day}-${hour}`} style={styles.dayColumn} />
+                        <View key={`${day}-${hour}`} style={styles.dayColumn}></View>
                     ))}
                 </View>
             ))}
