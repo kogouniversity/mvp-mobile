@@ -7,7 +7,9 @@ export default {
     component: IntroAnimation,
 } as ComponentMeta<typeof IntroAnimation>;
 
-const Template: StoryFn<typeof IntroAnimation> = () => <IntroAnimation />;
+const Template: StoryFn<typeof IntroAnimation> = function () {
+    return <IntroAnimation />;
+};
 
 export const Default: StoryObj<typeof IntroAnimation> = {
     render: Template,

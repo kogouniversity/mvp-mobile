@@ -16,8 +16,7 @@ export const handlers = [
 
         if (matchingPosts.length > 0) {
             return res(ctx.status(200), ctx.json({ data: matchingPosts }));
-        } else {
-            return res(ctx.status(404), ctx.json(errorResponse));
         }
+        return res(ctx.status(404), ctx.json(errorResponse));
     }),
 ];

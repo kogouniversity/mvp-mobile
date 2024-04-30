@@ -9,29 +9,35 @@ type MockNavigationType = {
     navigate: (screenName: string) => void;
 };
 
-const ScreenOne = ({ navigation }: { navigation: MockNavigationType }) => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Screen One</Text>
-        <Button title="Go to Screen Two" onPress={() => navigation.navigate('ScreenTwo')} />
-    </View>
-);
+const ScreenOne = function ({ navigation }: { navigation: MockNavigationType }) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Screen One</Text>
+            <Button title="Go to Screen Two" onPress={() => navigation.navigate('ScreenTwo')} />
+        </View>
+    );
+};
 
-const ScreenTwo = ({ navigation }: { navigation: MockNavigationType }) => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Screen Two</Text>
-        <Button title="Go to Screen Three" onPress={() => navigation.navigate('ScreenThree')} />
-        <BackButton navigation={navigation as NavigationProp<ParamListBase>} />
-    </View>
-);
+const ScreenTwo = function ({ navigation }: { navigation: MockNavigationType }) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Screen Two</Text>
+            <Button title="Go to Screen Three" onPress={() => navigation.navigate('ScreenThree')} />
+            <BackButton navigation={navigation as NavigationProp<ParamListBase>} />
+        </View>
+    );
+};
 
-const ScreenThree = ({ navigation }: { navigation: MockNavigationType }) => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Screen Three</Text>
-        <BackButton navigation={navigation as NavigationProp<ParamListBase>} />
-    </View>
-);
+const ScreenThree = function ({ navigation }: { navigation: MockNavigationType }) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Screen Three</Text>
+            <BackButton navigation={navigation as NavigationProp<ParamListBase>} />
+        </View>
+    );
+};
 
-const MockNavigationContainer = () => {
+const MockNavigationContainer = function () {
     const [history, setHistory] = useState<string[]>(['ScreenOne']);
 
     const navigate = (screenName: string) => {
@@ -60,6 +66,8 @@ const MockNavigationContainer = () => {
         case 'ScreenThree':
             ScreenComponent = ScreenThree;
             break;
+        default:
+            break;
     }
 
     return <ScreenComponent navigation={mockNavigation as NavigationProp<ParamListBase>} />;
@@ -72,7 +80,9 @@ const meta: ComponentMeta<typeof BackButton> = {
 
 export default meta;
 
-const Template: StoryFn<typeof MockNavigationContainer> = () => <MockNavigationContainer />;
+const Template: StoryFn<typeof MockNavigationContainer> = function () {
+    return <MockNavigationContainer />;
+};
 
 export const Default: StoryObj<typeof MockNavigationContainer> = {
     render: Template,

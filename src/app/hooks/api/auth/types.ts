@@ -1,6 +1,6 @@
-import { UserEntry } from '../user/useUserInformation/types';
+import { UserGetEntryResponse } from '../user/useUserInformation/types';
 
 export type AuthUserDataResponse = {
-    user: UserEntry;
+    user: UserGetEntryResponse;
     jwt: string;
 };

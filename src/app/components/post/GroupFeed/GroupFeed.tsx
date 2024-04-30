@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 import { usePostsByGroup } from '../../../hooks/api/post/usePostsByGroup';
 import PostPreview from '../PostPreview';
 import Skeleton from '../../../atoms/Skeleton';
@@ -8,9 +8,9 @@ import { List } from '../../../atoms/List';
 import { GroupPostsProps, PostData, OptionType } from './types';
 import { ImageSrcUrl } from '../../../utils/images';
 
-const GroupFeed: React.FC<GroupPostsProps> = ({ groupName }) => {
+const GroupFeed: React.FC<GroupPostsProps> = function ({ groupName }) {
     const { data: queryData, isLoading, isError } = usePostsByGroup(groupName);
-    const [selectedSort, setSelectedSort] = useState('Recent');
+    const [, setSelectedSort] = useState('Recent');
 
     const handleSortChange = (option: OptionType) => {
         setSelectedSort(option.value);
@@ -28,7 +28,7 @@ const GroupFeed: React.FC<GroupPostsProps> = ({ groupName }) => {
         return <Text style={styles.errorText}>Group not found or data is unavailable</Text>;
     }
 
-    const data = queryData.data;
+    const { data } = queryData;
 
     const renderPost = ({ item }: { item: PostData }) => {
         const contentPreview = Array.isArray(item.attributes.content)
@@ -48,7 +48,7 @@ const GroupFeed: React.FC<GroupPostsProps> = ({ groupName }) => {
                 numOfLikes={10}
                 numOfComments={5}
                 authorSchoolName="SFU"
-                onPress={() => console.log('Post pressed', item.id)}
+                onPress={() => Alert.alert('Post pressed', `${item.id}`)}
             />
         );
     };

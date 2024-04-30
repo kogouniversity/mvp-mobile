@@ -6,6 +6,7 @@ import {
     ViewStyle,
     TextInputChangeEventData,
     TextInputKeyPressEventData,
+    TextStyle,
 } from 'react-native';
 import { Noop } from 'react-hook-form';
 import TextField from '../../atoms/TextField';
@@ -70,6 +71,11 @@ const TagInput: React.FC<TagInputProps> = function ({ setTagValues, onChangeText
         setTags(filtered);
     };
 
+    let textStyle: TextStyle = styles.extended;
+    if (tags.length > 0) {
+        textStyle = tags.length < 5 ? styles.textField : styles.hiddenTextField;
+    }
+
     return (
         <View style={style}>
             <View style={styles.tagsContainer}>
@@ -82,13 +88,7 @@ const TagInput: React.FC<TagInputProps> = function ({ setTagValues, onChangeText
                     variant="standard"
                     placeholder="#"
                     value={input}
-                    style={
-                        tags.length > 0
-                            ? tags.length < 5
-                                ? styles.textField
-                                : styles.hiddenTextField
-                            : styles.extended
-                    }
+                    style={textStyle}
                     onChange={handleInput}
                     onChangeText={onChangeText}
                     onBlur={onBlur}
