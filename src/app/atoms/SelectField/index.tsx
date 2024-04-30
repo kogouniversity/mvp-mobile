@@ -3,7 +3,7 @@ import { Modal, View, TouchableOpacity, Text, FlatList, StyleSheet } from 'react
 import { AntDesign } from '@expo/vector-icons';
 import { SelectFieldProps, OptionType } from './types';
 
-const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelect }) {
+const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelect, width}) {
     const [visible, setVisible] = useState(false);
     const [selectTop, setSelectTop] = useState(0);
     const [buttonMeasurements, setButtonMeasurements] = useState({
@@ -48,7 +48,7 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
         <View>
             <TouchableOpacity
                 ref={SelectButton}
-                style={[styles.button, { width: buttonMeasurements.width || '18%' }]}
+                style={[styles.button, { width: width }]} 
                 onPress={toggleSelect}>
                 <Text style={[styles.buttonText, selectedItem ? styles.selectedItem : {}]}>
                     {selectedItem ? selectedItem.label : label}

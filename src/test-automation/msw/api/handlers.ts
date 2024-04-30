@@ -4,6 +4,7 @@ import { handlers as schoolsHandlers } from './school';
 import { handlers as postHandlers } from './post';
 import { handlers as groupHandlers } from './group';
 import { handlers as userHandlers } from './user';
+import {handlers as scheduleHandlers} from './schedule'
 
 export default [
     ...loginHandlers,
@@ -12,4 +13,5 @@ export default [
     ...postHandlers,
     ...groupHandlers,
     ...userHandlers,
+    ...scheduleHandlers,
 ];
