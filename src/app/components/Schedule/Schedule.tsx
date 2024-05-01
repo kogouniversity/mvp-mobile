@@ -22,23 +22,23 @@ interface Course {
     sessions: Session[];
 }
 
-const Schedule = ({ courses }: { courses: Course[] }) => {
-    const timeToMinutes = (time: string) => {
+function Schedule({ courses }: { courses: Course[] }): JSX.Element {
+    const timeToMinutes = (time: string): number => {
         const [hours, minutes] = time.split(':').map(Number);
         return hours * totalMinutesInHour + minutes;
     };
 
-    const calculateTopOffset = (startTime: string, baseHour: string) => {
+    const calculateTopOffset = (startTime: string, baseHour: string): number => {
         const startTimeMinutes = timeToMinutes(startTime);
-        const baseHourMinutes = timeToMinutes(baseHour + ':00');
+        const baseHourMinutes = timeToMinutes(`${baseHour}:00`);
         return ((startTimeMinutes - baseHourMinutes) / totalMinutesInHour) * timeSlotHeight;
     };
 
-    const calculateSessionDuration = (startTime: string, endTime: string) => {
+    const calculateSessionDuration = (startTime: string, endTime: string): number => {
         return ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
     };
 
-    const renderSessions = (day: string) => {
+    const renderSessions = (day: string): JSX.Element[] => {
         return courses.flatMap((course, courseIndex) =>
             course.sessions
                 .filter(session => session.day === day)
@@ -57,11 +57,7 @@ const Schedule = ({ courses }: { courses: Course[] }) => {
                                     backgroundColor: 'lightblue',
                                 },
                             ]}>
-                            <Text>
-                                {course.courseName} {'\n'}
-                                {session.type} {'\n'}
-                                {session.startTime}-{session.endTime}
-                            </Text>
+                            <Text>{`${course.courseName}\n${session.type}\n${session.startTime}-${session.endTime}`}</Text>
                         </View>
                     );
                 }),
@@ -78,14 +74,13 @@ const Schedule = ({ courses }: { courses: Course[] }) => {
                     </View>
                 ))}
             </View>
-
             {hoursOfDay.map(hour => (
                 <View key={hour} style={styles.row}>
                     <View style={[styles.timeCell, { width: timeColumnWidth }]}>
-                        <Text>{hour}:00</Text>
+                        <Text>{`${hour}:00`}</Text>
                     </View>
                     {daysOfWeek.map(day => (
-                        <View key={`${day}-${hour}`} style={styles.dayColumn}></View>
+                        <View key={`${day}-${hour}`} style={styles.dayColumn} />
                     ))}
                 </View>
             ))}
@@ -96,7 +91,9 @@ const Schedule = ({ courses }: { courses: Course[] }) => {
             ))}
         </View>
     );
-};
+}
+
+export default Schedule;
 
 const styles = StyleSheet.create({
     container: {
@@ -155,5 +152,3 @@ const styles = StyleSheet.create({
         zIndex: 500,
     },
 });
-
-export default Schedule;
