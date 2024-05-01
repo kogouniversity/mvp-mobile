@@ -55,9 +55,8 @@ function Schedule({ courses }: { courses: Course[] }): JSX.Element {
         return ((startTimeMinutes - baseHourMinutes) / totalMinutesInHour) * timeSlotHeight;
     };
 
-    const sessionDuration = (startTime: string, endTime: string): number => {
-        return ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
-    };
+    const sessionDuration = (startTime: string, endTime: string): number => 
+    ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
 
     return (
         <View style={styles.container}>
