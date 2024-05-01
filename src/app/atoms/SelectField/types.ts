@@ -5,6 +5,7 @@ export interface OptionType {
 
 export interface SelectFieldProps {
     label: string;
-    data: Array<{ label: string; value: string }>;
-    onSelect: (item: { label: string; value: string }) => void;
+    data: OptionType[];
+    onSelect: (option: OptionType) => void;
+    width?: number;
 }

@@ -1,12 +1,16 @@
 import 'fast-text-encoding';
 import 'react-native-url-polyfill/auto';
 
+import axios from 'axios';
 import { addDecorator } from '@storybook/react-native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { navigationDecorator, mswDecorator } from './decorators';
+import { initialize, withMsw } from './mswDecorator';
+import { mswApiUrl } from '../src/test-automation/msw/utils';
 
-addDecorator(mswDecorator);
-// addDecorator(navigationDecorator);
+// Initialize MSW
+initialize();
+addDecorator(withMsw);
+axios.defaults.baseURL=mswApiUrl();
 
 export const parameters = {
   controls: {
