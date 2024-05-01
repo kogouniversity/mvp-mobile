@@ -38,16 +38,16 @@ function Schedule({ courses }: { courses: Course[] }): JSX.Element {
         return ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
     };
 
-    const renderSessions = (day: string): JSX.Element[] => {
-        return courses.flatMap((course, courseIndex) =>
+    const renderSessions = (day: string): JSX.Element[] =>
+        courses.flatMap(course =>
             course.sessions
                 .filter(session => session.day === day)
-                .map((session, sessionIndex) => {
+                .map(session => {
                     const topOffset = calculateTopOffset(session.startTime, hoursOfDay[0]);
                     const sessionDuration = calculateSessionDuration(session.startTime, session.endTime);
                     return (
                         <View
-                            key={`${day}-${course.courseName}-${sessionIndex}`}
+                            key={`${day}-${course.courseName}-${session}`}
                             style={[
                                 styles.session,
                                 {
@@ -62,7 +62,6 @@ function Schedule({ courses }: { courses: Course[] }): JSX.Element {
                     );
                 }),
         );
-    };
 
     return (
         <View style={styles.container}>
