@@ -8,7 +8,9 @@ export default {
     component: Schedule,
 } as ComponentMeta<typeof Schedule>;
 
-const Template: StoryFn<typeof Schedule> = args => <Schedule courses={courses} {...args} />;
+const Template: StoryFn<typeof Schedule> = function (args) {
+    return <Schedule courses={courses} {...args} />;
+};
 
 export const Default: StoryObj<typeof Schedule> = {
     render: Template,
