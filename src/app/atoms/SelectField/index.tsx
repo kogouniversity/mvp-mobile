@@ -23,13 +23,11 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
     };
 
     const openSelect = (): void => {
-        SelectButton.current?.measure(
-            (fx: number, fy: number, width: number, height: number, px: number, py: number) => {
-                setSelectTop(py + height);
-                setButtonMeasurements({ top: py, left: px, width });
-                setVisible(true);
-            },
-        );
+        SelectButton.current?.measure((fx, fy, measureWidth, height, px, py) => {
+            setSelectTop(py + height);
+            setButtonMeasurements({ top: py, left: px, width: measureWidth });
+            setVisible(true);
+        });
     };
 
     const onItemPress = (item: OptionType): void => {
@@ -39,14 +37,14 @@ const SelectField: React.FC<SelectFieldProps> = function ({ label, data, onSelec
     };
 
     const renderItem = ({ item }: { item: OptionType }): React.ReactElement => (
-        <TouchableOpacity style={[styles.item]} onPress={() => onItemPress(item)}>
+        <TouchableOpacity style={styles.item} onPress={() => onItemPress(item)}>
             <Text>{item.label}</Text>
         </TouchableOpacity>
     );
 
     return (
         <View>
-            <TouchableOpacity ref={SelectButton} style={[styles.button, { width: width }]} onPress={toggleSelect}>
+            <TouchableOpacity ref={SelectButton} style={[styles.button, { width }]} onPress={toggleSelect}>
                 <Text style={[styles.buttonText, selectedItem ? styles.selectedItem : {}]}>
                     {selectedItem ? selectedItem.label : label}
                 </Text>

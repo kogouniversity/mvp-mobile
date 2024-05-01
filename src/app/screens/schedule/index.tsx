@@ -15,11 +15,11 @@ const semesters: SemesterOptionType[] = [
     { label: 'Summer 24', value: 'summer_2024' },
 ];
 
-const ScheduleScreen = () => {
+function ScheduleScreen(): JSX.Element {
     const [selectedSemester, setSelectedSemester] = useState<SemesterOptionType>(semesters[0]);
     const { data: courses, isLoading } = useGetSchedule(selectedSemester.value);
 
-    const handleSemesterSelect = (option: SemesterOptionType) => {
+    const handleSemesterSelect = (option: SemesterOptionType): void => {
         setSelectedSemester(option);
     };
 
@@ -37,7 +37,7 @@ const ScheduleScreen = () => {
             {isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : <Schedule courses={courses || []} />}
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     screen: {
