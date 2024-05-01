@@ -28,40 +28,36 @@ function Schedule({ courses }: { courses: Course[] }): JSX.Element {
         return hours * totalMinutesInHour + minutes;
     };
 
-    const calculateTopOffset = (startTime: string, baseHour: string): number => {
+    const renderSessions = (day: string): JSX.Element[] =>
+        courses.flatMap(course =>
+            course.sessions
+                .filter(session => session.day === day)
+                .map(session => (
+                    <View
+                        key={`${day}-${course.courseName}-${session}`}
+                        style={[
+                            styles.session,
+                            {
+                                zIndex: 100,
+                                top: topOffset(session.startTime, hoursOfDay[0]),
+                                height: sessionDuration(session.startTime, session.endTime),
+                                backgroundColor: 'lightblue',
+                            },
+                        ]}>
+                        <Text>{`${course.courseName}\n${session.type}\n${session.startTime}-${session.endTime}`}</Text>
+                    </View>
+                )),
+        );
+
+    const topOffset = (startTime: string, baseHour: string): number => {
         const startTimeMinutes = timeToMinutes(startTime);
         const baseHourMinutes = timeToMinutes(`${baseHour}:00`);
         return ((startTimeMinutes - baseHourMinutes) / totalMinutesInHour) * timeSlotHeight;
     };
 
-    const calculateSessionDuration = (startTime: string, endTime: string): number => {
+    const sessionDuration = (startTime: string, endTime: string): number => {
         return ((timeToMinutes(endTime) - timeToMinutes(startTime)) / totalMinutesInHour) * timeSlotHeight;
     };
-
-    const renderSessions = (day: string): JSX.Element[] =>
-        courses.flatMap(course =>
-            course.sessions
-                .filter(session => session.day === day)
-                .map(session => {
-                    const topOffset = calculateTopOffset(session.startTime, hoursOfDay[0]);
-                    const sessionDuration = calculateSessionDuration(session.startTime, session.endTime);
-                    return (
-                        <View
-                            key={`${day}-${course.courseName}-${session}`}
-                            style={[
-                                styles.session,
-                                {
-                                    zIndex: 100,
-                                    top: topOffset,
-                                    height: sessionDuration,
-                                    backgroundColor: 'lightblue',
-                                },
-                            ]}>
-                            <Text>{`${course.courseName}\n${session.type}\n${session.startTime}-${session.endTime}`}</Text>
-                        </View>
-                    );
-                }),
-        );
 
     return (
         <View style={styles.container}>
