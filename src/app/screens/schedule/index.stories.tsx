@@ -7,7 +7,9 @@ export default {
     component: ScheduleScreen,
 } as ComponentMeta<typeof ScheduleScreen>;
 
-const Template: ComponentStory<typeof ScheduleScreen> = args => <ScheduleScreen />;
+const Template: ComponentStory<typeof ScheduleScreen> = function (args) {
+    return <ScheduleScreen />;
+};
 
 export const Default: ComponentStory<typeof ScheduleScreen> = Template.bind({});
 Default.args = {};
