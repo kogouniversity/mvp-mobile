@@ -14,7 +14,6 @@ const fetchUserInformation = (jwt: string) => async (): Promise<UserGetEntryResp
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError);
-        console.log('1');
         throw (err as AxiosError).response?.data;
     }
 };

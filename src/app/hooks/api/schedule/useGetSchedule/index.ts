@@ -1,4 +1,4 @@
-import { QueryOptions, UseQueryResult, useQuery } from '@tanstack/react-query';
+import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
 import { BaseErrorResponse } from '../../types';
 import { captureAxiosError } from '../../../../utils/sentry';

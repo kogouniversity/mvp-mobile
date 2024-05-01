@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { mswApiUrl, sleep } from '../../utils';
+import { mswApiUrl } from '../../utils';
 import springCourses from './spring.json';
 import summerCourses from './summer.json';
 
