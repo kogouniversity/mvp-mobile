@@ -22,13 +22,13 @@ const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
 const buttonVariantTextStyles: Record<ButtonVariant, TextStyle> = {
     default: {},
     primary: {
-        color: "#fff"
+        color: '#fff',
     },
     secondary: {
-        color: "#50B1EE"
+        color: '#50B1EE',
     },
     tertiary: {
-        color: '#5119F0'
+        color: '#5119F0',
     },
 };
 
@@ -50,37 +50,37 @@ const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
     sm: {
         width: 70,
         height: 35,
-        borderRadius: 23
+        borderRadius: 23,
     },
     md: {
         width: 133,
         height: 58,
-        borderRadius: 32.5
+        borderRadius: 32.5,
     },
     lg: {
         width: 294,
         height: 58,
-        borderRadius: 20
+        borderRadius: 20,
     },
 };
 
 const buttonSizeTextStyles: Record<ButtonSize, TextStyle> = {
     default: {},
     sm: {
-        fontSize: 13
+        fontSize: 13,
     },
     md: {
-        fontSize: 14
+        fontSize: 14,
     },
     lg: {
-        fontSize: 16
+        fontSize: 16,
     },
 };
 
 const Button: React.FC<ButtonProps> = function ({
     variant,
     size,
-    label ="default",
+    label = 'default',
     style = {},
     disabled = false,
     isLoading = false,

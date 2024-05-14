@@ -48,7 +48,7 @@ export const OnlyText: Story = {
     args: {
         variant: 'primary',
         size: 'md',
-        label: "submit",
+        label: 'submit',
     },
     render: args => (
         <Button {...args}>
