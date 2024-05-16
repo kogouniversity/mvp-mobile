@@ -11,7 +11,7 @@ const NavigationDecorator = function (Story: StoryFn): JSX.Element {
     const Stack = createNativeStackNavigator<NavigationParamList>();
     return (
         <NavigationContainer independent>
-            <Stack.Navigator initialRouteName="/Signup/EmailInput">
+            <Stack.Navigator initialRouteName="/Signup/EmailInput" screenOptions={{ headerShown: false }}>
                 <Stack.Screen
                     name="/Signup/EmailInput"
                     component={Story}

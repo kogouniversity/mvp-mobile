@@ -1,19 +1,21 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import LoginForm from '../../../components/login/LoginForm';
-import Typography from '../../../atoms/Typography';
 import { useNavigation } from '../../../navigator/useNavigation';
 
+const { height } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
-    header: {
-        marginBottom: 50,
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    field: {
-        width: '100%',
-        margin: 25,
-    },
-    button: {
-        margin: 40,
-        width: '100%',
+    ball: {
+        width: height,
+        height,
+        borderRadius: 99999,
+        backgroundColor: '#50B1EE',
     },
     typo: {
         color: 'white',
@@ -23,21 +25,9 @@ const styles = StyleSheet.create({
 function AuthLogin(): JSX.Element {
     const navigation = useNavigation();
     return (
-        <View style={{ alignItems: 'center' }}>
-            <LoginForm onSignIn={() => navigation.navigate('/Home')} />
-            <View>
-                <Typography variant="subtext" style={styles.typo}>
-                    Don&apos;t have a Kogo account yet?&nbsp;
-                    <Typography
-                        variant="subtext"
-                        style={{
-                            ...styles.typo,
-                            textDecorationLine: 'underline',
-                        }}
-                        onPress={() => navigation.navigate('/Signup')}>
-                        Sign Up
-                    </Typography>
-                </Typography>
+        <View style={styles.container}>
+            <View style={styles.ball}>
+                <LoginForm onSignIn={() => navigation.navigate('/Home')} />
             </View>
         </View>
     );
