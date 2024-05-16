@@ -1,6 +1,7 @@
 import { ViewStyle } from 'react-native';
 
 export type ButtonVariant = 'default' | 'primary' | 'secondary' | 'tertiary';
+
 export type ButtonSize = 'default' | 'sm' | 'md' | 'lg';
 
 export type ButtonProps = {

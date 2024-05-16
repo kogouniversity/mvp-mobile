@@ -19,11 +19,11 @@ const meta: ComponentMeta<typeof Button> = {
         },
         disabled: {
             options: [false, true],
-            control: { type: 'radio' },
+            control: { type: 'boolean' },
         },
         isLoading: {
             options: [false, true],
-            control: { type: 'radio' },
+            control: { type: 'boolean' },
         },
     },
     decorators: [
@@ -48,10 +48,11 @@ export const OnlyText: Story = {
     args: {
         variant: 'primary',
         size: 'md',
+        label: 'submit',
     },
     render: args => (
         <Button {...args}>
-            <Typography variant="subtitle" color="text">
+            <Typography variant="title" color="text">
                 OnlyText
             </Typography>
         </Button>

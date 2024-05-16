@@ -8,63 +8,79 @@ const buttonVariantStyles: Record<ButtonVariant, ViewStyle> = {
         alignItems: 'center',
     },
     primary: {
-        backgroundColor: 'black',
+        backgroundColor: '#50B1EE',
     },
     secondary: {
-        backgroundColor: 'white',
-        borderColor: 'black',
-        borderWidth: 3,
+        backgroundColor: '#fff',
     },
     tertiary: {
-        backgroundColor: 'transparent',
+        borderColor: '#9747FF',
+        borderWidth: 1,
     },
-};
-
-const buttonVariantDisabledStyles: Record<ButtonVariant, ViewStyle> = {
-    default: {},
-    primary: {
-        backgroundColor: 'gray',
-    },
-    secondary: {
-        backgroundColor: 'lightgray',
-    },
-    tertiary: {},
 };
 
 const buttonVariantTextStyles: Record<ButtonVariant, TextStyle> = {
     default: {},
-    primary: {},
-    secondary: {},
-    tertiary: {},
+    primary: {
+        color: '#fff',
+    },
+    secondary: {
+        color: '#50B1EE',
+    },
+    tertiary: {
+        color: '#5119F0',
+    },
+};
+
+const buttonVariantDisabledStyles: Record<ButtonVariant, TextStyle> = {
+    default: {},
+    primary: {
+        color: 'rgba(255, 255, 255, 0.5)',
+    },
+    secondary: {
+        color: 'rgba(80, 177, 238, 0.3)',
+    },
+    tertiary: {
+        color: 'rgba(81, 25, 240, 0.5)',
+    },
 };
 
 const buttonSizeStyles: Record<ButtonSize, ViewStyle> = {
     default: {},
     sm: {
-        width: 69,
-        height: 22,
+        width: 70,
+        height: 35,
+        borderRadius: 23,
     },
     md: {
-        width: 129,
-        height: 33,
+        width: 133,
+        height: 58,
+        borderRadius: 32.5,
     },
     lg: {
-        width: 335,
-        height: 48,
+        width: 294,
+        height: 58,
+        borderRadius: 20,
     },
 };
 
 const buttonSizeTextStyles: Record<ButtonSize, TextStyle> = {
     default: {},
-    sm: {},
-    md: {},
-    lg: {},
+    sm: {
+        fontSize: 13,
+    },
+    md: {
+        fontSize: 14,
+    },
+    lg: {
+        fontSize: 16,
+    },
 };
 
 const Button: React.FC<ButtonProps> = function ({
     variant,
     size,
-    label,
+    label = 'default',
     style = {},
     disabled = false,
     isLoading = false,
