@@ -7,6 +7,7 @@ const textFieldVariantStyles: Record<TextFieldVariants, TextStyle> = {
         paddingBottom: 5,
         borderBottomWidth: 1,
         fontSize: 16,
+        color: 'white',
     },
     outlined: {
         borderColor: 'gray',
