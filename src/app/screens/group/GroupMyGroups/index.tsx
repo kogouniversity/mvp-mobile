@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import MyGroupList from '../../../components/group/MyGroupList';
 import Typography from '../../../atoms/Typography';
-import BackButton from '../../../components/BackButton';
-import { useNavigation } from '../../../navigator/useNavigation';
 
 const styles = StyleSheet.create({
     headerWrapper: {
@@ -36,13 +34,10 @@ const styles = StyleSheet.create({
 
 function GroupMyGroups(): JSX.Element {
     const userId: string = '3'; // Define userId here
-    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.headerWrapper}>
-                <TouchableOpacity style={styles.backButton}>
-                    <BackButton navigation={navigation} />
-                </TouchableOpacity>
+                <TouchableOpacity style={styles.backButton}></TouchableOpacity>
                 <Typography variant="title" style={styles.header}>
                     My Groups
                 </Typography>

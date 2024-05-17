@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
-import { usePostsByGroup } from '../../../hooks/api/post/usePostsByGroup';
+import { usePostsByMyGroup } from '../../../hooks/api/post/usePostsByMyGroup';
 import Preview from '../Preview';
 import Skeleton from '../../../atoms/Skeleton';
 import { List } from '../../../atoms/List';
 import { GroupPostsProps, PostData, OptionType } from './types';
 import { ImageSrcUrl } from '../../../utils/images';
 
-const GroupFeed: React.FC<GroupPostsProps> = function ({ groupName }) {
-    const { data: queryData, isLoading, isError } = usePostsByGroup(groupName);
+const MyGroupFeed: React.FC<GroupPostsProps> = function ({ userID }) {
+    const { data: queryData, isLoading, isError } = usePostsByMyGroup(userID);
 
     if (isLoading) {
         return (
@@ -36,7 +36,7 @@ const GroupFeed: React.FC<GroupPostsProps> = function ({ groupName }) {
                 height={74}
                 imagesUrl={[]}
                 imageLink={ImageSrcUrl.sfu}
-                groupName={groupName}
+                groupName={item.attributes.group?.data.attributes.name}
                 title={item.attributes.title}
                 contentPreview={contentPreview}
                 timestamp={new Date(item.attributes.createdAt)}
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default GroupFeed;
+export default MyGroupFeed;

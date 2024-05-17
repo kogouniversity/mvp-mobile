@@ -4,7 +4,7 @@ import { ComponentMeta, StoryObj } from '@storybook/react-native';
 import GroupSearchGroup from '.';
 
 const meta: ComponentMeta<typeof GroupSearchGroup> = {
-    title: 'screens/Group/GroupSearchGroup',
+    title: 'Screens/Group/GroupSearchGroup',
     component: GroupSearchGroup,
     decorators: [],
 };
