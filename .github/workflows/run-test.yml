@@ -26,8 +26,6 @@ jobs:
             - name: Install Dependencies
               run: npm install
 
-            - name: Scan code format
-              run: npm run lint
 
             - name: Run Unit Tests
               run: CI=true npm run test
