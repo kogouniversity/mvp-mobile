@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Alert } from 'react-native';
 import { useGetTrending } from '../../../hooks/api/post/useGetTrending';
-import TrendingPreview from '../TrendingPreview';
-import Skeleton from '../../../atoms/Skeleton';
 import { List } from '../../../atoms/List';
 import { GroupPostsProps, PostData } from './types';
 import { ImageSrcUrl } from '../../../utils/images';
 import { FontAwesome6 } from '@expo/vector-icons';
+import TrendingPreview from '../TrendingPreview';
+import Skeleton from '../../../atoms/Skeleton';
 
 const Trending: React.FC<GroupPostsProps> = function ({ userID }) {
     const { data: queryData, isLoading, isError } = useGetTrending(userID);
