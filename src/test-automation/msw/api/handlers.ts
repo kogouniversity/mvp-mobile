@@ -5,6 +5,7 @@ import { handlers as postHandlers } from './post';
 import { handlers as groupHandlers } from './group';
 import { handlers as userHandlers } from './user';
 import { handlers as scheduleHandlers } from './schedule';
+import { handlers as trendingHandlers } from './trending';
 
 export default [
     ...loginHandlers,
@@ -14,4 +15,5 @@ export default [
     ...groupHandlers,
     ...userHandlers,
     ...scheduleHandlers,
+    ...trendingHandlers,
 ];
