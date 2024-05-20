@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { View, Text, ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import SelectField from '../../atoms/SelectField';
 import Schedule from '../../components/Schedule/Schedule';
 import { useGetSchedule } from '../../hooks/api/schedule/useGetSchedule';
@@ -26,13 +26,18 @@ function ScheduleScreen(): JSX.Element {
     return (
         <View style={styles.screen}>
             <View style={styles.header}>
-                <View style={styles.selectFieldContainer}>
-                    <SelectField label="Choose semester" data={semesters} onSelect={handleSemesterSelect} width={90} />
-                </View>
+                <Text style={styles.headerTitle}>My Schedule</Text>
                 <View style={styles.iconContainer}>
-                    <Ionicons name="settings-outline" size={24} color="black" />
-                    <MaterialIcons name="notifications-none" size={24} color="black" />
+                    <TouchableOpacity style={styles.iconButton}>
+                        <FontAwesome name="pencil" size={22} color="black" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconButton}>
+                        <Ionicons name="people" size={24} color="black" />
+                    </TouchableOpacity>
                 </View>
+            </View>
+            <View style={styles.selectFieldContainer}>
+                <SelectField label="Choose semester" data={semesters} onSelect={handleSemesterSelect} width={90} />
             </View>
             {isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : <Schedule courses={courses || []} />}
         </View>
@@ -42,18 +47,34 @@ function ScheduleScreen(): JSX.Element {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
+        paddingHorizontal: 16,
     },
     header: {
         flexDirection: 'row',
-        paddingHorizontal: 16,
+        alignItems: 'center',
+        marginBottom: 16,
+        position: 'relative',
     },
-    selectFieldContainer: {
+    headerTitle: {
         flex: 1,
-        marginRight: 8,
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
+        position: 'absolute',
+        left: 0,
+        right: 0,
     },
     iconContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        marginLeft: 'auto',
+    },
+    iconButton: {
+        marginLeft: 5,
+        marginRight: 5,
+    },
+    selectFieldContainer: {
+        alignItems: 'center',
+        marginBottom: 16,
     },
 });
 
