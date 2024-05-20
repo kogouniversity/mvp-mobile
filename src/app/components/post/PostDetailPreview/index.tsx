@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { PostPreviewProps } from './types';
 
-const TrendingPreview: React.FC<PostPreviewProps> = ({
+const PostDetailPreview: React.FC<PostPreviewProps> = ({
     width,
     imagesUrl,
     imageLink,
@@ -14,7 +14,6 @@ const TrendingPreview: React.FC<PostPreviewProps> = ({
     numOfLikes,
     numOfComments,
     userName,
-    onPress,
 }) => {
     const formatDate = (date: Date) => {
         return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
@@ -39,8 +38,9 @@ const TrendingPreview: React.FC<PostPreviewProps> = ({
 
     return (
         <View style={{ width, paddingVertical: 10 }}>
-            <TouchableOpacity onPress={onPress} style={styles.container}>
-                <Text style={styles.groupName}>{groupName}</Text>
+            <Text style={styles.header}>{groupName}</Text>
+
+            <View style={styles.container}>
                 <View style={styles.contentSection}>
                     <Text style={styles.title}>{title}</Text>
                     {imagesUrl.length > 0 && <View style={styles.imagesContainer}>{renderImages()}</View>}
@@ -54,14 +54,20 @@ const TrendingPreview: React.FC<PostPreviewProps> = ({
                         </View>
                     </View>
                 </View>
+
                 <View style={styles.userSection}>
-                    <View style={styles.userInfo}>
-                        <Text style={styles.userName}>{userName}</Text>
-                        <Text style={styles.timestamp}>{formatDate(timestamp)}</Text>
+                    <TouchableOpacity style={styles.reportButton}>
+                        <Text style={styles.reportText}>Report</Text>
+                    </TouchableOpacity>
+                    <View style={styles.userInfoContainer}>
+                        <View style={styles.userInfo}>
+                            <Text style={styles.userName}>{userName}</Text>
+                            <Text style={styles.timestamp}>{formatDate(timestamp)}</Text>
+                        </View>
+                        <Image source={imageLink} style={styles.image} />
                     </View>
-                    <Image source={imageLink} style={styles.image} />
                 </View>
-            </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -72,23 +78,37 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 8,
         padding: 10,
-        position: 'relative',
+    },
+    header: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 20,
     },
     groupName: {
-        fontSize: 14,
+        fontWeight: 'bold',
+        fontSize: 16,
+        marginBottom: 5,
         marginLeft: 20,
         textAlign: 'left',
     },
     userSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
         position: 'absolute',
         bottom: 0,
+        left: 10,
         right: 10,
         padding: 5,
         backgroundColor: '#fff',
         borderRadius: 5,
+    },
+    userInfoContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end', // This will push the userInfo and image to the right
+        flex: 1,
     },
     image: {
         width: 30,
@@ -97,7 +117,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     userInfo: {
-        marginLeft: 10,
         alignItems: 'flex-end',
     },
     userName: {
@@ -108,6 +127,15 @@ const styles = StyleSheet.create({
     timestamp: {
         fontSize: 8,
         color: '#666',
+    },
+    reportButton: {
+        position: 'absolute',
+        left: 20,
+        bottom: 5,
+    },
+    reportText: {
+        fontSize: 10,
+        color: 'red',
     },
     contentSection: {
         marginLeft: 20,
@@ -152,4 +180,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default TrendingPreview;
+export default PostDetailPreview;
