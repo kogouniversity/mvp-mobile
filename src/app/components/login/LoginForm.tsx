@@ -34,8 +34,14 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
             identifier: getValues('id'),
             password: getValues('password'),
         })
-            .then(data => onSignIn(data))
-            .catch(() => {
+            .then(data => {
+                console.log('data:');
+                console.log(data);
+                onSignIn(data);
+            })
+            .catch(err => {
+                console.log(err);
+                console.log(err.message);
                 setErrorMessage('Failed to login, please check your connection.');
             });
     }

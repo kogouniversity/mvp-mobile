@@ -7,6 +7,7 @@ import { BaseErrorResponse } from '../../types';
 
 const signIn = async ({ identifier, password }: UserSignInParams): Promise<AuthUserDataResponse> => {
     try {
+        console.log(identifier, password);
         const response = await axios.post<AuthUserDataResponse>(
             '/api/auth/local',
             {
@@ -21,6 +22,7 @@ const signIn = async ({ identifier, password }: UserSignInParams): Promise<AuthU
         );
         return response.data;
     } catch (err) {
+        console.log(JSON.stringify(err));
         captureAxiosError(err as AxiosError);
         throw (err as AxiosError).response?.data;
     }

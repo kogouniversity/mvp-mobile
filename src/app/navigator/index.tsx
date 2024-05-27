@@ -2,16 +2,16 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { withStatusBar } from './hoc';
 import Intro from '../screens/Intro';
-import AuthLogin from '../screens/auth/AuthLogin';
-import AuthSignupEmailInput from '../screens/auth/signup/AuthSignupEmailInput';
-import AuthSignupEmailVerification from '../screens/auth/signup/AuthSignupEmailVerification';
-import AuthSignupIdAndPassword from '../screens/auth/signup/AuthSignupIdAndPassword';
-import GroupMyGroups from '../screens/group/GroupMyGroups';
+import Login from '../screens/auth/login/Login';
+import SignupEmailInput from '../screens/auth/signup/SignupEmailInput';
+import SignupEmailVerification from '../screens/auth/signup/SignupEmailVerification';
+import SignupIdAndPassword from '../screens/auth/signup/SignupIdAndPassword';
+import MyGroupList from '../screens/group/MyGroupList';
 import Feed from '../screens/Feed';
 import Profile from '../screens/Profile';
 import Gadget from '../screens/Gadget';
 import { NavigationParamList } from './types';
-import GroupNewGroup from '../screens/group/GroupNewGroup';
+import CreateNewGroup from '../screens/group/CreateNewGroup';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -20,10 +20,10 @@ export default function RootNavigator(): JSX.Element {
     return (
         <Stack.Navigator initialRouteName="/" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="/" component={withStatusBar(Intro)} />
-            <Stack.Screen name="/Login" component={withStatusBar(AuthLogin)} />
-            <Stack.Screen name="/Signup" component={withStatusBar(AuthSignupIdAndPassword)} />
-            <Stack.Screen name="/Signup/EmailInput" component={withStatusBar(AuthSignupEmailInput)} />
-            <Stack.Screen name="/Signup/EmailVerification" component={withStatusBar(AuthSignupEmailVerification)} />
+            <Stack.Screen name="/Login" component={withStatusBar(Login)} />
+            <Stack.Screen name="/Signup" component={withStatusBar(SignupIdAndPassword)} />
+            <Stack.Screen name="/Signup/EmailInput" component={withStatusBar(SignupEmailInput)} />
+            <Stack.Screen name="/Signup/EmailVerification" component={withStatusBar(SignupEmailVerification)} />
             <Stack.Screen name="/Home" component={HomeTabNavigator} />
         </Stack.Navigator>
     );
@@ -44,7 +44,7 @@ function HomeTabNavigator(): JSX.Element {
 function MyGroupStackNavigator(): JSX.Element {
     return (
         <Stack.Navigator initialRouteName="/Home/MyGroups" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/MyGroups" component={withStatusBar(GroupMyGroups)} />
+            <Stack.Screen name="/Home/MyGroups" component={withStatusBar(MyGroupList)} />
         </Stack.Navigator>
     );
 }
@@ -52,8 +52,8 @@ function MyGroupStackNavigator(): JSX.Element {
 function GroupExploreStackNavigator(): JSX.Element {
     return (
         <Stack.Navigator initialRouteName="/Home/GroupExplore" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/GroupExplore" component={withStatusBar(GroupMyGroups)} />
-            <Stack.Screen name="/Home/GroupExplore/NewGroup" component={withStatusBar(GroupNewGroup)} />
+            <Stack.Screen name="/Home/GroupExplore" component={withStatusBar(MyGroupList)} />
+            <Stack.Screen name="/Home/GroupExplore/CreateNewGroup" component={withStatusBar(CreateNewGroup)} />
         </Stack.Navigator>
     );
 }

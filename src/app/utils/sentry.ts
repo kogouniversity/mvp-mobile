@@ -10,7 +10,7 @@ const routingInstrumentation = new Sentry.ReactNavigationInstrumentation();
 
 let sentryConfig: object = {
     dsn: process.env.EXPO_PUBLIC_SENTRY_DSN,
-    environment: process.env.EXPO_PUBLIC_NODE_ENV,
+    environment: process.env.NODE_ENV,
     integrations: [
         new Sentry.ReactNativeTracing({
             routingInstrumentation,

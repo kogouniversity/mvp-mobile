@@ -1,21 +1,21 @@
-export type ComponentRouteParam = {
-    AuthSignupEmailInput: { username: string; password: string };
-    AuthSignupEmailVerification: { email: string };
-    GroupMyGroupFeed: { groupId: string | number };
+export type ScreenRouteParams = {
+    SignupEmailInput: { username: string; password: string };
+    SignupEmailVerification: { email: string };
+    GroupFeed: { groupId: string | number };
 };
 
 export type NavigationParamList = {
     '/': undefined;
     '/Login': undefined;
     '/Signup': undefined;
-    '/Signup/EmailInput': ComponentRouteParam['AuthSignupEmailInput'];
-    '/Signup/EmailVerification': ComponentRouteParam['AuthSignupEmailVerification'];
+    '/Signup/EmailInput': ScreenRouteParams['SignupEmailInput'];
+    '/Signup/EmailVerification': ScreenRouteParams['SignupEmailVerification'];
     '/Home': undefined;
     '/Home/Feed': undefined;
     '/Home/MyGroups': undefined;
-    '/Home/MyGroups/GroupMyGroupFeed': ComponentRouteParam['GroupMyGroupFeed'];
+    '/Home/MyGroups/Feed': ScreenRouteParams['GroupFeed'];
     '/Home/Gadget': undefined;
     '/Home/GroupExplore': undefined;
-    '/Home/GroupExplore/NewGroup': undefined;
+    '/Home/GroupExplore/CreateNewGroup': undefined;
     '/Home/Profile': undefined;
 };
