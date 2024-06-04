@@ -17,7 +17,31 @@ const PostPreview: React.FC<PostPreviewProps> = ({
     onPress,
 }) => {
     const formatDate = (date: Date) => {
-        return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+        const now = new Date();
+        const diff = now.getTime() - date.getTime();
+        const minutes = Math.floor(diff / 60000);
+        const hours = Math.floor(diff / 3600000);
+        const days = Math.floor(diff / 86400000);
+        const weeks = Math.floor(diff / (86400000 * 7));
+        const months = Math.floor(diff / (86400000 * 30));
+        const years = Math.floor(diff / (86400000 * 365));
+
+          if (minutes < 1){
+            return 'Just now'
+        }
+          else if (minutes < 60) {
+            return `${minutes}m`;
+        } else if (hours < 24) {
+            return `${hours}h`;
+        } else if (days < 7) {
+            return `${days}d`;
+        } else if (weeks < 4) {
+            return `${weeks}w`;
+        } else if (months < 12) {
+            return `${months}mo`;
+        } else {
+            return `${years}y`;
+        }
     };
 
     const [placeholderImages, setplaceholderImages] = useState(new Array(imagesUrl.length).fill(false));
@@ -39,14 +63,12 @@ const PostPreview: React.FC<PostPreviewProps> = ({
 
     return (
         <View style={{ width, paddingVertical: 10 }}>
-            <Text style={styles.groupName}>{groupName}</Text>
-            <View style={styles.line}></View>
             <TouchableOpacity onPress={onPress} style={styles.container}>
                 <View style={styles.userSection}>
                     <Image source={imageLink} style={styles.image} />
                     <View style={styles.userInfo}>
                         <Text style={styles.userName}>{userName}</Text>
-                        <Text style={styles.timestamp}>{formatDate(timestamp)}</Text>
+                        <Text style={styles.timestamp}> {formatDate(new Date(timestamp))}</Text>
                     </View>
                 </View>
                 <View style={styles.contentSection}>
@@ -54,7 +76,12 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                     {imagesUrl.length > 0 && <View style={styles.imagesContainer}>{renderImages()}</View>}
                     <View style={styles.contentAndFooterRow}>
                         <Text style={styles.contentPreview}>{contentPreview}</Text>
-                        <View style={styles.footerRow}>
+                    </View>
+                    <View style={styles.footerRow}>
+                        <View style={styles.groupNameContainer}>
+                            <Text style={styles.groupName}>{groupName}</Text>
+                        </View>
+                        <View style={styles.likesComments}>
                             <AntDesign name="hearto" size={12} color="#B10606" />
                             <Text style={styles.iconText}>{numOfLikes}</Text>
                             <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" />
@@ -74,17 +101,15 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 10,
     },
-    groupName: {
-        fontWeight: 'bold',
-        fontSize: 16,
-        marginBottom: 5,
-        marginLeft: 20,
-        textAlign: 'left',
+    groupNameContainer: {
+        backgroundColor: '#E0E0E0',
+        borderRadius: 5,
+        paddingHorizontal: 5,
+        paddingVertical: 1,
     },
-    line: {
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1,
-        marginBottom: 5,
+    groupName: {
+        fontSize: 10,
+        color: '#000',
     },
     userSection: {
         flexDirection: 'row',
@@ -97,15 +122,18 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     userInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
         marginLeft: 10,
     },
     userName: {
-        fontSize: 11,
+        fontSize: 13,
         fontWeight: 'bold',
         color: '#000',
+        marginRight: 5,
     },
     timestamp: {
-        fontSize: 8,
+        fontSize: 10,
         color: '#666',
     },
     contentSection: {
@@ -130,7 +158,7 @@ const styles = StyleSheet.create({
     },
     footerRow: {
         flexDirection: 'row',
-        alignItems: 'center',
+        marginTop: 10,
     },
     iconText: {
         fontSize: 11,
@@ -147,6 +175,13 @@ const styles = StyleSheet.create({
         marginRight: 5,
         borderRadius: 10,
         backgroundColor: '#ccc',
+    },
+    likesComments: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
     },
 });
 
