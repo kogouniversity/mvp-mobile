@@ -6,6 +6,7 @@ import Trending from '../../components/post/Trending/Trending';
 import Header from '../../components/MainScreenHeader/MainScreenHeader';
 import { PostDetailsNavigationProp, NavigationParamList } from '../../navigator/types';
 import { RouteProp } from '@react-navigation/native';
+import AddButton from '../../components/AddButton';
 
 function Main(): JSX.Element {
     const [activeTab, setActiveTab] = useState('Following');
@@ -67,6 +68,7 @@ function Main(): JSX.Element {
                         </TouchableOpacity>
                     </View>
                     <MyGroupFeed filter={filter} onPostPress={handlePostPress} />
+                    <AddButton/>
                 </View>
             )}
         </SafeAreaView>

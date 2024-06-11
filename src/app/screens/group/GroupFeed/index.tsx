@@ -6,6 +6,7 @@ import { NavigationParamList } from '../../../navigator/types';
 import BackButton from '../../../components/BackButton';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import AddButton from '../../../components/AddButton';
 
 type GroupFeedRouteProp = RouteProp<NavigationParamList, 'GroupFeed'>;
 
@@ -39,6 +40,7 @@ function GroupFeed(): JSX.Element {
                 onLoad={name => setGroupName(name)}
                 onPostPress={handlePostPress}
             />
+            <AddButton/>
         </SafeAreaView>
     );
 }
