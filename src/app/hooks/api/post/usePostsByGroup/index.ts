@@ -1,26 +1,20 @@
 import { QueryOptions, UseQueryResult, useQuery } from '@tanstack/react-query';
-import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+import axios, { AxiosError } from 'axios';
 import { ListPostResponse } from './types';
 import { BaseErrorResponse } from '../../types';
 import { captureAxiosError } from '../../../../utils/sentry';
+import { useAuthToken } from '../../../../hooks/api/auth/useAuthToken';
 
-const fetchPostsByGroup = async (
-    groupName: string,
-    page: number = 1,
-    pageSize: number = 25,
-): Promise<ListPostResponse> => {
-    const params: AxiosRequestConfig['params'] = {
-        _sort: 'groupName:asc',
-        _page: page,
-        _limit: pageSize,
-        groupName,
-        populate: 'group',
-    };
-
+const fetchPostsByGroupID = async (groupID: string, jwt: string | null): Promise<ListPostResponse> => {
     try {
-        const response = await axios.get<ListPostResponse>('/api/posts?populate=group', {
-            headers: { 'Content-Type': 'application/json' },
-            params,
+        if (!jwt) {
+            throw new Error('JWT token is missing');
+        }
+
+        const response = await axios.get<ListPostResponse>(`/api/posts?populate=group&filters[group]=${groupID}`, {
+            headers: {
+                Authorization: `Bearer ${jwt}`,
+            },
         });
         return response.data;
     } catch (err) {
@@ -30,14 +24,14 @@ const fetchPostsByGroup = async (
 };
 
 export function usePostsByGroup(
-    groupName: string,
+    groupID: string,
     queryOptions?: QueryOptions<ListPostResponse, BaseErrorResponse>,
-    page: number = 1,
-    pageSize: number = 25,
 ): UseQueryResult<ListPostResponse, BaseErrorResponse> {
+    const jwt = useAuthToken();
+
     return useQuery<ListPostResponse, BaseErrorResponse>({
         ...(queryOptions ?? {}),
-        queryKey: ['postsByGroup', groupName, page, pageSize],
-        queryFn: () => fetchPostsByGroup(groupName, page, pageSize),
+        queryKey: ['usePostsByGroup', groupID],
+        queryFn: () => fetchPostsByGroupID(groupID, jwt),
     });
 }

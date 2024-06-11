@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import { usePostsByMyGroup } from '../../../hooks/api/post/usePostsByMyGroup';
 import Preview from '../Preview';
 import Skeleton from '../../../atoms/Skeleton';
 import { List } from '../../../atoms/List';
-import { GroupPostsProps, PostData, OptionType } from './types';
+import { GroupPostsProps, PostData, ListPostResponse } from './types';
 import { ImageSrcUrl } from '../../../utils/images';
 
-const MyGroupFeed: React.FC<GroupPostsProps> = function ({ userID }) {
-    const { data: queryData, isLoading, isError } = usePostsByMyGroup(userID);
+interface MyGroupFeedProps {
+    filter: string;
+    onPostPress: (postID: string) => void;
+}
+
+const MyGroupFeed: React.FC<MyGroupFeedProps> = function ({ filter, onPostPress }) {
+    const { data: queryData, isLoading, isError } = usePostsByMyGroup(filter);
 
     if (isLoading) {
         return (
@@ -22,12 +27,10 @@ const MyGroupFeed: React.FC<GroupPostsProps> = function ({ userID }) {
         return <Text style={styles.errorText}>Group not found or data is unavailable</Text>;
     }
 
-    const { data } = queryData;
+    const data: PostData[] = queryData as unknown as ListPostResponse;
 
     const renderPost = ({ item }: { item: PostData }) => {
-        const contentPreview = Array.isArray(item.attributes.content)
-            ? item.attributes.content.map(content => content.children.map(child => child.text).join(' ')).join(' ')
-            : '';
+        const contentPreview = item.content;
 
         return (
             <Preview
@@ -36,15 +39,15 @@ const MyGroupFeed: React.FC<GroupPostsProps> = function ({ userID }) {
                 height={74}
                 imagesUrl={[]}
                 imageLink={ImageSrcUrl.sfu}
-                groupName={item.attributes.group?.data.attributes.name}
-                title={item.attributes.title}
+                groupName={item.group.name}
+                title={item.title}
                 contentPreview={contentPreview}
-                timestamp={new Date(item.attributes.createdAt)}
+                timestamp={new Date(item.createdAt)}
                 numOfLikes={10}
                 numOfComments={5}
-                userName="Ananymous"
-                authorSchoolName="SFU"
-                onPress={() => Alert.alert('Post pressed', `${item.id}`)}
+                userName="Anonymous"
+                authorSchoolName={item.group.isSchool ? 'School' : 'Non-School'}
+                onPress={() => onPostPress(item.id)}
             />
         );
     };
@@ -62,7 +65,6 @@ const styles = StyleSheet.create({
     },
     errorText: {
         fontSize: 16,
-        color: 'red',
         textAlign: 'center',
     },
 });

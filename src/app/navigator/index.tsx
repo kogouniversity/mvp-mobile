@@ -1,6 +1,8 @@
+// navigation/RootNavigator.tsx
+import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { withStatusBar } from './hoc';
+import { Entypo, Ionicons } from '@expo/vector-icons';
 import Intro from '../screens/Intro';
 import Login from '../screens/auth/login/Login';
 import SignupEmailInput from '../screens/auth/signup/SignupEmailInput';
@@ -9,9 +11,14 @@ import SignupIdAndPassword from '../screens/auth/signup/SignupIdAndPassword';
 import MyGroupList from '../screens/group/MyGroupList';
 import Feed from '../screens/Feed';
 import Profile from '../screens/Profile';
-import Gadget from '../screens/Gadget';
+import Schedule from '../screens/schedule/Schedule';
+import Main from '../screens/main';
+import PostDetails from '../screens/post/PostDetails';
+import GroupPostDetails from '../screens/post/GroupPostDetails';
+import GroupFeed from '../screens/group/GroupFeed';
 import { NavigationParamList } from './types';
-import CreateNewGroup from '../screens/group/CreateNewGroup';
+import { withStatusBar } from './hoc';
+import CreateNewPost from '../screens/post/CreateNewPost';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -31,53 +38,75 @@ export default function RootNavigator(): JSX.Element {
 
 function HomeTabNavigator(): JSX.Element {
     return (
-        <Tab.Navigator initialRouteName="/Home/Gadget" screenOptions={{ headerShown: false }}>
-            <Tab.Screen name="/Home/Feed" component={withStatusBar(FeedStackNavigator)} />
-            <Tab.Screen name="/Home/MyGroups" component={withStatusBar(MyGroupStackNavigator)} />
-            <Tab.Screen name="/Home/Gadget" component={withStatusBar(GadgetStackNavigator)} />
-            <Tab.Screen name="/Home/GroupExplore" component={withStatusBar(GroupExploreStackNavigator)} />
-            <Tab.Screen name="/Home/Profile" component={withStatusBar(ProfileStackNavigator)} />
+        <Tab.Navigator
+            initialRouteName="FeedTab"
+            screenOptions={({ route }) => ({
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarIcon: ({ color, size }) => {
+                    if (route.name === 'FeedTab') {
+                        return <Entypo name="home" size={size} color={color} />;
+                    } else if (route.name === 'MyGroupsTab') {
+                        return <Entypo name="leaf" size={size} color={color} />;
+                    } else if (route.name === 'GadgetTab') {
+                        return <Entypo name="calendar" size={size} color={color} />;
+                    } else if (route.name === 'ProfileTab') {
+                        return <Ionicons name="person-sharp" size={size} color={color} />;
+                    }
+                },
+                tabBarActiveTintColor: 'blue',
+                tabBarInactiveTintColor: 'lightgrey',
+            })}>
+            <Tab.Screen name="FeedTab" component={FeedStackNavigator} />
+            <Tab.Screen name="MyGroupsTab" component={MyGroupStackNavigator} />
+            <Tab.Screen name="GadgetTab" component={GadgetStackNavigator} />
+            <Tab.Screen name="ProfileTab" component={ProfileStackNavigator} />
         </Tab.Navigator>
     );
 }
 
 function MyGroupStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="/Home/MyGroups" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/MyGroups" component={withStatusBar(MyGroupList)} />
-        </Stack.Navigator>
-    );
-}
-
-function GroupExploreStackNavigator(): JSX.Element {
-    return (
-        <Stack.Navigator initialRouteName="/Home/GroupExplore" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/GroupExplore" component={withStatusBar(MyGroupList)} />
-            <Stack.Screen name="/Home/GroupExplore/CreateNewGroup" component={withStatusBar(CreateNewGroup)} />
+        <Stack.Navigator initialRouteName="MyGroupsTab" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="MyGroupsTab" component={withStatusBar(MyGroupList)} />
+            <Stack.Screen name="MyGroupsTab/Feed" component={withStatusBar(Feed)} />
+            <Stack.Screen name="GroupFeed" component={withStatusBar(GroupFeed)} />
+            <Stack.Screen
+                name="GroupPostDetails"
+                component={withStatusBar(GroupPostDetails)}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen name="CreateNewPost" component={withStatusBar(CreateNewPost)} />
         </Stack.Navigator>
     );
 }
 
 function FeedStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="/Home/Feed" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/Feed" component={withStatusBar(Feed)} />
+        <Stack.Navigator initialRouteName="FeedTab">
+            <Stack.Screen name="FeedTab" component={withStatusBar(Main)} options={{ headerShown: false }} />
+            <Stack.Screen name="PostDetails" component={withStatusBar(PostDetails)} options={{ headerShown: false }} />
+            <Stack.Screen
+                name="CreateNewPost"
+                component={withStatusBar(CreateNewPost)}
+                options={{ headerShown: false }}
+            />
         </Stack.Navigator>
     );
 }
 
 function GadgetStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="/Home/Gadget" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/Gadget" component={withStatusBar(Gadget)} />
+        <Stack.Navigator initialRouteName="GadgetTab" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="GadgetTab" component={withStatusBar(Schedule)} />
         </Stack.Navigator>
     );
 }
 
 function ProfileStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="/Home/Profile" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/Home/Profile" component={withStatusBar(Profile)} />
+        <Stack.Navigator initialRouteName="ProfileTab" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="ProfileTab" component={withStatusBar(Profile)} />
         </Stack.Navigator>
     );
 }

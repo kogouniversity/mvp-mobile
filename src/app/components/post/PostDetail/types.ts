@@ -2,29 +2,12 @@ export interface GroupPostsProps {
     postID: string;
 }
 
-export interface PostAttributeContent {
-    type: string;
-    children: { type: string; text: string }[];
-}
-
 export interface PostAttributes {
     title: string;
     createdAt: string;
-    content: PostAttributeContent[];
-    group?: Group;
-}
-export interface GroupData {
-    id: number;
-    attributes: {
-        name: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-    };
-}
-
-export interface Group {
-    data: GroupData;
+    content: string;
+    updatedAt: string;
+    publishedAt: string;
 }
 
 export interface PostData {
@@ -33,15 +16,8 @@ export interface PostData {
 }
 
 export interface ListPostResponse {
-    data: PostData[];
-    meta: {
-        pagination: {
-            page: number;
-            pageCount: number;
-            pageSize: number;
-            total: number;
-        };
-    };
+    data: PostData;
+    meta: {};
 }
 
 export interface OptionType {

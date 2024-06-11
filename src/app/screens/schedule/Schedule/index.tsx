@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import SelectField from '../../../atoms/SelectField';
 import Scheduler from '../../../components/Scheduler';
@@ -24,23 +24,25 @@ function Schedule(): JSX.Element {
     };
 
     return (
-        <View style={styles.screen}>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>My Schedule</Text>
-                <View style={styles.iconContainer}>
-                    <TouchableOpacity style={styles.iconButton}>
-                        <FontAwesome name="pencil" size={22} color="black" />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconButton}>
-                        <Ionicons name="people" size={24} color="black" />
-                    </TouchableOpacity>
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.screen}>
+                <View style={styles.header}>
+                    <Text style={styles.headerTitle}>My Schedule</Text>
+                    <View style={styles.iconContainer}>
+                        <TouchableOpacity style={styles.iconButton}>
+                            <FontAwesome name="pencil" size={22} color="black" />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.iconButton}>
+                            <Ionicons name="people" size={24} color="black" />
+                        </TouchableOpacity>
+                    </View>
                 </View>
+                <View style={styles.selectFieldContainer}>
+                    <SelectField label="Choose semester" data={semesters} onSelect={handleSemesterSelect} width={90} />
+                </View>
+                {isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : <Scheduler courses={courses || []} />}
             </View>
-            <View style={styles.selectFieldContainer}>
-                <SelectField label="Choose semester" data={semesters} onSelect={handleSemesterSelect} width={90} />
-            </View>
-            {isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : <Scheduler courses={courses || []} />}
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -48,6 +50,10 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         paddingHorizontal: 16,
+    },
+    safeArea: {
+        flex: 1,
+        backgroundColor: 'white',
     },
     header: {
         flexDirection: 'row',

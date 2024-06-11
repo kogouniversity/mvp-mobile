@@ -3,6 +3,7 @@ import { UseQueryResult, useQuery } from '@tanstack/react-query';
 import { captureAxiosError } from '../../../../utils/sentry';
 import { BaseErrorResponse } from '../../types';
 import { UserGetEntryResponse } from './types';
+import { useAuthToken } from '../../auth/useAuthToken';
 
 const fetchUserInformation = (jwt: string) => async (): Promise<UserGetEntryResponse> => {
     try {
@@ -21,9 +22,12 @@ const fetchUserInformation = (jwt: string) => async (): Promise<UserGetEntryResp
 /**
  * Return list of School entries
  */
-export function useUserInformation(userToken: string): UseQueryResult<UserGetEntryResponse, BaseErrorResponse> {
+export function useUserInformation(): UseQueryResult<UserGetEntryResponse, BaseErrorResponse> {
+    const jwt = useAuthToken();
+
     return useQuery({
         queryKey: ['user-me'],
-        queryFn: fetchUserInformation(userToken),
+        queryFn: fetchUserInformation(jwt!),
+        enabled: !!jwt,
     });
 }

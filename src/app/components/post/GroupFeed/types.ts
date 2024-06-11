@@ -1,16 +1,34 @@
 export interface GroupPostsProps {
-    groupName: string;
+    groupID: string;
 }
 
-export interface PostAttributeContent {
-    type: string;
-    children: { type: string; text: string }[];
+export interface GroupAttributes {
+    name: string;
+    hasAddress: boolean;
+    regionRestricted: boolean;
+    enabled: boolean;
+    description: string;
+    userCount: number;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    isSchool: boolean;
+}
+
+export interface Group {
+    id: number;
+    attributes: GroupAttributes;
 }
 
 export interface PostAttributes {
     title: string;
     createdAt: string;
-    content: PostAttributeContent[];
+    content: string;
+    updatedAt: string;
+    publishedAt: string;
+    group: {
+        data: Group;
+    };
 }
 
 export interface PostData {
@@ -39,4 +57,5 @@ export interface SelectFieldProps {
     label: string;
     data: OptionType[];
     onSelect: (option: OptionType) => void;
+    onPostPress: (postID: string) => void;
 }

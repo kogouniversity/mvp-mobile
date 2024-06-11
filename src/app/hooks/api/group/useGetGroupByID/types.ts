@@ -12,16 +12,7 @@ export interface Group {
     attributes: GroupAttributes;
 }
 
-export interface Pagination {
-    page: number;
-    pageSize: number;
-    pageCount: number;
-    total: number;
-}
-
-export interface ListGroupResponse {
-    data: Group[];
-    meta: {
-        pagination: Pagination;
-    };
+export interface GroupResponse {
+    data: Group;
+    meta: Record<string, unknown>;
 }

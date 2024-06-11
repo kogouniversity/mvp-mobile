@@ -1,8 +1,8 @@
 import { RouteProp, useRoute as useRouteImpl } from '@react-navigation/native';
-import { ComponentRouteParam } from './types';
+import { NavigationParamList } from './types';
 
-export function useRoute<T extends keyof ComponentRouteParam>(): ReturnType<
-    typeof useRouteImpl<RouteProp<ComponentRouteParam, T>>
+export function useRoute<T extends keyof NavigationParamList>(): ReturnType<
+    typeof useRouteImpl<RouteProp<NavigationParamList, T>>
 > {
-    return useRouteImpl<RouteProp<ComponentRouteParam, T>>();
+    return useRouteImpl<RouteProp<NavigationParamList, T>>();
 }

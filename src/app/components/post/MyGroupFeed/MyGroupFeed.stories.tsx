@@ -23,10 +23,10 @@ const Template: ComponentStory<typeof MyGroupFeed> = function (args) {
 
 export const Default = Template.bind({});
 Default.args = {
-    userID: '3',
+    filter: 'All',
 };
 
 export const NoResult = Template.bind({});
 NoResult.args = {
-    userID: '99999',
+    filter: 'SFU',
 };

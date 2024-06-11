@@ -1,48 +1,40 @@
 export interface GroupPostsProps {
-    userID: string;
-}
-
-export interface PostAttributeContent {
-    type: string;
-    children: { type: string; text: string }[];
+    filter: string;
 }
 
 export interface PostAttributes {
     title: string;
     createdAt: string;
-    content: PostAttributeContent[];
-    group?: Group;
-}
-export interface GroupData {
-    id: number;
-    attributes: {
-        name: string;
-        createdAt: string;
-        updatedAt: string;
-        publishedAt: string;
-    };
+    content: string;
+    updatedAt: string;
+    publishedAt: string;
 }
 
 export interface Group {
-    data: GroupData;
+    id: number;
+    name: string;
+    hasAddress: boolean;
+    regionRestricted: boolean;
+    enabled: boolean;
+    description: string | null;
+    userCount: number;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    isSchool: boolean;
 }
 
 export interface PostData {
-    id: number;
-    attributes: PostAttributes;
+    id: string;
+    createdAt: string;
+    title: string;
+    content: string;
+    updatedAt: string;
+    publishedAt: string;
+    group: Group;
 }
 
-export interface ListPostResponse {
-    data: PostData[];
-    meta: {
-        pagination: {
-            page: number;
-            pageCount: number;
-            pageSize: number;
-            total: number;
-        };
-    };
-}
+export type ListPostResponse = PostData[];
 
 export interface OptionType {
     label: string;

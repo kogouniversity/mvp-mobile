@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import Button from '../../atoms/Button';
@@ -7,6 +7,7 @@ import useSignIn from '../../hooks/api/auth/useSignIn';
 import Typography from '../../atoms/Typography';
 import { AuthUserDataResponse } from '../../hooks/api/auth/types';
 import { useNavigation } from '../../navigator/useNavigation';
+import { useAuthStore } from '../../../store/auth';
 
 interface LoginFormInput {
     id: string;
@@ -21,10 +22,11 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
     const { register, handleSubmit, setValue, getValues } = useForm<LoginFormInput>();
     const { requestSignInAsync } = useSignIn();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const setJwt = useAuthStore(state => state.setJwt);
 
     const navigation = useNavigation();
 
-    React.useEffect(() => {
+    useEffect(() => {
         register('id', { required: true });
         register('password', { required: true });
     }, [register]);
@@ -35,8 +37,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
             password: getValues('password'),
         })
             .then(data => {
-                console.log('data:');
-                console.log(data);
+                setJwt(data.jwt);
                 onSignIn(data);
             })
             .catch(err => {

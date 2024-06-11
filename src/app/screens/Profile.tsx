@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, ImageSourcePropType } from 'react-native';
+import { StyleSheet, View, Image, ImageSourcePropType, SafeAreaView } from 'react-native';
 import { Zocial, FontAwesome, FontAwesome6, Ionicons } from '@expo/vector-icons';
 import Typography from '../atoms/Typography';
 import { ImageSrcUrl } from '../utils/images';

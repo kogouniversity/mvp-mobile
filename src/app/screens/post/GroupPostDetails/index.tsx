@@ -5,16 +5,13 @@ import PostDetail from '../../../components/post/PostDetail';
 import { PostDetailsRouteProp, PostDetailsNavigationProp } from '../../../navigator/types';
 import { AntDesign } from '@expo/vector-icons';
 
-function PostDetails(): JSX.Element {
+function GroupPostDetails(): JSX.Element {
     const route = useRoute<PostDetailsRouteProp>();
     const navigation = useNavigation<PostDetailsNavigationProp>();
     const { postID, savedActiveTab, savedFilter } = route.params;
 
     const handleBackPress = () => {
-        navigation.navigate('FeedTab', {
-            savedActiveTab,
-            savedFilter,
-        });
+        navigation.goBack();
     };
 
     return (
@@ -45,4 +42,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PostDetails;
+export default GroupPostDetails;
