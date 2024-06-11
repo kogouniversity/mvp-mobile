@@ -38,15 +38,29 @@ const Trending: React.FC<GroupPostsProps> = function ({ userID }) {
                 </View>
 
                 <TrendingPreview
-                    key={item.id}
+                    // key={item.id}
+                    // width={390}
+                    // height={74}
+                    // imagesUrl={[]}
+                    // imageLink={ImageSrcUrl.sfu}
+                    // groupName={item.attributes.group?.data.attributes.name}
+                    // title={item.attributes.title}
+                    // contentPreview={contentPreview}
+                    // timestamp={new Date(item.attributes.createdAt)}
+                    // numOfLikes={10}
+                    // numOfComments={5}
+                    // userName="Anonymous"
+                    // authorSchoolName="SFU"
+                    // onPress={() => Alert.alert('Post pressed', `${item.id}`)}
+                    key={3}
                     width={390}
                     height={74}
                     imagesUrl={[]}
                     imageLink={ImageSrcUrl.sfu}
-                    groupName={item.attributes.group?.data.attributes.name}
-                    title={item.attributes.title}
-                    contentPreview={contentPreview}
-                    timestamp={new Date(item.attributes.createdAt)}
+                    groupName={'테스트 드간다잉'}
+                    title={'네비게이터 엘리게이터'}
+                    contentPreview={'아몰랑'}
+                    timestamp={new Date()}
                     numOfLikes={10}
                     numOfComments={5}
                     userName="Anonymous"

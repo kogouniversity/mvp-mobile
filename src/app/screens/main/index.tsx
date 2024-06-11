@@ -1,14 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, SafeAreaView } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import MyGroupFeed from '../../components/post/MyGroupFeed/MyGroupFeed';
 import Trending from '../../components/post/Trending/Trending';
 import Header from '../../components/MainScreenHeader/MainScreenHeader';
-
-const userID = '3';
+import { PostDetailsNavigationProp, NavigationParamList } from '../../navigator/types';
+import { RouteProp } from '@react-navigation/native';
 
 function Main(): JSX.Element {
     const [activeTab, setActiveTab] = useState('Following');
     const [filter, setFilter] = useState('SFU');
+    const navigation = useNavigation<PostDetailsNavigationProp>();
+
+    const route = useRoute<RouteProp<NavigationParamList, 'FeedTab'>>();
+
+    useEffect(() => {
+        if (route.params) {
+            const { savedActiveTab, savedFilter } = route.params;
+            if (savedActiveTab) setActiveTab(savedActiveTab);
+            if (savedFilter) setFilter(savedFilter);
+        }
+    }, [route.params]);
+
+    const handlePostPress = (postID: string) => {
+        navigation.navigate('PostDetails', {
+            postID,
+            savedActiveTab: activeTab,
+            savedFilter: filter,
+        });
+    };
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -18,39 +38,35 @@ function Main(): JSX.Element {
             <View style={styles.tabContainer}>
                 <TouchableOpacity
                     style={[styles.tab, activeTab === 'Following' && styles.activeTab]}
-                    onPress={() => setActiveTab('Following')}
-                >
+                    onPress={() => setActiveTab('Following')}>
                     <Text style={styles.tabText}>Following</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.tab, activeTab === 'Trending' && styles.activeTab]}
-                    onPress={() => setActiveTab('Trending')}
-                >
+                    onPress={() => setActiveTab('Trending')}>
                     <Text style={styles.tabText}>Trending</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.spacing} />
             {activeTab === 'Trending' ? (
-                <Trending userID={userID} />
+                <Trending userID={'3'} />
             ) : (
                 <View style={styles.contentContainer}>
                     <View style={styles.filterContainer}>
                         <TouchableOpacity
                             style={[styles.filterButton, filter === 'SFU' && styles.activeFilter]}
-                            onPress={() => setFilter('SFU')}
-                        >
+                            onPress={() => setFilter('SFU')}>
                             <View style={[styles.circle, filter === 'SFU' && styles.activeCircle]} />
                             <Text style={styles.filterText}>only SFU</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.filterButton, filter === 'All' && styles.activeFilter]}
-                            onPress={() => setFilter('All')}
-                        >
+                            onPress={() => setFilter('All')}>
                             <View style={[styles.circle, filter === 'All' && styles.activeCircle]} />
                             <Text style={styles.filterText}>all groups</Text>
                         </TouchableOpacity>
                     </View>
-                    <MyGroupFeed userID="2" />
+                    <MyGroupFeed filter={filter} onPostPress={handlePostPress} />
                 </View>
             )}
         </SafeAreaView>

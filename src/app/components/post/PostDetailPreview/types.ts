@@ -5,13 +5,11 @@ export type PostPreviewProps = {
     height: number;
     imageLink: ImageSourcePropType;
     imagesUrl: string[];
-    groupName: string | undefined;
     title: string;
-    contentPreview: string;
+    content: string;
     timestamp: Date;
     numOfLikes: number;
     numOfComments: number;
     userName: string;
     authorSchoolName: string;
-    onPress: () => void;
 };

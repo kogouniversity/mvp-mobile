@@ -1,3 +1,4 @@
+// navigation/RootNavigator.tsx
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -12,8 +13,11 @@ import Feed from '../screens/Feed';
 import Profile from '../screens/Profile';
 import Schedule from '../screens/schedule/Schedule';
 import Main from '../screens/main';
+import PostDetails from '../screens/post/PostDetails';
+import GroupPostDetails from '../screens/post/GroupPostDetails';
+import GroupFeed from '../screens/group/GroupFeed';
 import { NavigationParamList } from './types';
-import { withStatusBar } from './hoc'; 
+import { withStatusBar } from './hoc';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -34,11 +38,11 @@ export default function RootNavigator(): JSX.Element {
 function HomeTabNavigator(): JSX.Element {
     return (
         <Tab.Navigator
-            initialRouteName="GadgetTab"
+            initialRouteName="FeedTab"
             screenOptions={({ route }) => ({
                 headerShown: false,
                 tabBarShowLabel: false,
-                tabBarIcon: ({ focused, color, size }) => {
+                tabBarIcon: ({ color, size }) => {
                     if (route.name === 'FeedTab') {
                         return <Entypo name="home" size={size} color={color} />;
                     } else if (route.name === 'MyGroupsTab') {
@@ -51,8 +55,7 @@ function HomeTabNavigator(): JSX.Element {
                 },
                 tabBarActiveTintColor: 'blue',
                 tabBarInactiveTintColor: 'lightgrey',
-            })}
-        >
+            })}>
             <Tab.Screen name="FeedTab" component={FeedStackNavigator} />
             <Tab.Screen name="MyGroupsTab" component={MyGroupStackNavigator} />
             <Tab.Screen name="GadgetTab" component={GadgetStackNavigator} />
@@ -66,14 +69,21 @@ function MyGroupStackNavigator(): JSX.Element {
         <Stack.Navigator initialRouteName="MyGroupsTab" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="MyGroupsTab" component={withStatusBar(MyGroupList)} />
             <Stack.Screen name="MyGroupsTab/Feed" component={withStatusBar(Feed)} />
+            <Stack.Screen name="GroupFeed" component={withStatusBar(GroupFeed)} />
+            <Stack.Screen
+                name="GroupPostDetails"
+                component={withStatusBar(GroupPostDetails)}
+                options={{ headerShown: false }}
+            />
         </Stack.Navigator>
     );
 }
 
 function FeedStackNavigator(): JSX.Element {
     return (
-        <Stack.Navigator initialRouteName="FeedTab" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="FeedTab" component={withStatusBar(Main)} />
+        <Stack.Navigator initialRouteName="FeedTab">
+            <Stack.Screen name="FeedTab" component={withStatusBar(Main)} options={{ headerShown: false }} />
+            <Stack.Screen name="PostDetails" component={withStatusBar(PostDetails)} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }

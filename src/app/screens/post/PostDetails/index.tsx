@@ -1,16 +1,32 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TouchableOpacity, Text } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import PostDetail from '../../../components/post/PostDetail';
-import CommentsList from '../../../components/post/PostCommentsPreview/comments';
-
-const postID = '3';
+import { PostDetailsRouteProp, PostDetailsNavigationProp } from '../../../navigator/types';
+import { AntDesign } from '@expo/vector-icons';
 
 function PostDetails(): JSX.Element {
+    const route = useRoute<PostDetailsRouteProp>();
+    const navigation = useNavigation<PostDetailsNavigationProp>();
+    const { postID, savedActiveTab, savedFilter } = route.params;
+
+    const handleBackPress = () => {
+        navigation.navigate('FeedTab', {
+            savedActiveTab,
+            savedFilter,
+        });
+    };
+
     return (
-        <View style={{ flex: 1 }}>
-            <PostDetail postID={postID}></PostDetail>
-            <CommentsList postID={postID}></CommentsList>
-        </View>
+        <SafeAreaView style={styles.safeArea}>
+            <TouchableOpacity onPress={handleBackPress}>
+                <AntDesign name="left" size={27} color="black" />
+            </TouchableOpacity>
+            <View style={{ flex: 1 }}>
+                <PostDetail postID={postID} />
+                {/* <CommentsList postID={postID} /> */}
+            </View>
+        </SafeAreaView>
     );
 }
 
@@ -22,6 +38,10 @@ const styles = StyleSheet.create({
     },
     spacing: {
         height: 10,
+    },
+    safeArea: {
+        flex: 1,
+        backgroundColor: 'white',
     },
 });
 

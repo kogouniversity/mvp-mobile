@@ -1,14 +1,60 @@
 import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet, Animated } from 'react-native';
 import { usePostsByGroup } from '../../../hooks/api/post/usePostsByGroup';
 import Preview from '../Preview';
 import Skeleton from '../../../atoms/Skeleton';
-import { List } from '../../../atoms/List';
+import { ScrollableList, ListItem } from '../../../atoms/ScrollableList';
 import { GroupPostsProps, PostData } from './types';
 import { ImageSrcUrl } from '../../../utils/images';
+import GroupInfo from '../../../components/group/GroupInfo';
 
-const GroupFeed: React.FC<GroupPostsProps> = function ({ groupName }) {
-    const { data: queryData, isLoading, isError } = usePostsByGroup(groupName);
+const GroupFeedComponent: React.FC<
+    GroupPostsProps & { scrollY: Animated.Value; onLoad: (name: string) => void; onPostPress: (postID: string) => void }
+> = ({ groupID, scrollY, onLoad, onPostPress }) => {
+    const { data: queryData, isLoading, isError } = usePostsByGroup(groupID);
+
+    const renderHeader = () => (
+        <Animated.View
+            style={[
+                styles.headerContainer,
+                {
+                    transform: [
+                        {
+                            translateY: scrollY.interpolate({
+                                inputRange: [0, 200],
+                                outputRange: [0, -130],
+                                extrapolate: 'clamp',
+                            }),
+                        },
+                    ],
+                },
+            ]}>
+            <GroupInfo groupID={groupID} onLoad={onLoad} />
+        </Animated.View>
+    );
+
+    const renderPost = ({ item }: { item: PostData }) => {
+        const contentPreview = item.attributes.content;
+
+        return (
+            <Preview
+                key={item.id}
+                width={390}
+                height={74}
+                imagesUrl={[]}
+                imageLink={ImageSrcUrl.sfu}
+                groupName={item.attributes.group.data.attributes.name}
+                title={item.attributes.title}
+                contentPreview={contentPreview}
+                timestamp={new Date(item.attributes.createdAt)}
+                numOfLikes={10}
+                numOfComments={5}
+                userName="Anonymous"
+                authorSchoolName={item.attributes.group.data.attributes.isSchool ? 'School' : 'Non-School'}
+                onPress={() => onPostPress(item.id.toString())}
+            />
+        );
+    };
 
     if (isLoading) {
         return (
@@ -18,41 +64,25 @@ const GroupFeed: React.FC<GroupPostsProps> = function ({ groupName }) {
         );
     }
 
-    if (isError || !queryData) {
+    if (isError || !queryData || !queryData.data) {
         return <Text style={styles.errorText}>Group not found or data is unavailable</Text>;
     }
 
     const { data } = queryData;
 
-    const renderPost = ({ item }: { item: PostData }) => {
-        const contentPreview = Array.isArray(item.attributes.content)
-            ? item.attributes.content.map(content => content.children.map(child => child.text).join(' ')).join(' ')
-            : '';
-
-        return (
-            <Preview
-                key={item.id}
-                width={390}
-                height={74}
-                imagesUrl={[]}
-                imageLink={ImageSrcUrl.sfu}
-                groupName={groupName}
-                title={item.attributes.title}
-                contentPreview={contentPreview}
-                timestamp={new Date(item.attributes.createdAt)}
-                numOfLikes={10}
-                numOfComments={5}
-                userName="Ananymous"
-                authorSchoolName="SFU"
-                onPress={() => Alert.alert('Post pressed', `${item.id}`)}
-            />
-        );
-    };
-
     return (
-        <View>
-            <List>{data.map(item => renderPost({ item }))}</List>
-        </View>
+        <ScrollableList
+            variant="vertical"
+            onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: true })}>
+            <ListItem>{renderHeader()}</ListItem>
+            {Array.isArray(data) && data.length > 0 ? (
+                data.map(item => <ListItem key={item.id}>{renderPost({ item })}</ListItem>)
+            ) : (
+                <ListItem>
+                    <Text style={styles.errorText}>No posts available</Text>
+                </ListItem>
+            )}
+        </ScrollableList>
     );
 };
 
@@ -65,6 +95,9 @@ const styles = StyleSheet.create({
         color: 'red',
         textAlign: 'center',
     },
+    headerContainer: {
+        marginBottom: 10,
+    },
 });
 
-export default GroupFeed;
+export default GroupFeedComponent;

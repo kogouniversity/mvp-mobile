@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 const CreateNewGroup = function (): JSX.Element {
     const [, setTags] = useState<string[]>([]);
 
-    const navigation = useNavigation();
+    // const navigation = useNavigation();
 
     const {
         control,
@@ -93,7 +93,7 @@ const CreateNewGroup = function (): JSX.Element {
         <ScrollView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity style={styles.backButton}>
-                    <BackButton navigation={navigation} />
+                    {/* <BackButton navigation={navigation} /> */}
                 </TouchableOpacity>
                 <Typography variant="subtext" style={styles.headerTitle}>
                     New Group

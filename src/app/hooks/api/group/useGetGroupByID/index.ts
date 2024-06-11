@@ -1,20 +1,21 @@
 import { QueryOptions, UseQueryResult, useQuery } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
-import { ListPostResponse } from './types';
+import { GroupResponse } from './types';
 import { BaseErrorResponse } from '../../types';
 import { captureAxiosError } from '../../../../utils/sentry';
 import { useAuthToken } from '../../auth/useAuthToken';
 
-const fetchPostByID = async (postID: string, jwt: string | null): Promise<ListPostResponse> => {
+const fetchGroupByID = async (groupiD: string, jwt: string | null): Promise<GroupResponse> => {
     try {
         if (!jwt) {
             throw new Error('JWT token is missing');
         }
-        const response = await axios.get<ListPostResponse>(`/api/posts/${postID}`, {
+        const response = await axios.get<GroupResponse>(`/api/groups/${groupiD}`, {
             headers: {
                 Authorization: `Bearer ${jwt}`,
             },
         });
+
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError<BaseErrorResponse>);
@@ -22,15 +23,15 @@ const fetchPostByID = async (postID: string, jwt: string | null): Promise<ListPo
     }
 };
 
-export function useGetPostByID(
-    postID: string,
-    queryOptions?: QueryOptions<ListPostResponse, BaseErrorResponse>,
-): UseQueryResult<ListPostResponse, BaseErrorResponse> {
+export function useGetGroupByID(
+    groupiD: string,
+    queryOptions?: QueryOptions<GroupResponse, BaseErrorResponse>,
+): UseQueryResult<GroupResponse, BaseErrorResponse> {
     const jwt = useAuthToken();
-    return useQuery<ListPostResponse, BaseErrorResponse>({
+    return useQuery<GroupResponse, BaseErrorResponse>({
         ...(queryOptions ?? {}),
-        queryKey: ['postID', postID],
+        queryKey: ['useGetGroupByID', groupiD],
         queryFn: () =>
-            postID ? fetchPostByID(postID, jwt) : Promise.reject(new Error('Post information not available')),
+            groupiD ? fetchGroupByID(groupiD, jwt) : Promise.reject(new Error('Group information not available')),
     });
 }

@@ -26,10 +26,9 @@ const PostPreview: React.FC<PostPreviewProps> = ({
         const months = Math.floor(diff / (86400000 * 30));
         const years = Math.floor(diff / (86400000 * 365));
 
-          if (minutes < 1){
-            return 'Just now'
-        }
-          else if (minutes < 60) {
+        if (minutes < 1) {
+            return 'Just now';
+        } else if (minutes < 60) {
             return `${minutes}m`;
         } else if (hours < 24) {
             return `${hours}h`;

@@ -7,9 +7,8 @@ const PostDetailPreview: React.FC<PostPreviewProps> = ({
     width,
     imagesUrl,
     imageLink,
-    groupName,
     title,
-    contentPreview,
+    content,
     timestamp,
     numOfLikes,
     numOfComments,
@@ -38,14 +37,12 @@ const PostDetailPreview: React.FC<PostPreviewProps> = ({
 
     return (
         <View style={{ width, paddingVertical: 10 }}>
-            <Text style={styles.header}>{groupName}</Text>
-
             <View style={styles.container}>
                 <View style={styles.contentSection}>
                     <Text style={styles.title}>{title}</Text>
                     {imagesUrl.length > 0 && <View style={styles.imagesContainer}>{renderImages()}</View>}
                     <View style={styles.contentAndFooterRow}>
-                        <Text style={styles.contentPreview}>{contentPreview}</Text>
+                        <Text style={styles.contentPreview}>{content}</Text>
                         <View style={styles.footerRow}>
                             <AntDesign name="hearto" size={12} color="#B10606" />
                             <Text style={styles.iconText}>{numOfLikes}</Text>
@@ -79,19 +76,6 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 10,
     },
-    header: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginVertical: 20,
-    },
-    groupName: {
-        fontWeight: 'bold',
-        fontSize: 16,
-        marginBottom: 5,
-        marginLeft: 20,
-        textAlign: 'left',
-    },
     userSection: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -107,7 +91,7 @@ const styles = StyleSheet.create({
     userInfoContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end', // This will push the userInfo and image to the right
+        justifyContent: 'flex-end',
         flex: 1,
     },
     image: {

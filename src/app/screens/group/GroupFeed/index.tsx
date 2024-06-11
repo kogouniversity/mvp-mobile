@@ -1,43 +1,63 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { useUserInformation } from '../../../hooks/api/user/useUserInformation';
+import React, { useRef, useEffect, useState } from 'react';
+import { View, StyleSheet, SafeAreaView, Animated, Text } from 'react-native';
+import { useRoute, RouteProp } from '@react-navigation/native';
 import GroupFeedComponent from '../../../components/post/GroupFeed';
-import TextField from '../../../atoms/TextField';
+import { NavigationParamList } from '../../../navigator/types';
+import BackButton from '../../../components/BackButton';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-const userToken = 'token';
+type GroupFeedRouteProp = RouteProp<NavigationParamList, 'GroupFeed'>;
 
 function GroupFeed(): JSX.Element {
-    const { data, isError } = useUserInformation(userToken);
+    const route = useRoute<GroupFeedRouteProp>();
+    const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'GroupFeed'>>();
+    const { groupId } = route.params;
+    const [groupName, setGroupName] = useState('');
+    const scrollY = useRef(new Animated.Value(0)).current;
 
-    if (isError) {
-        return (
-            <View style={styles.container}>
-                <Text>Error fetching user information</Text>
-            </View>
-        );
-    }
-
-    if (!data) {
-        return (
-            <View style={styles.container}>
-                <Text>Loading user information...</Text>
-            </View>
-        );
-    }
+    const showGroupName = scrollY.interpolate({
+        inputRange: [150, 200],
+        outputRange: [0, 1],
+        extrapolate: 'clamp',
+    });
+    const handlePostPress = (postID: string) => {
+        navigation.navigate('GroupPostDetails', {
+            postID,
+        });
+    };
 
     return (
-        <View style={{ flex: 1 }}>
-            <TextField variant="outlined" placeholder="Search..." style={{ margin: 10 }} />
-            <GroupFeedComponent groupName={data.school.schoolName} />
-        </View>
+        <SafeAreaView style={styles.safeArea}>
+            <Animated.View style={[styles.header]}>
+                <BackButton navigation={navigation} />
+                <Animated.Text style={[styles.headerTitle, { opacity: showGroupName }]}>{groupName}</Animated.Text>
+            </Animated.View>
+            <GroupFeedComponent
+                groupID={groupId.toString()}
+                scrollY={scrollY}
+                onLoad={name => setGroupName(name)}
+                onPostPress={handlePostPress}
+            />
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    safeArea: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: 'white',
+    },
+    header: {
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        backgroundColor: 'white',
+        zIndex: 1,
+        paddingBottom: 10,
+    },
+    headerTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
     },
 });
 

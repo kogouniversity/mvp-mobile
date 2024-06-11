@@ -3,10 +3,18 @@ import axios, { AxiosError } from 'axios';
 import { ListGroupResponse } from '../types';
 import { BaseErrorResponse } from '../../types';
 import { captureAxiosError } from '../../../../utils/sentry';
+import { useAuthToken } from '../../auth/useAuthToken';
 
-const fetchMyGroups = async (userId: string): Promise<ListGroupResponse> => {
+const fetchMyGroups = async (jwt: string | null): Promise<ListGroupResponse> => {
     try {
-        const response = await axios.get<ListGroupResponse>(`/api/groups?populate=icon&filters[users]=${userId}`); // strapi field에서 filtering 해서 가져오는 api
+        if (!jwt) {
+            throw new Error('JWT token missing');
+        }
+        const response = await axios.get<ListGroupResponse>('/api/following?page=1&pageSize=10', {
+            headers: {
+                Authorization: `Bearer ${jwt}`,
+            },
+        });
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError<BaseErrorResponse>);
@@ -15,12 +23,13 @@ const fetchMyGroups = async (userId: string): Promise<ListGroupResponse> => {
 };
 
 export function useMyGroup(
-    userId: string,
     queryOptions?: QueryOptions<ListGroupResponse, BaseErrorResponse>,
 ): UseQueryResult<ListGroupResponse, BaseErrorResponse> {
+    const jwt = useAuthToken();
+
     return useQuery<ListGroupResponse, BaseErrorResponse>({
         ...(queryOptions ?? {}),
-        queryKey: ['myGroups', userId],
-        queryFn: () => (userId ? fetchMyGroups(userId) : Promise.reject(new Error('User information not available'))),
+        queryKey: ['myGroups'],
+        queryFn: () => fetchMyGroups(jwt),
     });
 }
