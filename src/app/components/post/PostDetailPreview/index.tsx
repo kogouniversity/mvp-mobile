@@ -36,34 +36,35 @@ const PostDetailPreview: React.FC<PostPreviewProps> = ({
     };
 
     return (
-        <View style={{ width, paddingVertical: 10 }}>
-            <View style={styles.container}>
-                <View style={styles.contentSection}>
-                    <Text style={styles.title}>{title}</Text>
-                    {imagesUrl.length > 0 && <View style={styles.imagesContainer}>{renderImages()}</View>}
-                    <View style={styles.contentAndFooterRow}>
-                        <Text style={styles.contentPreview}>{content}</Text>
-                        <View style={styles.footerRow}>
-                            <AntDesign name="hearto" size={12} color="#B10606" />
-                            <Text style={styles.iconText}>{numOfLikes}</Text>
-                            <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" />
-                            <Text style={styles.iconText}>{numOfComments}</Text>
-                        </View>
-                    </View>
-                </View>
+        <View style={[styles.container, { width }]}>
+            <View style={styles.contentSection}>
+                <Text style={styles.title}>{title}</Text>
+                {imagesUrl.length > 0 && <View style={styles.imagesContainer}>{renderImages()}</View>}
+                <Text style={styles.contentPreview}>{content}</Text>
+            </View>
 
-                <View style={styles.userSection}>
-                    <TouchableOpacity style={styles.reportButton}>
-                        <Text style={styles.reportText}>Report</Text>
-                    </TouchableOpacity>
-                    <View style={styles.userInfoContainer}>
-                        <View style={styles.userInfo}>
-                            <Text style={styles.userName}>{userName}</Text>
-                            <Text style={styles.timestamp}>{formatDate(timestamp)}</Text>
-                        </View>
-                        <Image source={imageLink} style={styles.image} />
+            <View style={styles.userSection}>
+                <View style={styles.userInfoContainer}>
+                    <View style={styles.userInfo}>
+                        <Text style={styles.userName}>{userName}</Text>
+                        <Text style={styles.timestamp}>{formatDate(timestamp)}</Text>
                     </View>
+                    <Image source={imageLink} style={styles.image} />
                 </View>
+            </View>
+
+            <View style={styles.footerRow}>
+                <TouchableOpacity style={styles.footerButton}>
+                    <AntDesign name="hearto" size={12} color="#B10606" />
+                    <Text style={styles.iconText}>{numOfLikes}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.footerButton}>
+                    <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" />
+                    <Text style={styles.iconText}>{numOfComments}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.footerButton}>
+                    <Text style={styles.reportText}>Report</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -75,15 +76,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 8,
         padding: 10,
+        borderColor: '#ddd',
     },
     userSection: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        position: 'absolute',
-        bottom: 0,
-        left: 10,
-        right: 10,
         padding: 5,
         backgroundColor: '#fff',
         borderRadius: 5,
@@ -112,43 +110,46 @@ const styles = StyleSheet.create({
         fontSize: 8,
         color: '#666',
     },
-    reportButton: {
-        position: 'absolute',
-        left: 20,
-        bottom: 5,
-    },
-    reportText: {
-        fontSize: 10,
-        color: 'red',
-    },
     contentSection: {
         marginLeft: 20,
         paddingTop: 5,
     },
     title: {
-        fontSize: 14,
+        fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 5,
         color: '#000',
     },
-    contentAndFooterRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 40,
-    },
     contentPreview: {
-        fontSize: 12,
+        fontSize: 14,
         color: '#888',
-        flex: 1,
+        marginBottom: 10,
     },
     footerRow: {
         flexDirection: 'row',
+        justifyContent: 'space-around',
         alignItems: 'center',
+        marginTop: 10,
+        borderColor: '#ddd',
+        paddingTop: 5,
+    },
+    footerButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#ddd',
+        paddingVertical: 5,
     },
     iconText: {
         fontSize: 11,
-        marginHorizontal: 2,
+        marginLeft: 2,
+    },
+    reportText: {
+        fontSize: 10,
+        color: 'red',
     },
     imagesContainer: {
         flexDirection: 'row',
