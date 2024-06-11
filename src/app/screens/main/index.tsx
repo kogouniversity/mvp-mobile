@@ -68,7 +68,7 @@ function Main(): JSX.Element {
                         </TouchableOpacity>
                     </View>
                     <MyGroupFeed filter={filter} onPostPress={handlePostPress} />
-                    <AddButton/>
+                    <AddButton />
                 </View>
             )}
         </SafeAreaView>

@@ -8,8 +8,6 @@ import MyGroupListIcon from '../../../components/group/MyGroupListIcon';
 import BackButton from '../../../components/BackButton';
 import { useNavigation } from '../../../navigator/useNavigation';
 
-
-
 function CreateNewPost(): JSX.Element {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -35,37 +33,39 @@ function CreateNewPost(): JSX.Element {
 
     return (
         <SafeAreaView style={styles.safeArea}>
-        <ScrollView style={styles.container}>
-            <View style={styles.header}>
-                <TouchableOpacity style={styles.backButton}>
-                    <BackButton navigation={navigation} />
-                </TouchableOpacity>
-                <Typography variant="subtext" style={styles.headerTitle}>
-                    New Post
-                </Typography>
-                <TouchableOpacity>
-                    <Button variant="primary" size="sm" label="Submit" onPress={onSubmit} style={styles.button} />
-                </TouchableOpacity>
-            </View>
-            <View>{selectedGroup && <Text style={styles.selectedGroup}>Selected group: {selectedGroup}</Text>}</View>
-            <MyGroupListIcon onGroupSelect={handleGroupSelect} selectedGroup={selectedGroup} />
-            <TextField
-                variant="outlined"
-                placeholder="Title"
-                value={title}
-                onChangeText={setTitle}
-                style={styles.titleInput}
-            />
-            <TextField
-                variant="outlined"
-                placeholder="What do you want to share today?"
-                multiline
-                numberOfLines={4}
-                value={content}
-                onChangeText={setContent}
-                style={styles.descriptionInput}
-            />
-        </ScrollView>
+            <ScrollView style={styles.container}>
+                <View style={styles.header}>
+                    <TouchableOpacity style={styles.backButton}>
+                        <BackButton navigation={navigation} />
+                    </TouchableOpacity>
+                    <Typography variant="subtext" style={styles.headerTitle}>
+                        New Post
+                    </Typography>
+                    <TouchableOpacity>
+                        <Button variant="primary" size="sm" label="Submit" onPress={onSubmit} style={styles.button} />
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    {selectedGroup && <Text style={styles.selectedGroup}>Selected group: {selectedGroup}</Text>}
+                </View>
+                <MyGroupListIcon onGroupSelect={handleGroupSelect} selectedGroup={selectedGroup} />
+                <TextField
+                    variant="outlined"
+                    placeholder="Title"
+                    value={title}
+                    onChangeText={setTitle}
+                    style={styles.titleInput}
+                />
+                <TextField
+                    variant="outlined"
+                    placeholder="What do you want to share today?"
+                    multiline
+                    numberOfLines={4}
+                    value={content}
+                    onChangeText={setContent}
+                    style={styles.descriptionInput}
+                />
+            </ScrollView>
         </SafeAreaView>
     );
 }

@@ -40,7 +40,7 @@ function GroupFeed(): JSX.Element {
                 onLoad={name => setGroupName(name)}
                 onPostPress={handlePostPress}
             />
-            <AddButton/>
+            <AddButton />
         </SafeAreaView>
     );
 }

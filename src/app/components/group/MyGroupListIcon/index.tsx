@@ -19,9 +19,7 @@ const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ onGroupSelec
                     <TouchableOpacity key={group.id} onPress={() => onGroupSelect(group.attributes.name)}>
                         <View>
                             <Image
-                                source={
-                                    ( ImageSrcUrl.default_gp) as ImageSourcePropType
-                                }
+                                source={ImageSrcUrl.default_gp as ImageSourcePropType}
                                 style={[
                                     styles.imageContainer,
                                     group.attributes.name === selectedGroup
