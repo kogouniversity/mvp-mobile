@@ -1,16 +1,25 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationParamList } from '../../navigator/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const AddButton: React.FC = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'CreateNewPost'>>();
+
+    const handlePress = () => {
+        navigation.navigate('CreateNewPost');
+    };
+
     return (
-        <TouchableOpacity style={styles.floatingButton}>
-            <Text style={styles.plusSign}>+</Text>
+        <TouchableOpacity style={styles.button} onPress={handlePress}>
+            <Text style={styles.text}>+</Text>
         </TouchableOpacity>
     );
 };
 
 const styles = StyleSheet.create({
-    floatingButton: {
+    button: {
         position: 'absolute',
         bottom: 20,
         right: 20,
@@ -26,7 +35,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 5,
     },
-    plusSign: {
+    text: {
         fontSize: 40,
         color: 'black',
     },

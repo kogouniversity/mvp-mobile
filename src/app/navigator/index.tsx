@@ -18,6 +18,7 @@ import GroupPostDetails from '../screens/post/GroupPostDetails';
 import GroupFeed from '../screens/group/GroupFeed';
 import { NavigationParamList } from './types';
 import { withStatusBar } from './hoc';
+import CreateNewPost from '../screens/post/CreateNewPost';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -75,6 +76,7 @@ function MyGroupStackNavigator(): JSX.Element {
                 component={withStatusBar(GroupPostDetails)}
                 options={{ headerShown: false }}
             />
+            <Stack.Screen name ='CreateNewPost' component={withStatusBar(CreateNewPost)}/>
         </Stack.Navigator>
     );
 }
@@ -84,6 +86,7 @@ function FeedStackNavigator(): JSX.Element {
         <Stack.Navigator initialRouteName="FeedTab">
             <Stack.Screen name="FeedTab" component={withStatusBar(Main)} options={{ headerShown: false }} />
             <Stack.Screen name="PostDetails" component={withStatusBar(PostDetails)} options={{ headerShown: false }} />
+            <Stack.Screen name ='CreateNewPost' component={withStatusBar(CreateNewPost)} options={{ headerShown: false }}/>
         </Stack.Navigator>
     );
 }

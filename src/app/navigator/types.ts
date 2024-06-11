@@ -23,6 +23,7 @@ export type NavigationParamList = {
     PostDetails: { postID: string; savedActiveTab?: string; savedFilter?: string };
     GroupPostDetails: { postID: string };
     GroupFeed: { groupId: string | number };
+    CreateNewPost:undefined;
 };
 
 export type RootStackParamList = {

@@ -5,13 +5,12 @@ import { useMyGroup } from '../../../hooks/api/group/useMyGroup';
 import { ImageSrcUrl } from '../../../utils/images';
 
 export type MyGroupListIconProps = {
-    userId: string;
     onGroupSelect: (groupName: string) => void;
     selectedGroup: string;
 };
 
-const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ userId, onGroupSelect, selectedGroup }) {
-    const { data: myGroups } = useMyGroup(userId);
+const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ onGroupSelect, selectedGroup }) {
+    const { data: myGroups } = useMyGroup();
 
     if (myGroups) {
         return (
@@ -21,9 +20,7 @@ const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ userId, onGr
                         <View>
                             <Image
                                 source={
-                                    (group.attributes.icon.data
-                                        ? group.attributes.icon.data.attributes.url
-                                        : ImageSrcUrl.default_gp) as ImageSourcePropType
+                                    ( ImageSrcUrl.default_gp) as ImageSourcePropType
                                 }
                                 style={[
                                     styles.imageContainer,
