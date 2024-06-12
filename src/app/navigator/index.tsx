@@ -19,6 +19,7 @@ import GroupFeed from '../screens/group/GroupFeed';
 import { NavigationParamList } from './types';
 import { withStatusBar } from './hoc';
 import CreateNewPost from '../screens/post/CreateNewPost';
+import CreateNewGroup from '../screens/group/CreateNewGroup';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -77,6 +78,7 @@ function MyGroupStackNavigator(): JSX.Element {
                 options={{ headerShown: false }}
             />
             <Stack.Screen name="CreateNewPost" component={withStatusBar(CreateNewPost)} />
+            <Stack.Screen name="CreateNewGroup" component={withStatusBar(CreateNewGroup)} />
         </Stack.Navigator>
     );
 }

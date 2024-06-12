@@ -1,12 +1,129 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, ImageSourcePropType, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Image, ImageSourcePropType, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Zocial, FontAwesome, FontAwesome6, Ionicons } from '@expo/vector-icons';
 import Typography from '../atoms/Typography';
 import { ImageSrcUrl } from '../utils/images';
-import Button from '../atoms/Button';
 import Switch from '../atoms/Switch';
 
+function Profile(): JSX.Element {
+    const [isOn, setIsOn] = useState(false);
+    const onPress = () => setIsOn(prev => !prev);
+
+    return (
+        <SafeAreaView style={styles.safeArea}>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Typography variant="title" style={styles.headerTitle}>
+                        Profile
+                    </Typography>
+                </View>
+                <View style={styles.section}>
+                    <View style={styles.sectionTitleWrapper}>
+                        <Typography variant="subtitle" style={styles.sectionTitle}>
+                            General
+                        </Typography>
+                        <View style={styles.horizontalLine}></View>
+                    </View>
+                    <View style={styles.profileEdit}>
+                        <View style={styles.profileInfo}>
+                            <Image source={ImageSrcUrl.default_gp as ImageSourcePropType} style={styles.image} />
+                            <View>
+                                <Typography variant="subtitle" style={styles.text}>
+                                    Username
+                                </Typography>
+                                <Typography variant="text" color="subtext" style={styles.text}>
+                                    SFU
+                                </Typography>
+                            </View>
+                        </View>
+                        <TouchableOpacity>
+                            <FontAwesome6 name="pencil" size={20} color="black" />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.textWithIcon}>
+                        <Ionicons name="notifications" size={18} color="black" />
+                        <Typography variant="text" style={styles.text}>
+                            Notifications
+                        </Typography>
+                        <View style={styles.switchWrapper}>
+                            <Switch value={isOn} onSwitch={onPress} />
+                        </View>
+                    </View>
+                </View>
+
+                <View style={styles.section}>
+                    <View style={styles.sectionTitleWrapper}>
+                        <Typography variant="subtitle" style={styles.sectionTitle}>
+                            Account
+                        </Typography>
+                        <View style={styles.horizontalLine}></View>
+                    </View>
+                    <TouchableOpacity style={styles.textWithIcon}>
+                        <Zocial name="email" size={18} color="black" />
+                        <Typography variant="text" style={styles.text}>
+                            Change Email
+                        </Typography>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.textWithIcon}>
+                        <FontAwesome6 name="key" size={18} color="black" />
+                        <Typography variant="text" style={styles.text}>
+                            Change Password
+                        </Typography>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.section}>
+                    <View style={styles.sectionTitleWrapper}>
+                        <Typography variant="subtitle" style={styles.sectionTitle}>
+                            Post
+                        </Typography>
+                        <View style={styles.horizontalLine}></View>
+                    </View>
+                    <TouchableOpacity style={styles.textWithIcon}>
+                        <FontAwesome6 name="list" size={18} color="black" />
+                        <Typography variant="text" style={styles.text}>
+                            My Posts
+                        </Typography>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.section}>
+                    <View style={styles.sectionTitleWrapper}>
+                        <Typography variant="subtitle" style={styles.sectionTitle}>
+                            Support
+                        </Typography>
+                        <View style={styles.horizontalLine}></View>
+                    </View>
+                    <TouchableOpacity style={styles.textWithIcon}>
+                        <FontAwesome6 name="circle-info" size={18} color="black" />
+                        <Typography variant="text" style={styles.text}>
+                            Help Center
+                        </Typography>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.section}>
+                    <TouchableOpacity style={styles.textWithIcon}>
+                        <Typography variant="text" style={styles.logout}>
+                            Logout
+                        </Typography>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.textWithIcon}>
+                        <Typography variant="text" style={styles.deleteAccount}>
+                            Delete Account
+                        </Typography>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </SafeAreaView>
+    );
+}
+
 const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
     container: {
         flex: 1,
         padding: 20,
@@ -17,32 +134,33 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         marginBottom: 20,
+        paddingBottom: 10,
     },
     headerTitle: {
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: 'bold',
-        textAlign: 'center',
-        flex: 1,
+        textAlign: 'left',
     },
-    content: {
-        display: 'flex',
-        flexDirection: 'column',
-        paddingHorizontal: 10,
-        justifyContent: 'center',
-        width: '100%',
+    section: {
+        marginBottom: 20,
     },
-    subHeader: {
-        display: 'flex',
+    sectionTitleWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: 10,
-        borderBottomColor: 'black',
-        borderBottomWidth: 1,
-        paddingBottom: 2,
+        marginBottom: 10,
+    },
+    sectionTitle: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        textAlign: 'left',
+    },
+    horizontalLine: {
+        flex: 1,
+        height: 1,
+        backgroundColor: 'lightgrey',
+        marginLeft: 10,
     },
     profileEdit: {
-        display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -50,7 +168,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
     },
     profileInfo: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -59,90 +176,26 @@ const styles = StyleSheet.create({
         borderRadius: 999,
         width: 50,
         height: 50,
-        marginRight: 5,
+        marginRight: 10,
     },
     text: {
-        paddingLeft: 5,
-        width: 'auto',
-    },
-    darkMode: {
-        flexDirection: 'row',
+        paddingLeft: 10,
     },
     textWithIcon: {
         flexDirection: 'row',
+        alignItems: 'center',
         paddingHorizontal: 15,
         paddingVertical: 10,
-        alignItems: 'center',
+    },
+    switchWrapper: {
+        marginLeft: 'auto',
+    },
+    logout: {
+        color: 'red',
+    },
+    deleteAccount: {
+        color: 'red',
     },
 });
-
-function Profile(): JSX.Element {
-    const [isOn, setIsOn] = useState(false);
-    const onPress = () => setIsOn(prev => !prev);
-
-    return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Typography variant="title" style={styles.headerTitle}>
-                    Setting
-                </Typography>
-            </View>
-            <View style={styles.content}>
-                <View style={styles.subHeader}>
-                    <Typography variant="subtitle">Profile</Typography>
-                </View>
-                <View style={styles.profileEdit}>
-                    <View style={styles.profileInfo}>
-                        <Image source={ImageSrcUrl.default_gp as ImageSourcePropType} style={styles.image} />
-                        <Typography variant="subtitle" style={styles.text}>
-                            Username
-                        </Typography>
-                        <Typography variant="text" color="subtext" style={styles.text}>
-                            SFU
-                        </Typography>
-                    </View>
-                    {/* icon button needed */}
-                    <FontAwesome6 name="pencil" size={20} color="black" />
-                </View>
-                <View style={styles.profileEdit}>
-                    <View style={styles.darkMode}>
-                        {/* icon button needed */}
-                        <Ionicons name="moon" size={18} color="black" />
-                        <Button variant="tertiary" size="sm" label="Dark Mode" style={styles.text} />
-                    </View>
-                    <Switch value={isOn} onSwitch={onPress} />
-                </View>
-                <View style={styles.textWithIcon}>
-                    <Ionicons name="language" size={18} color="black" />
-                    <Button variant="tertiary" size="sm" label="Change Language" style={styles.text} />
-                </View>
-                <View style={styles.textWithIcon}>
-                    <FontAwesome name="bell" size={18} color="black" />
-                    <Button variant="tertiary" size="sm" label="Notification" style={styles.text} />
-                </View>
-
-                <View style={styles.subHeader}>
-                    <Typography variant="subtitle">Account</Typography>
-                </View>
-                <View style={styles.textWithIcon}>
-                    <Zocial name="email" size={18} color="black" />
-                    <Button variant="tertiary" size="sm" label="Change School Email" style={styles.text} />
-                </View>
-                <View style={styles.textWithIcon}>
-                    <FontAwesome6 name="key" size={18} color="black" />
-                    <Button variant="tertiary" size="sm" label="Change Password" style={styles.text} />
-                </View>
-
-                <View style={styles.subHeader}>
-                    <Typography variant="subtitle">Help</Typography>
-                </View>
-                <View style={styles.textWithIcon}>
-                    <FontAwesome6 name="circle-info" size={18} color="black" />
-                    <Button variant="tertiary" size="sm" label="Contact Us" style={styles.text} />
-                </View>
-            </View>
-        </View>
-    );
-}
 
 export default Profile;

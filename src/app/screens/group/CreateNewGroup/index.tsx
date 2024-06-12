@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -11,6 +11,109 @@ import GroupImage from '../../../components/group/GroupImage';
 import TagInput from '../../../components/TagInput';
 import { useNavigation } from '../../../navigator/useNavigation';
 
+const CreateNewGroup = function (): JSX.Element {
+    const [, setTags] = useState<string[]>([]);
+
+    const navigation = useNavigation();
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: zodResolver(schema),
+    });
+
+    const submitCB = async () => {
+        // console.log(getValues('groupName'), getValues('description'), tags);
+    };
+
+    return (
+        <SafeAreaView style={styles.safeArea}>
+            <ScrollView style={styles.container}>
+                <View style={styles.header}>
+                    <TouchableOpacity style={styles.backButton}>
+                        <BackButton navigation={navigation} />
+                    </TouchableOpacity>
+                    <Typography variant="subtext" style={styles.headerTitle}>
+                        New Group
+                    </Typography>
+                    <TouchableOpacity>
+                        <Button
+                            variant="primary"
+                            size="sm"
+                            label="Submit"
+                            onPress={handleSubmit(submitCB)}
+                            style={styles.button}
+                        />
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.content}>
+                    <GroupImage />
+                    <Controller
+                        name="groupName"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextField
+                                variant="standard"
+                                placeholder="name"
+                                style={styles.textField}
+                                onChangeText={onChange}
+                                onBlur={onBlur}
+                            />
+                        )}
+                    />
+                    <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
+                        (max. 15 characters)
+                    </Typography>
+                    {errors.groupName?.message && (
+                        <Typography variant="subtext" style={{ color: 'red' }}>
+                            {errors.groupName?.message as string}
+                        </Typography>
+                    )}
+                    <Controller
+                        name="description"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TextField
+                                variant="standard"
+                                placeholder="short description"
+                                style={styles.textField}
+                                onBlur={onBlur}
+                                onChangeText={onChange}
+                            />
+                        )}
+                    />
+                    <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
+                        (max. 50 characters)
+                    </Typography>
+                    {errors.descrptn?.message && (
+                        <Typography variant="subtext" style={{ color: 'red' }}>
+                            {errors.descrptn?.message as string}
+                        </Typography>
+                    )}
+                    <Controller
+                        name="tags"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field: { onChange, onBlur, value } }) => (
+                            <TagInput
+                                setTagValues={setTags}
+                                onChangeText={onChange}
+                                onBlur={onBlur}
+                                style={styles.textField}
+                            />
+                        )}
+                    />
+                </View>
+            </ScrollView>
+        </SafeAreaView>
+    );
+};
+
 const schema = z.object({
     groupName: z.string().max(15),
     description: z.string().max(50),
@@ -18,6 +121,11 @@ const schema = z.object({
 });
 
 const styles = StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+
     container: {
         flex: 1,
         padding: 20,
@@ -71,106 +179,5 @@ const styles = StyleSheet.create({
         marginVertical: 0,
     },
 });
-
-const CreateNewGroup = function (): JSX.Element {
-    const [, setTags] = useState<string[]>([]);
-
-    // const navigation = useNavigation();
-
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm({
-        resolver: zodResolver(schema),
-    });
-
-    const submitCB = async () => {
-        // console.log(getValues('groupName'), getValues('description'), tags);
-    };
-
-    return (
-        <ScrollView style={styles.container}>
-            <View style={styles.header}>
-                <TouchableOpacity style={styles.backButton}>
-                    {/* <BackButton navigation={navigation} /> */}
-                </TouchableOpacity>
-                <Typography variant="subtext" style={styles.headerTitle}>
-                    New Group
-                </Typography>
-                <TouchableOpacity>
-                    <Button
-                        variant="primary"
-                        size="sm"
-                        label="Submit"
-                        onPress={handleSubmit(submitCB)}
-                        style={styles.button}
-                    />
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.content}>
-                <GroupImage />
-                <Controller
-                    name="groupName"
-                    control={control}
-                    rules={{ required: true }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextField
-                            variant="standard"
-                            placeholder="name"
-                            style={styles.textField}
-                            onChangeText={onChange}
-                            onBlur={onBlur}
-                        />
-                    )}
-                />
-                <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
-                    (max. 15 characters)
-                </Typography>
-                {errors.groupName?.message && (
-                    <Typography variant="subtext" style={{ color: 'red' }}>
-                        {errors.groupName?.message as string}
-                    </Typography>
-                )}
-                <Controller
-                    name="description"
-                    control={control}
-                    rules={{ required: true }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TextField
-                            variant="standard"
-                            placeholder="short description"
-                            style={styles.textField}
-                            onBlur={onBlur}
-                            onChangeText={onChange}
-                        />
-                    )}
-                />
-                <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
-                    (max. 50 characters)
-                </Typography>
-                {errors.descrptn?.message && (
-                    <Typography variant="subtext" style={{ color: 'red' }}>
-                        {errors.descrptn?.message as string}
-                    </Typography>
-                )}
-                <Controller
-                    name="tags"
-                    control={control}
-                    rules={{ required: true }}
-                    render={({ field: { onChange, onBlur, value } }) => (
-                        <TagInput
-                            setTagValues={setTags}
-                            onChangeText={onChange}
-                            onBlur={onBlur}
-                            style={styles.textField}
-                        />
-                    )}
-                />
-            </View>
-        </ScrollView>
-    );
-};
 
 export default CreateNewGroup;
