@@ -8,7 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 function GroupPostDetails(): JSX.Element {
     const route = useRoute<PostDetailsRouteProp>();
     const navigation = useNavigation<PostDetailsNavigationProp>();
-    const { postID, savedActiveTab, savedFilter } = route.params;
+    const { postID } = route.params;
 
     const handleBackPress = () => {
         navigation.goBack();

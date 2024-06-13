@@ -4,6 +4,7 @@ import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import SelectField from '../../../atoms/SelectField';
 import Scheduler from '../../../components/Scheduler';
 import { useGetSchedule } from '../../../hooks/api/schedule/useGetSchedule';
+import Skeleton from '../../../atoms/Skeleton';
 
 interface SemesterOptionType {
     label: string;
@@ -40,7 +41,13 @@ function Schedule(): JSX.Element {
                 <View style={styles.selectFieldContainer}>
                     <SelectField label="Choose semester" data={semesters} onSelect={handleSemesterSelect} width={90} />
                 </View>
-                {isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : <Scheduler courses={courses || []} />}
+                {isLoading ? (
+                    <View style={styles.loadingContainer}>
+                        <Skeleton variant="rounded" width={350} height={74} />
+                    </View>
+                ) : (
+                    <Scheduler courses={courses || []} />
+                )}
             </View>
         </SafeAreaView>
     );
@@ -60,6 +67,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 16,
         position: 'relative',
+    },
+    loadingContainer: {
+        padding: 10,
     },
     headerTitle: {
         flex: 1,

@@ -1,4 +1,3 @@
-// navigation/RootNavigator.tsx
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,7 +8,6 @@ import SignupEmailInput from '../screens/auth/signup/SignupEmailInput';
 import SignupEmailVerification from '../screens/auth/signup/SignupEmailVerification';
 import SignupIdAndPassword from '../screens/auth/signup/SignupIdAndPassword';
 import MyGroupList from '../screens/group/MyGroupList';
-import Feed from '../screens/Feed';
 import Profile from '../screens/Profile';
 import Schedule from '../screens/schedule/Schedule';
 import Main from '../screens/main';
@@ -20,6 +18,7 @@ import { NavigationParamList } from './types';
 import { withStatusBar } from './hoc';
 import CreateNewPost from '../screens/post/CreateNewPost';
 import CreateNewGroup from '../screens/group/CreateNewGroup';
+import MyPosts from '../screens/post/MyPosts';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -70,7 +69,6 @@ function MyGroupStackNavigator(): JSX.Element {
     return (
         <Stack.Navigator initialRouteName="MyGroupsTab" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="MyGroupsTab" component={withStatusBar(MyGroupList)} />
-            <Stack.Screen name="MyGroupsTab/Feed" component={withStatusBar(Feed)} />
             <Stack.Screen name="GroupFeed" component={withStatusBar(GroupFeed)} />
             <Stack.Screen
                 name="GroupPostDetails"
@@ -109,6 +107,12 @@ function ProfileStackNavigator(): JSX.Element {
     return (
         <Stack.Navigator initialRouteName="ProfileTab" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="ProfileTab" component={withStatusBar(Profile)} />
+            <Stack.Screen name="MyPosts" component={withStatusBar(MyPosts)} />
+            <Stack.Screen
+                name="GroupPostDetails"
+                component={withStatusBar(GroupPostDetails)}
+                options={{ headerShown: false }}
+            />
         </Stack.Navigator>
     );
 }

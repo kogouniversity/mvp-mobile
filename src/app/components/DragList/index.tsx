@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
     },
     leaveButtonText: {
         color: 'white',

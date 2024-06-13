@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import Skeleton from '../../../atoms/Skeleton';
 import { useGetGroupByID } from '../../../hooks/api/group/useGetGroupByID';
 
 export type GroupInfoProps = {
@@ -18,7 +19,11 @@ const GroupInfo: React.FC<GroupInfoProps> = ({ groupID, onLoad }) => {
     }, [data, onLoad]);
 
     if (isLoading) {
-        return <ActivityIndicator size="large" color="#0000ff" />;
+        return (
+            <View style={styles.loadingContainer}>
+                <Skeleton variant="rounded" width={350} height={74} />
+            </View>
+        );
     }
 
     if (isError || !data) {
@@ -43,6 +48,9 @@ const styles = StyleSheet.create({
     groupName: {
         fontSize: 24,
         fontWeight: 'bold',
+    },
+    loadingContainer: {
+        padding: 10,
     },
     description: {
         fontSize: 16,
