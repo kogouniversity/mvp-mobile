@@ -21,7 +21,7 @@ function MyGroupList(): JSX.Element {
                     <Typography variant="title" style={styles.header}>
                         My Groups
                     </Typography>
-                    <TouchableOpacity onPress={handlePress}>
+                    <TouchableOpacity onPress={handlePress} style={styles.addButton}>
                         <AntDesign name="plus" size={24} color="black" />
                     </TouchableOpacity>
                 </View>
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width: '100%',
         marginBottom: 20,
+        paddingTop: 10,
     },
     container: {
         flex: 1,
@@ -47,10 +48,15 @@ const styles = StyleSheet.create({
     backButton: {
         width: 48,
     },
+    addButton: {
+        width: 48,
+        alignItems: 'flex-end',
+    },
     header: {
         textAlign: 'center',
         fontSize: 20,
         fontWeight: 'bold',
+        flex: 1,
     },
     safeArea: {
         flex: 1,

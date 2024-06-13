@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, ImageSourcePropType, SafeAreaView, TouchableOpacity } from 'react-native';
-import { Zocial, FontAwesome, FontAwesome6, Ionicons } from '@expo/vector-icons';
+import { Zocial, FontAwesome6, Ionicons } from '@expo/vector-icons';
 import Typography from '../atoms/Typography';
 import { ImageSrcUrl } from '../utils/images';
 import Switch from '../atoms/Switch';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { NavigationParamList } from '../navigator/types';
 
 function Profile(): JSX.Element {
     const [isOn, setIsOn] = useState(false);
     const onPress = () => setIsOn(prev => !prev);
+    const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'MyPosts'>>();
+
+    const handlePress = () => {
+        navigation.navigate('MyPosts');
+    };
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -40,7 +48,7 @@ function Profile(): JSX.Element {
                             <FontAwesome6 name="pencil" size={20} color="black" />
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.textWithIcon}>
+                    <TouchableOpacity style={styles.textWithIcon} onPress={onPress}>
                         <Ionicons name="notifications" size={18} color="black" />
                         <Typography variant="text" style={styles.text}>
                             Notifications
@@ -48,7 +56,7 @@ function Profile(): JSX.Element {
                         <View style={styles.switchWrapper}>
                             <Switch value={isOn} onSwitch={onPress} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.section}>
@@ -79,7 +87,7 @@ function Profile(): JSX.Element {
                         </Typography>
                         <View style={styles.horizontalLine}></View>
                     </View>
-                    <TouchableOpacity style={styles.textWithIcon}>
+                    <TouchableOpacity style={styles.textWithIcon} onPress={handlePress}>
                         <FontAwesome6 name="list" size={18} color="black" />
                         <Typography variant="text" style={styles.text}>
                             My Posts

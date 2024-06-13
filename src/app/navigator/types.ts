@@ -25,11 +25,13 @@ export type NavigationParamList = {
     GroupFeed: { groupId: string | number };
     CreateNewPost: undefined;
     CreateNewGroup: undefined;
+    MyPosts: undefined;
 };
 
 export type RootStackParamList = {
     FeedTab: { savedActiveTab?: string; savedFilter?: string };
     PostDetails: { postID: string; savedActiveTab?: string; savedFilter?: string };
+    GroupPostDetails: { postID: string };
 };
 
 export function useRoute<T extends keyof NavigationParamList>(): ReturnType<
@@ -38,6 +40,6 @@ export function useRoute<T extends keyof NavigationParamList>(): ReturnType<
     return useRouteImpl<RouteProp<NavigationParamList, T>>();
 }
 
-export type PostDetailsNavigationProp = NativeStackNavigationProp<RootStackParamList, 'PostDetails'>;
+export type PostDetailsNavigationProp = NativeStackNavigationProp<RootStackParamList, 'GroupPostDetails'>;
 
-export type PostDetailsRouteProp = RouteProp<RootStackParamList, 'PostDetails'>;
+export type PostDetailsRouteProp = RouteProp<RootStackParamList, 'GroupPostDetails'>;

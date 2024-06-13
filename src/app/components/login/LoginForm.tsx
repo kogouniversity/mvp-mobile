@@ -23,6 +23,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
     const { requestSignInAsync } = useSignIn();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const setJwt = useAuthStore(state => state.setJwt);
+    const setUserName = useAuthStore(state => state.setUserName);
 
     const navigation = useNavigation();
 
@@ -38,6 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
         })
             .then(data => {
                 setJwt(data.jwt);
+                setUserName(data.user.username);
                 onSignIn(data);
             })
             .catch(err => {
