@@ -1,9 +1,18 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, SafeAreaView } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
 import MyGroupListComponent from '../../../components/group/MyGroupList';
 import Typography from '../../../atoms/Typography';
+import { NavigationParamList } from '../../../navigator/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 function MyGroupList(): JSX.Element {
+    const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'CreateNewGroup'>>();
+    const handlePress = () => {
+        navigation.navigate('CreateNewGroup');
+    };
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
@@ -12,7 +21,9 @@ function MyGroupList(): JSX.Element {
                     <Typography variant="title" style={styles.header}>
                         My Groups
                     </Typography>
-                    <View style={styles.backButton} />
+                    <TouchableOpacity onPress={handlePress}>
+                        <AntDesign name="plus" size={24} color="black" />
+                    </TouchableOpacity>
                 </View>
                 <MyGroupListComponent />
             </View>

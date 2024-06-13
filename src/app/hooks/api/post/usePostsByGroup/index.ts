@@ -11,11 +11,14 @@ const fetchPostsByGroupID = async (groupID: string, jwt: string | null): Promise
             throw new Error('JWT token is missing');
         }
 
-        const response = await axios.get<ListPostResponse>(`/api/posts?populate=group&filters[group]=${groupID}`, {
-            headers: {
-                Authorization: `Bearer ${jwt}`,
+        const response = await axios.get<ListPostResponse>(
+            `/api/posts?populate=group&filters[group]=${groupID}&sort[0]=createdAt:desc`,
+            {
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                },
             },
-        });
+        );
         return response.data;
     } catch (err) {
         captureAxiosError(err as AxiosError<BaseErrorResponse>);

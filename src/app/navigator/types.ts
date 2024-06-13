@@ -24,6 +24,7 @@ export type NavigationParamList = {
     GroupPostDetails: { postID: string };
     GroupFeed: { groupId: string | number };
     CreateNewPost: undefined;
+    CreateNewGroup: undefined;
 };
 
 export type RootStackParamList = {
