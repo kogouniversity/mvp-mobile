@@ -7,17 +7,19 @@ import TextField from '../../../atoms/TextField';
 import Button from '../../../atoms/Button';
 import Typography from '../../../atoms/Typography';
 
-const schema = z.object({
-    id: z.string().min(3, 'ID must be at least 3 characters long'),
-    password: z
-        .string()
-        .min(8, 'Password must be at least 8 characters long')
-        .regex(/[!@#$%^&*(),.?":{}|<>]/, 'Password must include at least one special character'),
-    confirmPassword: z.string().min(4, 'Confirm Password must be at least 4 characters long')
-}).refine(data => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword'],
-});
+const schema = z
+    .object({
+        id: z.string().min(3, 'ID must be at least 3 characters long'),
+        password: z
+            .string()
+            .min(8, 'Password must be at least 8 characters long')
+            .regex(/[!@#$%^&*(),.?":{}|<>]/, 'Password must include at least one special character'),
+        confirmPassword: z.string().min(4, 'Confirm Password must be at least 4 characters long'),
+    })
+    .refine(data => data.password === data.confirmPassword, {
+        message: "Passwords don't match",
+        path: ['confirmPassword'],
+    });
 
 export interface IdAndPasswordInputFormProps {
     email: string;
@@ -25,7 +27,12 @@ export interface IdAndPasswordInputFormProps {
 }
 
 const IdAndPasswordInputForm: React.FC<IdAndPasswordInputFormProps> = function ({ email, onSubmit }) {
-    const { control, handleSubmit, formState: { errors }, getValues } = useForm({
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        getValues,
+    } = useForm({
         resolver: zodResolver(schema),
     });
 
@@ -58,13 +65,7 @@ const IdAndPasswordInputForm: React.FC<IdAndPasswordInputFormProps> = function (
                     {errors.id?.message as string}
                 </Typography>
             )}
-            <TextField
-                variant="standard"
-                placeholder="Email"
-                value={email}
-                editable={false}
-                style={styles.input}
-            />
+            <TextField variant="standard" placeholder="Email" value={email} editable={false} style={styles.input} />
             <Controller
                 name="password"
                 control={control}

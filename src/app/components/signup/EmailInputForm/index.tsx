@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         marginVertical: 15,
         width: '40%',
         borderColor: 'white',
-    }
+    },
 });
 
 export default EmailInputForm;

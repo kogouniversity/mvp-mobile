@@ -10,11 +10,11 @@ function SignupEmailInput(): JSX.Element {
     }
 
     return (
-         <View style={styles.container}>
-         <View style={styles.ball}>
-            <EmailInputForm onSubmit={email => handleSubmit(email)} />
-         </View>
-     </View>
+        <View style={styles.container}>
+            <View style={styles.ball}>
+                <EmailInputForm onSubmit={email => handleSubmit(email)} />
+            </View>
+        </View>
     );
 }
 

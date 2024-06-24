@@ -7,7 +7,7 @@ import { Alert } from 'react-native';
 
 function SignupIdAndPassword(): JSX.Element {
     const navigation = useNavigation();
-    const route = useRoute<'/Signup'>();  
+    const route = useRoute<'/Signup'>();
     const email = route.params.email;
     const { requestSignUpAsync } = useSignUp();
 

@@ -7,7 +7,6 @@ import { BaseErrorResponse } from '../../types';
 const signUp = async ({ username, email, password }: UserSignUpParams): Promise<AuthSignUpResponse> => {
     try {
         const response = await axios.post<AuthSignUpResponse>(
-           
             '/api/auth/local/register',
             {
                 username,

@@ -12,7 +12,7 @@ export type NavigationParamList = {
     '/': undefined;
     '/Login': undefined;
     '/Signup': { email: string };
-    '/Signup/EmailInput':undefined;
+    '/Signup/EmailInput': undefined;
     '/Signup/EmailVerification': { email: string };
     '/Home': undefined;
     FeedTab: { savedActiveTab?: string; savedFilter?: string };
