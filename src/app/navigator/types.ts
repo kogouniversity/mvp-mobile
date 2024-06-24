@@ -11,8 +11,8 @@ export type ScreenRouteParams = {
 export type NavigationParamList = {
     '/': undefined;
     '/Login': undefined;
-    '/Signup': undefined;
-    '/Signup/EmailInput': { username: string; password: string };
+    '/Signup': { email: string };
+    '/Signup/EmailInput':undefined;
     '/Signup/EmailVerification': { email: string };
     '/Home': undefined;
     FeedTab: { savedActiveTab?: string; savedFilter?: string };

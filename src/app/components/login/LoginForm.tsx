@@ -75,7 +75,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
                     {errorMessage}
                 </Typography>
             )}
-            <Typography variant="subtext" style={styles.forgotPw} onPress={() => navigation.navigate('/Signup')}>
+            <Typography variant="subtext" style={styles.forgotPw} onPress={() => navigation.navigate('/Login')}>
                 Forgot password?
             </Typography>
             <View style={styles.signup}>
@@ -85,7 +85,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
                 <Typography
                     variant="subtext"
                     style={styles.typoUnderlined}
-                    onPress={() => navigation.navigate('/Signup')}>
+                    onPress={() => navigation.navigate('/Signup/EmailInput')}>
                     Sign Up
                 </Typography>
             </View>
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     title: {
         color: 'white',
         marginVertical: 15,
+        fontWeight: 'bold',
     },
     input: {
         marginVertical: 15,

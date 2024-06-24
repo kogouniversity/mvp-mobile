@@ -1,34 +1,37 @@
-import { Alert, View } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import EmailInputForm from '../../../../components/signup/EmailInputForm';
-import useSignUp from '../../../../hooks/api/auth/useSignUp';
 import { useNavigation } from '../../../../navigator/useNavigation';
-import { useRoute } from '../../../../navigator/useRoute';
 
 function SignupEmailInput(): JSX.Element {
-    const { requestSignUpAsync } = useSignUp();
     const navigation = useNavigation();
-    const route = useRoute<'SignupEmailInput'>();
-    const { username, password } = route.params;
 
     function handleSubmit(email: string) {
-        requestSignUpAsync({
-            username,
-            password,
-            email,
-        })
-            .then(unauthenticatedUserData => {
-                navigation.navigate('/Signup/EmailVerification', {
-                    email,
-                });
-            })
-            .catch(() => Alert.alert('Failed to proceed, please check your connection.'));
+        navigation.navigate('/Signup', { email });
     }
 
     return (
-        <View style={{ alignItems: 'center' }}>
+         <View style={styles.container}>
+         <View style={styles.ball}>
             <EmailInputForm onSubmit={email => handleSubmit(email)} />
-        </View>
+         </View>
+     </View>
     );
 }
+
+const { height } = Dimensions.get('window');
+const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    ball: {
+        width: height,
+        height,
+        borderRadius: 99999,
+        backgroundColor: '#50B1EE',
+    },
+});
 
 export default SignupEmailInput;
