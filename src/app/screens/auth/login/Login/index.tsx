@@ -17,9 +17,6 @@ const styles = StyleSheet.create({
         borderRadius: 99999,
         backgroundColor: '#50B1EE',
     },
-    typo: {
-        color: 'white',
-    },
 });
 
 function Login(): JSX.Element {

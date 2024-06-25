@@ -10,8 +10,8 @@ const signUp = async ({ username, email, password }: UserSignUpParams): Promise<
             '/api/auth/local/register',
             {
                 username,
-                password,
                 email,
+                password,
             },
             {
                 headers: {

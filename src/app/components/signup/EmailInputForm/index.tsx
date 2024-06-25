@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
@@ -41,7 +41,7 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
                 rules={{ required: true }}
                 render={({ field: { onChange, onBlur, value } }) => (
                     <TextField
-                        variant="outlined"
+                        variant="standard"
                         placeholder="Email"
                         style={styles.input}
                         value={value}
@@ -57,8 +57,8 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
             )}
             <Button
                 label="Next"
-                variant="primary"
-                size="md"
+                variant="secondary"
+                size="lg"
                 testID="submit-btn"
                 disabled={getValues('email') && getValues('email').length > 0}
                 onPress={handleSubmit(submitCallback)}
@@ -66,15 +66,26 @@ const EmailInputForm: React.FC<EmailInputFormProps> = function ({ onSubmit }) {
         </View>
     );
 };
+const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height,
+        display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
+        alignItems: 'center',
         padding: 20,
     },
+    title: {
+        color: 'white',
+        marginVertical: 15,
+        fontWeight: 'bold',
+    },
     input: {
-        marginBottom: 15,
+        marginVertical: 15,
+        width: '40%',
+        borderColor: 'white',
     },
 });
 
