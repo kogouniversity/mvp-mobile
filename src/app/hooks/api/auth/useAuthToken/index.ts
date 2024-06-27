@@ -5,5 +5,9 @@ export const useAuthToken = () => {
 };
 
 export const useAuthUserName = () => {
-    return useAuthStore(state => state.username);
+    return useAuthStore(state => state.userName);
+};
+
+export const useAuthGroupID = () => {
+    return useAuthStore(state => state.groupIds);
 };

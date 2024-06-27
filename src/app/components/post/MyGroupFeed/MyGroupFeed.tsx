@@ -23,10 +23,6 @@ const MyGroupFeed: React.FC<MyGroupFeedProps> = function ({ filter, onPostPress 
         );
     }
 
-    if (isError || !queryData) {
-        return <Text style={styles.errorText}>Group not found or data is unavailable</Text>;
-    }
-
     const data: PostData[] = queryData as unknown as ListPostResponse;
 
     const renderPost = ({ item }: { item: PostData }) => {

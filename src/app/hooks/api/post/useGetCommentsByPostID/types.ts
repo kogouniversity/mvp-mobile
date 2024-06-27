@@ -1,11 +1,30 @@
+export interface PostAttributes {
+    title: string;
+    content: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+}
+
+export interface Post {
+    id: number;
+    attributes: PostAttributes;
+}
+
 export interface CommentAttributes {
     content: string;
-    numOfLikes: number;
+    like: number;
     createdAt: string;
     updatedAt: string;
     authorName: string;
     replyComment: {
         data: Comment[];
+    };
+    post: {
+        data: Post;
+    };
+    parentComment: {
+        data: Comment[] | null;
     };
 }
 

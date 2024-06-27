@@ -1,4 +1,3 @@
-import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, Ionicons } from '@expo/vector-icons';
@@ -19,6 +18,9 @@ import { withStatusBar } from './hoc';
 import CreateNewPost from '../screens/post/CreateNewPost';
 import CreateNewGroup from '../screens/group/CreateNewGroup';
 import MyPosts from '../screens/post/MyPosts';
+import JoinGroupScreen from '../screens/group/JoinGroup';
+import TrendingPostDetails from '../screens/post/TrendingPostDetail';
+import Support from '../screens/Support';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
@@ -54,7 +56,7 @@ function HomeTabNavigator(): JSX.Element {
                         return <Ionicons name="person-sharp" size={size} color={color} />;
                     }
                 },
-                tabBarActiveTintColor: 'blue',
+                tabBarActiveTintColor: 'black',
                 tabBarInactiveTintColor: 'lightgrey',
             })}>
             <Tab.Screen name="FeedTab" component={FeedStackNavigator} />
@@ -77,6 +79,7 @@ function MyGroupStackNavigator(): JSX.Element {
             />
             <Stack.Screen name="CreateNewPost" component={withStatusBar(CreateNewPost)} />
             <Stack.Screen name="CreateNewGroup" component={withStatusBar(CreateNewGroup)} />
+            <Stack.Screen name="JoinGroupScreen" component={withStatusBar(JoinGroupScreen)} />
         </Stack.Navigator>
     );
 }
@@ -87,8 +90,18 @@ function FeedStackNavigator(): JSX.Element {
             <Stack.Screen name="FeedTab" component={withStatusBar(Main)} options={{ headerShown: false }} />
             <Stack.Screen name="PostDetails" component={withStatusBar(PostDetails)} options={{ headerShown: false }} />
             <Stack.Screen
+                name="TrendingPostDetails"
+                component={withStatusBar(TrendingPostDetails)}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
                 name="CreateNewPost"
                 component={withStatusBar(CreateNewPost)}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="JoinGroupScreen"
+                component={withStatusBar(JoinGroupScreen)}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
@@ -113,6 +126,7 @@ function ProfileStackNavigator(): JSX.Element {
                 component={withStatusBar(GroupPostDetails)}
                 options={{ headerShown: false }}
             />
+            <Stack.Screen name="Support" component={withStatusBar(Support)} />
         </Stack.Navigator>
     );
 }

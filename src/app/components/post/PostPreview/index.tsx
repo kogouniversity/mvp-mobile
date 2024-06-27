@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { PostPreviewProps } from './types';
@@ -24,6 +24,10 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
         }
         return count;
     };
+    const [liked, setLiked] = useState(false);
+    const toggleLike = () => {
+        setLiked(!liked);
+    };
 
     return (
         <TouchableOpacity onPress={onPress} style={[styles.container, { width, height }]}>
@@ -45,7 +49,9 @@ const PostPreview: React.FC<PostPreviewProps> = function ({
                         {formatTimeDigits(timestamp.getHours())}:{formatTimeDigits(timestamp.getMinutes())}
                     </Text>
                     <View style={styles.NumsContainer}>
-                        <AntDesign name="hearto" size={12} color="#B10606" style={styles.icon} />
+                        <TouchableOpacity onPress={toggleLike}>
+                            <AntDesign name={liked ? 'heart' : 'hearto'} size={12} color="#B10606" />
+                        </TouchableOpacity>
                         <Text style={styles.normalText}>{renderLikesAndComments(numOfLikes)} </Text>
                         <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" style={styles.icon} />
                         <Text style={styles.normalText}>{renderLikesAndComments(numOfComments)}</Text>

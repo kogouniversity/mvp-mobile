@@ -59,6 +59,10 @@ const PostPreview: React.FC<PostPreviewProps> = ({
             />
         ));
     };
+    const [liked, setLiked] = useState(false);
+    const toggleLike = () => {
+        setLiked(!liked);
+    };
 
     return (
         <View style={{ width, paddingVertical: 10 }}>
@@ -81,7 +85,9 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                             <Text style={styles.groupName}>{groupName}</Text>
                         </View>
                         <View style={styles.likesComments}>
-                            <AntDesign name="hearto" size={12} color="#B10606" />
+                            <TouchableOpacity onPress={toggleLike}>
+                                <AntDesign name={liked ? 'heart' : 'hearto'} size={12} color="#B10606" />
+                            </TouchableOpacity>
                             <Text style={styles.iconText}>{numOfLikes}</Text>
                             <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" />
                             <Text style={styles.iconText}>{numOfComments}</Text>

@@ -1,4 +1,4 @@
-import { QueryOptions, UseQueryResult, useQuery } from '@tanstack/react-query';
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
 import { ListGroupResponse } from '../types';
 import { BaseErrorResponse } from '../../types';
@@ -22,14 +22,12 @@ const fetchMyGroups = async (jwt: string | null): Promise<ListGroupResponse> => 
     }
 };
 
-export function useMyGroup(
-    queryOptions?: QueryOptions<ListGroupResponse, BaseErrorResponse>,
-): UseQueryResult<ListGroupResponse, BaseErrorResponse> {
+export function useMyGroup(queryOptions?: UseQueryOptions<ListGroupResponse, BaseErrorResponse>) {
     const jwt = useAuthToken();
 
     return useQuery<ListGroupResponse, BaseErrorResponse>({
-        ...(queryOptions ?? {}),
         queryKey: ['myGroups'],
         queryFn: () => fetchMyGroups(jwt),
+        ...queryOptions,
     });
 }

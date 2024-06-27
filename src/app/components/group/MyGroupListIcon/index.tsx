@@ -5,24 +5,27 @@ import { useMyGroup } from '../../../hooks/api/group/useMyGroup';
 import { ImageSrcUrl } from '../../../utils/images';
 
 export type MyGroupListIconProps = {
-    onGroupSelect: (groupName: string) => void;
+    onGroupSelect: (groupId: string, groupName: string) => void;
     selectedGroup: string;
+    selectedGroupName: string;
 };
 
-const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ onGroupSelect, selectedGroup }) {
+const MyGroupListIcon: React.FC<MyGroupListIconProps> = function ({ onGroupSelect, selectedGroup, selectedGroupName }) {
     const { data: myGroups } = useMyGroup();
 
     if (myGroups) {
         return (
             <List variant="horizontal">
                 {myGroups.data.map(group => (
-                    <TouchableOpacity key={group.id} onPress={() => onGroupSelect(group.attributes.name)}>
+                    <TouchableOpacity
+                        key={group.id}
+                        onPress={() => onGroupSelect(group.id.toString(), group.attributes.name)}>
                         <View>
                             <Image
                                 source={ImageSrcUrl.default_gp as ImageSourcePropType}
                                 style={[
                                     styles.imageContainer,
-                                    group.attributes.name === selectedGroup
+                                    group.attributes.name === selectedGroupName
                                         ? styles.selectedGroupContainer
                                         : styles.nonSelectedGroupContainer,
                                 ]}

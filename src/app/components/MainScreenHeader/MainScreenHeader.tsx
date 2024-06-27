@@ -28,13 +28,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     logoContainer: {
-        flex: 1,
-        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        paddingLeft: 10,
     },
     logo: {
-        width: 120,
-        height: 50,
-        resizeMode: 'contain',
+        width: 100,
+        height: 42,
+        resizeMode: 'stretch',
     },
     iconsContainer: {
         flexDirection: 'row',

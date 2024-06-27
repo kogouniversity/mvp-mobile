@@ -24,6 +24,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const setJwt = useAuthStore(state => state.setJwt);
     const setUserName = useAuthStore(state => state.setUserName);
+    const clearAuth = useAuthStore(state => state.clearAuth);
 
     const navigation = useNavigation();
 
@@ -41,6 +42,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
                 setJwt(data.jwt);
                 setUserName(data.user.username);
                 onSignIn(data);
+                navigation.reset({ index: 0, routes: [{ name: '/Home' }] });
             })
             .catch(err => {
                 console.log(err);

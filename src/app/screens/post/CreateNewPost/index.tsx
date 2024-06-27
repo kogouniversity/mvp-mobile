@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity, ScrollView, Alert, Text, SafeAreaView } from 'react-native';
 import TextField from '../../../atoms/TextField';
-import Typography from '../../../atoms/Typography';
 import Button from '../../../atoms/Button';
 import { useAddPost } from '../../../hooks/api/post/useAddPost';
 import MyGroupListIcon from '../../../components/group/MyGroupListIcon';
@@ -12,6 +11,7 @@ function CreateNewPost(): JSX.Element {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [selectedGroup, setSelectedGroup] = useState('');
+    const [selectedGroupName, setSelectedGroupName] = useState('');
     const navigation = useNavigation();
     const addPostMutation = useAddPost();
 
@@ -20,15 +20,22 @@ function CreateNewPost(): JSX.Element {
             await addPostMutation.mutateAsync({
                 title,
                 content,
-                groupName: selectedGroup,
+                groupId: selectedGroup,
             });
-            Alert.alert('Success', 'Post added successfully');
+            Alert.alert('Success', 'Post added successfully', [
+                {
+                    text: 'OK',
+                    onPress: () => navigation.goBack(),
+                },
+            ]);
         } catch (error) {
-            Alert.alert('Error', `Failed to add post ${JSON.stringify(error)}`);
+            Alert.alert('Error', `Failed to add post`);
         }
     };
-    const handleGroupSelect = (groupName: string) => {
-        setSelectedGroup(groupName);
+
+    const handleGroupSelect = (groupId: string, groupName: string) => {
+        setSelectedGroup(groupId);
+        setSelectedGroupName(groupName);
     };
 
     return (
@@ -38,19 +45,24 @@ function CreateNewPost(): JSX.Element {
                     <TouchableOpacity style={styles.backButton}>
                         <BackButton navigation={navigation} />
                     </TouchableOpacity>
-                    <Typography variant="subtext" style={styles.headerTitle}>
-                        New Post
-                    </Typography>
-                    <TouchableOpacity>
-                        <Button variant="primary" size="sm" label="Submit" onPress={onSubmit} style={styles.button} />
+                    <TouchableOpacity style={styles.doneButton}>
+                        <Button variant="primary" size="sm" label="Done" onPress={onSubmit} />
                     </TouchableOpacity>
                 </View>
                 <View>
-                    {selectedGroup && <Text style={styles.selectedGroup}>Selected group: {selectedGroup}</Text>}
+                    {selectedGroup ? (
+                        <Text style={styles.selectedGroup}>Selected group: {selectedGroupName}</Text>
+                    ) : (
+                        <Text style={styles.selectGroup}>Select a group</Text>
+                    )}
                 </View>
-                <MyGroupListIcon onGroupSelect={handleGroupSelect} selectedGroup={selectedGroup} />
+                <MyGroupListIcon
+                    onGroupSelect={handleGroupSelect}
+                    selectedGroup={selectedGroup}
+                    selectedGroupName={selectedGroupName}
+                />
                 <TextField
-                    variant="outlined"
+                    variant="standard"
                     placeholder="Title"
                     value={title}
                     onChangeText={setTitle}
@@ -69,6 +81,7 @@ function CreateNewPost(): JSX.Element {
         </SafeAreaView>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -82,15 +95,10 @@ const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 20,
     },
-    headerTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        flex: 1,
-    },
     titleInput: {
         marginVertical: 10,
         width: '100%',
+        color: 'black',
     },
     descriptionInput: {
         marginVertical: 10,
@@ -98,15 +106,19 @@ const styles = StyleSheet.create({
         height: 100,
         textAlignVertical: 'top',
     },
-    button: {
-        width: '100%',
-    },
     backButton: {
-        marginLeft: -15,
         alignSelf: 'center',
     },
+    doneButton: {
+        marginLeft: 'auto',
+    },
     selectedGroup: {
-        marginBottom: 15,
+        marginBottom: 14,
+        fontWeight: 'bold',
+    },
+    selectGroup: {
+        marginBottom: 14,
+        fontWeight: 'bold',
     },
     safeArea: {
         flex: 1,

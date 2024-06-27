@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, SafeAreaView, TouchableOpacity, Text } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import PostDetail from '../../../components/post/PostDetail';
+import CommentsList from '../../../components/post/PostCommentsPreview/comments';
 import { PostDetailsRouteProp, PostDetailsNavigationProp } from '../../../navigator/types';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -21,7 +22,7 @@ function GroupPostDetails(): JSX.Element {
             </TouchableOpacity>
             <View style={{ flex: 1 }}>
                 <PostDetail postID={postID} />
-                {/* <CommentsList postID={postID} /> */}
+                <CommentsList postID={postID} />
             </View>
         </SafeAreaView>
     );
