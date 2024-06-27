@@ -3,11 +3,21 @@ import axios, { AxiosError } from 'axios';
 import { ListPostResponse } from './types';
 import { BaseErrorResponse } from '../../types';
 import { captureAxiosError } from '../../../../utils/sentry';
+import { useAuthToken } from '../../../../hooks/api/auth/useAuthToken';
 
-const fetchTrending = async (userId: string): Promise<ListPostResponse> => {
+const fetchTrending = async (groupID: string, jwt: string | null): Promise<ListPostResponse> => {
     try {
+        if (!jwt) {
+            throw new Error('JWT token is missing');
+        }
+
         const response = await axios.get<ListPostResponse>(
-            `/api/posts/trending?populate=icon&filters[users]=${userId}`,
+            `/api/posts?populate=group&filters[group]=${groupID}&sort[0]=createdAt:desc`,
+            {
+                headers: {
+                    Authorization: `Bearer ${jwt}`,
+                },
+            },
         );
         return response.data;
     } catch (err) {
@@ -17,12 +27,14 @@ const fetchTrending = async (userId: string): Promise<ListPostResponse> => {
 };
 
 export function useGetTrending(
-    userId: string,
+    groupID: string,
     queryOptions?: QueryOptions<ListPostResponse, BaseErrorResponse>,
 ): UseQueryResult<ListPostResponse, BaseErrorResponse> {
+    const jwt = useAuthToken();
+
     return useQuery<ListPostResponse, BaseErrorResponse>({
         ...(queryOptions ?? {}),
-        queryKey: ['myGroups', userId],
-        queryFn: () => (userId ? fetchTrending(userId) : Promise.reject(new Error('User information not available'))),
+        queryKey: ['usePostsByGroup', groupID],
+        queryFn: () => fetchTrending(groupID, jwt),
     });
 }

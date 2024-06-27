@@ -7,13 +7,25 @@ import Header from '../../components/MainScreenHeader/MainScreenHeader';
 import { PostDetailsNavigationProp, NavigationParamList } from '../../navigator/types';
 import { RouteProp } from '@react-navigation/native';
 import AddButton from '../../components/AddButton';
+import { useMyGroup } from '../../hooks/api/group/useMyGroup';
+import { useAuthStore } from '../../../store/auth';
+import Skeleton from '../../atoms/Skeleton';
 
 function Main(): JSX.Element {
     const [activeTab, setActiveTab] = useState('Following');
     const [filter, setFilter] = useState('SFU');
     const navigation = useNavigation<PostDetailsNavigationProp>();
-
     const route = useRoute<RouteProp<NavigationParamList, 'FeedTab'>>();
+
+    const setGroupIds = useAuthStore(state => state.setGroupIds);
+    const { data, isLoading } = useMyGroup();
+
+    useEffect(() => {
+        if (data) {
+            const groupIds = data.data.map(group => group.id);
+            setGroupIds(groupIds);
+        }
+    }, [data]);
 
     useEffect(() => {
         if (route.params) {
@@ -30,6 +42,16 @@ function Main(): JSX.Element {
             savedFilter: filter,
         });
     };
+
+    if (isLoading) {
+        return (
+            <SafeAreaView style={styles.safeArea}>
+                <View>
+                    <Skeleton variant="rounded" width={350} height={74} />
+                </View>
+            </SafeAreaView>
+        );
+    }
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -50,7 +72,7 @@ function Main(): JSX.Element {
             </View>
             <View style={styles.spacing} />
             {activeTab === 'Trending' ? (
-                <Trending userID={'3'} />
+                <Trending userID={'6'} />
             ) : (
                 <View style={styles.contentContainer}>
                     <View style={styles.filterContainer}>
@@ -97,7 +119,7 @@ const styles = StyleSheet.create({
     },
     activeTab: {
         borderBottomWidth: 2,
-        borderBottomColor: 'red',
+        borderBottomColor: 'black',
     },
     tabText: {
         fontSize: 16,
@@ -131,11 +153,11 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
     },
     activeCircle: {
-        borderColor: 'green',
-        backgroundColor: 'green',
+        borderColor: 'hotpink',
+        backgroundColor: 'hotpink',
     },
     activeFilter: {
-        borderColor: 'green',
+        borderColor: 'hotpink',
     },
 });
 

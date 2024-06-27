@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, ScrollView, SafeAreaView, Alert } from 'react-native';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm, SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 import TextField from '../../../atoms/TextField';
 import Typography from '../../../atoms/Typography';
@@ -10,22 +10,49 @@ import BackButton from '../../../components/BackButton';
 import GroupImage from '../../../components/group/GroupImage';
 import TagInput from '../../../components/TagInput';
 import { useNavigation } from '../../../navigator/useNavigation';
+import { useAddGroup } from '../../../hooks/api/group/useCreateGroup';
+
+const schema = z.object({
+    groupName: z.string().max(15),
+    description: z.string().max(50),
+    // tags: z.string().array().max(5),
+});
+
+type CreateGroupForm = z.infer<typeof schema>;
 
 const CreateNewGroup = function (): JSX.Element {
-    const [, setTags] = useState<string[]>([]);
-
+    const [setTags] = useState<string[]>([]);
     const navigation = useNavigation();
+    const addGroupMutation = useAddGroup();
 
     const {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm({
+    } = useForm<CreateGroupForm>({
         resolver: zodResolver(schema),
     });
 
-    const submitCB = async () => {
-        // console.log(getValues('groupName'), getValues('description'), tags);
+    const submitCB: SubmitHandler<CreateGroupForm> = async data => {
+        console.log('Submit handler called with data:', data);
+        try {
+            await addGroupMutation.mutateAsync({
+                name: data.groupName,
+                description: data.description,
+            });
+            Alert.alert('Success', 'Group created successfully', [
+                {
+                    text: 'OK',
+                    onPress: () => navigation.goBack(),
+                },
+            ]);
+        } catch (error) {
+            Alert.alert('Error', 'Failed to create group');
+        }
+    };
+
+    const onError = (errors: any) => {
+        console.log('Errors:', errors);
     };
 
     return (
@@ -38,23 +65,13 @@ const CreateNewGroup = function (): JSX.Element {
                     <Typography variant="subtext" style={styles.headerTitle}>
                         New Group
                     </Typography>
-                    <TouchableOpacity>
-                        <Button
-                            variant="primary"
-                            size="sm"
-                            label="Submit"
-                            onPress={handleSubmit(submitCB)}
-                            style={styles.button}
-                        />
-                    </TouchableOpacity>
+                    <Button variant="primary" size="sm" label="done" onPress={handleSubmit(submitCB, onError)} />
                 </View>
-
                 <View style={styles.content}>
                     <GroupImage />
                     <Controller
                         name="groupName"
                         control={control}
-                        rules={{ required: true }}
                         render={({ field: { onChange, onBlur, value } }) => (
                             <TextField
                                 variant="standard"
@@ -62,6 +79,7 @@ const CreateNewGroup = function (): JSX.Element {
                                 style={styles.textField}
                                 onChangeText={onChange}
                                 onBlur={onBlur}
+                                value={value}
                             />
                         )}
                     />
@@ -76,7 +94,6 @@ const CreateNewGroup = function (): JSX.Element {
                     <Controller
                         name="description"
                         control={control}
-                        rules={{ required: true }}
                         render={({ field: { onChange, onBlur, value } }) => (
                             <TextField
                                 variant="standard"
@@ -84,21 +101,21 @@ const CreateNewGroup = function (): JSX.Element {
                                 style={styles.textField}
                                 onBlur={onBlur}
                                 onChangeText={onChange}
+                                value={value}
                             />
                         )}
                     />
                     <Typography variant="subtext" color="subtext" style={styles.textFieldDescrptn}>
                         (max. 50 characters)
                     </Typography>
-                    {errors.descrptn?.message && (
+                    {errors.description?.message && (
                         <Typography variant="subtext" style={{ color: 'red' }}>
-                            {errors.descrptn?.message as string}
+                            {errors.description?.message as string}
                         </Typography>
                     )}
-                    <Controller
+                    {/* <Controller
                         name="tags"
                         control={control}
-                        rules={{ required: true }}
                         render={({ field: { onChange, onBlur, value } }) => (
                             <TagInput
                                 setTagValues={setTags}
@@ -107,25 +124,18 @@ const CreateNewGroup = function (): JSX.Element {
                                 style={styles.textField}
                             />
                         )}
-                    />
+                    /> */}
                 </View>
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-const schema = z.object({
-    groupName: z.string().max(15),
-    description: z.string().max(50),
-    tags: z.string().array().max(5),
-});
-
 const styles = StyleSheet.create({
     safeArea: {
         flex: 1,
         backgroundColor: 'white',
     },
-
     container: {
         flex: 1,
         padding: 20,
@@ -144,25 +154,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         flex: 1,
     },
-    titleInput: {
-        marginVertical: 10,
-        width: '100%',
-    },
-    descriptionInput: {
-        marginVertical: 10,
-        width: '100%',
-        height: 100,
-        textAlignVertical: 'top',
-    },
-    button: {
-        width: '100%',
-    },
     backButton: {
         marginLeft: -15,
         alignSelf: 'center',
-    },
-    selectedGroup: {
-        marginBottom: 15,
     },
     content: {
         display: 'flex',
@@ -172,6 +166,7 @@ const styles = StyleSheet.create({
     textField: {
         width: '90%',
         marginTop: 20,
+        color: 'black',
     },
     textFieldDescrptn: {
         width: '90%',

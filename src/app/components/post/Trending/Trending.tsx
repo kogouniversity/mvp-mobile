@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { useGetTrending } from '../../../hooks/api/post/useGetTrending';
 import { List } from '../../../atoms/List';
 import { GroupPostsProps, PostData } from './types';
@@ -7,8 +7,14 @@ import { ImageSrcUrl } from '../../../utils/images';
 import { FontAwesome6 } from '@expo/vector-icons';
 import TrendingPreview from '../TrendingPreview';
 import Skeleton from '../../../atoms/Skeleton';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationParamList } from '../../../navigator/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+type TrendingNavigationProp = NativeStackNavigationProp<NavigationParamList, 'TrendingPostDetails'>;
 
 const Trending: React.FC<GroupPostsProps> = function ({ userID }) {
+    const navigation = useNavigation<TrendingNavigationProp>();
     const { data: queryData, isLoading, isError } = useGetTrending(userID);
 
     if (isLoading) {
@@ -28,44 +34,25 @@ const Trending: React.FC<GroupPostsProps> = function ({ userID }) {
     const renderPost = ({ item }: { item: PostData }) => {
         const contentPreview = Array.isArray(item.attributes.content)
             ? item.attributes.content.map(content => content.children.map(child => child.text).join(' ')).join(' ')
-            : '';
+            : item.attributes.content;
 
         return (
-            <View>
-                <View style={styles.trendingHeader}>
-                    <FontAwesome6 name="fire" size={24} color="red" />
-                    <Text style={styles.trendingText}>Trending Now</Text>
-                </View>
-
+            <View key={item.id}>
                 <TrendingPreview
-                    // key={item.id}
-                    // width={390}
-                    // height={74}
-                    // imagesUrl={[]}
-                    // imageLink={ImageSrcUrl.sfu}
-                    // groupName={item.attributes.group?.data.attributes.name}
-                    // title={item.attributes.title}
-                    // contentPreview={contentPreview}
-                    // timestamp={new Date(item.attributes.createdAt)}
-                    // numOfLikes={10}
-                    // numOfComments={5}
-                    // userName="Anonymous"
-                    // authorSchoolName="SFU"
-                    // onPress={() => Alert.alert('Post pressed', `${item.id}`)}
-                    key={3}
+                    key={item.id}
                     width={390}
                     height={74}
                     imagesUrl={[]}
                     imageLink={ImageSrcUrl.sfu}
-                    groupName={'테스트 드간다잉'}
-                    title={'네비게이터 엘리게이터'}
-                    contentPreview={'아몰랑'}
-                    timestamp={new Date()}
+                    groupName={item.attributes.group?.data.attributes.name}
+                    title={item.attributes.title}
+                    contentPreview={contentPreview}
+                    timestamp={new Date(item.attributes.createdAt)}
                     numOfLikes={10}
                     numOfComments={5}
                     userName="Anonymous"
                     authorSchoolName="SFU"
-                    onPress={() => Alert.alert('Post pressed', `${item.id}`)}
+                    onPress={() => navigation.navigate('TrendingPostDetails', { postID: item.id.toString() })}
                 />
             </View>
         );

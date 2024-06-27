@@ -17,7 +17,30 @@ const TrendingPreview: React.FC<PostPreviewProps> = ({
     onPress,
 }) => {
     const formatDate = (date: Date) => {
-        return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+        const now = new Date();
+        const diff = now.getTime() - date.getTime();
+        const minutes = Math.floor(diff / 60000);
+        const hours = Math.floor(diff / 3600000);
+        const days = Math.floor(diff / 86400000);
+        const weeks = Math.floor(diff / (86400000 * 7));
+        const months = Math.floor(diff / (86400000 * 30));
+        const years = Math.floor(diff / (86400000 * 365));
+
+        if (minutes < 1) {
+            return 'Just now';
+        } else if (minutes < 60) {
+            return `${minutes}m`;
+        } else if (hours < 24) {
+            return `${hours}h`;
+        } else if (days < 7) {
+            return `${days}d`;
+        } else if (weeks < 4) {
+            return `${weeks}w`;
+        } else if (months < 12) {
+            return `${months}mo`;
+        } else {
+            return `${years}y`;
+        }
     };
 
     const [placeholderImages, setPlaceholderImages] = useState(new Array(imagesUrl.length).fill(false));
@@ -37,29 +60,40 @@ const TrendingPreview: React.FC<PostPreviewProps> = ({
         ));
     };
 
+    const [liked, setLiked] = useState(false);
+    const toggleLike = () => {
+        setLiked(!liked);
+    };
+
     return (
         <View style={{ width, paddingVertical: 10 }}>
             <TouchableOpacity onPress={onPress} style={styles.container}>
-                <Text style={styles.groupName}>{groupName}</Text>
+                <View style={styles.userSection}>
+                    <Image source={imageLink} style={styles.image} />
+                    <View style={styles.userInfo}>
+                        <Text style={styles.userName}>{userName}</Text>
+                        <Text style={styles.timestamp}>{formatDate(new Date(timestamp))}</Text>
+                    </View>
+                </View>
                 <View style={styles.contentSection}>
                     <Text style={styles.title}>{title}</Text>
                     {imagesUrl.length > 0 && <View style={styles.imagesContainer}>{renderImages()}</View>}
                     <View style={styles.contentAndFooterRow}>
                         <Text style={styles.contentPreview}>{contentPreview}</Text>
-                        <View style={styles.footerRow}>
-                            <AntDesign name="hearto" size={12} color="#B10606" />
+                    </View>
+                    <View style={styles.footerRow}>
+                        <View style={styles.groupNameContainer}>
+                            <Text style={styles.groupName}>{groupName}</Text>
+                        </View>
+                        <View style={styles.likesComments}>
+                            <TouchableOpacity onPress={toggleLike}>
+                                <AntDesign name={liked ? 'heart' : 'hearto'} size={12} color="#B10606" />
+                            </TouchableOpacity>
                             <Text style={styles.iconText}>{numOfLikes}</Text>
                             <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" />
                             <Text style={styles.iconText}>{numOfComments}</Text>
                         </View>
                     </View>
-                </View>
-                <View style={styles.userSection}>
-                    <View style={styles.userInfo}>
-                        <Text style={styles.userName}>{userName}</Text>
-                        <Text style={styles.timestamp}>{formatDate(timestamp)}</Text>
-                    </View>
-                    <Image source={imageLink} style={styles.image} />
                 </View>
             </TouchableOpacity>
         </View>
@@ -72,23 +106,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 8,
         padding: 10,
-        position: 'relative',
+    },
+    groupNameContainer: {
+        backgroundColor: '#E0E0E0',
+        borderRadius: 5,
+        paddingHorizontal: 5,
+        paddingVertical: 1,
     },
     groupName: {
-        fontSize: 14,
-        marginLeft: 20,
-        textAlign: 'left',
+        fontSize: 10,
+        color: '#000',
     },
     userSection: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-end',
-        position: 'absolute',
-        bottom: 0,
-        right: 10,
-        padding: 5,
-        backgroundColor: '#fff',
-        borderRadius: 5,
     },
     image: {
         width: 30,
@@ -97,16 +128,18 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     userInfo: {
+        flexDirection: 'row',
+        alignItems: 'center',
         marginLeft: 10,
-        alignItems: 'flex-end',
     },
     userName: {
-        fontSize: 11,
+        fontSize: 13,
         fontWeight: 'bold',
         color: '#000',
+        marginRight: 5,
     },
     timestamp: {
-        fontSize: 8,
+        fontSize: 10,
         color: '#666',
     },
     contentSection: {
@@ -116,14 +149,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 14,
         fontWeight: 'bold',
-        marginBottom: 5,
+        marginBottom: 2,
         color: '#000',
     },
     contentAndFooterRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 40,
     },
     contentPreview: {
         fontSize: 12,
@@ -132,7 +164,7 @@ const styles = StyleSheet.create({
     },
     footerRow: {
         flexDirection: 'row',
-        alignItems: 'center',
+        marginTop: 10,
     },
     iconText: {
         fontSize: 11,
@@ -149,6 +181,13 @@ const styles = StyleSheet.create({
         marginRight: 5,
         borderRadius: 10,
         backgroundColor: '#ccc',
+    },
+    likesComments: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
     },
 });
 

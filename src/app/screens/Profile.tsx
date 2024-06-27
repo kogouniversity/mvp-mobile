@@ -7,14 +7,24 @@ import Switch from '../atoms/Switch';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NavigationParamList } from '../navigator/types';
+import { useAuthStore } from '../../store/auth';
 
 function Profile(): JSX.Element {
     const [isOn, setIsOn] = useState(false);
     const onPress = () => setIsOn(prev => !prev);
     const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'MyPosts'>>();
+    const clearAuth = useAuthStore(state => state.clearAuth);
 
-    const handlePress = () => {
+    const handlePressMyPosts = () => {
         navigation.navigate('MyPosts');
+    };
+    const handlePressSupport = () => {
+        navigation.navigate('Support');
+    };
+
+    const handlePressLogout = () => {
+        clearAuth();
+        navigation.reset({ index: 0, routes: [{ name: '/Login' }] });
     };
 
     return (
@@ -87,7 +97,7 @@ function Profile(): JSX.Element {
                         </Typography>
                         <View style={styles.horizontalLine}></View>
                     </View>
-                    <TouchableOpacity style={styles.textWithIcon} onPress={handlePress}>
+                    <TouchableOpacity style={styles.textWithIcon} onPress={handlePressMyPosts}>
                         <FontAwesome6 name="list" size={18} color="black" />
                         <Typography variant="text" style={styles.text}>
                             My Posts
@@ -102,7 +112,7 @@ function Profile(): JSX.Element {
                         </Typography>
                         <View style={styles.horizontalLine}></View>
                     </View>
-                    <TouchableOpacity style={styles.textWithIcon}>
+                    <TouchableOpacity style={styles.textWithIcon} onPress={handlePressSupport}>
                         <FontAwesome6 name="circle-info" size={18} color="black" />
                         <Typography variant="text" style={styles.text}>
                             Help Center
@@ -111,7 +121,7 @@ function Profile(): JSX.Element {
                 </View>
 
                 <View style={styles.section}>
-                    <TouchableOpacity style={styles.textWithIcon}>
+                    <TouchableOpacity style={styles.textWithIcon} onPress={handlePressLogout}>
                         <Typography variant="text" style={styles.logout}>
                             Logout
                         </Typography>
