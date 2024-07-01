@@ -14,6 +14,8 @@ export interface Group {
 
 export interface PostAttributes {
     content: string;
+    likes:number;
+    commentCount:number;
     title: string;
     createdAt: string;
     updatedAt: string;

@@ -72,7 +72,7 @@ function Main(): JSX.Element {
             </View>
             <View style={styles.spacing} />
             {activeTab === 'Trending' ? (
-                <Trending userID={'6'} />
+                <Trending userID={'4'} />
             ) : (
                 <View style={styles.contentContainer}>
                     <View style={styles.filterContainer}>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { PostPreviewProps } from './types';
+import { useAddPostLike } from '../../../hooks/api/likes/useAddPostLike';
+import { useDeletePostLike } from '../../../hooks/api/likes/useDeletePostLike';
 
 const PostPreview: React.FC<PostPreviewProps> = ({
     width,
@@ -14,6 +16,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({
     numOfLikes,
     numOfComments,
     userName,
+    postId,
     onPress,
 }) => {
     const formatDate = (date: Date) => {
@@ -43,7 +46,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({
         }
     };
 
-    const [placeholderImages, setplaceholderImages] = useState(new Array(imagesUrl.length).fill(false));
+    const [placeholderImages, setPlaceholderImages] = useState(new Array(imagesUrl.length).fill(false));
 
     const renderImages = () => {
         return imagesUrl.slice(0, 2).map((url, index) => (
@@ -54,14 +57,28 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                 onError={() => {
                     let newFallbacks = [...placeholderImages];
                     newFallbacks[index] = true;
-                    setplaceholderImages(newFallbacks);
+                    setPlaceholderImages(newFallbacks);
                 }}
             />
         ));
     };
+
     const [liked, setLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(numOfLikes);
+
+    const { mutate: likePost } = useAddPostLike();
+    const { mutate: unlikePost } = useDeletePostLike();
+
     const toggleLike = () => {
-        setLiked(!liked);
+        if (liked) {
+            setLiked(false);
+            setLikeCount(prev => prev - 1);
+            unlikePost({ postId });
+        } else {
+            setLiked(true);
+            setLikeCount(prev => prev + 1);
+            likePost({ postId });
+        }
     };
 
     return (
@@ -71,7 +88,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                     <Image source={imageLink} style={styles.image} />
                     <View style={styles.userInfo}>
                         <Text style={styles.userName}>{userName}</Text>
-                        <Text style={styles.timestamp}> {formatDate(new Date(timestamp))}</Text>
+                        <Text style={styles.timestamp}>{formatDate(new Date(timestamp))}</Text>
                     </View>
                 </View>
                 <View style={styles.contentSection}>
@@ -88,7 +105,7 @@ const PostPreview: React.FC<PostPreviewProps> = ({
                             <TouchableOpacity onPress={toggleLike}>
                                 <AntDesign name={liked ? 'heart' : 'hearto'} size={12} color="#B10606" />
                             </TouchableOpacity>
-                            <Text style={styles.iconText}>{numOfLikes}</Text>
+                            <Text style={styles.iconText}>{likeCount}</Text>
                             <Ionicons name="chatbox-outline" size={12} color="#5A5A5A" />
                             <Text style={styles.iconText}>{numOfComments}</Text>
                         </View>

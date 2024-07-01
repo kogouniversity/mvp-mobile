@@ -47,11 +47,13 @@ const GroupFeedComponent: React.FC<
                 title={item.attributes.title}
                 contentPreview={contentPreview}
                 timestamp={new Date(item.attributes.createdAt)}
-                numOfLikes={10}
-                numOfComments={5}
+                numOfLikes={item.attributes.likes}
+                numOfComments={item.attributes.commentCount}
                 userName="Anonymous"
                 authorSchoolName={item.attributes.group.data.attributes.isSchool ? 'School' : 'Non-School'}
+                postId={item.id.toString()}
                 onPress={() => onPostPress(item.id.toString())}
+                
             />
         );
     };
@@ -65,7 +67,7 @@ const GroupFeedComponent: React.FC<
     }
 
     if (isError || !queryData || !queryData.data) {
-        return <Text style={styles.errorText}>Group not found or data is unavailable</Text>;
+        return <Text style={styles.errorText}></Text>;
     }
 
     const { data } = queryData;

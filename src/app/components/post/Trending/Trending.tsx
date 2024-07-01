@@ -26,7 +26,7 @@ const Trending: React.FC<GroupPostsProps> = function ({ userID }) {
     }
 
     if (isError || !queryData) {
-        return <Text style={styles.errorText}>Group not found or data is unavailable</Text>;
+        return <Text style={styles.errorText}></Text>;
     }
 
     const { data } = queryData;
@@ -48,10 +48,11 @@ const Trending: React.FC<GroupPostsProps> = function ({ userID }) {
                     title={item.attributes.title}
                     contentPreview={contentPreview}
                     timestamp={new Date(item.attributes.createdAt)}
-                    numOfLikes={10}
-                    numOfComments={5}
+                    numOfLikes={item.attributes.likes}
+                    numOfComments={item.attributes.commentCount}
                     userName="Anonymous"
                     authorSchoolName="SFU"
+                    postId={item.id.toString()}
                     onPress={() => navigation.navigate('TrendingPostDetails', { postID: item.id.toString() })}
                 />
             </View>

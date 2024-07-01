@@ -13,7 +13,7 @@ interface MyGroupFeedProps {
 }
 
 const MyGroupFeed: React.FC<MyGroupFeedProps> = function ({ filter, onPostPress }) {
-    const { data: queryData, isLoading, isError } = usePostsByMyGroup(filter);
+    const { data: queryData, isLoading } = usePostsByMyGroup(filter);
 
     if (isLoading) {
         return (
@@ -39,10 +39,11 @@ const MyGroupFeed: React.FC<MyGroupFeedProps> = function ({ filter, onPostPress 
                 title={item.title}
                 contentPreview={contentPreview}
                 timestamp={new Date(item.createdAt)}
-                numOfLikes={10}
-                numOfComments={5}
+                numOfLikes={item.likes}
+                numOfComments={item.commentCount}
                 userName="Anonymous"
                 authorSchoolName={item.group.isSchool ? 'School' : 'Non-School'}
+                postId = {item.id.toString()}
                 onPress={() => onPostPress(item.id)}
             />
         );

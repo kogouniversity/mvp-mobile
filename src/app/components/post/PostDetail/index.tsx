@@ -18,7 +18,7 @@ const PostDetail: React.FC<GroupPostsProps> = function ({ postID }) {
     }
 
     if (isError || !queryData) {
-        return <Text style={styles.errorText}>문제발생! 문제발생!</Text>;
+        return <Text style={styles.errorText}></Text>;
     }
 
     const { data } = queryData;
@@ -34,10 +34,11 @@ const PostDetail: React.FC<GroupPostsProps> = function ({ postID }) {
                     title={data.attributes.title}
                     content={data.attributes.content}
                     timestamp={new Date(data.attributes.createdAt)}
-                    numOfLikes={10}
-                    numOfComments={5}
+                    numOfLikes={data.attributes.likes}
+                    numOfComments={data.attributes.commentCount}
                     userName="Anonymous"
                     authorSchoolName="SFU"
+                    postId={data.id.toString()}
                 />
             </View>
         </View>
