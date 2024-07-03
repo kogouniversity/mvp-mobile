@@ -23,33 +23,29 @@ const MyPostFeed: React.FC<MyPostFeedProps> = function ({ onPostPress }) {
     }
 
     if (isError || !queryData) {
-        return <Text style={styles.errorText}>You have not posted yet!</Text>;
+        return <Text style={styles.errorText}></Text>;
     }
 
     const data = (queryData as unknown as ListPostResponse).data;
 
     const renderPost = ({ item }: { item: PostData }) => {
-        const { id, attributes } = item;
-        const { title, content, createdAt, group } = attributes;
-        const groupName = group?.data?.attributes?.name || 'Unknown Group';
-        const isSchool = group?.data?.attributes?.isSchool ? 'School' : 'Non-School';
-
         return (
             <Preview
-                key={id}
+                key={item.id}
                 width={390}
                 height={74}
                 imagesUrl={[]}
                 imageLink={ImageSrcUrl.sfu}
-                groupName={groupName}
-                title={title}
-                contentPreview={content}
-                timestamp={new Date(createdAt)}
-                numOfLikes={10}
-                numOfComments={5}
+                groupName={item.attributes.group?.data?.attributes?.name || 'Unknown Group'}
+                title={item.attributes.title}
+                contentPreview={item.attributes.content}
+                timestamp={new Date(item.attributes.createdAt)}
+                numOfLikes={item.attributes.likes}
+                numOfComments={item.attributes.commentCount}
                 userName="Anonymous"
-                authorSchoolName={isSchool}
-                onPress={() => onPostPress(id.toString())}
+                authorSchoolName={item.attributes.group?.data?.attributes?.isSchool ? 'School' : 'Non-School'}
+                postId = {item.id.toString()}
+                onPress={() => onPostPress(item.id.toString())}
             />
         );
     };

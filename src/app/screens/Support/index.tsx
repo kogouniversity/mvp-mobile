@@ -1,16 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, SafeAreaView, Animated, Easing } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NavigationParamList } from '../../navigator/types';
 import { AntDesign } from '@expo/vector-icons';
 import { useAuthStore } from '../../../store/auth';
+import AuthContext from '../../../store/AuthContext';
 
 function Support(): JSX.Element {
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const bounceAnim = useRef(new Animated.Value(0)).current;
     const clearAuth = useAuthStore(state => state.clearAuth);
     const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'MyPosts'>>();
+    const { signOut } = useContext(AuthContext)?.authContext || {};
 
     useEffect(() => {
         Animated.timing(fadeAnim, {
@@ -41,9 +43,12 @@ function Support(): JSX.Element {
         navigation.goBack();
     };
 
-    const handlePressLogout = () => {
-        clearAuth();
-        navigation.reset({ index: 0, routes: [{ name: '/Login' }] });
+    const handlePressLogout = async () => {
+        if (signOut) {
+            await signOut();
+            clearAuth();
+            navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+        }
     };
 
     const translateX = bounceAnim.interpolate({

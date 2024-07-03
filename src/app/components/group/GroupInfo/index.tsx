@@ -27,7 +27,7 @@ const GroupInfo: React.FC<GroupInfoProps> = ({ groupID, onLoad }) => {
     }
 
     if (isError || !data) {
-        return <Text style={styles.errorText}>Failed to load group information</Text>;
+        return <Text style={styles.errorText}></Text>;
     }
 
     const { name, description, userCount } = data.data.attributes;

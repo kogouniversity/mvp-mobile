@@ -5,6 +5,7 @@ import GroupInfo from '../../../components/group/GroupInfo';
 import Button from '../../../atoms/Button';
 import { NavigationParamList } from '../../../navigator/types';
 import { AntDesign } from '@expo/vector-icons';
+import { useFollowGroup } from '../../../hooks/api/group/useFollowGroup';
 
 type JoinGroupScreenRouteProp = RouteProp<NavigationParamList, 'JoinGroupScreen'>;
 
@@ -12,6 +13,15 @@ function JoinGroupScreen(): JSX.Element {
     const navigation = useNavigation();
     const route = useRoute<JoinGroupScreenRouteProp>();
     const { groupId } = route.params;
+
+    const { mutate: followGroup, isError } = useFollowGroup(groupId, {
+        onSuccess: () => {
+            navigation.goBack()
+        },
+        onError: (error) => {
+            console.error(error);
+        },
+    });
 
     return (
         <SafeAreaView style={styles.safeArea}>
@@ -28,12 +38,11 @@ function JoinGroupScreen(): JSX.Element {
                     size="md"
                     label="Join to see more"
                     variant="primary"
-                    onPress={() => {
-                        console.log('Join Group Pressed');
-                    }}
+                    onPress={() => followGroup()}
                     style={styles.joinButton}
                 />
             </View>
+           
         </SafeAreaView>
     );
 }
@@ -69,6 +78,13 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: 'black',
         color: 'white',
+    },
+    errorContainer: {
+        alignItems: 'center',
+        padding: 10,
+    },
+    errorText: {
+        color: 'red',
     },
 });
 

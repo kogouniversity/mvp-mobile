@@ -1,7 +1,7 @@
+import React, { useContext } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, Ionicons } from '@expo/vector-icons';
-import Intro from '../screens/Intro';
 import Login from '../screens/auth/login/Login';
 import SignupEmailInput from '../screens/auth/signup/SignupEmailInput';
 import SignupEmailVerification from '../screens/auth/signup/SignupEmailVerification';
@@ -13,6 +13,7 @@ import Main from '../screens/main';
 import PostDetails from '../screens/post/PostDetails';
 import GroupPostDetails from '../screens/post/GroupPostDetails';
 import GroupFeed from '../screens/group/GroupFeed';
+import Intro from '../screens/Intro';
 import { NavigationParamList } from './types';
 import { withStatusBar } from './hoc';
 import CreateNewPost from '../screens/post/CreateNewPost';
@@ -21,22 +22,43 @@ import MyPosts from '../screens/post/MyPosts';
 import JoinGroupScreen from '../screens/group/JoinGroup';
 import TrendingPostDetails from '../screens/post/TrendingPostDetail';
 import Support from '../screens/Support';
+import AuthContext from '../../store/AuthContext';
 
 const Tab = createBottomTabNavigator<NavigationParamList>();
 const Stack = createNativeStackNavigator<NavigationParamList>();
 
-export default function RootNavigator(): JSX.Element {
+const RootNavigator = (): React.ReactElement | null => {
+    const authContext = useContext(AuthContext);
+    if (!authContext) {
+        return null;
+    }
+
+    const { state } = authContext;
+
+    if (state.isLoading) {
+        console.log(state.userToken)
+        return <Intro />;
+    }
+
     return (
-        <Stack.Navigator initialRouteName="/" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="/" component={withStatusBar(Intro)} />
-            <Stack.Screen name="/Login" component={withStatusBar(Login)} />
-            <Stack.Screen name="/Signup" component={withStatusBar(SignupIdAndPassword)} />
-            <Stack.Screen name="/Signup/EmailInput" component={withStatusBar(SignupEmailInput)} />
-            <Stack.Screen name="/Signup/EmailVerification" component={withStatusBar(SignupEmailVerification)} />
-            <Stack.Screen name="/Home" component={HomeTabNavigator} />
+        <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
+            
+            {state.userToken ? (
+                <>
+                    <Stack.Screen name="Home" component={HomeTabNavigator} />
+                </>
+            ) : (
+                <>
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="Signup" component={SignupIdAndPassword} />
+                <Stack.Screen name="SignupEmailInput" component={SignupEmailInput} />
+                <Stack.Screen name="SignupEmailVerification" component={SignupEmailVerification} />
+                <Stack.Screen name="Home" component={HomeTabNavigator} />
+                </>
+            )}
         </Stack.Navigator>
     );
-}
+};
 
 function HomeTabNavigator(): JSX.Element {
     return (
@@ -130,3 +152,5 @@ function ProfileStackNavigator(): JSX.Element {
         </Stack.Navigator>
     );
 }
+
+export default RootNavigator;

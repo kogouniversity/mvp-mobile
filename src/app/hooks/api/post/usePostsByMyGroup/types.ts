@@ -21,6 +21,8 @@ export interface PostAttributes {
     title: string;
     createdAt: string;
     content: PostAttributeContent[];
+    likes:number;
+    commentCount:number;
     group?: Group;
 }
 

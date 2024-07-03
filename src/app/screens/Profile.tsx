@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, View, Image, ImageSourcePropType, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Zocial, FontAwesome6, Ionicons } from '@expo/vector-icons';
 import Typography from '../atoms/Typography';
@@ -7,12 +7,14 @@ import Switch from '../atoms/Switch';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NavigationParamList } from '../navigator/types';
+import AuthContext from '../../store/AuthContext';
 import { useAuthStore } from '../../store/auth';
 
 function Profile(): JSX.Element {
     const [isOn, setIsOn] = useState(false);
     const onPress = () => setIsOn(prev => !prev);
     const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList, 'MyPosts'>>();
+    const { signOut } = useContext(AuthContext)?.authContext || {};
     const clearAuth = useAuthStore(state => state.clearAuth);
 
     const handlePressMyPosts = () => {
@@ -22,9 +24,12 @@ function Profile(): JSX.Element {
         navigation.navigate('Support');
     };
 
-    const handlePressLogout = () => {
-        clearAuth();
-        navigation.reset({ index: 0, routes: [{ name: '/Login' }] });
+    const handlePressLogout = async () => {
+        if (signOut) {
+            await signOut();
+            clearAuth();
+            navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
+        }
     };
 
     return (

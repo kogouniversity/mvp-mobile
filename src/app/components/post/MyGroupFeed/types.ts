@@ -5,6 +5,8 @@ export interface GroupPostsProps {
 export interface PostAttributes {
     title: string;
     createdAt: string;
+    likes:number;
+    commentCount:number;
     content: string;
     updatedAt: string;
     publishedAt: string;
@@ -29,8 +31,10 @@ export interface PostData {
     createdAt: string;
     title: string;
     content: string;
+    commentCount:number;
     updatedAt: string;
     publishedAt: string;
+    likes:number;
     group: Group;
 }
 

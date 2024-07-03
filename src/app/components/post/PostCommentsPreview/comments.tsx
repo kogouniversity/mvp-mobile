@@ -15,6 +15,8 @@ import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { useQueryClient } from '@tanstack/react-query';
 import { useGetCommentsByPostID } from '../../../hooks/api/post/useGetCommentsByPostID';
 import { useAddComment } from '../../../hooks/api/post/useAddComments';
+import { useAddCommentLike } from '../../../hooks/api/likes/useAddCommentLike';
+import { useDelteCommentLike } from '../../../hooks/api/likes/useDeleteCommentLike';
 import { ListItem } from '../../../atoms/List';
 import { ScrollableList } from '../../../atoms/ScrollableList';
 import { ImageSrcUrl } from '../../../utils/images';
@@ -54,9 +56,21 @@ const CommentItem: React.FC<{ comment: Comment; showReplies: (comment: Comment) 
 }) => {
     const { attributes } = comment;
     const [liked, setLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(attributes.likes || 0);
+
+    const { mutate: likeComment } = useAddCommentLike();
+    const { mutate: unlikeComment } = useDelteCommentLike();
 
     const toggleLike = () => {
-        setLiked(!liked);
+        if (liked) {
+            setLiked(false);
+            setLikeCount(prev => prev - 1);
+            unlikeComment({ commentId: comment.id.toString() });
+        } else {
+            setLiked(true);
+            setLikeCount(prev => prev + 1);
+            likeComment({ commentId: comment.id.toString() });
+        }
     };
 
     return (
@@ -72,7 +86,7 @@ const CommentItem: React.FC<{ comment: Comment; showReplies: (comment: Comment) 
                     <TouchableOpacity onPress={toggleLike}>
                         <AntDesign name={liked ? 'heart' : 'hearto'} size={12} color="#B10606" />
                     </TouchableOpacity>
-                    <Text style={styles.likes}>{attributes.like}</Text>
+                    <Text style={styles.likes}>{likeCount}</Text>
                 </View>
             </View>
             <Text style={styles.commentContent}>{attributes.content}</Text>
@@ -98,7 +112,7 @@ const CommentItem: React.FC<{ comment: Comment; showReplies: (comment: Comment) 
 };
 
 const CommentsList: React.FC<{ postID?: string; comments?: Comment[] }> = ({ postID, comments }) => {
-    const [sortOption, setSortOption] = useState('like:desc');
+    const [sortOption, setSortOption] = useState('likes:desc');
     const [showingReplies, setShowingReplies] = useState(false);
     const [parentComment, setParentComment] = useState<Comment | null>(null);
     const [text, setText] = useState('');
@@ -108,10 +122,14 @@ const CommentsList: React.FC<{ postID?: string; comments?: Comment[] }> = ({ pos
     const { data, refetch } = useGetCommentsByPostID(postID ?? '', sortOption);
     const addCommentMutation = useAddComment();
 
+    useEffect(() => {
+        refetch();
+    }, []);
+
     const commentData: Comment[] = comments ?? data?.data ?? [];
     const mainComments = commentData.filter(comment => !comment.attributes.parentComment?.data);
 
-    const handleSortChange = (option: 'like:desc' | 'createdAt:desc') => {
+    const handleSortChange = (option: 'likes:desc' | 'createdAt:desc') => {
         setSortOption(option);
         refetch();
     };
@@ -119,11 +137,13 @@ const CommentsList: React.FC<{ postID?: string; comments?: Comment[] }> = ({ pos
     const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {};
 
     const showReplies = (comment: Comment) => {
+        refetch();
         setParentComment(comment);
         setShowingReplies(true);
     };
 
     const showComments = () => {
+        refetch();
         setShowingReplies(false);
         setParentComment(null);
         setTempReplies([]);
@@ -141,7 +161,7 @@ const CommentsList: React.FC<{ postID?: string; comments?: Comment[] }> = ({ pos
                 id: Date.now(),
                 attributes: {
                     content: text,
-                    like: 0,
+                    likes: 0,
                     createdAt: new Date().toISOString(),
                     updatedAt: new Date().toISOString(),
                     authorName: '',
@@ -152,6 +172,8 @@ const CommentsList: React.FC<{ postID?: string; comments?: Comment[] }> = ({ pos
                             attributes: {
                                 title: '',
                                 content: '',
+                                likes: 0,
+                                commentCount: 0,
                                 createdAt: '',
                                 updatedAt: '',
                                 publishedAt: '',
@@ -207,9 +229,9 @@ const CommentsList: React.FC<{ postID?: string; comments?: Comment[] }> = ({ pos
                     {!showingReplies && (
                         <View style={styles.filterContainer}>
                             <TouchableOpacity
-                                style={[styles.filterButton, sortOption === 'like:desc' && styles.activeFilter]}
-                                onPress={() => handleSortChange('like:desc')}>
-                                <View style={[styles.circle, sortOption === 'like:desc' && styles.activeCircle]} />
+                                style={[styles.filterButton, sortOption === 'likes:desc' && styles.activeFilter]}
+                                onPress={() => handleSortChange('likes:desc')}>
+                                <View style={[styles.circle, sortOption === 'likes:desc' && styles.activeCircle]} />
                                 <Text style={styles.filterText}>Top</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -294,11 +316,11 @@ const styles = StyleSheet.create({
         marginRight: 3,
     },
     activeCircle: {
-        borderColor: 'green',
-        backgroundColor: 'green',
+        borderColor: 'hotpink',
+        backgroundColor: 'hotpink',
     },
     activeFilter: {
-        borderColor: 'green',
+        borderColor: 'hotpink',
     },
     filterText: {
         fontSize: 10,

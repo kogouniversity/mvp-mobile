@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import { useNavigation } from '../../navigator/useNavigation';
 import Button from '../../atoms/Button';
 import TextField from '../../atoms/TextField';
-import useSignIn from '../../hooks/api/auth/useSignIn';
 import Typography from '../../atoms/Typography';
 import { AuthUserDataResponse } from '../../hooks/api/auth/types';
-import { useNavigation } from '../../navigator/useNavigation';
+import AuthContext from '../../../store/AuthContext';
 import { useAuthStore } from '../../../store/auth';
 
 interface LoginFormInput {
@@ -15,17 +15,15 @@ interface LoginFormInput {
 }
 
 export interface LoginFormProps {
-    onSignIn: (user: AuthUserDataResponse) => unknown;
+    onSignIn: (user: AuthUserDataResponse) => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
+const LoginForm: React.FC<LoginFormProps> = ({ onSignIn }) => {
     const { register, handleSubmit, setValue, getValues } = useForm<LoginFormInput>();
-    const { requestSignInAsync } = useSignIn();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const setJwt = useAuthStore(state => state.setJwt);
-    const setUserName = useAuthStore(state => state.setUserName);
-    const clearAuth = useAuthStore(state => state.clearAuth);
-
+    const { signIn } = useContext(AuthContext)?.authContext || {};
+    const setJwt = useAuthStore((state) => state.setJwt);
+    const setUserName = useAuthStore((state) => state.setUserName);
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -33,23 +31,23 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
         register('password', { required: true });
     }, [register]);
 
-    async function submitCallback() {
-        requestSignInAsync({
-            identifier: getValues('id'),
-            password: getValues('password'),
-        })
-            .then(data => {
+    const submitCallback = async () => {
+        try {
+            if (signIn) {
+                const data = await signIn({
+                    identifier: getValues('id'),
+                    password: getValues('password'),
+                });
+
                 setJwt(data.jwt);
                 setUserName(data.user.username);
                 onSignIn(data);
-                navigation.reset({ index: 0, routes: [{ name: '/Home' }] });
-            })
-            .catch(err => {
-                console.log(err);
-                console.log(err.message);
-                setErrorMessage('Failed to login, please check your connection.');
-            });
-    }
+            }
+        } catch (err) {
+            console.log(err);
+            setErrorMessage('Failed to login, please check your connection.');
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -58,14 +56,14 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
             </Typography>
             <TextField
                 variant="standard"
-                onChangeText={text => setValue('id', text)}
+                onChangeText={(text) => setValue('id', text)}
                 placeholder="Email"
                 placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 style={styles.input}
             />
             <TextField
                 variant="standard"
-                onChangeText={text => setValue('password', text)}
+                onChangeText={(text) => setValue('password', text)}
                 placeholder="Password"
                 placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 secureTextEntry
@@ -77,7 +75,7 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
                     {errorMessage}
                 </Typography>
             )}
-            <Typography variant="subtext" style={styles.forgotPw} onPress={() => navigation.navigate('/Login')}>
+            <Typography variant="subtext" style={styles.forgotPw}>
                 Forgot password?
             </Typography>
             <View style={styles.signup}>
@@ -87,7 +85,8 @@ const LoginForm: React.FC<LoginFormProps> = function ({ onSignIn }) {
                 <Typography
                     variant="subtext"
                     style={styles.typoUnderlined}
-                    onPress={() => navigation.navigate('/Signup/EmailInput')}>
+                    onPress={() => navigation.navigate('SignupEmailInput')}
+                >
                     Sign Up
                 </Typography>
             </View>

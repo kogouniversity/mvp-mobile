@@ -9,6 +9,7 @@ import { useGetPostWithGroupByID } from '../../../hooks/api/group/useGetGroupInf
 import Button from '../../../atoms/Button';
 import { useAuthGroupID } from '../../../hooks/api/auth/useAuthToken';
 import Skeleton from '../../../atoms/Skeleton';
+import { useUnfollowGroup } from '../../../hooks/api/group/useUnfollowGroup';
 
 type TrendingPostDetailRouteProp = RouteProp<NavigationParamList, 'TrendingPostDetails'>;
 
@@ -22,6 +23,8 @@ function TrendingPostDetails(): JSX.Element {
     const [groupName, setGroupName] = useState<string>('');
     const [groupId, setGroupId] = useState<number | null>(null);
     const [isFollowing, setIsFollowing] = useState<boolean>(false);
+
+    const { mutate: unfollowGroup } = useUnfollowGroup(groupId?.toString() || '');
 
     useEffect(() => {
         if (data && userGroupIds) {
@@ -53,7 +56,10 @@ function TrendingPostDetails(): JSX.Element {
                     },
                     {
                         text: 'Yes',
-                        onPress: () => console.log('confirm'),
+                        onPress: () => {
+                            unfollowGroup();
+                            setIsFollowing(false);
+                        },
                     },
                 ],
                 { cancelable: false },
