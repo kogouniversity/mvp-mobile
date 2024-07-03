@@ -17,6 +17,7 @@ import { useGetCommentsByPostID } from '../../../hooks/api/post/useGetCommentsBy
 import { useAddComment } from '../../../hooks/api/post/useAddComments';
 import { useAddCommentLike } from '../../../hooks/api/likes/useAddCommentLike';
 import { useDelteCommentLike } from '../../../hooks/api/likes/useDeleteCommentLike';
+import { useCommentLikeCheck } from '../../../hooks/api/likes/useLikeCheck';
 import { ListItem } from '../../../atoms/List';
 import { ScrollableList } from '../../../atoms/ScrollableList';
 import { ImageSrcUrl } from '../../../utils/images';
@@ -55,9 +56,15 @@ const CommentItem: React.FC<{ comment: Comment; showReplies: (comment: Comment) 
     isReply = false,
 }) => {
     const { attributes } = comment;
-    const [liked, setLiked] = useState(false);
+    const { data: likeCheck, isLoading } = useCommentLikeCheck(comment.id.toString());
+    const [liked, setLiked] = useState(likeCheck == 1);
     const [likeCount, setLikeCount] = useState(attributes.likes || 0);
 
+    useEffect(() => {
+        if (likeCheck !== undefined) {
+            setLiked(likeCheck === 1);
+        }
+    }, [likeCheck]);
     const { mutate: likeComment } = useAddCommentLike();
     const { mutate: unlikeComment } = useDelteCommentLike();
 
@@ -72,6 +79,9 @@ const CommentItem: React.FC<{ comment: Comment; showReplies: (comment: Comment) 
             likeComment({ commentId: comment.id.toString() });
         }
     };
+    if (isLoading) {
+        return null;
+    }
 
     return (
         <View style={styles.commentContainer}>
