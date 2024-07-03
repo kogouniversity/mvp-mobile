@@ -67,7 +67,7 @@ const DraggableListItem: React.FC<DraggableListItemProps> = ({ groupId, children
 
                         unfollowGroup(undefined, {
                             onSuccess: onLeavePress,
-                            onError: (error) => {
+                            onError: error => {
                                 Alert.alert('Error', 'Failed to leave the group. Please try again.');
                             },
                         });

@@ -16,9 +16,9 @@ function JoinGroupScreen(): JSX.Element {
 
     const { mutate: followGroup, isError } = useFollowGroup(groupId, {
         onSuccess: () => {
-            navigation.goBack()
+            navigation.goBack();
         },
-        onError: (error) => {
+        onError: error => {
             console.error(error);
         },
     });
@@ -42,7 +42,6 @@ function JoinGroupScreen(): JSX.Element {
                     style={styles.joinButton}
                 />
             </View>
-           
         </SafeAreaView>
     );
 }

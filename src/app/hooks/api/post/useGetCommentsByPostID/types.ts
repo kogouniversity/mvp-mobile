@@ -1,8 +1,8 @@
 export interface PostAttributes {
     title: string;
     content: string;
-    likes:number;
-    commentCount:number;
+    likes: number;
+    commentCount: number;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;

@@ -30,7 +30,7 @@ function Login(): JSX.Element {
             CommonActions.reset({
                 index: 0,
                 routes: [{ name: 'Home' }],
-            })
+            }),
         );
     };
 

@@ -9,7 +9,7 @@ export type ScreenRouteParams = {
 
 export type NavigationParamList = {
     '/': undefined;
-    Intro:undefined;
+    Intro: undefined;
     Login: undefined;
     Signup: { email: string };
     SignupEmailInput: undefined;

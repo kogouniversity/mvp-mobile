@@ -35,23 +35,20 @@ const RootNavigator = (): React.ReactElement | null => {
 
     const { state } = authContext;
 
-    
-
     return (
         <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
-            
             {state.userToken ? (
                 <>
                     <Stack.Screen name="Home" component={HomeTabNavigator} />
                 </>
             ) : (
                 <>
-                <Stack.Screen name="Intro" component={Intro}/>
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="Signup" component={SignupIdAndPassword} />
-                <Stack.Screen name="SignupEmailInput" component={SignupEmailInput} />
-                <Stack.Screen name="SignupEmailVerification" component={SignupEmailVerification} />
-                <Stack.Screen name="Home" component={HomeTabNavigator} />
+                    <Stack.Screen name="Intro" component={Intro} />
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="Signup" component={SignupIdAndPassword} />
+                    <Stack.Screen name="SignupEmailInput" component={SignupEmailInput} />
+                    <Stack.Screen name="SignupEmailVerification" component={SignupEmailVerification} />
+                    <Stack.Screen name="Home" component={HomeTabNavigator} />
                 </>
             )}
         </Stack.Navigator>

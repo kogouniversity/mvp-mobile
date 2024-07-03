@@ -53,7 +53,6 @@ const GroupFeedComponent: React.FC<
                 authorSchoolName={item.attributes.group.data.attributes.isSchool ? 'School' : 'Non-School'}
                 postId={item.id.toString()}
                 onPress={() => onPostPress(item.id.toString())}
-                
             />
         );
     };

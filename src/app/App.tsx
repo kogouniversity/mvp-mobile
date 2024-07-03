@@ -1,10 +1,10 @@
-import React, { Ref, useRef, useContext } from 'react';
+import React, { Ref, useRef } from 'react';
 import { QueryClient, QueryClientConfig, QueryClientProvider, onlineManager } from '@tanstack/react-query';
 import NetInfo from '@react-native-community/netinfo';
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import Sentry, { routingInstrumentation } from './utils/sentry';
 import FallbackError from './screens/fallback/FallbackError';
-import AuthContext, { AuthProvider } from '../store/AuthContext'
+import { AuthProvider } from '../store/AuthContext';
 import RootNavigator from './navigator';
 import { NavigationProps } from './navigator/useNavigation';
 

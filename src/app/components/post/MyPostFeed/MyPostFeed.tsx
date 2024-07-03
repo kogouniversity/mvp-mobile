@@ -44,7 +44,7 @@ const MyPostFeed: React.FC<MyPostFeedProps> = function ({ onPostPress }) {
                 numOfComments={item.attributes.commentCount}
                 userName="Anonymous"
                 authorSchoolName={item.attributes.group?.data?.attributes?.isSchool ? 'School' : 'Non-School'}
-                postId = {item.id.toString()}
+                postId={item.id.toString()}
                 onPress={() => onPostPress(item.id.toString())}
             />
         );
