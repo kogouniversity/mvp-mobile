@@ -1,14 +1,16 @@
 import React, { useRef } from 'react';
-import { View, StyleSheet, Text, Animated, PanResponder, Dimensions, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Animated, PanResponder, Dimensions, TouchableOpacity, Alert } from 'react-native';
+import { useUnfollowGroup } from '../../hooks/api/group/useUnfollowGroup';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export type DraggableListItemProps = {
+    groupId: string;
     onLeavePress: () => void;
     children: React.ReactNode;
 };
 
-const DraggableListItem: React.FC<DraggableListItemProps> = ({ children, onLeavePress }) => {
+const DraggableListItem: React.FC<DraggableListItemProps> = ({ groupId, children, onLeavePress }) => {
     const pan = useRef(new Animated.Value(0)).current;
     const panResponder = useRef(
         PanResponder.create({
@@ -38,12 +40,42 @@ const DraggableListItem: React.FC<DraggableListItemProps> = ({ children, onLeave
         }),
     ).current;
 
+    const { mutate: unfollowGroup } = useUnfollowGroup(groupId);
+
     const handlePressLeave = () => {
-        Animated.spring(pan, {
-            toValue: 0,
-            useNativeDriver: false,
-        }).start();
-        onLeavePress();
+        Alert.alert(
+            'Leave Group',
+            'Are you sure you want to leave this group?',
+            [
+                {
+                    text: 'No',
+                    onPress: () => {
+                        Animated.spring(pan, {
+                            toValue: 0,
+                            useNativeDriver: false,
+                        }).start();
+                    },
+                    style: 'cancel',
+                },
+                {
+                    text: 'Yes',
+                    onPress: () => {
+                        Animated.spring(pan, {
+                            toValue: 0,
+                            useNativeDriver: false,
+                        }).start();
+
+                        unfollowGroup(undefined, {
+                            onSuccess: onLeavePress,
+                            onError: (error) => {
+                                Alert.alert('Error', 'Failed to leave the group. Please try again.');
+                            },
+                        });
+                    },
+                },
+            ],
+            { cancelable: false },
+        );
     };
 
     return (

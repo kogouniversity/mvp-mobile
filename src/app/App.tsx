@@ -1,11 +1,12 @@
-import { Ref, useRef } from 'react';
+import React, { Ref, useRef, useContext } from 'react';
 import { QueryClient, QueryClientConfig, QueryClientProvider, onlineManager } from '@tanstack/react-query';
 import NetInfo from '@react-native-community/netinfo';
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
-import RootNavigator from './navigator';
 import Sentry, { routingInstrumentation } from './utils/sentry';
-import { NavigationProps } from './navigator/useNavigation';
 import FallbackError from './screens/fallback/FallbackError';
+import AuthContext, { AuthProvider } from '../store/AuthContext'
+import RootNavigator from './navigator';
+import { NavigationProps } from './navigator/useNavigation';
 
 onlineManager.setEventListener(setOnline =>
     NetInfo.addEventListener(state => {
@@ -25,15 +26,18 @@ const queryConfig: QueryClientConfig = {
 function App(): React.JSX.Element {
     const queryClient = new QueryClient(queryConfig);
     const navigation = useRef() as Ref<NavigationContainerRef<NavigationProps>>;
+
     return (
         <QueryClientProvider client={queryClient}>
-            <NavigationContainer
-                ref={navigation}
-                onReady={() => {
-                    routingInstrumentation.registerNavigationContainer(navigation);
-                }}>
-                <RootNavigator />
-            </NavigationContainer>
+            <AuthProvider>
+                <NavigationContainer
+                    ref={navigation}
+                    onReady={() => {
+                        routingInstrumentation.registerNavigationContainer(navigation);
+                    }}>
+                    <RootNavigator />
+                </NavigationContainer>
+            </AuthProvider>
         </QueryClientProvider>
     );
 }

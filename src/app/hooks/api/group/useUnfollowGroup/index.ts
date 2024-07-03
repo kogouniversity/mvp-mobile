@@ -9,7 +9,7 @@ const unfollowGroup = async (groupID: string, jwt: string | null): Promise<void>
         if (!jwt) {
             throw new Error('JWT token is missing');
         }
-        await axios.post<void>(`/api/groups/${groupID}/unfollow`, {}, {
+        await axios.post(`/api/groups/${groupID}/unfollow`, {}, {
             headers: {
                 Authorization: `Bearer ${jwt}`,
             },

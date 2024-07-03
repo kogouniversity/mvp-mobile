@@ -9,7 +9,7 @@ const followGroup = async (groupID: string, jwt: string | null): Promise<void> =
         if (!jwt) {
             throw new Error('JWT token is missing');
         }
-        await axios.post<void>(`/api/groups/${groupID}`, {}, {
+        await axios.post(`/api/groups/${groupID}`, {}, {
             headers: {
                 Authorization: `Bearer ${jwt}`,
             },
