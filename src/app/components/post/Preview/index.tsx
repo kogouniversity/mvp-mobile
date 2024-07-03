@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { PostPreviewProps } from './types';
 import { useAddPostLike } from '../../../hooks/api/likes/useAddPostLike';
 import { useDeletePostLike } from '../../../hooks/api/likes/useDeletePostLike';
+import { usePostLikeCheck } from '../../../hooks/api/likes/useLikeCheck';
 
 const PostPreview: React.FC<PostPreviewProps> = ({
     width,
@@ -63,8 +64,15 @@ const PostPreview: React.FC<PostPreviewProps> = ({
         ));
     };
 
-    const [liked, setLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(numOfLikes);
+    const [likeCount, setLikeCount] = useState(numOfLikes || 0);
+    const { data: likeCheck, isLoading } = usePostLikeCheck(postId.toString());
+    const [liked, setLiked] = useState(likeCheck == 1);
+
+    useEffect(() => {
+        if (likeCheck !== undefined) {
+            setLiked(likeCheck === 1);
+        }
+    }, [likeCheck]);
 
     const { mutate: likePost } = useAddPostLike();
     const { mutate: unlikePost } = useDeletePostLike();
@@ -80,6 +88,10 @@ const PostPreview: React.FC<PostPreviewProps> = ({
             likePost({ postId });
         }
     };
+
+    if (isLoading) {
+        return null;
+    }
 
     return (
         <View style={{ width, paddingVertical: 10 }}>
