@@ -35,10 +35,7 @@ const RootNavigator = (): React.ReactElement | null => {
 
     const { state } = authContext;
 
-    if (state.isLoading) {
-        console.log(state.userToken)
-        return <Intro />;
-    }
+    
 
     return (
         <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
@@ -49,6 +46,7 @@ const RootNavigator = (): React.ReactElement | null => {
                 </>
             ) : (
                 <>
+                <Stack.Screen name="Intro" component={Intro}/>
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={SignupIdAndPassword} />
                 <Stack.Screen name="SignupEmailInput" component={SignupEmailInput} />

@@ -28,7 +28,7 @@ function Intro(): JSX.Element {
         navigation.dispatch(
             CommonActions.reset({
                 index: 0,
-                routes: [{ name: '/Login' }],
+                routes: [{ name: 'Login' }],
             }),
         );
     };
