@@ -22,8 +22,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSignIn }) => {
     const { register, handleSubmit, setValue, getValues } = useForm<LoginFormInput>();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const { signIn } = useContext(AuthContext)?.authContext || {};
-    const setJwt = useAuthStore((state) => state.setJwt);
-    const setUserName = useAuthStore((state) => state.setUserName);
+    const setJwt = useAuthStore(state => state.setJwt);
+    const setUserName = useAuthStore(state => state.setUserName);
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -56,14 +56,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSignIn }) => {
             </Typography>
             <TextField
                 variant="standard"
-                onChangeText={(text) => setValue('id', text)}
+                onChangeText={text => setValue('id', text)}
                 placeholder="Email"
                 placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 style={styles.input}
             />
             <TextField
                 variant="standard"
-                onChangeText={(text) => setValue('password', text)}
+                onChangeText={text => setValue('password', text)}
                 placeholder="Password"
                 placeholderTextColor="rgba(255, 255, 255, 0.5)"
                 secureTextEntry
@@ -85,8 +85,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSignIn }) => {
                 <Typography
                     variant="subtext"
                     style={styles.typoUnderlined}
-                    onPress={() => navigation.navigate('SignupEmailInput')}
-                >
+                    onPress={() => navigation.navigate('SignupEmailInput')}>
                     Sign Up
                 </Typography>
             </View>

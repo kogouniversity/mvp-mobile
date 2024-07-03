@@ -43,7 +43,7 @@ const MyGroupFeed: React.FC<MyGroupFeedProps> = function ({ filter, onPostPress 
                 numOfComments={item.commentCount}
                 userName="Anonymous"
                 authorSchoolName={item.group.isSchool ? 'School' : 'Non-School'}
-                postId = {item.id.toString()}
+                postId={item.id.toString()}
                 onPress={() => onPostPress(item.id)}
             />
         );

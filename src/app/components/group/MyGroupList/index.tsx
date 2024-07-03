@@ -24,10 +24,7 @@ const MyGroupList: React.FC<MyGroupListProps> = function () {
             <View style={styles.container}>
                 <List>
                     {myGroups.data.map(group => (
-                        <DraggableListItem
-                            key={group.id}
-                            groupId={group.id.toString()}
-                            onLeavePress={handleLeavePress}>
+                        <DraggableListItem key={group.id} groupId={group.id.toString()} onLeavePress={handleLeavePress}>
                             <ListItem style={styles.verticalList}>
                                 <GroupPreview
                                     width={390}

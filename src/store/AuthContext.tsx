@@ -25,14 +25,14 @@ const authReducer = (state: AuthState, action: { type: string; token?: string })
         case 'RESTORE_TOKEN':
             return {
                 ...state,
-                userToken: action.token || undefined,
+                userToken: action.token ?? undefined,
                 isLoading: false,
             };
         case 'SIGN_IN':
             return {
                 ...state,
                 isSignout: false,
-                userToken: action.token || undefined,
+                userToken: action.token ?? undefined,
             };
         case 'SIGN_OUT':
             return {
@@ -45,15 +45,15 @@ const authReducer = (state: AuthState, action: { type: string; token?: string })
     }
 };
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
-    const [state, dispatch] = useReducer(authReducer, {
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [authState, dispatch] = useReducer(authReducer, {
         isLoading: true,
         isSignout: false,
         userToken: undefined,
     });
 
-    const setJwt = useAuthStore((state) => state.setJwt);
-    const setUserName = useAuthStore((state) => state.setUserName);
+    const setJwt = useAuthStore(storeState => storeState.setJwt);
+    const setUserName = useAuthStore(storeState => storeState.setUserName);
 
     useEffect(() => {
         const bootstrapAsync = async () => {
@@ -73,7 +73,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                         setUserName(response.data.username);
                     }
                 }
-            } catch (e) {
+            } catch {
                 userToken = undefined;
             }
 
@@ -100,14 +100,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 dispatch({ type: 'SIGN_OUT' });
             },
         }),
-        [setJwt, setUserName]
+        [setJwt, setUserName],
     );
 
-    return (
-        <AuthContext.Provider value={{ state, authContext }}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={{ state: authState, authContext }}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContext;

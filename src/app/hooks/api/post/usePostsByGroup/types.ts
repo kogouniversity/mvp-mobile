@@ -26,8 +26,8 @@ export interface PostAttributes {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    likes:number;
-    commentCount:number;
+    likes: number;
+    commentCount: number;
     group: Group;
 }
 

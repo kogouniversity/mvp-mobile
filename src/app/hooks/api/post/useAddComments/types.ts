@@ -1,7 +1,7 @@
 export interface PostAttributes {
     title: string;
     content: string;
-    likes:number;
+    likes: number;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
@@ -15,7 +15,7 @@ export interface Post {
 export interface CommentAttributes {
     content: string;
     like: number;
-    commentCount:number;
+    commentCount: number;
     createdAt: string;
     updatedAt: string;
     authorName: string;
