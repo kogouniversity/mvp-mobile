@@ -1,3 +1,16 @@
+export interface TagAttributes {
+    value: string;
+}
+
+export interface Tag {
+    id: number;
+    attributes: TagAttributes;
+}
+
+export interface TagsData {
+    data: Tag[];
+}
+
 export interface GroupAttributes {
     name: string;
     createdAt: string;
@@ -5,6 +18,7 @@ export interface GroupAttributes {
     publishedAt: string;
     description: string;
     userCount: number;
+    tags: TagsData;
 }
 
 export interface Group {

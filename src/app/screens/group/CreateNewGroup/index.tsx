@@ -15,30 +15,32 @@ import { useAddGroup } from '../../../hooks/api/group/useCreateGroup';
 const schema = z.object({
     groupName: z.string().max(15),
     description: z.string().max(50),
-    // tags: z.string().array().max(5),
+    tags: z.array(z.string()).min(1).max(5),
 });
 
 type CreateGroupForm = z.infer<typeof schema>;
 
 const CreateNewGroup = function (): JSX.Element {
-    const [setTags] = useState<string[]>([]);
+    const [tags, setTags] = useState<string[]>([]);
     const navigation = useNavigation();
     const addGroupMutation = useAddGroup();
 
     const {
         control,
         handleSubmit,
+        setValue,
         formState: { errors },
     } = useForm<CreateGroupForm>({
         resolver: zodResolver(schema),
     });
 
     const submitCB: SubmitHandler<CreateGroupForm> = async data => {
-        console.log('Submit handler called with data:', data);
+        console.log(data);
         try {
             await addGroupMutation.mutateAsync({
                 name: data.groupName,
                 description: data.description,
+                tags: data.tags,
             });
             Alert.alert('Success', 'Group created successfully', [
                 {
@@ -113,18 +115,27 @@ const CreateNewGroup = function (): JSX.Element {
                             {errors.description?.message as string}
                         </Typography>
                     )}
-                    {/* <Controller
+                    <Controller
                         name="tags"
                         control={control}
                         render={({ field: { onChange, onBlur, value } }) => (
                             <TagInput
                                 setTagValues={setTags}
-                                onChangeText={onChange}
+                                value={value || []}
+                                onChangeText={tags => {
+                                    onChange(tags);
+                                    setValue('tags', tags);
+                                }}
                                 onBlur={onBlur}
                                 style={styles.textField}
                             />
                         )}
-                    /> */}
+                    />
+                    {errors.tags?.message && (
+                        <Typography variant="subtext" style={{ color: 'red' }}>
+                            {errors.tags?.message as string}
+                        </Typography>
+                    )}
                 </View>
             </ScrollView>
         </SafeAreaView>

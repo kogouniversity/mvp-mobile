@@ -10,7 +10,7 @@ const fetchGroupByID = async (groupiD: string, jwt: string | null): Promise<Grou
         if (!jwt) {
             throw new Error('JWT token is missing');
         }
-        const response = await axios.get<GroupResponse>(`/api/groups/${groupiD}`, {
+        const response = await axios.get<GroupResponse>(`/api/groups/${groupiD}?populate=tags`, {
             headers: {
                 Authorization: `Bearer ${jwt}`,
             },
