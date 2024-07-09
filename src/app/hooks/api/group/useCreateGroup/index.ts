@@ -7,15 +7,15 @@ import { ListGroupResponse } from '../types';
 interface CreateGroupData {
     name: string;
     description: string;
+    tags: string[];
 }
 
 const createGroup = async (groupData: CreateGroupData, jwt: string) => {
     try {
         const requestBody = {
-            data: {
-                name: groupData.name,
-                description: groupData.description,
-            },
+            name: groupData.name,
+            description: groupData.description,
+            tags: groupData.tags,
         };
 
         const response = await axios.post('/api/groups', requestBody, {

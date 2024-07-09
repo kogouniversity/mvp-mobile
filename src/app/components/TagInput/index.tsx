@@ -8,14 +8,15 @@ import {
     TextInputKeyPressEventData,
     TextStyle,
 } from 'react-native';
-import { Noop } from 'react-hook-form';
 import TextField from '../../atoms/TextField';
 import Typography from '../../atoms/Typography';
 import Tag from '../../atoms/Tag';
+import { Noop } from 'react-hook-form';
 
 export type TagInputProps = {
     setTagValues: React.Dispatch<React.SetStateAction<string[]>>;
-    onChangeText: (...evemt: unknown[]) => unknown;
+    value: string[];
+    onChangeText: (tags: string[]) => void;
     onBlur: Noop;
     style: ViewStyle;
 };
@@ -41,18 +42,18 @@ const styles = StyleSheet.create({
     },
 });
 
-const TagInput: React.FC<TagInputProps> = function ({ setTagValues, onChangeText, onBlur, style }) {
-    const [tags, setTags] = useState<string[]>([]);
+const TagInput: React.FC<TagInputProps> = function ({ setTagValues, value, onChangeText, onBlur, style }) {
     const [input, setInput] = useState<string>('');
 
     const handleInput = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         setInput(e.nativeEvent.text);
 
         if (e.nativeEvent.text.charAt(e.nativeEvent.text.length - 1) === ' ') {
-            // check if the input already exists
-            if (tags.includes(input) === false) {
-                setTags([...tags, input]);
-                setTagValues([...tags, input]);
+            const newTag = input.trim();
+            if (newTag && !value.includes(newTag)) {
+                const newTags = [...value, newTag];
+                setTagValues(newTags);
+                onChangeText(newTags);
             }
             setInput('');
         }
@@ -60,27 +61,28 @@ const TagInput: React.FC<TagInputProps> = function ({ setTagValues, onChangeText
 
     const handleKeydown = (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
         if (e.nativeEvent.key === 'Backspace' && input.length === 0) {
-            tags.pop();
-            setTags([...tags]);
-            setTagValues([...tags]);
+            const newTags = value.slice(0, -1);
+            setTagValues(newTags);
+            onChangeText(newTags);
         }
     };
 
     const deleteTag = (name: string) => {
-        const filtered = tags.filter(tag => tag !== name);
-        setTags(filtered);
+        const filtered = value.filter(tag => tag !== name);
+        setTagValues(filtered);
+        onChangeText(filtered);
     };
 
     let textStyle: TextStyle = styles.extended;
-    if (tags.length > 0) {
-        textStyle = tags.length < 5 ? styles.textField : styles.hiddenTextField;
+    if (value.length > 0) {
+        textStyle = value.length < 5 ? styles.textField : styles.hiddenTextField;
     }
 
     return (
         <View style={style}>
             <View style={styles.tagsContainer}>
-                {tags.map(tag => (
-                    <Tag style={styles.tags} onPress={() => deleteTag(tag)}>
+                {value.map(tag => (
+                    <Tag key={tag} style={styles.tags} onPress={() => deleteTag(tag)}>
                         {tag}
                     </Tag>
                 ))}
@@ -90,9 +92,8 @@ const TagInput: React.FC<TagInputProps> = function ({ setTagValues, onChangeText
                     value={input}
                     style={textStyle}
                     onChange={handleInput}
-                    onChangeText={onChangeText}
                     onBlur={onBlur}
-                    editable={tags.length < 5}
+                    editable={value.length < 5}
                     onKeyPress={handleKeydown}
                 />
             </View>
